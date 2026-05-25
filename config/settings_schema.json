@@ -149,14 +149,12 @@
       {
         "type": "text",
         "id": "meta_pixel_id",
-        "label": "ID du Pixel Meta",
-        "default": ""
+        "label": "ID du Pixel Meta"
       },
       {
         "type": "text",
         "id": "meta_domain_verification",
-        "label": "Code de verification de domaine Meta",
-        "default": ""
+        "label": "Code de verification de domaine Meta"
       },
       {
         "type": "header",
@@ -165,8 +163,7 @@
       {
         "type": "text",
         "id": "clarity_id",
-        "label": "ID Microsoft Clarity",
-        "default": ""
+        "label": "ID Microsoft Clarity"
       }
     ]
   },
