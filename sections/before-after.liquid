@@ -13,9 +13,7 @@
               {%- if block.settings.before_image != blank -%}
                 <img src="{{ block.settings.before_image | image_url: width: 400 }}" alt="Avant" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover">
               {%- else -%}
-                <div class="w-full h-full flex items-center justify-center" style="background:var(--color-muted);">
-                  <span style="font-size:2rem; opacity:0.4;">Avant</span>
-                </div>
+                <img src="{{ 'nakree-ba' | append: forloop.index | append: '-before.jpg' | asset_url }}" alt="Avant" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover">
               {%- endif -%}
               <span style="position:absolute; bottom:0.5rem; left:0.5rem; background:rgba(0,0,0,0.6); color:#fff; font-size:0.7rem; font-weight:700; padding:0.2rem 0.5rem; border-radius:4px;">AVANT</span>
             </div>
@@ -23,9 +21,7 @@
               {%- if block.settings.after_image != blank -%}
                 <img src="{{ block.settings.after_image | image_url: width: 400 }}" alt="Apres" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover">
               {%- else -%}
-                <div class="w-full h-full flex items-center justify-center" style="background:color-mix(in srgb, var(--color-primary) 10%, transparent);">
-                  <span style="font-size:2rem; opacity:0.4;">Apres</span>
-                </div>
+                <img src="{{ 'nakree-ba' | append: forloop.index | append: '-after.jpg' | asset_url }}" alt="Apres" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover">
               {%- endif -%}
               <span style="position:absolute; bottom:0.5rem; right:0.5rem; background:var(--color-primary); color:var(--color-primary-fg); font-size:0.7rem; font-weight:700; padding:0.2rem 0.5rem; border-radius:4px;">APRES</span>
             </div>

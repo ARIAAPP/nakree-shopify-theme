@@ -23,7 +23,13 @@
                     {%- if block.settings.avatar != blank -%}
                       <img src="{{ block.settings.avatar | image_url: width: 80 }}" alt="Photo de profil de {{ block.settings.name }}" width="40" height="40" loading="lazy" decoding="async" class="h-full w-full object-cover">
                     {%- else -%}
-                      <div class="h-full w-full flex items-center justify-center bg-primary" style="color:var(--color-primary-fg); font-weight:700; font-size:0.875rem;">{{ block.settings.name | slice: 0 }}</div>
+                      {%- assign review_avatars = 'marie,julien,sophie,thomas,camille,antoine' | split: ',' -%}
+                      {%- assign rev_idx = forloop.index0 -%}
+                      {%- if rev_idx < review_avatars.size -%}
+                        <img src="{{ 'nakree-avatar-' | append: review_avatars[rev_idx] | append: '.jpg' | asset_url }}" alt="{{ block.settings.name }}" width="40" height="40" loading="lazy" decoding="async" class="h-full w-full object-cover">
+                      {%- else -%}
+                        <div class="h-full w-full flex items-center justify-center bg-primary" style="color:var(--color-primary-fg); font-weight:700; font-size:0.875rem;">{{ block.settings.name | slice: 0 }}</div>
+                      {%- endif -%}
                     {%- endif -%}
                   </div>
                   <div>

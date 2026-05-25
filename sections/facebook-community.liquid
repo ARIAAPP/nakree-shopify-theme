@@ -12,7 +12,13 @@
                 {%- if block.settings.avatar != blank -%}
                   <img src="{{ block.settings.avatar | image_url: width: 80 }}" alt="Photo de profil de {{ block.settings.name }}" width="40" height="40" loading="lazy" decoding="async" class="h-full w-full object-cover">
                 {%- else -%}
-                  <div class="h-full w-full flex items-center justify-center bg-primary" style="color:var(--color-primary-fg); font-weight:700; font-size:0.875rem;">{{ block.settings.name | slice: 0 }}</div>
+                  {%- assign avatar_names = 'marie,julien,sophie' | split: ',' -%}
+                  {%- assign avatar_idx = forloop.index0 -%}
+                  {%- if avatar_idx < avatar_names.size -%}
+                    <img src="{{ 'nakree-avatar-' | append: avatar_names[avatar_idx] | append: '.jpg' | asset_url }}" alt="{{ block.settings.name }}" width="40" height="40" loading="lazy" decoding="async" class="h-full w-full object-cover">
+                  {%- else -%}
+                    <div class="h-full w-full flex items-center justify-center bg-primary" style="color:var(--color-primary-fg); font-weight:700; font-size:0.875rem;">{{ block.settings.name | slice: 0 }}</div>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
               <div>
@@ -31,9 +37,13 @@
             {%- if block.settings.image != blank -%}
               <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ shop.name }}" class="w-full h-full object-cover" width="400" height="400" loading="lazy" decoding="async">
             {%- else -%}
-              <div class="w-full h-full flex items-center justify-center" style="background:var(--color-muted);">
-                <span style="font-size:3rem;">&#x1F9B7;</span>
-              </div>
+              {%- assign post_names = 'marie,julien,sophie' | split: ',' -%}
+              {%- assign post_idx = forloop.index0 -%}
+              {%- if post_idx < post_names.size -%}
+                <img src="{{ 'nakree-post-' | append: post_names[post_idx] | append: '.jpg' | asset_url }}" alt="{{ shop.name }}" class="w-full h-full object-cover" width="400" height="400" loading="lazy" decoding="async">
+              {%- else -%}
+                <div class="w-full h-full flex items-center justify-center" style="background:var(--color-muted);"><span style="font-size:3rem;">&#x1F9B7;</span></div>
+              {%- endif -%}
             {%- endif -%}
           </div>
 

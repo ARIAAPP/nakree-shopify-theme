@@ -8,11 +8,9 @@
     <div class="grid lg:grid-cols-2 gap-10 items-center">
       <div>
         {%- if section.settings.image != blank -%}
-          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="Contenu du kit Nakree" width="600" height="600" loading="lazy" decoding="async" class="rounded-2xl" style="width:100%; object-fit:cover;">
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="Contenu du kit Nakrée" width="600" height="600" loading="lazy" decoding="async" class="rounded-2xl" style="width:100%; object-fit:cover;">
         {%- else -%}
-          <div class="rounded-2xl" style="background:var(--color-muted); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;">
-            <span style="font-size:5rem;">&#x1F4E6;</span>
-          </div>
+          <img src="{{ 'nakree-kit-flat-lay.jpg' | asset_url }}" alt="Contenu du kit Nakrée" width="600" height="600" loading="lazy" decoding="async" class="rounded-2xl" style="width:100%; object-fit:cover;">
         {%- endif -%}
       </div>
 

@@ -24,10 +24,7 @@
         {%- if section.settings.image != blank -%}
           <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ shop.name }}" width="512" height="512" loading="lazy" decoding="async" class="relative z-10 drop-shadow-2xl" style="height: 320px; object-fit: contain;">
         {%- else -%}
-          <div class="relative z-10 text-center" style="color:var(--color-primary-fg);">
-            <span style="font-size:6rem;">&#x1F9B7;</span>
-            <p style="font-weight:700; font-size:1.25rem; margin-top:1rem;">Nakree LED</p>
-          </div>
+          <img src="{{ 'nakree-packshot.jpg' | asset_url }}" alt="Nakrée LED" width="512" height="512" loading="lazy" decoding="async" class="relative z-10 drop-shadow-2xl" style="height: 320px; object-fit: contain;">
         {%- endif -%}
       </div>
     </div>
