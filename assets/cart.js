@@ -9,9 +9,9 @@
     isOpen: false,
     items: [],
     addons: [
-      { id: 'protection', variantId: 'REPLACE_ASSURANCE_VARIANT', title: 'Assurance colis', price: 4.95, icon: '📦' },
-      { id: 'warranty',   variantId: 'REPLACE_GARANTIE_VARIANT', title: 'Garantie 90 jours', price: 6.95, icon: '🛡️' },
-      { id: 'priority',   variantId: 'REPLACE_PRIORITAIRE_VARIANT', title: 'Expedition prioritaire', price: 5.95, icon: '🚚' }
+      { id: 'protection', variantId: '58068787134789', title: 'Assurance colis', price: 4.95, icon: '📦' },
+      { id: 'warranty',   variantId: '58068790444357', title: 'Garantie 90 jours', price: 6.95, icon: '🛡️' },
+      { id: 'priority',   variantId: '58068796014917', title: 'Expedition prioritaire', price: 5.95, icon: '🚚' }
     ]
   };
 
