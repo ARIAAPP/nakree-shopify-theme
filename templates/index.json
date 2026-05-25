@@ -3,7 +3,7 @@
     "product_hero": {
       "type": "product-hero",
       "settings": {
-        "product_title": "Accelerateur LED de blanchiment dentaire Nakree",
+        "product_title": "Accelerateur LED de blanchiment dentaire Nakrée",
         "default_price": "19,95",
         "launch_offer_label": "Offre de lancement — prix special",
         "default_bundle_index": 0,
@@ -29,9 +29,9 @@
         "upsell_1": { "type": "upsell", "settings": { "label": "Assurance colis", "icon": "📦", "variant_id": "58068787134789", "price": 495 } },
         "upsell_2": { "type": "upsell", "settings": { "label": "Garantie 90 jours", "icon": "🛡️", "variant_id": "58068790444357", "price": 695 } },
         "upsell_3": { "type": "upsell", "settings": { "label": "Expedition prioritaire", "icon": "🚚", "variant_id": "58068796014917", "price": 595 } },
-        "collap_1": { "type": "collapsible", "settings": { "emoji": "🛡️", "title": "Garantie satisfait ou rembourse 30 jours", "content": "<p>Si Nakree ne vous convient pas, nous vous remboursons integralement sous 30 jours. Sans condition, sans question.</p>" } },
+        "collap_1": { "type": "collapsible", "settings": { "emoji": "🛡️", "title": "Garantie satisfait ou rembourse 30 jours", "content": "<p>Si Nakrée ne vous convient pas, nous vous remboursons integralement sous 30 jours. Sans condition, sans question.</p>" } },
         "collap_2": { "type": "collapsible", "settings": { "emoji": "🚚", "title": "Livraison gratuite en France", "content": "<p>Livraison gratuite en France metropolitaine. Comptez 5 a 7 jours ouvres. Suivi par email inclus.</p>" } },
-        "collap_3": { "type": "collapsible", "settings": { "emoji": "🦷", "title": "Conforme CE — Accessoire cosmetique", "content": "<p>Nakree est un accessoire cosmetique conforme aux normes CE. Il est destine a accelerer l'action des gels blanchissants du commerce. Ce n'est pas un dispositif medical.</p>" } }
+        "collap_3": { "type": "collapsible", "settings": { "emoji": "🦷", "title": "Conforme CE — Accessoire cosmetique", "content": "<p>Nakrée est un accessoire cosmetique conforme aux normes CE. Il est destine a accelerer l'action des gels blanchissants du commerce. Ce n'est pas un dispositif medical.</p>" } }
       },
       "block_order": ["bullet_1","bullet_2","bullet_3","bullet_4","bundle_1","bundle_2","upsell_1","upsell_2","upsell_3","collap_1","collap_2","collap_3"]
     },
@@ -52,11 +52,11 @@
     "kit_contents": {
       "type": "kit-contents",
       "settings": {
-        "title": "Ce que contient votre kit Nakree",
+        "title": "Ce que contient votre kit Nakrée",
         "subtitle": "Tout ce qu'il vous faut pour un sourire eclatant"
       },
       "blocks": {
-        "k1": { "type": "item", "settings": { "title": "Accelerateur LED Nakree", "description": "16 LEDs bleues professionnelles, lumiere froide sans chaleur" } },
+        "k1": { "type": "item", "settings": { "title": "Accelerateur LED Nakrée", "description": "16 LEDs bleues professionnelles, lumiere froide sans chaleur" } },
         "k2": { "type": "item", "settings": { "title": "Gouttiere universelle", "description": "S'adapte a toutes les dentitions, silicone medical confortable" } },
         "k3": { "type": "item", "settings": { "title": "Cable USB de recharge", "description": "Rechargez depuis n'importe quel port USB, batterie longue duree" } },
         "k4": { "type": "item", "settings": { "title": "Guide d'utilisation", "description": "Instructions claires etape par etape pour des resultats optimaux" } }
@@ -65,7 +65,7 @@
     },
     "facebook_community": {
       "type": "facebook-community",
-      "settings": { "title": "Ils ont teste Nakree et adorent" },
+      "settings": { "title": "Ils ont teste Nakrée et adorent" },
       "blocks": {
         "post_1": { "type": "post", "settings": { "name": "Marie L.", "time": "il y a 3 jours", "text": "J'ai teste sur les taches de the, resultat visible des la premiere utilisation. Bluffee !", "likes": "412", "comments": "28" } },
         "post_2": { "type": "post", "settings": { "name": "Julien P.", "time": "il y a 1 semaine", "text": "Achete pour ma copine et moi. Tres simple d'utilisation, on voit la difference en quelques jours.", "likes": "387", "comments": "34" } },
@@ -76,12 +76,12 @@
     "comparison": {
       "type": "comparison-table",
       "settings": {
-        "title": "Nakree vs les alternatives",
+        "title": "Nakrée vs les alternatives",
         "subtitle": "Comparez et choisissez la meilleure solution pour votre sourire",
-        "col_a": "Nakree",
+        "col_a": "Nakrée",
         "col_b": "Dentiste",
         "col_c": "Dentifrice blanchissant",
-        "cta_label": "Commander Nakree",
+        "cta_label": "Commander Nakrée",
         "cta_url": "/#product"
       },
       "blocks": {
@@ -97,7 +97,7 @@
       "type": "why",
       "settings": {
         "title_before": "Pourquoi choisir",
-        "title_highlight": "Nakree",
+        "title_highlight": "Nakrée",
         "title_after": " ?",
         "cta_label": "Commander maintenant",
         "cta_url": "/#product"
@@ -131,9 +131,9 @@
       "type": "story",
       "settings": {
         "eyebrow": "Notre histoire",
-        "title": "Pourquoi on a cree Nakree",
-        "text": "<p>En 2024, apres des annees a essayer des solutions couteuses chez le dentiste ou des dentifrices sans effet visible, on a realise qu'il manquait une alternative simple et abordable pour retrouver un sourire eclatant.</p><p>Les kits de blanchiment professionnels coutent des centaines d'euros. Les bandelettes sont inconfortables. Et les dentifrices blanchissants ne tiennent pas leurs promesses.</p><p>Alors on a cree <strong>Nakree</strong> : un accelerateur LED de blanchiment dentaire avec 16 LEDs bleues professionnelles, sans fil, compatible avec tous les gels blanchissants du marche.</p><p>Aujourd'hui, des centaines de clients nous font confiance pour un sourire plus blanc, a la maison, en toute simplicite.</p>",
-        "founder_name": "L'equipe Nakree",
+        "title": "Pourquoi on a cree Nakrée",
+        "text": "<p>En 2024, apres des annees a essayer des solutions couteuses chez le dentiste ou des dentifrices sans effet visible, on a realise qu'il manquait une alternative simple et abordable pour retrouver un sourire eclatant.</p><p>Les kits de blanchiment professionnels coutent des centaines d'euros. Les bandelettes sont inconfortables. Et les dentifrices blanchissants ne tiennent pas leurs promesses.</p><p>Alors on a cree <strong>Nakrée</strong> : un accelerateur LED de blanchiment dentaire avec 16 LEDs bleues professionnelles, sans fil, compatible avec tous les gels blanchissants du marche.</p><p>Aujourd'hui, des centaines de clients nous font confiance pour un sourire plus blanc, a la maison, en toute simplicite.</p>",
+        "founder_name": "L'equipe Nakrée",
         "founder_title": "Basee en France"
       }
     },
@@ -148,20 +148,20 @@
       "type": "faq",
       "settings": {
         "title": "Questions frequentes",
-        "cta_text": "Encore des doutes ? Testez Nakree pendant 30 jours, satisfait ou rembourse.",
-        "cta_label": "Je commande Nakree"
+        "cta_text": "Encore des doutes ? Testez Nakrée pendant 30 jours, satisfait ou rembourse.",
+        "cta_label": "Je commande Nakrée"
       },
       "blocks": {
         "q1": { "type": "faq", "settings": { "emoji": "📦", "question": "Quand vais-je recevoir ma commande ?", "answer": "<p>Votre commande est expediee sous 48h. Vous la recevrez en 5 a 7 jours ouvres en France metropolitaine. Livraison gratuite, suivi par email inclus.</p>" } },
-        "q2": { "type": "faq", "settings": { "emoji": "🛡️", "question": "Y a-t-il une garantie satisfait ou rembourse ?", "answer": "<p>Oui. Chaque kit Nakree est livre avec une garantie satisfait ou rembourse de 30 jours. Si vous n'etes pas convaincu, nous vous remboursons integralement, sans condition.</p>" } },
+        "q2": { "type": "faq", "settings": { "emoji": "🛡️", "question": "Y a-t-il une garantie satisfait ou rembourse ?", "answer": "<p>Oui. Chaque kit Nakrée est livre avec une garantie satisfait ou rembourse de 30 jours. Si vous n'etes pas convaincu, nous vous remboursons integralement, sans condition.</p>" } },
         "q3": { "type": "faq", "settings": { "emoji": "🦷", "question": "Comment ca marche exactement ?", "answer": "<p>Appliquez votre gel blanchissant sur la gouttiere, placez l'accelerateur LED sur vos dents et laissez agir 10 minutes. La lumiere bleue accelere le processus de blanchiment du gel. C'est tout !</p>" } },
-        "q4": { "type": "faq", "settings": { "emoji": "💡", "question": "Est-ce que ca fait mal ?", "answer": "<p>Non. L'accelerateur LED Nakree utilise une lumiere froide, sans chaleur ni UV. Le processus est totalement indolore. En cas de sensibilite dentaire prealable, consultez votre dentiste.</p>" } },
-        "q5": { "type": "faq", "settings": { "emoji": "🔄", "question": "Est-ce compatible avec tous les gels ?", "answer": "<p>Oui, l'accelerateur Nakree est compatible avec tous les gels blanchissants du commerce a base de peroxyde de carbamide ou de peroxyde d'hydrogene (en concentration autorisee en France).</p>" } },
+        "q4": { "type": "faq", "settings": { "emoji": "💡", "question": "Est-ce que ca fait mal ?", "answer": "<p>Non. L'accelerateur LED Nakrée utilise une lumiere froide, sans chaleur ni UV. Le processus est totalement indolore. En cas de sensibilite dentaire prealable, consultez votre dentiste.</p>" } },
+        "q5": { "type": "faq", "settings": { "emoji": "🔄", "question": "Est-ce compatible avec tous les gels ?", "answer": "<p>Oui, l'accelerateur Nakrée est compatible avec tous les gels blanchissants du commerce a base de peroxyde de carbamide ou de peroxyde d'hydrogene (en concentration autorisee en France).</p>" } },
         "q6": { "type": "faq", "settings": { "emoji": "⏱️", "question": "Combien de temps pour voir les resultats ?", "answer": "<p>La majorite de nos clients constatent une amelioration visible en 7 jours d'utilisation quotidienne (10 minutes par jour). Les resultats peuvent varier selon la teinte initiale.</p>" } },
         "q7": { "type": "faq", "settings": { "emoji": "🔌", "question": "Comment recharger l'appareil ?", "answer": "<p>Via le cable USB fourni. Une charge complete dure environ 2h et permet plusieurs seances. Compatible avec tout port USB (chargeur de telephone, ordinateur, batterie externe).</p>" } },
-        "q8": { "type": "faq", "settings": { "emoji": "✅", "question": "Est-ce certifie CE ?", "answer": "<p>Oui. Nakree est un accessoire cosmetique conforme aux normes CE en vigueur. Ce n'est pas un dispositif medical — il accelere l'action de votre gel blanchissant.</p>" } },
+        "q8": { "type": "faq", "settings": { "emoji": "✅", "question": "Est-ce certifie CE ?", "answer": "<p>Oui. Nakrée est un accessoire cosmetique conforme aux normes CE en vigueur. Ce n'est pas un dispositif medical — il accelere l'action de votre gel blanchissant.</p>" } },
         "q9": { "type": "faq", "settings": { "emoji": "📧", "question": "Comment vous contacter ?", "answer": "<p>Par email a <strong>support@nakree.com</strong>. Nous repondons sous 24-48h ouvrees.</p>" } },
-        "q10": { "type": "faq", "settings": { "emoji": "🔋", "question": "Quelle est la duree de vie de l'appareil ?", "answer": "<p>L'accelerateur LED Nakree est concu pour durer des annees. Les LEDs ont une duree de vie de plus de 10 000 heures. Aucune piece a remplacer.</p>" } }
+        "q10": { "type": "faq", "settings": { "emoji": "🔋", "question": "Quelle est la duree de vie de l'appareil ?", "answer": "<p>L'accelerateur LED Nakrée est concu pour durer des annees. Les LEDs ont une duree de vie de plus de 10 000 heures. Aucune piece a remplacer.</p>" } }
       },
       "block_order": ["q1","q2","q3","q4","q5","q6","q7","q8","q9","q10"]
     }
