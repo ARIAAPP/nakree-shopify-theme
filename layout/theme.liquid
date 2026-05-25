@@ -192,8 +192,6 @@
   </head>
 
   <body class="template-{{ template | replace: '.', '-' | handle }}">
-    {% render 'promo-banner' %}
-
     <a class="skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
     {% sections 'header-group' %}
