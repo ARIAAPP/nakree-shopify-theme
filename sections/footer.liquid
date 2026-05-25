@@ -1,0 +1,53 @@
+<div class="bg-background footer-main" style="padding: 3rem 0 1.5rem 0; border-top: 1px solid var(--color-border, #e8e0d4);">
+  <div class="container">
+    <div class="footer-cols" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem 1.5rem; margin-bottom: 2rem;">
+
+      <div>
+        <h4 style="font-size:0.875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin:0 0 1rem 0;">Boutique</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem;">
+          <li><a href="/" style="color:inherit; text-decoration:none; opacity:0.85;">Accueil</a></li>
+          <li><a href="/pages/a-propos" style="color:inherit; text-decoration:none; opacity:0.85;">A propos</a></li>
+          <li><a href="/pages/contact" style="color:inherit; text-decoration:none; opacity:0.85;">Contact</a></li>
+          <li><a href="/account" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; opacity:0.85;">Suivre ma commande</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size:0.875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin:0 0 1rem 0;">Informations legales</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem;">
+          {%- if shop.refund_policy -%}<li><a href="{{ shop.refund_policy.url }}" style="color:inherit; text-decoration:none; opacity:0.85;">{{ shop.refund_policy.title }}</a></li>{%- endif -%}
+          {%- if shop.shipping_policy -%}<li><a href="{{ shop.shipping_policy.url }}" style="color:inherit; text-decoration:none; opacity:0.85;">{{ shop.shipping_policy.title }}</a></li>{%- endif -%}
+          {%- if shop.privacy_policy -%}<li><a href="{{ shop.privacy_policy.url }}" style="color:inherit; text-decoration:none; opacity:0.85;">{{ shop.privacy_policy.title }}</a></li>{%- endif -%}
+          {%- if shop.terms_of_service -%}<li><a href="{{ shop.terms_of_service.url }}" style="color:inherit; text-decoration:none; opacity:0.85;">{{ shop.terms_of_service.title }}</a></li>{%- endif -%}
+          <li><a href="/policies/legal-notice" style="color:inherit; text-decoration:none; opacity:0.85;">Mentions legales</a></li>
+          <li><a href="/policies/terms-of-sale" style="color:inherit; text-decoration:none; opacity:0.85;">Conditions de vente</a></li>
+          <li><a href="/policies/contact-information" style="color:inherit; text-decoration:none; opacity:0.85;">Coordonnees</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size:0.875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin:0 0 1rem 0;">Nous contacter</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.5rem; font-size:0.875rem; opacity:0.85;">
+          <li><a href="mailto:support@nakree.com" style="color:inherit; text-decoration:underline;">support@nakree.com</a></li>
+          <li style="font-size:0.75rem; opacity:0.7; margin-top:0.5rem;">Reponse sous 24-48h ouvrees</li>
+        </ul>
+      </div>
+    </div>
+
+    {% render 'payment-icons' %}
+
+    <p style="text-align:center; font-size:0.75rem; opacity:0.7; margin-top:1.5rem;">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.copyright_extra }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "footer",
+  "class": "footer-section",
+  "settings": [
+    { "type": "text", "id": "copyright_extra", "label": "Texte copyright additionnel", "default": "Tous droits reserves." }
+  ],
+  "presets": [{ "name": "Footer" }]
+}
+{% endschema %}

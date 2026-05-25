@@ -1,0 +1,125 @@
+<section class="py-16 md:py-20">
+  <div class="container space-y-10">
+    <h2 class="text-3xl md:text-4xl font-bold text-center">{{ section.settings.title }}</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {%- for block in section.blocks -%}
+        <div class="rounded-2xl border bg-background overflow-hidden" {{ block.shopify_attributes }} style="border-color: var(--color-border);">
+          {%- comment -%} Header {%- endcomment -%}
+          <div class="flex items-center justify-between p-4 pb-2">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 overflow-hidden rounded-full border bg-secondary" style="border-color: var(--color-border);">
+                {%- if block.settings.avatar != blank -%}
+                  <img src="{{ block.settings.avatar | image_url: width: 80 }}" alt="Photo de profil de {{ block.settings.name }}" width="40" height="40" loading="lazy" decoding="async" class="h-full w-full object-cover">
+                {%- else -%}
+                  <div class="h-full w-full flex items-center justify-center bg-primary" style="color:var(--color-primary-fg); font-weight:700; font-size:0.875rem;">{{ block.settings.name | slice: 0 }}</div>
+                {%- endif -%}
+              </div>
+              <div>
+                <p class="text-sm font-semibold">{{ block.settings.name }}</p>
+                <p class="text-[10px] text-muted-foreground">{{ block.settings.time }}</p>
+              </div>
+            </div>
+            <span class="text-muted-foreground" style="font-size: 1.2rem; line-height: 1;">&#x22EF;</span>
+          </div>
+
+          {%- comment -%} Text {%- endcomment -%}
+          <p class="px-4 pb-3 text-sm">{{ block.settings.text }}</p>
+
+          {%- comment -%} Image {%- endcomment -%}
+          <div class="bg-secondary aspect-square">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ shop.name }}" class="w-full h-full object-cover" width="400" height="400" loading="lazy" decoding="async">
+            {%- else -%}
+              <div class="w-full h-full flex items-center justify-center" style="background:var(--color-muted);">
+                <span style="font-size:3rem;">&#x1F9B7;</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- comment -%} Reactions {%- endcomment -%}
+          <div class="px-4 py-2 flex items-center justify-between text-xs text-muted-foreground border-b" style="border-color: var(--color-border);">
+            <span>&#x1F44D;&#x2764;&#xFE0F;&#x1F62E; {{ block.settings.likes }}</span>
+            <span>{{ block.settings.comments }} commentaires</span>
+          </div>
+
+          {%- comment -%} Actions {%- endcomment -%}
+          <div class="flex items-center justify-around text-xs font-medium text-muted-foreground" style="padding: 0.5rem 0;">
+            <span class="flex items-center gap-1.5">&#x1F44D; J'aime</span>
+            <span class="flex items-center gap-1.5">&#x1F4AC; Commenter</span>
+            <span class="flex items-center gap-1.5">&#x2197;&#xFE0F; Partager</span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Communaute Facebook",
+  "tag": "section",
+  "class": "facebook-community-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Ils ont teste Nakree et adorent"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Post",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nom",
+          "default": "Marie L."
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Temps ecoule",
+          "default": "il y a 7h"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte du post",
+          "default": "J'ai teste sur les taches de the, resultat visible des la premiere utilisation. Bluffee !"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "likes",
+          "label": "Likes (texte)",
+          "default": "412"
+        },
+        {
+          "type": "text",
+          "id": "comments",
+          "label": "Nombre commentaires",
+          "default": "28"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Communaute Facebook"
+    }
+  ]
+}
+{% endschema %}

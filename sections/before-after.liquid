@@ -1,0 +1,73 @@
+<section class="py-16 md:py-20">
+  <div class="container space-y-10">
+    <div class="text-center space-y-2">
+      <h2 class="text-3xl font-bold">{{ section.settings.title }}</h2>
+      <p class="text-muted-foreground">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {%- for block in section.blocks -%}
+        <div class="rounded-2xl overflow-hidden border" {{ block.shopify_attributes }} style="border-color: var(--color-border);">
+          <div class="grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="relative" style="aspect-ratio:1/1; background:var(--color-muted);">
+              {%- if block.settings.before_image != blank -%}
+                <img src="{{ block.settings.before_image | image_url: width: 400 }}" alt="Avant" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover">
+              {%- else -%}
+                <div class="w-full h-full flex items-center justify-center" style="background:var(--color-muted);">
+                  <span style="font-size:2rem; opacity:0.4;">Avant</span>
+                </div>
+              {%- endif -%}
+              <span style="position:absolute; bottom:0.5rem; left:0.5rem; background:rgba(0,0,0,0.6); color:#fff; font-size:0.7rem; font-weight:700; padding:0.2rem 0.5rem; border-radius:4px;">AVANT</span>
+            </div>
+            <div class="relative" style="aspect-ratio:1/1; background:var(--color-muted);">
+              {%- if block.settings.after_image != blank -%}
+                <img src="{{ block.settings.after_image | image_url: width: 400 }}" alt="Apres" width="200" height="200" loading="lazy" decoding="async" class="w-full h-full object-cover">
+              {%- else -%}
+                <div class="w-full h-full flex items-center justify-center" style="background:color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                  <span style="font-size:2rem; opacity:0.4;">Apres</span>
+                </div>
+              {%- endif -%}
+              <span style="position:absolute; bottom:0.5rem; right:0.5rem; background:var(--color-primary); color:var(--color-primary-fg); font-size:0.7rem; font-weight:700; padding:0.2rem 0.5rem; border-radius:4px;">APRES</span>
+            </div>
+          </div>
+          <div style="padding:1rem; text-align:center;">
+            <p class="text-sm font-semibold">{{ block.settings.name }}</p>
+            <p class="text-xs text-muted-foreground" style="margin-top:0.25rem;">{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <p class="text-center text-xs text-muted-foreground" style="max-width:600px; margin:1rem auto 0;">{{ section.settings.disclaimer }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Avant / Apres",
+  "tag": "section",
+  "class": "before-after-section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Resultats visibles en 7 jours" },
+    { "type": "text", "id": "subtitle", "label": "Sous-titre", "default": "Des sourires transformes par nos clients" },
+    { "type": "text", "id": "disclaimer", "label": "Mention legale", "default": "Resultats individuels. Les photos montrent des resultats apres 7 a 14 jours d'utilisation reguliere avec un gel blanchissant compatible." }
+  ],
+  "blocks": [
+    {
+      "type": "comparison",
+      "name": "Avant/Apres",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Photo avant" },
+        { "type": "image_picker", "id": "after_image", "label": "Photo apres" },
+        { "type": "text", "id": "name", "label": "Nom", "default": "Marie L." },
+        { "type": "text", "id": "description", "label": "Description", "default": "Apres 7 jours d'utilisation" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avant / Apres"
+    }
+  ]
+}
+{% endschema %}

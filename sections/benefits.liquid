@@ -1,0 +1,52 @@
+<section class="py-16 md:py-20">
+  <div class="container grid md:grid-cols-3 gap-10 text-center">
+    {%- for block in section.blocks -%}
+      <div class="space-y-4" {{ block.shopify_attributes }}>
+        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10" style="margin-left:auto; margin-right:auto;">
+          <span style="font-size: 1.75rem;">{{ block.settings.icon }}</span>
+        </div>
+        <h3 class="text-lg font-bold">{{ block.settings.title }}</h3>
+        <p class="text-muted-foreground text-sm">{{ block.settings.text }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefices",
+  "tag": "section",
+  "class": "benefits-section",
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefice",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Emoji",
+          "default": "🦷"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Blanchiment professionnel a domicile"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "16 LEDs bleues accelerent le gel blanchissant pour des resultats visibles en 7 jours."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefices"
+    }
+  ]
+}
+{% endschema %}

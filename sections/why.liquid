@@ -1,0 +1,99 @@
+<section class="py-16 md:py-20">
+  <div class="container">
+    <h2 class="text-3xl font-bold text-center" style="margin-bottom: 2.5rem;">
+      {{ section.settings.title_before }} <span class="text-primary">{{ section.settings.title_highlight }}</span>{{ section.settings.title_after }}
+    </h2>
+
+    <div class="grid lg:grid-cols-2 rounded-2xl overflow-hidden">
+      {%- comment -%} Left: text + CTA {%- endcomment -%}
+      <div class="bg-foreground text-background flex flex-col justify-center space-y-6" style="padding: 2.5rem 3rem;">
+        <ul class="space-y-3">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'benefit' -%}
+              <li class="flex items-center gap-3 text-sm md:text-base font-medium" {{ block.shopify_attributes }}>
+                <span class="text-primary">&#x2713;</span> {{ block.settings.text }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <a href="{{ section.settings.cta_url }}" class="btn btn-lg" style="align-self: flex-start;">{{ section.settings.cta_label }}</a>
+      </div>
+
+      {%- comment -%} Right: gold bg + image {%- endcomment -%}
+      <div class="bg-primary relative flex items-center justify-center min-h-[400px]" style="padding: 2.5rem 3rem;">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ shop.name }}" width="512" height="512" loading="lazy" decoding="async" class="relative z-10 drop-shadow-2xl" style="height: 320px; object-fit: contain;">
+        {%- else -%}
+          <div class="relative z-10 text-center" style="color:var(--color-primary-fg);">
+            <span style="font-size:6rem;">&#x1F9B7;</span>
+            <p style="font-weight:700; font-size:1.25rem; margin-top:1rem;">Nakree LED</p>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Pourquoi nous",
+  "tag": "section",
+  "class": "why-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_before",
+      "label": "Titre — partie 1",
+      "default": "Pourquoi choisir"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Titre — partie surlignee",
+      "default": "Nakree"
+    },
+    {
+      "type": "text",
+      "id": "title_after",
+      "label": "Titre — partie 3",
+      "default": " ?"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image produit (a droite)"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Texte du bouton",
+      "default": "Commander maintenant"
+    },
+    {
+      "type": "text",
+      "id": "cta_url",
+      "label": "URL du bouton",
+      "default": "/#product"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefice",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "16 LEDs bleues professionnelles"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pourquoi nous"
+    }
+  ]
+}
+{% endschema %}

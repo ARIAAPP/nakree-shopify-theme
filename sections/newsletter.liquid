@@ -1,0 +1,47 @@
+<section class="bg-primary newsletter-block" style="padding: 3.5rem 0;">
+  <div class="max-w-md text-center space-y-4 px-6" style="margin-left:auto; margin-right:auto;">
+    <h3 class="text-2xl font-bold text-primary-foreground">{{ section.settings.title }}</h3>
+    <p class="text-sm" style="color: color-mix(in srgb, var(--color-primary-fg) 70%, transparent);">{{ section.settings.subtitle }}</p>
+    {%- form 'customer', class: 'space-y-3', data-newsletter-form: '' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="email" name="contact[email]" required placeholder="{{ section.settings.placeholder }}" aria-label="Email">
+      <button type="submit" class="btn btn-block" style="background: var(--color-primary-fg); color: var(--color-primary);">{{ section.settings.button_label }}</button>
+      {%- if form.posted_successfully? -%}
+        <p class="text-primary-foreground text-sm">{{ section.settings.success_message }}</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+
+<script>
+(function() {
+  const form = document.querySelector('[data-newsletter-form]');
+  if (!form) return;
+  form.addEventListener('submit', function() {
+    if (window.fbq) {
+      window.fbq('track', 'Lead', {
+        content_name: 'newsletter_signup',
+        content_category: 'newsletter',
+        currency: 'EUR',
+        value: 0
+      });
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "tag": "section",
+  "class": "newsletter-section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "-10% sur votre 1ere commande" },
+    { "type": "text", "id": "subtitle", "label": "Sous-titre", "default": "Inscrivez-vous et recevez votre code de reduction par email. Conseils sourire et offres exclusives en bonus." },
+    { "type": "text", "id": "placeholder", "label": "Placeholder email", "default": "Votre email" },
+    { "type": "text", "id": "button_label", "label": "Texte du bouton", "default": "Recevoir mon -10%" },
+    { "type": "text", "id": "success_message", "label": "Message succes", "default": "Merci ! Verifiez votre boite mail dans 1 minute." }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

@@ -1,0 +1,49 @@
+{
+  "current": {
+    "color_primary": "#C4A265",
+    "color_primary_foreground": "#ffffff",
+    "color_accent": "#dc2626",
+    "color_accent_foreground": "#ffffff",
+    "color_background": "#FDFBF7",
+    "color_foreground": "#1a1a1a",
+    "color_muted": "#F5F0E8",
+    "color_muted_foreground": "#8a7e6d",
+    "color_border": "#e8e0d4",
+    "color_footer_bg": "#1a1a1a",
+    "color_footer_fg": "#FDFBF7",
+    "font_family": "poppins",
+    "logo_max_width": 140,
+    "brand_text": "Nakree",
+    "brand_text_highlight": "kree",
+    "meta_pixel_id": "",
+    "meta_domain_verification": "",
+    "clarity_id": "",
+    "container_max_width": 1400,
+    "border_radius": 12,
+    "content_for_index": []
+  },
+  "presets": {
+    "Default": {
+      "color_primary": "#C4A265",
+      "color_primary_foreground": "#ffffff",
+      "color_accent": "#dc2626",
+      "color_accent_foreground": "#ffffff",
+      "color_background": "#FDFBF7",
+      "color_foreground": "#1a1a1a",
+      "color_muted": "#F5F0E8",
+      "color_muted_foreground": "#8a7e6d",
+      "color_border": "#e8e0d4",
+      "color_footer_bg": "#1a1a1a",
+      "color_footer_fg": "#FDFBF7",
+      "font_family": "poppins",
+      "logo_max_width": 140,
+      "brand_text": "Nakree",
+      "brand_text_highlight": "kree",
+      "meta_pixel_id": "",
+      "meta_domain_verification": "",
+      "clarity_id": "",
+      "container_max_width": 1400,
+      "border_radius": 12
+    }
+  }
+}

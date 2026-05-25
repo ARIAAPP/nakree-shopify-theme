@@ -1,0 +1,16 @@
+<button type="button" class="scroll-to-top" data-scroll-top aria-label="Remonter en haut" hidden style="position: fixed; right: 1rem; z-index: 40; height: 2.75rem; width: 2.75rem; border-radius: 9999px; background: var(--color-primary); color: var(--color-primary-fg); box-shadow: 0 10px 15px rgba(0,0,0,0.1); display: none; align-items: center; justify-content: center;">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+(function() {
+  var btn = document.querySelector('[data-scroll-top]');
+  if (!btn) return;
+  function update() {
+    if (window.scrollY > 400) { btn.style.display = 'flex'; btn.removeAttribute('hidden'); }
+    else { btn.style.display = 'none'; btn.setAttribute('hidden', ''); }
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>

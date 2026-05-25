@@ -1,0 +1,74 @@
+<div class="exit-popup" data-exit-popup>
+  <div class="exit-popup-card">
+    <button type="button" class="exit-popup-close" aria-label="Fermer" data-exit-close>&times;</button>
+    <div class="exit-popup-emoji">&#x1F381;</div>
+    <h3>Attends ! On a un cadeau pour toi.</h3>
+    <p>Un dernier coup de pouce :<br><strong style="color:var(--color-primary); font-size:1.05em;">-10% sur ta commande</strong><br><span style="font-size:0.9em;">Inscris-toi et recois ton code par email</span></p>
+    {%- form 'customer', class: 'space-y-3', data-exit-form: '' -%}
+      <input type="hidden" name="contact[tags]" value="exit-intent,nakree10">
+      <input type="email" name="contact[email]" required placeholder="Ton email" aria-label="Email" style="text-align:center;">
+      <button type="submit" class="btn btn-block btn-lg" data-exit-cta>Recevoir mon -10%</button>
+    {%- endform -%}
+    <button type="button" class="exit-popup-close-link" data-exit-close style="background:none; border:0; color:var(--color-muted-fg); font-size:0.75rem; margin-top:0.75rem; cursor:pointer; text-decoration:underline;">Non merci, je refuse</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var popup = document.querySelector('[data-exit-popup]');
+  if (!popup) return;
+  var STORAGE_KEY = 'nakree-exit-popup-shown';
+  var closeBtns = popup.querySelectorAll('[data-exit-close]');
+
+  var lastShown = 0;
+  try { lastShown = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10); } catch(e) {}
+  if (Date.now() - lastShown < 86400000) return;
+
+  var shown = false;
+
+  function show() {
+    if (shown) return;
+    shown = true;
+    popup.dataset.open = 'true';
+    try { localStorage.setItem(STORAGE_KEY, String(Date.now())); } catch(e) {}
+    if (window.fbq) window.fbq('trackCustom', 'ExitIntentShown', {});
+  }
+  function hide() { popup.dataset.open = 'false'; }
+
+  closeBtns.forEach(function(b) { b.addEventListener('click', hide); });
+  popup.addEventListener('click', function(e) { if (e.target === popup) hide(); });
+
+  var isMobile = !window.matchMedia('(min-width: 768px)').matches;
+  var MIN_DWELL_MS = 30000;
+  var pageEnter = Date.now();
+  var dwellOk = function() { return (Date.now() - pageEnter) >= MIN_DWELL_MS; };
+
+  var scrollTriggered = false;
+  window.addEventListener('scroll', function() {
+    if (scrollTriggered || !dwellOk()) return;
+    var doc = document.documentElement;
+    var scrolled = (window.scrollY + window.innerHeight) / doc.scrollHeight;
+    if (scrolled >= 0.5) {
+      scrollTriggered = true;
+      show();
+    }
+  }, { passive: true });
+
+  if (!isMobile) {
+    var exitTriggered = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 0 && !exitTriggered && dwellOk()) {
+        exitTriggered = true;
+        show();
+      }
+    });
+    setTimeout(show, 90000);
+  } else {
+    setTimeout(show, 60000);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') hide();
+  });
+})();
+</script>

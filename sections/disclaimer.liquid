@@ -1,0 +1,36 @@
+<section class="py-8">
+  <div class="container max-w-2xl">
+    <div class="rounded-xl border" style="border-color: var(--color-border); padding: 1.25rem 1.5rem; background: color-mix(in srgb, var(--color-muted) 50%, transparent);">
+      <p class="text-xs text-muted-foreground leading-relaxed">
+        <strong>{{ section.settings.label }}</strong> {{ section.settings.text }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Disclaimer CE",
+  "tag": "section",
+  "class": "disclaimer-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Avertissement :"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte du disclaimer",
+      "default": "Ce produit est un accessoire cosmetique et non un dispositif medical. Il est destine a accelerer l'action des gels blanchissants compatibles du commerce. Il ne remplace pas un traitement dentaire professionnel. Consultez votre dentiste en cas de doute. Conforme aux normes CE en vigueur. Ne pas utiliser sur des dents non saines, des protheses dentaires, ou en cas de sensibilite dentaire importante."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Disclaimer CE"
+    }
+  ]
+}
+{% endschema %}

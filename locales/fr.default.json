@@ -1,0 +1,64 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Aller au contenu",
+      "close": "Fermer",
+      "menu": "Menu",
+      "search": "Rechercher",
+      "cart": "Panier",
+      "account": "Compte"
+    },
+    "currency": {
+      "symbol": "€"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Ajouter au panier",
+      "buy_now": "Acheter maintenant",
+      "sold_out": "Rupture de stock",
+      "unavailable": "Indisponible",
+      "quantity": "Quantite",
+      "price": "Prix",
+      "regular_price": "Prix normal",
+      "sale_price": "Prix promo",
+      "save": "Economisez {{ savings }}",
+      "shipping_calculated": "Livraison calculee a l'etape suivante"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Votre panier",
+      "subtotal": "Sous-total",
+      "checkout": "Finaliser la commande",
+      "continue_shopping": "Continuer mes achats",
+      "empty": "Votre panier est vide.",
+      "remove": "Retirer",
+      "increase": "Augmenter",
+      "decrease": "Diminuer",
+      "items_count": {
+        "one": "{{ count }} article",
+        "other": "{{ count }} articles"
+      },
+      "shipping_taxes_note": "Livraison et taxes calculees a l'etape suivante.",
+      "express_checkout": "Paiement express",
+      "or": "ou",
+      "shop_pay": "Payer avec Shop Pay"
+    }
+  },
+  "header": {
+    "home": "Accueil",
+    "contact": "Contact",
+    "track_order": "Suivre ma commande"
+  },
+  "newsletter": {
+    "title": "-10% sur votre 1ere commande",
+    "subtitle": "Inscrivez-vous et recevez votre code de reduction par email.",
+    "email_placeholder": "Email",
+    "submit": "S'inscrire",
+    "success": "Merci pour votre inscription !"
+  },
+  "footer": {
+    "copyright": "© {{ year }} {{ shop_name }}. Tous droits reserves."
+  }
+}

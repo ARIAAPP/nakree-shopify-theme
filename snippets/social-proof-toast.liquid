@@ -1,0 +1,48 @@
+<div class="social-proof-toast" data-social-proof-toast aria-live="polite">
+  <div class="flex items-start gap-3 rounded-xl border bg-background shadow-lg" style="border-color: var(--color-border); padding: 1rem;">
+    <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10">
+      <span style="font-size: 1.1rem;">&#x1F6D2;</span>
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-medium" data-toast-name>&mdash;</p>
+      <p class="text-xs text-muted-foreground" data-toast-message>&mdash;</p>
+    </div>
+    <button type="button" class="shrink-0 text-muted-foreground" data-toast-close aria-label="Fermer">&times;</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var buyers = [
+    { name: 'Marie L.', city: 'Toulouse', time: 'il y a 3 min' },
+    { name: 'Julien P.', city: 'Paris', time: 'il y a 5 min' },
+    { name: 'Sophie M.', city: 'Lyon', time: 'il y a 8 min' },
+    { name: 'Thomas R.', city: 'Marseille', time: 'il y a 11 min' },
+    { name: 'Camille D.', city: 'Bordeaux', time: 'il y a 14 min' },
+    { name: 'Antoine B.', city: 'Lille', time: 'il y a 18 min' },
+    { name: 'Emma G.', city: 'Bruxelles', time: 'il y a 22 min' }
+  ];
+  var toast = document.querySelector('[data-social-proof-toast]');
+  if (!toast) return;
+  var nameEl = toast.querySelector('[data-toast-name]');
+  var msgEl = toast.querySelector('[data-toast-message]');
+  var closeBtn = toast.querySelector('[data-toast-close]');
+  var current = 0;
+
+  function show(b) {
+    nameEl.textContent = b.name + ' — ' + b.city;
+    msgEl.textContent = 'vient d\'acheter un kit Nakree ' + b.time;
+    toast.dataset.visible = 'true';
+  }
+  function hide() { toast.dataset.visible = 'false'; }
+  if (closeBtn) closeBtn.addEventListener('click', hide);
+
+  setTimeout(function(){ show(buyers[0]); }, 8000);
+  setTimeout(hide, 12000);
+  setInterval(function() {
+    current = (current + 1) % buyers.length;
+    show(buyers[current]);
+    setTimeout(hide, 4000);
+  }, 15000);
+})();
+</script>

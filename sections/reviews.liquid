@@ -1,0 +1,129 @@
+<section class="py-16 md:py-20 bg-secondary relative">
+  <div class="container space-y-10">
+    <div class="text-center space-y-2">
+      <h2 class="text-3xl font-bold">{{ section.settings.title }}</h2>
+      <p class="text-muted-foreground">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="relative">
+      <button type="button" class="reviews-arrow reviews-arrow--left" aria-label="Precedent" data-reviews-prev style="position:absolute; top:50%; transform:translateY(-50%); left:-1rem; z-index:10; height: 2.5rem; width: 2.5rem; border-radius: 9999px; background: var(--color-bg); border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button type="button" class="reviews-arrow reviews-arrow--right" aria-label="Suivant" data-reviews-next style="position:absolute; top:50%; transform:translateY(-50%); right:-1rem; z-index:10; height: 2.5rem; width: 2.5rem; border-radius: 9999px; background: var(--color-bg); border: 1px solid var(--color-border); box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+
+      <div class="review-carousel flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2" data-reviews-track>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'review' -%}
+            <div class="shrink-0 snap-start" {{ block.shopify_attributes }} style="width: 22rem;">
+              <div class="rounded-2xl bg-background p-6 shadow-sm space-y-3 h-full">
+                <div class="flex items-center gap-3">
+                  <div class="h-10 w-10 overflow-hidden rounded-full border bg-secondary" style="border-color: var(--color-border);">
+                    {%- if block.settings.avatar != blank -%}
+                      <img src="{{ block.settings.avatar | image_url: width: 80 }}" alt="Photo de profil de {{ block.settings.name }}" width="40" height="40" loading="lazy" decoding="async" class="h-full w-full object-cover">
+                    {%- else -%}
+                      <div class="h-full w-full flex items-center justify-center bg-primary" style="color:var(--color-primary-fg); font-weight:700; font-size:0.875rem;">{{ block.settings.name | slice: 0 }}</div>
+                    {%- endif -%}
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-1.5">
+                      <p class="text-sm font-semibold">{{ block.settings.name }}</p>
+                    </div>
+                    <div class="star-rating text-xs">
+                      {%- assign r = block.settings.rating | default: 5 -%}
+                      {%- for i in (1..5) -%}
+                        {%- if i <= r -%}&#x2605;{%- else -%}&#x2606;{%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm leading-relaxed text-muted-foreground">"{{ block.settings.text }}"</p>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  document.querySelectorAll('[data-reviews-track]').forEach(track => {
+    const root = track.closest('section');
+    const prev = root.querySelector('[data-reviews-prev]');
+    const next = root.querySelector('[data-reviews-next]');
+    const amount = 340;
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -amount, behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: amount, behavior: 'smooth' }));
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Avis clients",
+  "tag": "section",
+  "class": "reviews-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Ce que disent nos clients"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Avis verifies — resultats reels"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Avis client",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nom",
+          "default": "Marie L."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Note (etoiles)",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte de l'avis",
+          "default": "Resultat visible des la premiere semaine. Je recommande !"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Avis verifie",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avis clients"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Single-product store: redirect product page to homepage which contains
+  the full ProductSection. The homepage IS the product page.
+{%- endcomment -%}
+
+<script>
+  if (window.location.pathname !== '/') {
+    window.location.replace('/#product');
+  }
+</script>
+
+<section class="py-20" style="text-align:center;">
+  <div class="container">
+    <p>Redirection...</p>
+    <a class="btn btn-lg" href="{{ routes.root_url }}#product" style="margin-top:1rem;">Voir le produit</a>
+  </div>
+</section>

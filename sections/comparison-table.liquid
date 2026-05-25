@@ -1,0 +1,122 @@
+<section class="comparison-table-section py-16 md:py-20">
+  <div class="container max-w-2xl">
+    <div class="text-center space-y-2" style="margin-bottom: 2.5rem;">
+      <h2 class="text-3xl font-bold">{{ section.settings.title }}</h2>
+      <p class="text-muted-foreground">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+      <table class="comparison-table" style="min-width:0;">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="highlighted">{{ section.settings.col_a | default: 'Nakree' }}</th>
+            <th>{{ section.settings.col_b | default: 'Dentiste' }}</th>
+            <th>{{ section.settings.col_c | default: 'Dentifrice' }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row">{{ block.settings.criteria }}</th>
+              <td class="highlighted-col">
+                {%- case block.settings.col_a -%}
+                  {%- when 'yes' -%}<span class="cmp-yes">&#x2713;</span>
+                  {%- when 'no' -%}<span class="cmp-no">&#x2717;</span>
+                  {%- when 'mid' -%}<span class="cmp-mid">~</span>
+                  {%- else -%}{{ block.settings.col_a }}
+                {%- endcase -%}
+              </td>
+              <td>
+                {%- case block.settings.col_b -%}
+                  {%- when 'yes' -%}<span class="cmp-yes">&#x2713;</span>
+                  {%- when 'no' -%}<span class="cmp-no">&#x2717;</span>
+                  {%- when 'mid' -%}<span class="cmp-mid">~</span>
+                  {%- else -%}{{ block.settings.col_b }}
+                {%- endcase -%}
+              </td>
+              <td>
+                {%- case block.settings.col_c -%}
+                  {%- when 'yes' -%}<span class="cmp-yes">&#x2713;</span>
+                  {%- when 'no' -%}<span class="cmp-no">&#x2717;</span>
+                  {%- when 'mid' -%}<span class="cmp-mid">~</span>
+                  {%- else -%}{{ block.settings.col_c }}
+                {%- endcase -%}
+              </td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="text-center" style="margin-top: 2rem;">
+        <a href="{{ section.settings.cta_url }}" class="btn btn-lg">{{ section.settings.cta_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tableau comparatif",
+  "tag": "section",
+  "class": "comparison-section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Nakree vs les alternatives" },
+    { "type": "text", "id": "subtitle", "label": "Sous-titre", "default": "Comparez et choisissez la meilleure solution pour votre sourire" },
+    { "type": "text", "id": "col_a", "label": "Colonne A (highlight)", "default": "Nakree" },
+    { "type": "text", "id": "col_b", "label": "Colonne B", "default": "Dentiste" },
+    { "type": "text", "id": "col_c", "label": "Colonne C", "default": "Dentifrice" },
+    { "type": "text", "id": "cta_label", "label": "Texte du bouton CTA", "default": "Je choisis Nakree" },
+    { "type": "text", "id": "cta_url", "label": "URL du bouton", "default": "/#product" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Ligne",
+      "settings": [
+        { "type": "text", "id": "criteria", "label": "Critere", "default": "Efficacite visible en 7 jours" },
+        {
+          "type": "select",
+          "id": "col_a",
+          "label": "Valeur colonne A",
+          "options": [
+            { "value": "yes", "label": "Oui" },
+            { "value": "no", "label": "Non" },
+            { "value": "mid", "label": "Moyen" },
+            { "value": "text", "label": "Texte personnalise" }
+          ],
+          "default": "yes"
+        },
+        { "type": "text", "id": "col_a_text", "label": "Texte personnalise colonne A (si selected)" },
+        {
+          "type": "select",
+          "id": "col_b",
+          "label": "Valeur colonne B",
+          "options": [
+            { "value": "yes", "label": "Oui" },
+            { "value": "no", "label": "Non" },
+            { "value": "mid", "label": "Moyen" },
+            { "value": "text", "label": "Texte personnalise" }
+          ],
+          "default": "no"
+        },
+        {
+          "type": "select",
+          "id": "col_c",
+          "label": "Valeur colonne C",
+          "options": [
+            { "value": "yes", "label": "Oui" },
+            { "value": "no", "label": "Non" },
+            { "value": "mid", "label": "Moyen" },
+            { "value": "text", "label": "Texte personnalise" }
+          ],
+          "default": "yes"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Tableau comparatif" }]
+}
+{% endschema %}

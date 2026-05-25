@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="{{ settings.color_primary }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.meta_domain_verification != blank -%}
+      <meta name="facebook-domain-verification" content="{{ settings.meta_domain_verification }}">
+    {%- endif -%}
+
+    {%- if settings.logo != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.logo | image_url: width: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+    {%- endif -%}
+
+    <title>
+      {%- if request.page_type == 'index' -%}
+        {{ shop.name }} — L'eclat nacre, accelere.
+      {%- elsif request.page_type == 'product' -%}
+        {{ product.title }} | {{ shop.name }}
+      {%- elsif request.page_type == 'cart' -%}
+        Panier | {{ shop.name }}
+      {%- else -%}
+        {{ page_title }} | {{ shop.name }}
+      {%- endif -%}
+    </title>
+
+    <meta name="description" content="{% if page_description %}{{ page_description | escape }}{% else %}Nakree — Accelerateur LED de blanchiment dentaire. Des dents visiblement plus blanches en 7 jours. Livraison gratuite. Satisfait ou rembourse 30 jours.{% endif %}">
+
+    {%- comment -%} Open Graph {%- endcomment -%}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ shop.name }} — L'eclat nacre, accelere.">
+    <meta property="og:description" content="Accelerateur LED de blanchiment dentaire. Des dents visiblement plus blanches en 7 jours.">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:site_name" content="{{ shop.name }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ shop.name }} — L'eclat nacre, accelere.">
+    <meta name="twitter:description" content="Accelerateur LED de blanchiment dentaire Nakree.">
+
+    {%- comment -%} Schema.org structured data — Organization + Product {%- endcomment -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{{ shop.name }}",
+      "url": "{{ shop.url }}",
+      "logo": "{% if settings.logo != blank %}{{ settings.logo | image_url: width: 400 }}{% endif %}",
+      "email": "support@nakree.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "42 rue des Mousses",
+        "postalCode": "13008",
+        "addressLocality": "Marseille",
+        "addressCountry": "FR"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    {%- if request.page_type == 'index' or request.page_type == 'product' -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Accelerateur LED de blanchiment dentaire Nakree",
+      "description": "Accelerateur LED Nakree : 16 LEDs bleues professionnelles, sans fil USB, compatible tous gels blanchissants. Des dents visiblement plus blanches en 7 jours.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Nakree"
+      },
+      "sku": "NAKREE-LED-01",
+      "mpn": "NK-LED-01",
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ shop.url }}",
+        "priceCurrency": "EUR",
+        "price": "19.95",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0.00",
+            "currency": "EUR"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "FR"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 2,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 3,
+              "maxValue": 5,
+              "unitCode": "DAY"
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "FR",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "1046",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    {%- endif -%}
+
+    {%- comment -%} Preconnect for performance {%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+
+    {%- comment -%} Fonts {%- endcomment -%}
+    {%- if settings.font_family == 'poppins' -%}
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"></noscript>
+    {%- elsif settings.font_family == 'inter' -%}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    {%- endif -%}
+
+    {%- comment -%} Design tokens (CSS variables) {%- endcomment -%}
+    <style>
+      :root {
+        --color-primary: {{ settings.color_primary }};
+        --color-primary-fg: {{ settings.color_primary_foreground }};
+        --color-accent: {{ settings.color_accent }};
+        --color-accent-fg: {{ settings.color_accent_foreground }};
+        --color-bg: {{ settings.color_background }};
+        --color-fg: {{ settings.color_foreground }};
+        --color-muted: {{ settings.color_muted }};
+        --color-muted-fg: {{ settings.color_muted_foreground }};
+        --color-border: {{ settings.color_border }};
+        --color-footer-bg: {{ settings.color_footer_bg }};
+        --color-footer-fg: {{ settings.color_footer_fg }};
+        --container-max: {{ settings.container_max_width }}px;
+        --radius: {{ settings.border_radius }}px;
+        {%- if settings.font_family == 'poppins' -%}
+        --font-sans: 'Poppins', system-ui, -apple-system, sans-serif;
+        {%- elsif settings.font_family == 'inter' -%}
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        {%- else -%}
+        --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        {%- endif -%}
+      }
+    </style>
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    {%- comment -%}
+      Meta Pixel placeholder — the Shopify Facebook & Instagram app handles pixel loading.
+      If you need a manual pixel, add it here.
+    {%- endcomment -%}
+
+    {%- comment -%} Microsoft Clarity {%- endcomment -%}
+    {%- if settings.clarity_id != blank -%}
+      <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "{{ settings.clarity_id }}");
+      </script>
+    {%- endif -%}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ template | replace: '.', '-' | handle }}">
+    {% render 'promo-banner' %}
+
+    <a class="skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    {% render 'cart-drawer' %}
+    {% render 'social-proof-toast' %}
+    {% render 'sticky-bottom-bar' %}
+    {% render 'scroll-to-top' %}
+    {% render 'exit-intent-popup' %}
+
+    <script>
+      window.nakreeTheme = {
+        shopDomain: {{ shop.permanent_domain | json }},
+        shopName: {{ shop.name | json }},
+        currency: {{ shop.currency | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        cartUrl: {{ routes.cart_url | json }}
+      };
+    </script>
+    {{ 'global.js' | asset_url | script_tag }}
+    {{ 'cart.js' | asset_url | script_tag }}
+  </body>
+</html>

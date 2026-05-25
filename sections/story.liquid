@@ -1,0 +1,49 @@
+<section class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-image">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.founder_name }}" loading="lazy" decoding="async" width="600" height="750">
+        {%- else -%}
+          <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--color-muted);">
+            <span style="font-size:5rem;">&#x1F9B7;</span>
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="story-content">
+        <p class="text-sm font-semibold text-primary uppercase tracking-wider" style="margin-bottom: 0.75rem;">{{ section.settings.eyebrow }}</p>
+        <h2>{{ section.settings.title }}</h2>
+        <div>{{ section.settings.text }}</div>
+        <div class="story-signature">
+          <span style="font-size: 1.5rem;">&#x270D;&#xFE0F;</span>
+          <div>
+            <div class="story-signature-name">{{ section.settings.founder_name }}</div>
+            <div class="story-signature-title">{{ section.settings.founder_title }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Notre histoire",
+  "tag": "section",
+  "class": "story-section-wrapper",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Notre histoire" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Pourquoi on a cree Nakree" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texte",
+      "default": "<p>En 2024, apres des annees a essayer des solutions couteuses chez le dentiste ou des dentifrices sans effet visible, on a realise qu'il manquait une alternative simple et abordable pour retrouver un sourire eclatant.</p><p>Les kits de blanchiment professionnels coutent des centaines d'euros. Les bandelettes sont inconfortables. Et les dentifrices blanchissants ne tiennent pas leurs promesses.</p><p>Alors on a cree <strong>Nakree</strong> : un accelerateur LED de blanchiment dentaire avec 16 LEDs bleues professionnelles, sans fil, compatible avec tous les gels blanchissants du marche.</p><p>Aujourd'hui, des centaines de clients nous font confiance pour un sourire plus blanc, a la maison, en toute simplicite.</p>"
+    },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "founder_name", "label": "Nom fondateur", "default": "L'equipe Nakree" },
+    { "type": "text", "id": "founder_title", "label": "Titre fondateur", "default": "Basee en France" }
+  ],
+  "presets": [{ "name": "Notre histoire" }]
+}
+{% endschema %}

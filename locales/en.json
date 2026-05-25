@@ -1,0 +1,64 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "menu": "Menu",
+      "search": "Search",
+      "cart": "Cart",
+      "account": "Account"
+    },
+    "currency": {
+      "symbol": "€"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "buy_now": "Buy now",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "quantity": "Quantity",
+      "price": "Price",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "save": "Save {{ savings }}",
+      "shipping_calculated": "Shipping calculated at checkout"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your cart",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "continue_shopping": "Continue shopping",
+      "empty": "Your cart is empty.",
+      "remove": "Remove",
+      "increase": "Increase",
+      "decrease": "Decrease",
+      "items_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      },
+      "shipping_taxes_note": "Shipping and taxes calculated at checkout.",
+      "express_checkout": "Express checkout",
+      "or": "or",
+      "shop_pay": "Pay with Shop Pay"
+    }
+  },
+  "header": {
+    "home": "Home",
+    "contact": "Contact",
+    "track_order": "Track my order"
+  },
+  "newsletter": {
+    "title": "10% off your first order",
+    "subtitle": "Sign up and receive your discount code by email.",
+    "email_placeholder": "Email",
+    "submit": "Subscribe",
+    "success": "Thanks for subscribing!"
+  },
+  "footer": {
+    "copyright": "© {{ year }} {{ shop_name }}. All rights reserved."
+  }
+}

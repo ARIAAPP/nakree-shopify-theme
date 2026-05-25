@@ -1,0 +1,82 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "msg-1": {
+          "type": "message",
+          "settings": {
+            "text": "🚚 Livraison gratuite en France metropolitaine"
+          }
+        },
+        "msg-2": {
+          "type": "message",
+          "settings": {
+            "text": "🦷 Resultats visibles en 7 jours"
+          }
+        },
+        "msg-3": {
+          "type": "message",
+          "settings": {
+            "text": "🛡️ Satisfait ou rembourse 30 jours"
+          }
+        }
+      },
+      "block_order": [
+        "msg-1",
+        "msg-2",
+        "msg-3"
+      ],
+      "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "link-1": {
+          "type": "link",
+          "settings": {
+            "label": "Accueil",
+            "url": "/"
+          }
+        },
+        "link-2": {
+          "type": "link",
+          "settings": {
+            "label": "A propos",
+            "url": "/pages/a-propos"
+          }
+        },
+        "link-3": {
+          "type": "link",
+          "settings": {
+            "label": "Contact",
+            "url": "/pages/contact"
+          }
+        },
+        "link-4": {
+          "type": "link",
+          "settings": {
+            "label": "Suivre ma commande",
+            "url": "/account",
+            "open_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "link-1",
+        "link-2",
+        "link-3",
+        "link-4"
+      ],
+      "settings": {
+        "account_url": "/account"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

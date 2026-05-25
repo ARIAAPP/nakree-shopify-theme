@@ -1,0 +1,86 @@
+<section id="faq" class="relative overflow-hidden">
+  <div class="bg-primary" style="padding: 3.5rem 0 5rem;">
+    <div class="container max-w-2xl space-y-8">
+      <h2 class="text-3xl font-bold text-center text-primary-foreground uppercase tracking-wide">{{ section.settings.title }}</h2>
+    </div>
+  </div>
+
+  <div class="container max-w-2xl -mt-12 relative z-10">
+    <div class="bg-background rounded-2xl shadow-lg" style="overflow:hidden;">
+      {%- for block in section.blocks -%}
+        <details class="faq-item" {% if forloop.index <= 2 %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary>
+            <span class="flex items-center gap-2"><span>{{ block.settings.emoji }}</span> {{ block.settings.question }}</span>
+          </summary>
+          <div class="faq-content">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+
+    <div class="text-center" style="margin-top:2rem;">
+      <p class="text-sm text-muted-foreground" style="margin-bottom:0.85rem;">{{ section.settings.cta_text }}</p>
+      <a href="#product" class="inline-flex items-center justify-center" style="background:var(--color-primary); color:var(--color-primary-fg); padding:0.85rem 2rem; border-radius:9999px; font-size:0.95rem; font-weight:700; text-decoration:none; box-shadow:0 4px 14px rgba(196,162,101,.25); transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='translateY(0)';">{{ section.settings.cta_label }} &rarr;</a>
+    </div>
+  </div>
+
+  <div class="h-16"></div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Questions frequentes"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texte au-dessus du CTA",
+      "default": "Encore des doutes ? Testez Nakree pendant 30 jours, satisfait ou rembourse."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Libelle du bouton",
+      "default": "Je commande Nakree"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji",
+          "default": "🦷"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Quand est-ce que ma commande arrive ?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Reponse",
+          "default": "<p>Votre commande est expediee sous 48h. Livraison gratuite en France metropolitaine en 5 a 7 jours ouvres.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}

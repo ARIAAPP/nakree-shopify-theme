@@ -1,0 +1,637 @@
+{%- comment -%}
+  ============================================================
+  ProductSection — Hero / Bundles / Upsells / Countdown
+  Nakree — Accelerateur LED blanchiment dentaire
+  ============================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign default_galleries = 'nakree-kit-contents.jpg,nakree-led.jpg,nakree-before-after.jpg' | split: ','
+  assign primary_image = 'nakree-hero-kit.jpg'
+-%}
+
+<section id="product" class="py-8 md:py-14">
+  <div class="container grid lg:grid-cols-2 gap-10 items-start">
+
+    {%- comment -%} Product Images {%- endcomment -%}
+    <div class="space-y-4">
+      <div class="hero-gallery-container bg-secondary rounded-2xl overflow-hidden flex items-center justify-center relative" data-product-gallery-main>
+        {%- comment -%} Slide 0 : main product image {%- endcomment -%}
+        <img
+          data-gallery-slide="0"
+          src="{{ primary_image | asset_url }}"
+          alt="{{ shop.name }}"
+          class="w-full h-full object-cover"
+          width="800" height="800"
+          decoding="async">
+        {%- comment -%} Slides 1..N : other product images {%- endcomment -%}
+        {%- assign gallery_count = 0 -%}
+        {%- for img in section.settings.gallery_images -%}
+          {%- assign gallery_count = gallery_count | plus: 1 -%}
+          <img
+            data-gallery-slide="{{ forloop.index }}"
+            src="{{ img | image_url: width: 800 }}"
+            srcset="{{ img | image_url: width: 400 }} 400w, {{ img | image_url: width: 800 }} 800w, {{ img | image_url: width: 1200 }} 1200w"
+            sizes="(max-width: 640px) 400px, 800px"
+            alt="{{ shop.name }}"
+            class="w-full h-full object-cover"
+            width="800" height="800"
+            loading="lazy" decoding="async"
+            style="display:none;">
+        {%- endfor -%}
+        {%- if gallery_count == 0 -%}
+          {%- for img in default_galleries -%}
+            <img
+              data-gallery-slide="{{ forloop.index }}"
+              src="{{ img | asset_url }}"
+              alt="{{ shop.name }}"
+              class="w-full h-full object-cover"
+              width="800" height="800"
+              loading="lazy" decoding="async"
+              style="display:none;">
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      <div class="flex gap-3 justify-center flex-wrap">
+        <button type="button" class="relative h-20 w-20 rounded-lg overflow-hidden border-2 cursor-pointer transition-colors gallery-thumb is-active" data-gallery-thumb="0" aria-label="Image principale" style="border-color: var(--color-primary);">
+          <img src="{{ primary_image | asset_url }}" alt="" class="h-full w-full object-cover" width="80" height="80" loading="lazy">
+        </button>
+        {%- if gallery_count > 0 -%}
+          {%- for img in section.settings.gallery_images -%}
+            <button type="button" class="relative h-20 w-20 rounded-lg overflow-hidden border-2 border-transparent cursor-pointer transition-colors gallery-thumb" data-gallery-thumb="{{ forloop.index }}" aria-label="Image {{ forloop.index | plus: 1 }}">
+              <img src="{{ img | image_url: width: 160 }}" alt="" class="h-full w-full object-cover" width="80" height="80" loading="lazy">
+            </button>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for img in default_galleries -%}
+            <button type="button" class="relative h-20 w-20 rounded-lg overflow-hidden border-2 border-transparent cursor-pointer transition-colors gallery-thumb" data-gallery-thumb="{{ forloop.index }}" aria-label="Image {{ forloop.index | plus: 1 }}">
+              <img src="{{ img | asset_url }}" alt="" class="h-full w-full object-cover" width="80" height="80" loading="lazy">
+            </button>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} Product Details {%- endcomment -%}
+    <div class="space-y-5">
+
+      {%- comment -%} Badge {%- endcomment -%}
+      {%- if section.settings.hero_badge != blank -%}
+      <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full" style="background: color-mix(in srgb, var(--color-primary) 15%, transparent); color: var(--color-primary);">{{ section.settings.hero_badge }}</span>
+      {%- endif -%}
+
+      {%- comment -%} Star rating {%- endcomment -%}
+      <a href="#reviews" class="flex items-center gap-2" style="text-decoration:none;color:inherit;">
+        <span class="star-rating text-xl" aria-hidden="true">★★★★★</span>
+        <span class="text-base font-bold" style="border-bottom:1px dashed currentColor;">4,7/5 — 1 046 avis</span>
+      </a>
+
+      <h1 class="text-2xl md:text-3xl font-bold" style="word-wrap:break-word; overflow-wrap:break-word; hyphens:auto;">{{ section.settings.product_title }}</h1>
+
+      <p class="text-sm text-muted-foreground"><span class="font-semibold" style="color:var(--color-fg);">{{ section.settings.subtitle_strong }}</span>{{ section.settings.subtitle }}</p>
+
+      {%- comment -%} Dynamic price {%- endcomment -%}
+      <div class="flex items-center gap-3 flex-wrap" data-price-row>
+        <p class="text-2xl font-bold text-primary" data-price-current>{{ section.settings.default_price }}</p>
+        <p class="text-sm font-medium" data-price-discount style="color:#DC2626;">{{ section.settings.launch_offer_label }}</p>
+      </div>
+
+      {%- comment -%} Bullet benefits {%- endcomment -%}
+      <div class="space-y-1.5">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'bullet' -%}
+            <p class="text-sm text-muted-foreground" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Divider {%- endcomment -%}
+      <div class="flex items-center gap-4">
+        <div class="h-px flex-1" style="background:var(--color-border);"></div>
+        <span class="text-sm font-bold">{{ section.settings.bundle_section_title }}</span>
+        <div class="h-px flex-1" style="background:var(--color-border);"></div>
+      </div>
+
+      {%- comment -%} Countdown timer {%- endcomment -%}
+      {%- if section.settings.show_countdown -%}
+        <div class="w-full rounded-lg text-center" style="background: color-mix(in srgb, var(--color-primary) 10%, transparent); padding: 0.6rem 0.75rem;" data-countdown>
+          <span class="font-semibold" style="color: var(--color-primary); font-size: 0.85rem; line-height: 1.25;" data-countdown-text>
+            {{ section.settings.countdown_label_default }}
+          </span>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Bundle cards {%- endcomment -%}
+      {%- liquid
+        assign default_idx = section.settings.default_bundle_index | default: 2
+        assign bundle_counter = 0
+      -%}
+      <div class="space-y-3" data-bundles>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'bundle' -%}
+            {%- liquid
+              assign bundle_counter = bundle_counter | plus: 1
+              assign is_default = false
+              if bundle_counter == default_idx
+                assign is_default = true
+              endif
+            -%}
+            <div>
+              <button
+                type="button"
+                class="bundle-card"
+                aria-pressed="{% if is_default %}true{% else %}false{% endif %}"
+                data-bundle
+                data-bundle-id="{{ block.id }}"
+                data-bundle-variant="{{ block.settings.variant_id }}"
+                data-bundle-quantity="{{ block.settings.quantity }}"
+                data-bundle-price="{{ block.settings.price | divided_by: 100.0 }}"
+                data-bundle-original="{{ block.settings.original_price | divided_by: 100.0 }}"
+                data-bundle-title="{{ block.settings.label | escape }}"
+                data-bundle-image="{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 200 }}{% endif %}"
+                {{ block.shopify_attributes }}>
+
+                {%- if block.settings.badge == 'popular' -%}
+                  <span class="bundle-badge bundle-badge--popular">{{ block.settings.badge_text | default: 'Choix populaire' }}</span>
+                {%- elsif block.settings.badge == 'best' -%}
+                  <span class="bundle-badge bundle-badge--best">{{ block.settings.badge_text | default: 'Meilleur prix' }}</span>
+                {%- endif -%}
+
+                <div class="bundle-row">
+                  <div class="bundle-info">
+                    <div class="bundle-radio"></div>
+                    <div class="bundle-label-group">
+                      <div class="bundle-label-line">
+                        <span class="font-semibold">{{ block.settings.label }}</span>
+                        {%- if block.settings.save_amount > 0 -%}
+                          <span class="bundle-save text-xs font-semibold text-primary">-{{ block.settings.save_amount | money_without_currency }}</span>
+                        {%- endif -%}
+                      </div>
+                      <p class="text-xs text-muted-foreground">{{ block.settings.description }}</p>
+                    </div>
+                  </div>
+                  <div class="bundle-price">
+                    <span class="font-bold text-lg">{{ block.settings.price | money_without_currency }}</span>
+                    {%- if block.settings.original_price > block.settings.price -%}
+                      <p class="text-xs line-through text-muted-foreground">{{ block.settings.original_price | money_without_currency }}</p>
+                    {%- endif -%}
+                  </div>
+                </div>
+
+                {%- comment -%} Upsells {%- endcomment -%}
+                <div class="bundle-upsells">
+                  {%- for upsell in section.blocks -%}
+                    {%- if upsell.type == 'upsell' -%}
+                      <label class="flex items-center justify-between cursor-pointer" style="padding: 0.25rem 0;" onclick="event.stopPropagation();" {{ upsell.shopify_attributes }}>
+                        <div class="flex items-center gap-2">
+                          <input type="checkbox" data-upsell data-upsell-id="{{ upsell.id }}" data-upsell-variant="{{ upsell.settings.variant_id }}" data-upsell-price="{{ upsell.settings.price | divided_by: 100.0 }}" data-upsell-title="{{ upsell.settings.label | escape }}" style="width: 1rem; height: 1rem; accent-color: var(--color-primary);">
+                          <span style="font-size: 0.95rem;">{{ upsell.settings.icon }}</span>
+                          <span class="text-sm">+ {{ upsell.settings.label }}</span>
+                        </div>
+                        <span class="text-sm font-medium">{{ upsell.settings.price | money_without_currency }}</span>
+                      </label>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </button>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Add to cart {%- endcomment -%}
+      <button type="button" class="btn btn-block btn-lg" data-add-to-cart>
+        {{ section.settings.cta_label | default: 'Commander maintenant' }}
+      </button>
+
+      {%- comment -%} Trust badges {%- endcomment -%}
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <span class="trust-icon">🔒</span>
+          <span class="trust-label">Paiement<br>securise</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">🚚</span>
+          <span class="trust-label">Livraison<br>gratuite</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon">🔄</span>
+          <span class="trust-label">30j satisfait<br>ou rembourse</span>
+        </div>
+        <div class="trust-badge">
+          <span class="trust-icon" style="color: var(--color-primary);">★</span>
+          <span class="trust-label">4,7/5<br>1 046 avis</span>
+        </div>
+      </div>
+
+      {%- comment -%} Payment icons {%- endcomment -%}
+      <div class="pt-1">{% render 'payment-icons' %}</div>
+
+      {%- comment -%} Shipping reassurance {%- endcomment -%}
+      {%- if section.settings.show_delivery_timeline -%}
+        <div class="flex items-center justify-center gap-6 flex-wrap text-center" style="padding: 0.85rem 0;">
+          <div class="flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--color-primary);"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>
+            <span class="text-xs font-semibold">Expedition sous 48h</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--color-primary);"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5"/><path d="M14 17h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            <span class="text-xs font-semibold">Suivi par email inclus</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Featured review {%- endcomment -%}
+      {%- if section.settings.show_featured_review -%}
+        <div class="flex items-start gap-3 rounded-xl border p-4" style="border-color: var(--color-border);">
+          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">{{ section.settings.review_initials }}</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-semibold">{{ section.settings.review_author }}</span>
+              <span class="text-xs star-rating" aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="text-xs text-muted-foreground mt-1">{{ section.settings.review_text }}</p>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} Collapsible info blocks {%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'collapsible' -%}
+          <details class="faq-item" {{ block.shopify_attributes }} style="border-top: 1px solid var(--color-border); border-bottom: 0;">
+            <summary class="flex items-center justify-between" style="padding: 0.75rem 0;">
+              <span class="flex items-center gap-2">
+                <span>{{ block.settings.emoji }}</span>
+                <span class="text-sm font-bold">{{ block.settings.title }}</span>
+              </span>
+            </summary>
+            <div class="text-sm text-muted-foreground" style="padding: 0 0 0.75rem;">
+              {{ block.settings.content }}
+            </div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- comment -%} Urgency line {%- endcomment -%}
+      {%- if section.settings.urgency_text != blank -%}
+        <p class="text-xs italic text-muted-foreground text-center">{{ section.settings.urgency_text }}</p>
+      {%- endif -%}
+
+      {%- comment -%} CE Disclaimer {%- endcomment -%}
+      <div style="background: var(--color-muted); padding: 0.75rem 1rem; border-radius: var(--radius); margin-top: 0.5rem;">
+        <p class="text-xs text-muted-foreground" style="line-height: 1.5;">Nakree est un accessoire electronique cosmetique conforme a la norme CE. Ce n'est pas un dispositif medical. L'efficacite depend du gel ou dentifrice blanchissant utilise conjointement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const section = document.currentScript.closest('section') || document.getElementById('product');
+  if (!section) return;
+
+  // Gallery
+  const slides = section.querySelectorAll('[data-gallery-slide]');
+  const thumbs = section.querySelectorAll('[data-gallery-thumb]');
+
+  function showSlide(idx) {
+    slides.forEach(s => s.style.display = (s.dataset.gallerySlide === String(idx)) ? '' : 'none');
+    thumbs.forEach(tb => {
+      const active = tb.dataset.galleryThumb === String(idx);
+      tb.classList.toggle('is-active', active);
+      tb.style.borderColor = active ? 'var(--color-primary)' : 'transparent';
+    });
+  }
+
+  thumbs.forEach(t => t.addEventListener('click', () => {
+    showSlide(parseInt(t.dataset.galleryThumb, 10));
+  }));
+
+  if (slides[0]) slides[0].style.display = '';
+
+  // Bundle selection + price update
+  const bundles = section.querySelectorAll('[data-bundle]');
+  const priceCurrent = section.querySelector('[data-price-current]');
+
+  function selectBundle(card) {
+    bundles.forEach(b => b.setAttribute('aria-pressed', 'false'));
+    card.setAttribute('aria-pressed', 'true');
+    const p = parseFloat(card.dataset.bundlePrice);
+    if (priceCurrent) priceCurrent.textContent = p.toFixed(2).replace('.', ',') + ' €';
+  }
+  bundles.forEach(b => b.addEventListener('click', (e) => {
+    if (e.target.closest('[data-upsell]')) return;
+    selectBundle(b);
+  }));
+
+  // Countdown
+  const countdownText = section.querySelector('[data-countdown-text]');
+  if (countdownText) {
+    const KEY = 'nakree-countdown-end';
+    const INITIAL = 60 * 60 * 1000;
+    const EXTENSION = 60 * 60 * 1000;
+    let stored = 0, extended = false;
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) { const p = JSON.parse(raw); stored = p.end || 0; extended = !!p.extended; }
+    } catch (e) {}
+    let endTime = stored;
+    if (!endTime || endTime < Date.now() - 86400000) {
+      endTime = Date.now() + INITIAL;
+      extended = false;
+      try { localStorage.setItem(KEY, JSON.stringify({ end: endTime, extended })); } catch (e) {}
+    }
+    const pad = n => String(n).padStart(2, '0');
+    const tick = () => {
+      const remaining = Math.max(0, endTime - Date.now());
+      if (remaining === 0) {
+        endTime = Date.now() + EXTENSION;
+        extended = true;
+        try { localStorage.setItem(KEY, JSON.stringify({ end: endTime, extended })); } catch (e) {}
+      }
+      const m = Math.floor(remaining / 60000);
+      const s = Math.floor((remaining % 60000) / 1000);
+      const prefix = extended ? 'Offre prolongee' : 'Offre flash';
+      countdownText.textContent = prefix + ' — se termine dans ' + pad(m) + ':' + pad(s);
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // Add to cart
+  const atc = section.querySelector('[data-add-to-cart]');
+  if (atc) {
+    atc.addEventListener('click', () => {
+      const selected = section.querySelector('[data-bundle][aria-pressed="true"]') || bundles[0];
+      if (!selected) return;
+      const variantId = selected.dataset.bundleVariant;
+      const qty = parseInt(selected.dataset.bundleQuantity || '1', 10);
+      const totalPrice = parseFloat(selected.dataset.bundlePrice);
+      const unitPrice = +(totalPrice / qty).toFixed(2);
+      const items = [{
+        id: 'main-product',
+        variantId: variantId,
+        title: selected.dataset.bundleTitle || 'Produit',
+        price: unitPrice,
+        quantity: qty,
+        image: selected.dataset.bundleImage || ''
+      }];
+      const upsells = section.querySelectorAll('[data-upsell]:checked');
+      upsells.forEach(u => {
+        items.push({
+          id: u.dataset.upsellId,
+          variantId: u.dataset.upsellVariant,
+          title: u.dataset.upsellTitle,
+          price: parseFloat(u.dataset.upsellPrice),
+          quantity: 1
+        });
+      });
+      if (window.NakreeCart) {
+        window.NakreeCart.openWith(items);
+      }
+      if (window.fbq) {
+        const cartValue = items.reduce((s, i) => s + i.price * i.quantity, 0);
+        window.fbq('track', 'AddToCart', {
+          value: +cartValue.toFixed(2),
+          currency: 'EUR',
+          content_ids: items.map(i => i.variantId),
+          content_type: 'product',
+          num_items: items.reduce((s, i) => s + i.quantity, 0)
+        });
+      }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Hero Produit",
+  "tag": "section",
+  "class": "product-hero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Galerie d'images"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_1",
+      "label": "Image produit principale"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_1",
+      "label": "Image galerie 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_2",
+      "label": "Image galerie 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "gallery_image_3",
+      "label": "Image galerie 3"
+    },
+    {
+      "type": "header",
+      "content": "Badge & Titre"
+    },
+    {
+      "type": "text",
+      "id": "hero_badge",
+      "label": "Badge au-dessus du titre",
+      "default": "x3 plus efficace avec votre gel"
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Titre produit",
+      "default": "Des dents visiblement plus blanches en 7 jours"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_strong",
+      "label": "Sous-titre (partie en gras)",
+      "default": "Accelerateur LED Nakree"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre (suite)",
+      "default": " — l'appareil professionnel qui multiplie l'efficacite de votre gel blanchissant."
+    },
+    {
+      "type": "text",
+      "id": "default_price",
+      "label": "Prix affiche par defaut",
+      "default": "19,95 EUR"
+    },
+    {
+      "type": "text",
+      "id": "launch_offer_label",
+      "label": "Label promo",
+      "default": "Offre flash — prix special"
+    },
+    {
+      "type": "header",
+      "content": "Selection de pack"
+    },
+    {
+      "type": "text",
+      "id": "bundle_section_title",
+      "label": "Titre du selecteur",
+      "default": "Choisissez votre pack"
+    },
+    {
+      "type": "range",
+      "id": "default_bundle_index",
+      "label": "Bundle selectionne par defaut",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Countdown"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "label": "Afficher le countdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "countdown_label_default",
+      "label": "Texte par defaut",
+      "default": "Offre flash — se termine bientot"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Libelle du bouton",
+      "default": "Commander maintenant"
+    },
+    {
+      "type": "header",
+      "content": "Livraison"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_delivery_timeline",
+      "label": "Afficher la timeline de livraison",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Mini-review featured"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_review",
+      "label": "Afficher la mini-review",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "review_initials",
+      "label": "Initiales (avatar)",
+      "default": "CR"
+    },
+    {
+      "type": "text",
+      "id": "review_author",
+      "label": "Auteur",
+      "default": "Camille R., 28 ans — Lyon"
+    },
+    {
+      "type": "textarea",
+      "id": "review_text",
+      "label": "Texte de l'avis",
+      "default": "Facile a utiliser. Resultats visibles au bout de quelques seances avec mon gel habituel."
+    },
+    {
+      "type": "header",
+      "content": "Urgence"
+    },
+    {
+      "type": "text",
+      "id": "urgency_text",
+      "label": "Texte d'urgence",
+      "default": "217 personnes ont commande Nakree dans les dernieres 24h"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet benefice",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte du bullet",
+          "default": "16 LEDs bleues professionnelles"
+        }
+      ]
+    },
+    {
+      "type": "bundle",
+      "name": "Bundle",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Nom du pack", "default": "Pack Solo" },
+        { "type": "text", "id": "description", "label": "Description courte", "default": "1 Accelerateur Nakree" },
+        { "type": "text", "id": "variant_id", "label": "Shopify Variant ID", "default": "" },
+        { "type": "number", "id": "quantity", "label": "Quantite", "default": 1 },
+        { "type": "number", "id": "price", "label": "Prix total (centimes)", "default": 1995, "info": "En centimes (1995 = 19,95 EUR)" },
+        { "type": "number", "id": "original_price", "label": "Prix barre (centimes)", "default": 0, "info": "En centimes" },
+        { "type": "number", "id": "save_amount", "label": "Economies affichees (centimes)", "default": 0 },
+        {
+          "type": "select",
+          "id": "badge",
+          "label": "Badge",
+          "options": [
+            { "value": "none", "label": "Aucun" },
+            { "value": "popular", "label": "Choix populaire" },
+            { "value": "best", "label": "Meilleur prix" }
+          ],
+          "default": "none"
+        },
+        { "type": "text", "id": "badge_text", "label": "Texte du badge (override)" },
+        { "type": "image_picker", "id": "image", "label": "Image (pour le panier)" }
+      ]
+    },
+    {
+      "type": "upsell",
+      "name": "Add-on / Upsell",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Nom", "default": "Assurance colis" },
+        { "type": "text", "id": "icon", "label": "Emoji icone", "default": "📦" },
+        { "type": "text", "id": "variant_id", "label": "Shopify Variant ID", "default": "" },
+        { "type": "number", "id": "price", "label": "Prix (centimes)", "default": 495, "info": "En centimes (495 = 4,95 EUR)" }
+      ]
+    },
+    {
+      "type": "collapsible",
+      "name": "Section depliante",
+      "settings": [
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🔄" },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Garantie satisfait ou rembourse 30 jours" },
+        { "type": "richtext", "id": "content", "label": "Contenu", "default": "<p>Si vous n'etes pas satisfait dans les 30 jours, nous vous remboursons integralement. Sans condition.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Produit"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,76 @@
+<section class="page-content py-16">
+  <div class="container" style="max-width: 800px;">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <div class="page-body rte">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--color-fg);
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .page-title { font-size: 2.5rem; }
+  }
+
+  .page-body.rte {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-fg);
+  }
+  .page-body.rte h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-fg);
+  }
+  .page-body.rte h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .page-body.rte p {
+    margin-bottom: 1rem;
+  }
+  .page-body.rte ul,
+  .page-body.rte ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+  }
+  .page-body.rte ol {
+    list-style: decimal;
+  }
+  .page-body.rte li {
+    margin-bottom: 0.5rem;
+  }
+  .page-body.rte a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .page-body.rte a:hover {
+    opacity: 0.8;
+  }
+  .page-body.rte strong {
+    font-weight: 600;
+  }
+  .page-body.rte img {
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+  }
+  .page-body.rte blockquote {
+    border-left: 3px solid var(--color-primary);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--color-muted-fg);
+  }
+</style>

@@ -1,0 +1,47 @@
+{%- comment -%}
+  Announcement bar / Ticker — scrolling messages
+{%- endcomment -%}
+
+<div class="bg-ticker overflow-hidden" style="padding: 0.875rem 0; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em;">
+  <div class="animate-ticker flex w-max" style="gap: 3rem;">
+    {%- for block in section.blocks -%}
+      <span class="whitespace-nowrap">{{ block.settings.text }}</span>
+    {%- endfor -%}
+    {%- comment -%} Duplicate for seamless scroll {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      <span class="whitespace-nowrap" aria-hidden="true">{{ block.settings.text }}</span>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Barre d'annonce",
+  "tag": "div",
+  "class": "announcement-bar-section",
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Livraison offerte en France"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barre d'annonce"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  }
+}
+{% endschema %}

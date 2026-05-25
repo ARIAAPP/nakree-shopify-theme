@@ -1,0 +1,129 @@
+<header class="sticky top-0 z-50 border-b bg-background" style="border-color: var(--color-border);">
+  <div class="container flex h-16 items-center justify-between">
+    {%- comment -%} Left: nav (desktop) + burger (mobile) {%- endcomment -%}
+    <div class="flex items-center gap-6">
+      <button type="button" class="lg:hidden" aria-label="{{ 'general.accessibility.menu' | t }}" data-mobile-menu-toggle>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'link' -%}
+            {%- if block.settings.open_new_tab -%}
+              <a href="{{ block.settings.url }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">{{ block.settings.label }}</a>
+            {%- else -%}
+              <a href="{{ block.settings.url }}" class="hover:text-primary transition-colors">{{ block.settings.label }}</a>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
+    </div>
+
+    {%- comment -%} Center: logo {%- endcomment -%}
+    <a href="{{ routes.root_url }}" class="brand-logo" aria-label="{{ shop.name }}" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-decoration:none; white-space:nowrap;">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: settings.logo_max_width | image_tag: alt: shop.name, loading: 'eager', width: settings.logo_max_width, height: settings.logo_max_width, style: 'max-width:' | append: settings.logo_max_width | append: 'px;' }}
+      {%- else -%}
+        {%- assign txt = settings.brand_text -%}
+        {%- assign hl = settings.brand_text_highlight -%}
+        {%- if hl != blank and txt contains hl -%}
+          {%- assign parts = txt | split: hl -%}
+          <span>{{ parts[0] }}<span class="highlight">{{ hl }}</span>{{ parts[1] }}</span>
+        {%- else -%}
+          <span>{{ txt }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </a>
+
+    {%- comment -%} Right: actions {%- endcomment -%}
+    <div class="flex items-center gap-4">
+      <button type="button" aria-label="{{ 'general.accessibility.cart' | t }}" class="relative" data-cart-toggle>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+          <path d="M3 6h18"></path>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-count-badge" data-cart-count style="position:absolute; top:-6px; right:-6px; background:var(--color-primary); color:#fff; font-size:10px; font-weight:700; min-width:16px; height:16px; padding:0 4px; border-radius:8px; display:none; align-items:center; justify-content:center;">0</span>
+      </button>
+      <a href="#product" class="header-cta-desktop hidden lg:inline-flex" style="background:transparent; color:var(--color-primary); border:1.5px solid var(--color-primary); padding:0.45rem 1.15rem; border-radius:9999px; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.025em; transition:background 0.15s, color 0.15s; text-decoration:none;" onmouseover="this.style.background='var(--color-primary)';this.style.color='var(--color-primary-fg)';" onmouseout="this.style.background='transparent';this.style.color='var(--color-primary)';">Commander</a>
+    </div>
+  </div>
+
+  {%- comment -%} Mobile menu (hidden by default) {%- endcomment -%}
+  <nav class="lg:hidden border-t" data-mobile-menu hidden style="border-color: var(--color-border); background:var(--color-bg); padding: 1rem 1.5rem; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; font-weight: 500; display:none;">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'link' -%}
+        <a href="{{ block.settings.url }}" {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %} style="display:block; padding: 0.5rem 0;">{{ block.settings.label }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+  </nav>
+</header>
+
+<script>
+  (function() {
+    const toggle = document.querySelector('[data-mobile-menu-toggle]');
+    const menu = document.querySelector('[data-mobile-menu]');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.style.display === 'flex';
+        menu.style.display = isOpen ? 'none' : 'flex';
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "En-tete",
+  "tag": "div",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "account_url",
+      "label": "URL du compte / suivi commande",
+      "default": "/account"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Lien de navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Libelle",
+          "default": "Accueil"
+        },
+        {
+          "type": "text",
+          "id": "url",
+          "label": "URL",
+          "default": "/"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Ouvrir dans un nouvel onglet",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "En-tete"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  }
+}
+{% endschema %}
