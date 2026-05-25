@@ -5,9 +5,9 @@
 
 <div id="PromoBanner" class="promo-banner" style="display:none;" role="banner" aria-label="Promotion Nakree">
   <div class="promo-banner__inner">
-    <span class="promo-banner__emoji">&#x1F381;</span>
+    <span class="promo-banner__emoji">&#x1F525;</span>
     <span class="promo-banner__text">
-      Offre de lancement : <strong>-10%</strong> avec le code
+      OFFRE FLASH &bull; <strong>-10%</strong> avec le code
     </span>
     <button type="button" class="promo-banner__code" onclick="navigator.clipboard.writeText('NAKREE10');this.textContent='Copie !';setTimeout(function(){document.querySelector('.promo-banner__code').textContent='NAKREE10';},1500);" title="Cliquer pour copier">NAKREE10</button>
     <span class="promo-banner__sep">&bull;</span>
@@ -113,7 +113,7 @@
     var h = Math.floor(diff / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
-    timerEl.textContent = 'Expire dans ' + h + 'h ' + (m < 10 ? '0' : '') + m + 'm ' + (s < 10 ? '0' : '') + s + 's';
+    timerEl.textContent = 'Termine dans ' + (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
     requestAnimationFrame(function() { setTimeout(tick, 1000); });
   }
   tick();

@@ -1,15 +1,14 @@
 {%- comment -%}
-  Announcement bar / Ticker — scrolling messages
+  Announcement bar — black static bar (Lovable-style)
 {%- endcomment -%}
 
-<div class="bg-ticker overflow-hidden" style="padding: 0.875rem 0; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em;">
-  <div class="animate-ticker flex w-max" style="gap: 3rem;">
+<div class="announcement-bar-static" style="background:#1a1a1a; color:#fff; font-size:0.8rem; font-weight:500; letter-spacing:0.02em; padding:0.6rem 1rem;">
+  <div style="max-width:var(--container-max,1400px); margin:0 auto; display:flex; align-items:center; justify-content:center; gap:0.5rem; flex-wrap:wrap;">
     {%- for block in section.blocks -%}
+      {%- unless forloop.first -%}
+        <span style="opacity:0.4; font-size:0.5rem;">&bull;</span>
+      {%- endunless -%}
       <span class="whitespace-nowrap">{{ block.settings.text }}</span>
-    {%- endfor -%}
-    {%- comment -%} Duplicate for seamless scroll {%- endcomment -%}
-    {%- for block in section.blocks -%}
-      <span class="whitespace-nowrap" aria-hidden="true">{{ block.settings.text }}</span>
     {%- endfor -%}
   </div>
 </div>
@@ -28,7 +27,7 @@
           "type": "text",
           "id": "text",
           "label": "Texte",
-          "default": "Livraison offerte en France"
+          "default": "Livraison offerte"
         }
       ]
     }

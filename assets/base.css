@@ -867,11 +867,12 @@ input[type="email"]:focus, input[type="text"]:focus, textarea:focus {
    Misc
    ============================================ */
 .brand-logo {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
-.brand-logo .highlight { color: var(--color-primary); }
+.brand-logo .highlight { color: var(--color-primary); font-weight: 400; }
 
 [hidden] { display: none !important; }
 

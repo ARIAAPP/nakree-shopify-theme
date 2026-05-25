@@ -3,7 +3,7 @@
     "product_hero": {
       "type": "product-hero",
       "settings": {
-        "product_title": "Accelerateur LED de blanchiment dentaire Nakrée",
+        "product_title": "Des dents visiblement plus blanches en 7 jours",
         "default_price": "19,95",
         "launch_offer_label": "Offre de lancement — prix special",
         "default_bundle_index": 2,
@@ -20,12 +20,12 @@
         "cta_label": "Commander maintenant"
       },
       "blocks": {
-        "bullet_1": { "type": "bullet", "settings": { "text": "16 LEDs bleues professionnelles" } },
-        "bullet_2": { "type": "bullet", "settings": { "text": "Compatible avec tous les gels blanchissants" } },
-        "bullet_3": { "type": "bullet", "settings": { "text": "Sans fil USB — utilisez partout" } },
-        "bullet_4": { "type": "bullet", "settings": { "text": "Resultats visibles en 7 jours" } },
-        "bundle_1": { "type": "bundle", "settings": { "label": "1 kit Solo", "description": "Pour une personne", "variant_id": "58068750565701", "quantity": 1, "price": 1995, "original_price": 4990, "save_amount": 0, "badge": "none" } },
-        "bundle_2": { "type": "bundle", "settings": { "label": "2 kits Duo", "description": "Pour vous et votre partenaire. Economisez.", "variant_id": "58068750565701", "quantity": 2, "price": 3495, "original_price": 9980, "save_amount": 495, "badge": "popular", "badge_text": "Choix populaire" } },
+        "bullet_1": { "type": "bullet", "settings": { "text": "💡 16 LEDs bleues professionnelles" } },
+        "bullet_2": { "type": "bullet", "settings": { "text": "🔋 Sans fil — Batterie USB rechargeable" } },
+        "bullet_3": { "type": "bullet", "settings": { "text": "⏱️ 16 minutes par jour, sans douleur" } },
+        "bullet_4": { "type": "bullet", "settings": { "text": "🌍 Compatible avec tous les gels du marché" } },
+        "bundle_1": { "type": "bundle", "settings": { "label": "Pack Solo", "description": "1 Accélérateur Nakree", "variant_id": "58068750565701", "quantity": 1, "price": 1995, "original_price": 4990, "save_amount": 0, "badge": "none" } },
+        "bundle_2": { "type": "bundle", "settings": { "label": "Pack Duo", "description": "2 Accélérateurs Nakree", "variant_id": "58068750565701", "quantity": 2, "price": 3495, "original_price": 9980, "save_amount": 495, "badge": "popular", "badge_text": "CHOIX POPULAIRE" } },
         "upsell_1": { "type": "upsell", "settings": { "label": "Assurance colis", "icon": "📦", "variant_id": "58068787134789", "price": 495 } },
         "upsell_2": { "type": "upsell", "settings": { "label": "Garantie 90 jours", "icon": "🛡️", "variant_id": "58068790444357", "price": 695 } },
         "upsell_3": { "type": "upsell", "settings": { "label": "Expedition prioritaire", "icon": "🚚", "variant_id": "58068796014917", "price": 595 } },

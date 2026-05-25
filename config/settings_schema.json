@@ -128,14 +128,14 @@
         "type": "text",
         "id": "brand_text",
         "label": "Nom de la marque (si pas de logo)",
-        "default": "Nakrée"
+        "default": "Nakree"
       },
       {
         "type": "text",
         "id": "brand_text_highlight",
         "label": "Mot a mettre en couleur primaire",
-        "info": "Ex: 'krée' dans 'Nakrée'",
-        "default": "krée"
+        "info": "Ex: 'kree' dans 'Nakree'",
+        "default": "kree"
       }
     ]
   },

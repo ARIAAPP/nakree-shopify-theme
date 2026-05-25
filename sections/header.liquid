@@ -1,46 +1,49 @@
 <header class="sticky top-0 z-50 border-b bg-background" style="border-color: var(--color-border);">
-  <div class="container flex h-16 items-center justify-between">
-    {%- comment -%} Left: nav (desktop) + burger (mobile) {%- endcomment -%}
-    <div class="flex items-center gap-6">
-      <button type="button" class="lg:hidden" aria-label="{{ 'general.accessibility.menu' | t }}" data-mobile-menu-toggle>
+  <div class="container flex h-16 items-center" style="position:relative;">
+    {%- comment -%} Left: logo {%- endcomment -%}
+    <div class="flex items-center" style="flex-shrink:0;">
+      <button type="button" class="lg:hidden" aria-label="{{ 'general.accessibility.menu' | t }}" data-mobile-menu-toggle style="margin-right:0.75rem;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
-
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'link' -%}
-            {%- if block.settings.open_new_tab -%}
-              <a href="{{ block.settings.url }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">{{ block.settings.label }}</a>
-            {%- else -%}
-              <a href="{{ block.settings.url }}" class="hover:text-primary transition-colors">{{ block.settings.label }}</a>
-            {%- endif -%}
+      <a href="{{ routes.root_url }}" class="brand-logo" aria-label="{{ shop.name }}" style="text-decoration:none; white-space:nowrap;">
+        {%- if settings.logo != blank -%}
+          {{ settings.logo | image_url: width: settings.logo_max_width | image_tag: alt: shop.name, loading: 'eager', width: settings.logo_max_width, height: settings.logo_max_width, style: 'max-width:' | append: settings.logo_max_width | append: 'px;' }}
+        {%- else -%}
+          {%- assign txt = settings.brand_text -%}
+          {%- assign hl = settings.brand_text_highlight -%}
+          {%- if hl != blank and txt contains hl -%}
+            {%- assign parts = txt | split: hl -%}
+            <span>{{ parts[0] }}<span class="highlight">{{ hl }}</span>{{ parts[1] }}</span>
+          {%- else -%}
+            <span>{{ txt }}</span>
           {%- endif -%}
-        {%- endfor -%}
-      </nav>
+        {%- endif -%}
+      </a>
     </div>
 
-    {%- comment -%} Center: logo {%- endcomment -%}
-    <a href="{{ routes.root_url }}" class="brand-logo" aria-label="{{ shop.name }}" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-decoration:none; white-space:nowrap;">
-      {%- if settings.logo != blank -%}
-        {{ settings.logo | image_url: width: settings.logo_max_width | image_tag: alt: shop.name, loading: 'eager', width: settings.logo_max_width, height: settings.logo_max_width, style: 'max-width:' | append: settings.logo_max_width | append: 'px;' }}
-      {%- else -%}
-        {%- assign txt = settings.brand_text -%}
-        {%- assign hl = settings.brand_text_highlight -%}
-        {%- if hl != blank and txt contains hl -%}
-          {%- assign parts = txt | split: hl -%}
-          <span>{{ parts[0] }}<span class="highlight">{{ hl }}</span>{{ parts[1] }}</span>
-        {%- else -%}
-          <span>{{ txt }}</span>
+    {%- comment -%} Center: nav (desktop) {%- endcomment -%}
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link' -%}
+          {%- if block.settings.open_new_tab -%}
+            <a href="{{ block.settings.url }}" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">{{ block.settings.label }}</a>
+          {%- else -%}
+            <a href="{{ block.settings.url }}" class="hover:text-primary transition-colors">{{ block.settings.label }}</a>
+          {%- endif -%}
         {%- endif -%}
-      {%- endif -%}
-    </a>
+      {%- endfor -%}
+    </nav>
 
-    {%- comment -%} Right: actions {%- endcomment -%}
-    <div class="flex items-center gap-4">
+    {%- comment -%} Right: icons {%- endcomment -%}
+    <div class="flex items-center gap-4" style="margin-left:auto;">
+      <span class="hidden lg:inline-flex items-center gap-1 text-sm text-muted-foreground" style="font-size:0.8rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg>
+        FR
+      </span>
       <button type="button" aria-label="{{ 'general.accessibility.cart' | t }}" class="relative" data-cart-toggle>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
@@ -49,7 +52,6 @@
         </svg>
         <span class="cart-count-badge" data-cart-count style="position:absolute; top:-6px; right:-6px; background:var(--color-primary); color:#fff; font-size:10px; font-weight:700; min-width:16px; height:16px; padding:0 4px; border-radius:8px; display:none; align-items:center; justify-content:center;">0</span>
       </button>
-      <a href="#product" class="header-cta-desktop hidden lg:inline-flex" style="background:transparent; color:var(--color-primary); border:1.5px solid var(--color-primary); padding:0.45rem 1.15rem; border-radius:9999px; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.025em; transition:background 0.15s, color 0.15s; text-decoration:none;" onmouseover="this.style.background='var(--color-primary)';this.style.color='var(--color-primary-fg)';" onmouseout="this.style.background='transparent';this.style.color='var(--color-primary)';">Commander</a>
     </div>
   </div>
 
