@@ -403,6 +403,22 @@
       }
     });
   }
+
+  /* ------------------------------------------------
+     ViewContent pixel fire
+     ------------------------------------------------ */
+  if (window.fbq) {
+    setTimeout(function() {
+      var activeCard = section.querySelector('[data-bundle][aria-pressed="true"]');
+      var vcPrice = activeCard ? parseFloat(activeCard.dataset.bundlePrice) : 0;
+      window.fbq('track', 'ViewContent', {
+        content_ids: ['kit-blanchiment-nakree'],
+        content_type: 'product',
+        value: +vcPrice.toFixed(2),
+        currency: 'EUR'
+      });
+    }, 800);
+  }
 })();
 </script>
 
