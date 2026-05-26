@@ -172,10 +172,21 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
-    {%- comment -%}
-      Meta Pixel placeholder — the Shopify Facebook & Instagram app handles pixel loading.
-      If you need a manual pixel, add it here.
-    {%- endcomment -%}
+    {%- comment -%} Meta Pixel — Nakree Pixel ID 1000416475805967 {%- endcomment -%}
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1000416475805967');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1000416475805967&ev=PageView&noscript=1" /></noscript>
 
     {%- comment -%} Microsoft Clarity {%- endcomment -%}
     {%- if settings.clarity_id != blank -%}
