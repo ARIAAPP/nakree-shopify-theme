@@ -1,0 +1,174 @@
+{%- comment -%}
+  How To Use — 5 etapes visuelles
+  Nakree — Kit Blanchiment Dentaire LED
+{%- endcomment -%}
+
+<section id="how-to-use" class="py-10 md:py-16" style="background: var(--color-muted);">
+  <div class="container">
+
+    <div class="text-center" style="margin-bottom: 2.5rem;">
+      <h2 class="text-2xl md:text-3xl font-bold">{{ section.settings.title }}</h2>
+      <p class="text-sm text-muted-foreground" style="margin-top: 0.5rem;">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="how-to-steps">
+      {%- for block in section.blocks -%}
+        <div class="how-to-step" {{ block.shopify_attributes }}>
+          <div class="how-to-step-number">
+            <span>{{ forloop.index }}</span>
+          </div>
+          <div class="how-to-step-icon">{{ block.settings.emoji }}</div>
+          <h3 class="how-to-step-title">{{ block.settings.title }}</h3>
+          <p class="how-to-step-desc">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.tip != blank -%}
+      <div class="how-to-tip">
+        <span style="font-size:1.25rem;">💡</span>
+        <p>{{ section.settings.tip }}</p>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<style>
+  .how-to-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .how-to-step {
+    text-align: center;
+    position: relative;
+    padding: 1.5rem 0.75rem;
+    background: var(--color-bg);
+    border-radius: var(--radius, 12px);
+    border: 1px solid var(--color-border);
+  }
+  .how-to-step-number {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-primary-fg, #fff);
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .how-to-step-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  .how-to-step-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    color: var(--color-fg);
+  }
+  .how-to-step-desc {
+    font-size: 0.8rem;
+    color: var(--color-muted-fg);
+    margin: 0;
+    line-height: 1.4;
+  }
+  .how-to-tip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius, 12px);
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .how-to-tip p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-fg);
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .how-to-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .how-to-step:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Mode d'emploi",
+  "tag": "section",
+  "class": "how-to-use-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Comment utiliser votre kit Nakree"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "5 etapes simples — 1 fois par jour, 10 a 16 minutes"
+    },
+    {
+      "type": "text",
+      "id": "tip",
+      "label": "Astuce en bas (optionnel)",
+      "default": "Pour des resultats optimaux, utilisez le kit chaque jour pendant 7 jours consecutifs."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Etape",
+      "settings": [
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji",
+          "default": "🪥"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Brossez vos dents"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Nettoyez vos dents normalement avant l'application."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mode d'emploi"
+    }
+  ]
+}
+{% endschema %}

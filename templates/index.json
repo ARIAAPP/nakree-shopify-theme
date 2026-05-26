@@ -67,6 +67,22 @@
       },
       "block_order": ["k1","k2","k3","k4","k5"]
     },
+    "how_to_use": {
+      "type": "how-to-use",
+      "settings": {
+        "title": "Comment utiliser votre kit Nakree",
+        "subtitle": "5 etapes simples — 1 fois par jour, 10 a 16 minutes",
+        "tip": "Pour des resultats optimaux, utilisez le kit chaque jour pendant 7 jours consecutifs."
+      },
+      "blocks": {
+        "s1": { "type": "step", "settings": { "emoji": "🪥", "title": "Brossez vos dents", "description": "Nettoyez vos dents normalement avant l'application." } },
+        "s2": { "type": "step", "settings": { "emoji": "🧴", "title": "Appliquez le gel", "description": "Tournez le tube et appliquez le gel sur la gouttiere." } },
+        "s3": { "type": "step", "settings": { "emoji": "🦷", "title": "Placez la gouttiere", "description": "Inserez la gouttiere sur vos dents, gel face a l'email." } },
+        "s4": { "type": "step", "settings": { "emoji": "💡", "title": "Activez le LED", "description": "Appuyez sur le bouton. Laissez agir 10 a 16 minutes." } },
+        "s5": { "type": "step", "settings": { "emoji": "✨", "title": "Rincez et admirez", "description": "Rincez a l'eau claire. Resultat visible des la 1ere semaine." } }
+      },
+      "block_order": ["s1","s2","s3","s4","s5"]
+    },
     "facebook_community": {
       "type": "facebook-community",
       "settings": { "title": "Ils ont teste Nakrée et adorent" },
@@ -170,5 +186,5 @@
       "block_order": ["q1","q2","q3","q4","q5","q6","q7","q8","q9","q10"]
     }
   },
-  "order": ["product_hero","before_after","kit_contents","facebook_community","comparison","why","reviews","story","disclaimer","faq"]
+  "order": ["product_hero","before_after","kit_contents","how_to_use","facebook_community","comparison","why","reviews","story","disclaimer","faq"]
 }
