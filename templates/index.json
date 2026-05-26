@@ -4,8 +4,10 @@
       "type": "product-hero",
       "settings": {
         "product_title": "Des dents visiblement plus blanches en 7 jours",
-        "default_price": "19,95",
-        "launch_offer_label": "Offre de lancement — prix special",
+        "subtitle_strong": "Kit complet LED + Gels Nakree",
+        "subtitle": " — tout inclus pour un sourire eclatant, pret a l'emploi.",
+        "default_price": "24,95 EUR",
+        "launch_offer_label": "Offre flash — prix special",
         "default_bundle_index": 2,
         "show_countdown": true,
         "show_delivery_timeline": true,
@@ -21,11 +23,12 @@
       },
       "blocks": {
         "bullet_1": { "type": "bullet", "settings": { "text": "💡 16 LEDs bleues professionnelles" } },
-        "bullet_2": { "type": "bullet", "settings": { "text": "🔋 Sans fil — Batterie USB rechargeable" } },
-        "bullet_3": { "type": "bullet", "settings": { "text": "⏱️ 16 minutes par jour, sans douleur" } },
-        "bullet_4": { "type": "bullet", "settings": { "text": "🌍 Compatible avec tous les gels du marché" } },
-        "bundle_1": { "type": "bundle", "settings": { "label": "Pack Solo", "description": "1 Accélérateur Nakree", "variant_id": "58068750565701", "quantity": 1, "price": 1995, "original_price": 4990, "save_amount": 0, "badge": "none" } },
-        "bundle_2": { "type": "bundle", "settings": { "label": "Pack Duo", "description": "2 Accélérateurs Nakree", "variant_id": "58068750565701", "quantity": 2, "price": 3495, "original_price": 9980, "save_amount": 495, "badge": "popular", "badge_text": "CHOIX POPULAIRE" } },
+        "bullet_2": { "type": "bullet", "settings": { "text": "🧴 4 gels blanchissants inclus (Acide Phytique 6%)" } },
+        "bullet_3": { "type": "bullet", "settings": { "text": "🔋 Sans fil — Batterie USB rechargeable" } },
+        "bullet_4": { "type": "bullet", "settings": { "text": "⏱️ 16 minutes par jour, sans douleur" } },
+        "bundle_1": { "type": "bundle", "settings": { "label": "Pack Solo", "description": "1 LED + 4 gels blanchissants 3ml", "variant_id": "58068750565701", "quantity": 1, "price": 2495, "original_price": 4990, "save_amount": 0, "badge": "none" } },
+        "bundle_2": { "type": "bundle", "settings": { "label": "Pack Duo", "description": "2 LED + 8 gels blanchissants 3ml", "variant_id": "58068750565701", "quantity": 2, "price": 3995, "original_price": 9980, "save_amount": 995, "badge": "popular", "badge_text": "POPULAIRE" } },
+        "bundle_3": { "type": "bundle", "settings": { "label": "Pack Trio Famille", "description": "3 LED + 12 gels blanchissants 3ml", "variant_id": "58068750565701", "quantity": 3, "price": 5495, "original_price": 14970, "save_amount": 1990, "badge": "best", "badge_text": "MEILLEUR PRIX" } },
         "upsell_1": { "type": "upsell", "settings": { "label": "Assurance colis", "icon": "📦", "variant_id": "58068787134789", "price": 495 } },
         "upsell_2": { "type": "upsell", "settings": { "label": "Garantie 90 jours", "icon": "🛡️", "variant_id": "58068790444357", "price": 695 } },
         "upsell_3": { "type": "upsell", "settings": { "label": "Expedition prioritaire", "icon": "🚚", "variant_id": "58068796014917", "price": 595 } },
@@ -33,7 +36,7 @@
         "collap_2": { "type": "collapsible", "settings": { "emoji": "🚚", "title": "Livraison gratuite en France", "content": "<p>Livraison gratuite en France metropolitaine. Comptez 5 a 7 jours ouvres. Suivi par email inclus.</p>" } },
         "collap_3": { "type": "collapsible", "settings": { "emoji": "🦷", "title": "Conforme CE — Accessoire cosmetique", "content": "<p>Nakrée est un accessoire cosmetique conforme aux normes CE. Il est destine a accelerer l'action des gels blanchissants du commerce. Ce n'est pas un dispositif medical.</p>" } }
       },
-      "block_order": ["bullet_1","bullet_2","bullet_3","bullet_4","bundle_1","bundle_2","upsell_1","upsell_2","upsell_3","collap_1","collap_2","collap_3"]
+      "block_order": ["bullet_1","bullet_2","bullet_3","bullet_4","bundle_1","bundle_2","bundle_3","upsell_1","upsell_2","upsell_3","collap_1","collap_2","collap_3"]
     },
     "before_after": {
       "type": "before-after",
@@ -52,16 +55,17 @@
     "kit_contents": {
       "type": "kit-contents",
       "settings": {
-        "title": "Ce que contient votre kit Nakrée",
-        "subtitle": "Tout ce qu'il vous faut pour un sourire eclatant"
+        "title": "Ce que contient votre kit Nakree",
+        "subtitle": "Tout inclus — pret a l'emploi des la reception"
       },
       "blocks": {
-        "k1": { "type": "item", "settings": { "title": "Accelerateur LED Nakrée", "description": "16 LEDs bleues professionnelles, lumiere froide sans chaleur" } },
-        "k2": { "type": "item", "settings": { "title": "Gouttiere universelle", "description": "S'adapte a toutes les dentitions, silicone medical confortable" } },
-        "k3": { "type": "item", "settings": { "title": "Cable USB de recharge", "description": "Rechargez depuis n'importe quel port USB, batterie longue duree" } },
-        "k4": { "type": "item", "settings": { "title": "Guide d'utilisation", "description": "Instructions claires etape par etape pour des resultats optimaux" } }
+        "k1": { "type": "item", "settings": { "title": "Accelerateur LED Nakree", "description": "16 LEDs bleues professionnelles, lumiere froide sans chaleur" } },
+        "k2": { "type": "item", "settings": { "title": "4 gels blanchissants 3ml", "description": "Formule a l'Acide Phytique 6%, sans peroxyde, doux pour l'email" } },
+        "k3": { "type": "item", "settings": { "title": "Gouttiere universelle", "description": "S'adapte a toutes les dentitions, silicone medical confortable" } },
+        "k4": { "type": "item", "settings": { "title": "Cable USB de recharge", "description": "Rechargez depuis n'importe quel port USB, batterie longue duree" } },
+        "k5": { "type": "item", "settings": { "title": "Guide d'utilisation", "description": "Instructions claires etape par etape pour des resultats optimaux" } }
       },
-      "block_order": ["k1","k2","k3","k4"]
+      "block_order": ["k1","k2","k3","k4","k5"]
     },
     "facebook_community": {
       "type": "facebook-community",
@@ -154,9 +158,9 @@
       "blocks": {
         "q1": { "type": "faq", "settings": { "emoji": "📦", "question": "Quand vais-je recevoir ma commande ?", "answer": "<p>Votre commande est expediee sous 48h. Vous la recevrez en 5 a 7 jours ouvres en France metropolitaine. Livraison gratuite, suivi par email inclus.</p>" } },
         "q2": { "type": "faq", "settings": { "emoji": "🛡️", "question": "Y a-t-il une garantie satisfait ou rembourse ?", "answer": "<p>Oui. Chaque kit Nakrée est livre avec une garantie satisfait ou rembourse de 30 jours. Si vous n'etes pas convaincu, nous vous remboursons integralement, sans condition.</p>" } },
-        "q3": { "type": "faq", "settings": { "emoji": "🦷", "question": "Comment ca marche exactement ?", "answer": "<p>Appliquez votre gel blanchissant sur la gouttiere, placez l'accelerateur LED sur vos dents et laissez agir 10 minutes. La lumiere bleue accelere le processus de blanchiment du gel. C'est tout !</p>" } },
+        "q3": { "type": "faq", "settings": { "emoji": "🦷", "question": "Comment ca marche exactement ?", "answer": "<p>Appliquez le gel blanchissant inclus sur la gouttiere, placez l'accelerateur LED sur vos dents et laissez agir 10 a 16 minutes. La lumiere bleue accelere le processus de blanchiment. C'est tout !</p>" } },
         "q4": { "type": "faq", "settings": { "emoji": "💡", "question": "Est-ce que ca fait mal ?", "answer": "<p>Non. L'accelerateur LED Nakrée utilise une lumiere froide, sans chaleur ni UV. Le processus est totalement indolore. En cas de sensibilite dentaire prealable, consultez votre dentiste.</p>" } },
-        "q5": { "type": "faq", "settings": { "emoji": "🔄", "question": "Est-ce compatible avec tous les gels ?", "answer": "<p>Oui, l'accelerateur Nakrée est compatible avec tous les gels blanchissants du commerce a base de peroxyde de carbamide ou de peroxyde d'hydrogene (en concentration autorisee en France).</p>" } },
+        "q5": { "type": "faq", "settings": { "emoji": "🧴", "question": "Pourquoi des gels sont inclus dans le kit ?", "answer": "<p>Chaque kit Nakree inclut 4 gels blanchissants de 3ml a base d'Acide Phytique 6%, sans peroxyde, doux pour l'email. Ils sont formules pour fonctionner en synergie avec les LEDs bleues. Vous pouvez aussi utiliser n'importe quel gel blanchissant du commerce une fois vos tubes termines.</p>" } },
         "q6": { "type": "faq", "settings": { "emoji": "⏱️", "question": "Combien de temps pour voir les resultats ?", "answer": "<p>La majorite de nos clients constatent une amelioration visible en 7 jours d'utilisation quotidienne (10 minutes par jour). Les resultats peuvent varier selon la teinte initiale.</p>" } },
         "q7": { "type": "faq", "settings": { "emoji": "🔌", "question": "Comment recharger l'appareil ?", "answer": "<p>Via le cable USB fourni. Une charge complete dure environ 2h et permet plusieurs seances. Compatible avec tout port USB (chargeur de telephone, ordinateur, batterie externe).</p>" } },
         "q8": { "type": "faq", "settings": { "emoji": "✅", "question": "Est-ce certifie CE ?", "answer": "<p>Oui. Nakrée est un accessoire cosmetique conforme aux normes CE en vigueur. Ce n'est pas un dispositif medical — il accelere l'action de votre gel blanchissant.</p>" } },
