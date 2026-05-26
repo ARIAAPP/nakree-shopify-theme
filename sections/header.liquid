@@ -10,7 +10,18 @@
         </svg>
       </button>
       <a href="{{ routes.root_url }}" class="brand-logo" aria-label="{{ shop.name }}" style="text-decoration:none; white-space:nowrap;">
-        <img src="{{ 'nakree-logo.jpg' | asset_url }}" alt="{{ shop.name }}" width="140" height="40" loading="eager" style="height:36px; width:auto; display:block;">
+        {%- if settings.logo != blank -%}
+          {{ settings.logo | image_url: width: settings.logo_max_width | image_tag: alt: shop.name, loading: 'eager', width: settings.logo_max_width, height: settings.logo_max_width, style: 'max-width:' | append: settings.logo_max_width | append: 'px;' }}
+        {%- else -%}
+          {%- assign txt = settings.brand_text -%}
+          {%- assign hl = settings.brand_text_highlight -%}
+          {%- if hl != blank and txt contains hl -%}
+            {%- assign parts = txt | split: hl -%}
+            <span>{{ parts[0] }}<span class="highlight">{{ hl }}</span>{{ parts[1] }}</span>
+          {%- else -%}
+            <span>{{ txt }}</span>
+          {%- endif -%}
+        {%- endif -%}
       </a>
     </div>
 
