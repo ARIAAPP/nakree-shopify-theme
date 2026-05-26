@@ -17,7 +17,15 @@
           <div class="how-to-step-number">
             <span>{{ forloop.index }}</span>
           </div>
-          <div class="how-to-step-icon">{{ block.settings.emoji }}</div>
+          <div class="how-to-step-img">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.title }}" width="150" height="150" loading="lazy">
+            {%- elsif block.settings.asset_image != blank -%}
+              <img src="{{ block.settings.asset_image | asset_url }}" alt="{{ block.settings.title }}" width="150" height="150" loading="lazy">
+            {%- else -%}
+              <span class="how-to-step-emoji">{{ block.settings.emoji }}</span>
+            {%- endif -%}
+          </div>
           <h3 class="how-to-step-title">{{ block.settings.title }}</h3>
           <p class="how-to-step-desc">{{ block.settings.description }}</p>
         </div>
@@ -66,9 +74,18 @@
     align-items: center;
     justify-content: center;
   }
-  .how-to-step-icon {
+  .how-to-step-img {
+    margin-bottom: 0.75rem;
+  }
+  .how-to-step-img img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .how-to-step-emoji {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
     line-height: 1;
   }
   .how-to-step-title {
@@ -146,8 +163,14 @@
       "settings": [
         {
           "type": "text",
+          "id": "asset_image",
+          "label": "Image (nom du fichier asset)",
+          "info": "Nom du fichier dans assets/ (ex: howto-step1.jpg)"
+        },
+        {
+          "type": "text",
           "id": "emoji",
-          "label": "Emoji",
+          "label": "Emoji (fallback si pas d'image)",
           "default": "🪥"
         },
         {

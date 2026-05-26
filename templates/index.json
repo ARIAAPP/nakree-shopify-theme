@@ -75,11 +75,11 @@
         "tip": "Pour des resultats optimaux, utilisez le kit chaque jour pendant 7 jours consecutifs."
       },
       "blocks": {
-        "s1": { "type": "step", "settings": { "emoji": "🪥", "title": "Brossez vos dents", "description": "Nettoyez vos dents normalement avant l'application." } },
-        "s2": { "type": "step", "settings": { "emoji": "🧴", "title": "Appliquez le gel", "description": "Tournez le tube et appliquez le gel sur la gouttiere." } },
-        "s3": { "type": "step", "settings": { "emoji": "🦷", "title": "Placez la gouttiere", "description": "Inserez la gouttiere sur vos dents, gel face a l'email." } },
-        "s4": { "type": "step", "settings": { "emoji": "💡", "title": "Activez le LED", "description": "Appuyez sur le bouton. Laissez agir 10 a 16 minutes." } },
-        "s5": { "type": "step", "settings": { "emoji": "✨", "title": "Rincez et admirez", "description": "Rincez a l'eau claire. Resultat visible des la 1ere semaine." } }
+        "s1": { "type": "step", "settings": { "asset_image": "howto-step1.jpg", "emoji": "🪥", "title": "Brossez vos dents", "description": "Nettoyez vos dents normalement avant l'application." } },
+        "s2": { "type": "step", "settings": { "asset_image": "howto-step2.jpg", "emoji": "🧴", "title": "Appliquez le gel", "description": "Tournez le tube et appliquez le gel sur la gouttiere." } },
+        "s3": { "type": "step", "settings": { "asset_image": "howto-step3.jpg", "emoji": "🦷", "title": "Placez la gouttiere", "description": "Inserez la gouttiere sur vos dents, gel face a l'email." } },
+        "s4": { "type": "step", "settings": { "asset_image": "howto-step4.jpg", "emoji": "💡", "title": "Activez le LED", "description": "Appuyez sur le bouton. Laissez agir 10 a 16 minutes." } },
+        "s5": { "type": "step", "settings": { "asset_image": "howto-step5.jpg", "emoji": "✨", "title": "Rincez et admirez", "description": "Rincez a l'eau claire. Resultat visible des la 1ere semaine." } }
       },
       "block_order": ["s1","s2","s3","s4","s5"]
     },
