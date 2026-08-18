@@ -1,17 +1,20 @@
 {%- comment -%}
-  Single-product store: redirect product page to homepage which contains
-  the full ProductSection. The homepage IS the product page.
+  Boutique a un seul produit : la page d'accueil EST la page produit.
+  Toute URL /products/... renvoie donc vers le selecteur d'offre.
+
+  La redirection se fait cote serveur autant que possible : le lien reste
+  cliquable si le JavaScript ne s'execute pas, et le canonical de
+  theme.liquid pointe deja vers l'accueil pour ne pas dupliquer le contenu.
 {%- endcomment -%}
 
-<script>
-  if (window.location.pathname !== '/') {
-    window.location.replace('/#product');
-  }
-</script>
-
-<section class="py-20" style="text-align:center;">
-  <div class="container">
-    <p>Redirection...</p>
-    <a class="btn btn-lg" href="{{ routes.root_url }}#product" style="margin-top:1rem;">Voir le produit</a>
+<section class="nk-suivi">
+  <div class="nk-wrap stack" style="max-width:640px;text-align:center;">
+    <h1 class="nk-h2">{{ product.title }}</h1>
+    <p class="nk-lead">Le produit se commande depuis la page d'accueil.</p>
+    <p><a class="nk-btn" href="{{ routes.root_url }}#offre">Voir l'offre <i>&#8599;</i></a></p>
   </div>
 </section>
+
+<script>
+  window.location.replace({{ routes.root_url | append: '#offre' | json }});
+</script>

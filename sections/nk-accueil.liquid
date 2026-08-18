@@ -1,3 +1,17 @@
+{%- comment -%}
+  Les deux produits reels de la boutique, cherches par leur handle.
+  On ne code jamais un identifiant de variante en dur : il change d'une
+  boutique a l'autre, le handle non.
+{%- endcomment -%}
+{%- assign masseur = all_products['nakree-masseur-nuque-et-epaules-chauffant-sans-fil'] -%}
+{%- assign assurance = all_products['assurance-colis-perte-vol-ou-casse'] -%}
+{%- assign v_une = masseur.variants | where: 'title', 'Une unite' | first -%}
+{%- for v in masseur.variants -%}
+  {%- if v.title contains 'Une' -%}{%- assign v_une = v -%}{%- endif -%}
+  {%- if v.title contains 'Deux' -%}{%- assign v_deux = v -%}{%- endif -%}
+{%- endfor -%}
+{%- assign v_assurance = assurance.variants | first -%}
+
 <!-- HERO. Colonne gauche : note, titre, benefices, puis la mecanique de
      vente. Colonne droite : le collage incline, qui reste en place au
      defilement. Le collage n'est PAS remplace par la carte d'achat. -->
@@ -56,7 +70,7 @@
       </div>
       <a class="nk-btn" href="#offre" style="justify-self:start;">Commander <i>&#8599;</i></a>
 
-      <label class="nk-addon nk-addon--hero on" data-addon data-prix="495">
+      <label class="nk-addon nk-addon--hero on" data-addon data-prix="495" data-variant="{{ v_assurance.id }}">
         <input type="checkbox" checked>
         <span class="nk-case"></span>
         <span>Assurance colis, perte ou casse</span>
@@ -638,7 +652,7 @@
 
         <p class="nk-choix">Choisissez votre offre</p>
 
-        <label class="nk-pack" data-pack data-prix="4990" data-ref="0" data-eco="0">
+        <label class="nk-pack" data-pack data-prix="4990" data-ref="0" data-eco="0" data-variant="{{ v_une.id }}">
           <input type="radio" name="pack">
           <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
@@ -649,7 +663,7 @@
           <span class="nk-pack__desc">Le masseur, sa housse, sa sangle et son câble</span>
         </label>
 
-        <label class="nk-pack on" data-pack data-prix="7990" data-ref="9980" data-eco="1990">
+        <label class="nk-pack on" data-pack data-prix="7990" data-ref="9980" data-eco="1990" data-variant="{{ v_deux.id }}">
           <input type="radio" name="pack" checked>
           <span class="nk-badge nk-badge--top">Le plus choisi</span>
           <span class="nk-pack__ligne">
@@ -660,7 +674,7 @@
           </span>
           <span class="nk-pack__desc">Un pour vous, un à offrir. Emballage neutre sur demande</span>
 
-          <span class="nk-addon on" data-addon data-prix="495">
+          <span class="nk-addon on" data-addon data-prix="495" data-variant="{{ v_assurance.id }}">
             <input type="checkbox" checked>
             <span class="nk-case"></span>
             <span>Assurance colis, perte ou casse</span>
@@ -668,7 +682,7 @@
           </span>
         </label>
 
-        <a class="nk-btn" href="#"><span data-cta>Commander maintenant, 84,85 €</span> <i>&#8599;</i></a>
+        <button type="button" class="nk-btn" data-acheter><span data-cta>Commander maintenant, 84,85 €</span> <i>&#8599;</i></button>
 
         <ul class="nk-reassure">
           <li>Service client réactif</li>

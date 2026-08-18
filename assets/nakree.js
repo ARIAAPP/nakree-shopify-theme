@@ -154,11 +154,12 @@
       s.style.display = ref ? '' : 'none';
       if (ref) s.textContent = e(ref);
       barre.querySelector('[data-barre-nom]').textContent =
-        (pack.dataset.ref ? 'Pack de deux' : 'Une unité') + (add ? ', assurance incluse' : '');
+        (ref ? 'Pack de deux' : 'Une unité') + (add ? ', assurance incluse' : '');
+      /* La vignette est celle du pack choisi : on la reprend du selecteur
+         plutot que de reecrire un chemin, qui serait faux sous Shopify. */
       var vue = barre.querySelector('[data-barre-vue]');
-      if (vue) vue.src = pack.dataset.ref
-        ? 'images/web/rendus/V05.jpg'
-        : 'images/web/rendus/V04.jpg';
+      var src = pack.querySelector('.nk-pack__vue');
+      if (vue && src) vue.src = src.src;
     }
     window.addEventListener('nk:maj', maj);
     document.addEventListener('click', function (ev) {
@@ -343,3 +344,53 @@
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') ferme(); });
   })();
+
+  /* Mise au panier. Le selecteur porte l'identifiant de variante reel,
+     pose par Liquid ; on n'ecrit jamais un identifiant en dur ici.
+
+     Le panier est vide avant chaque ajout : sans cela, un client qui
+     hesite entre les deux packs se retrouve avec les deux au paiement. */
+  (function () {
+    var bouton = document.querySelector('[data-acheter]');
+    if (!bouton) return;
+
+    bouton.addEventListener('click', function () {
+      var pack = document.querySelector('[data-pack].on') || document.querySelector('[data-pack]');
+      if (!pack || !pack.dataset.variant) return;
+
+      var lignes = [{ id: Number(pack.dataset.variant), quantity: 1 }];
+      var add = document.querySelector('[data-addon].on');
+      if (add && add.dataset.variant) lignes.push({ id: Number(add.dataset.variant), quantity: 1 });
+
+      var libelle = bouton.innerHTML;
+      bouton.disabled = true;
+      bouton.textContent = 'Un instant…';
+
+      fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+        .then(function () {
+          return fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ items: lignes })
+          });
+        })
+        .then(function (r) {
+          if (!r.ok) throw new Error('ajout refuse');
+          if (window.fbq) {
+            fbq('track', 'AddToCart', {
+              content_ids: lignes.map(function (l) { return String(l.id); }),
+              content_type: 'product',
+              value: (parseInt(pack.dataset.prix, 10) + (add ? 495 : 0)) / 100,
+              currency: 'EUR'
+            });
+          }
+          window.location.href = '/checkout';
+        })
+        .catch(function () {
+          bouton.disabled = false;
+          bouton.innerHTML = libelle;
+          window.location.href = '/cart';
+        });
+    });
+  })();
+

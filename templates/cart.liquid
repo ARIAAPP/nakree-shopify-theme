@@ -1,25 +1,43 @@
 {%- comment -%}
-  The cart is a drawer (snippets/cart-drawer.liquid) opened from the header.
-  This template just opens the drawer if user lands on /cart directly.
+  Le parcours normal ne passe pas par cette page : le bouton d'achat vide
+  le panier, ajoute les lignes et va droit au paiement. Cette page sert de
+  filet quand l'ajout echoue ou quand quelqu'un tape /cart a la main.
 {%- endcomment -%}
 
-<section class="py-20" style="text-align:center;">
-  <div class="container">
-    <h1 class="text-2xl font-bold" style="margin-bottom:1rem;">Votre panier</h1>
+<section class="nk-suivi">
+  <div class="nk-wrap stack" style="max-width:640px;">
+    <h1 class="nk-h2">Votre panier</h1>
+
     {%- if cart.item_count == 0 -%}
-      <p class="text-muted-foreground" style="margin-bottom:2rem;">Votre panier est vide.</p>
-      <a class="btn btn-lg" href="{{ routes.root_url }}">Continuer mes achats</a>
+      <p class="nk-lead">Votre panier est vide.</p>
+      <p><a class="nk-btn" href="{{ routes.root_url }}#offre">Voir l'offre <i>&#8599;</i></a></p>
     {%- else -%}
-      <p class="text-muted-foreground" style="margin-bottom:2rem;">{{ cart.item_count }} article(s) &mdash; {{ cart.total_price | money }}</p>
-      <a class="btn btn-lg" href="/checkout">Finaliser la commande</a>
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="stack">
+        {%- for ligne in cart.items -%}
+          <div class="nk-card" style="display:flex;gap:16px;align-items:center;padding:18px;">
+            {%- if ligne.image -%}
+              <img src="{{ ligne.image | image_url: width: 160 }}" alt="{{ ligne.title | escape }}"
+                   width="80" height="80" style="border-radius:12px;object-fit:cover;">
+            {%- endif -%}
+            <div style="flex:1;">
+              <p class="nk-p" style="margin:0;">{{ ligne.product.title }}</p>
+              {%- unless ligne.variant.title contains 'Default' -%}
+                <p class="nk-note" style="margin:0;">{{ ligne.variant.title }}</p>
+              {%- endunless -%}
+            </div>
+            <span class="nk-price" style="font-size:19px;">{{ ligne.final_line_price | money }}</span>
+          </div>
+        {%- endfor -%}
+
+        <div class="nk-card" style="display:flex;justify-content:space-between;align-items:center;padding:18px;">
+          <span class="nk-p" style="margin:0;">Total</span>
+          <span class="nk-price">{{ cart.total_price | money }}</span>
+        </div>
+
+        <p class="nk-note">Livraison offerte. Taxes incluses.</p>
+
+        <button type="submit" name="checkout" class="nk-btn">Finaliser la commande <i>&#8599;</i></button>
+      </form>
     {%- endif -%}
   </div>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if ({{ cart.item_count }} > 0 && window.NakreeCart) {
-      window.NakreeCart.open();
-    }
-  });
-</script>
