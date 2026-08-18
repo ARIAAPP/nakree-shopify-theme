@@ -1,0 +1,18 @@
+{%- comment -%}
+  Gabarit des politiques (retour, confidentialite, expedition, conditions
+  de vente, conditions de service, mentions legales). Meme mise en page
+  que les pages de contenu : c'est du texte long, il se lit de la meme
+  facon. Sans ce gabarit, Shopify rend les politiques sans habillage.
+{%- endcomment -%}
+
+<section class="nk-texte">
+  <div class="nk-wrap stack" style="max-width:760px;gap:clamp(24px,3vw,36px);">
+    <h1 class="nk-h2">{{ policy.title }}</h1>
+    <div class="nk-rte">{{ policy.body }}</div>
+    <p class="nk-note">
+      <a href="{{ routes.root_url }}">Retour à l'accueil</a>
+    </p>
+  </div>
+</section>
+
+{% render 'texte-styles' %}

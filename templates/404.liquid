@@ -1,7 +1,18 @@
-<section class="py-20" style="text-align:center;">
-  <div class="container">
-    <h1 class="text-4xl font-bold" style="margin-bottom: 1rem;">404</h1>
-    <p class="text-muted-foreground" style="margin-bottom: 2rem;">Page introuvable.</p>
-    <a class="btn btn-lg" href="{{ routes.root_url }}">Retour a l'accueil</a>
+{%- comment -%}
+  Page introuvable. Elle utilisait les classes du kit dentaire (.container,
+  .btn, .text-4xl) qui n'existent plus : elle sortait sans style.
+{%- endcomment -%}
+
+<section class="nk-texte" style="text-align:center;">
+  <div class="nk-wrap stack" style="max-width:560px;justify-items:center;">
+    <p class="nk-eyebrow">Erreur 404</p>
+    <h1 class="nk-h2">Cette page n'existe pas.</h1>
+    <p class="nk-lead">Le lien est peut-être ancien, ou l'adresse comporte une faute.</p>
+    <p style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <a class="nk-btn" href="{{ routes.root_url }}">Retour à l'accueil <i>&#8599;</i></a>
+      <a class="nk-btn nk-btn--ghost" href="{{ routes.root_url }}pages/suivi">Suivre ma commande</a>
+    </p>
   </div>
 </section>
+
+{% render 'texte-styles' %}

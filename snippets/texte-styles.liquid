@@ -1,0 +1,53 @@
+{%- comment -%}
+  Habillage commun aux pages de contenu et aux politiques. Un seul
+  fichier : les deux gabarits doivent vieillir ensemble.
+{%- endcomment -%}
+<style>
+  .nk-texte { padding-block: clamp(48px, 7vw, 96px); }
+
+  .nk-rte { font-size: 16.5px; line-height: 1.7; color: var(--nk-ink-2); }
+  .nk-rte > * + * { margin-top: 1.1em; }
+
+  .nk-rte h2 {
+    font-size: clamp(21px, 2.2vw, 26px); line-height: 1.2;
+    letter-spacing: -.022em; font-weight: 600;
+    color: var(--nk-ink); margin-top: 2.2em;
+  }
+  .nk-rte h3 {
+    font-size: 18px; font-weight: 600;
+    color: var(--nk-ink); margin-top: 1.8em;
+  }
+  .nk-rte h2:first-child, .nk-rte h3:first-child { margin-top: 0; }
+
+  .nk-rte ul, .nk-rte ol { padding-left: 1.35em; }
+  .nk-rte ul { list-style: disc; }
+  .nk-rte ol { list-style: decimal; }
+  .nk-rte li + li { margin-top: .45em; }
+
+  .nk-rte a { color: var(--nk-accent); text-decoration: underline; text-underline-offset: 2px; }
+  .nk-rte a:hover { color: var(--nk-accent-h); }
+  .nk-rte strong { color: var(--nk-ink); font-weight: 600; }
+
+  .nk-rte table {
+    width: 100%; border-collapse: collapse; font-size: 15px;
+    display: block; overflow-x: auto;
+  }
+  .nk-rte th, .nk-rte td {
+    text-align: left; padding: 12px 14px;
+    box-shadow: inset 0 -1px 0 rgba(23,23,26,.08);
+  }
+  .nk-rte th { color: var(--nk-ink); font-weight: 600; }
+
+  /* L'encadre de garantie legale est impose mot pour mot par la loi :
+     on le distingue visuellement sans jamais toucher a son texte. */
+  .nk-rte blockquote {
+    background: var(--nk-surface);
+    border-radius: var(--nk-r-core);
+    box-shadow: var(--nk-ring), var(--nk-lift-1);
+    padding: clamp(18px, 2.5vw, 26px);
+    font-size: 15.5px;
+  }
+  .nk-rte blockquote > * + * { margin-top: .9em; }
+
+  .nk-rte hr { border: 0; height: 1px; background: rgba(23,23,26,.08); margin-block: 2.4em; }
+</style>
