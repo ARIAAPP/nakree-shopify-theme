@@ -1,19 +1,76 @@
+{%- comment -%}
+  Pied de page. Les liens pointent vers les objets Shopify plutot que vers
+  des ancres mortes : les politiques ont leurs URL propres, la page de suivi
+  et la notice sont des pages du contenu.
+
+  La ligne d'identification est batie depuis les reglages de la boutique,
+  pour ne pas avoir a la maintenir a deux endroits. L'adresse postale n'est
+  volontairement PAS repetee ici : elle figure une seule fois, dans les
+  mentions legales, la ou la loi l'impose.
+{%- endcomment -%}
+
 <footer class="nk-foot">
   <div class="nk-wrap">
     <div class="lay-two" style="align-items:start;">
+
       <div class="stack-sm" style="max-width:38ch;">
         <span class="nk-logo">nakree<i>.</i></span>
-        <p class="nk-note">[Raison sociale], SIREN [a completer], TVA [a completer]<br>[Adresse postale]<br>support@nakree.com</p>
+        <p class="nk-note">
+          {{ shop.name }}{% if settings.siren != blank %}, SIREN {{ settings.siren }}{% endif %}<br>
+          TVA non applicable, article 293 B du CGI<br>
+          <a href="mailto:support@nakree.com">support@nakree.com</a>
+        </p>
       </div>
+
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-        <div><h4>Boutique</h4><a href="#offre">L'offre</a><a href="#geste">Comment ça marche</a><a href="#">Suivre ma commande</a></div>
-        <div><h4>Informations</h4><a href="#questions">Questions</a><a href="#">Notice PDF</a><a href="#communaute">La communauté</a></div>
-        <div><h4>Mentions</h4><a href="#">Conditions de vente</a><a href="#">Remboursement</a><a href="#">Confidentialité</a><a href="#">Mentions légales</a></div>
+        <div>
+          <h4>Boutique</h4>
+          <a href="{{ routes.root_url }}#offre">L'offre</a>
+          <a href="{{ routes.root_url }}#geste">Comment ça marche</a>
+          <a href="{{ routes.root_url }}pages/suivi">Suivre ma commande</a>
+        </div>
+        <div>
+          <h4>Informations</h4>
+          <a href="{{ routes.root_url }}#questions">Questions</a>
+          <a href="{{ routes.root_url }}pages/notice">Notice</a>
+          <a href="{{ routes.root_url }}pages/a-propos">À propos</a>
+        </div>
+        <div>
+          <h4>Mentions</h4>
+          {%- if shop.terms_of_sale.published_url != blank -%}
+            <a href="{{ shop.terms_of_sale.published_url }}">Conditions de vente</a>
+          {%- endif -%}
+          {%- if shop.refund_policy.published_url != blank -%}
+            <a href="{{ shop.refund_policy.published_url }}">Remboursement</a>
+          {%- endif -%}
+          {%- if shop.shipping_policy.published_url != blank -%}
+            <a href="{{ shop.shipping_policy.published_url }}">Expédition</a>
+          {%- endif -%}
+          {%- if shop.privacy_policy.published_url != blank -%}
+            <a href="{{ shop.privacy_policy.published_url }}">Confidentialité</a>
+          {%- endif -%}
+          {%- if shop.subscription_policy.published_url != blank -%}
+            <a href="{{ shop.subscription_policy.published_url }}">Mentions légales</a>
+          {%- endif -%}
+          <a href="{{ routes.root_url }}pages/cookies">Cookies</a>
+        </div>
       </div>
+
     </div>
-    <p class="nk-note" style="margin-top:56px;">Appareil de bien-être. Ce produit n'est pas un dispositif médical et ne remplace pas un avis professionnel de santé. Conforme CE, DEEE, batterie Li-ion.</p>
+
+    <p class="nk-note" style="margin-top:56px;">
+      Appareil de bien-être. Ce produit n'est pas un dispositif médical et ne
+      remplace pas un avis professionnel de santé. Conforme CE, DEEE,
+      batterie Li-ion.
+    </p>
   </div>
 </footer>
+
 {% schema %}
-{"name": "Pied Nakree", "settings": []}
+{
+  "name": "Pied Nakree",
+  "settings": [
+    { "type": "text", "id": "siren", "label": "SIREN", "default": "833 336 088" }
+  ]
+}
 {% endschema %}

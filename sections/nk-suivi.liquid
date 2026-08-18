@@ -1,0 +1,96 @@
+{%- comment -%}
+  Page de suivi de commande.
+
+  Le client saisit son numero et atterrit sur la page Track123 hebergee sous
+  notre domaine (/apps/track123), jamais sur le site du transporteur chinois.
+  C'est tout l'interet du suivi brande : l'origine du colis ne se voit pas.
+
+  Le numero est passe en parametre `nums`, exactement comme l'attend Track123
+  dans son champ « Custom Tracking Url » : https://nakree.com/apps/track123?nums=%s
+{%- endcomment -%}
+
+<section id="suivi" class="nk-suivi">
+  <div class="nk-wrap stack" style="gap:clamp(28px,4vw,40px);max-width:760px;">
+
+    <div class="nk-rise">
+      <h1 class="nk-h2">Suivre ma commande</h1>
+      <p class="nk-lead" style="margin-top:14px;">
+        Entrez le numéro de suivi reçu par email au moment de l'expédition.
+      </p>
+    </div>
+
+    <form class="nk-suivi__form nk-rise" action="/apps/track123" method="get">
+      <label class="nk-suivi__label" for="nums">Numéro de suivi</label>
+      <div class="nk-suivi__ligne">
+        <input class="nk-suivi__champ" type="text" id="nums" name="nums"
+               placeholder="Par exemple 5Y00597076013"
+               autocomplete="off" required
+               pattern="[A-Za-z0-9\-]{6,40}"
+               title="Entre 6 et 40 caractères, lettres et chiffres uniquement">
+        <button class="nk-btn" type="submit">Suivre <i>&#8599;</i></button>
+      </div>
+      <p class="nk-note" style="margin-top:12px;">
+        Le numéro figure dans l'email « Votre commande a été expédiée ».
+        Pensez à vérifier vos spams.
+      </p>
+    </form>
+
+    <div class="nk-card stack-sm nk-rise" style="padding:26px;">
+      <h2 class="nk-h3">Combien de temps avant de le voir bouger ?</h2>
+      <p class="nk-p">
+        Votre commande est préparée et expédiée sous 24 à 72 heures ouvrées.
+        Le suivi peut rester silencieux deux à trois jours après l'expédition,
+        le temps que le colis soit scanné dans le réseau. C'est normal, et
+        cela ne veut pas dire qu'il est bloqué.
+      </p>
+      <p class="nk-p">
+        Comptez ensuite 7 à 12 jours ouvrés pour la France métropolitaine.
+        Ces délais sont indicatifs.
+      </p>
+    </div>
+
+    <div class="nk-card stack-sm nk-rise" style="padding:26px;">
+      <h2 class="nk-h3">Le suivi n'avance plus</h2>
+      <p class="nk-p">
+        Écrivez-nous à <a href="mailto:support@nakree.com">support@nakree.com</a>
+        avec votre numéro de commande. Nous ouvrons une réclamation auprès du
+        transporteur et nous vous tenons informé.
+      </p>
+      <p class="nk-note">Réponse sous 24 à 48 heures ouvrées, du lundi au vendredi.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .nk-suivi { padding-block: clamp(40px, 6vw, 80px); }
+  .nk-suivi__form {
+    background: var(--nk-surface);
+    border-radius: var(--nk-r-shell);
+    padding: clamp(22px, 3vw, 32px);
+    box-shadow: var(--nk-ring), var(--nk-lift-1);
+  }
+  .nk-suivi__label {
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--nk-ink-2); margin-bottom: 9px;
+  }
+  .nk-suivi__ligne { display: flex; gap: 10px; flex-wrap: wrap; }
+  .nk-suivi__champ {
+    flex: 1 1 240px; min-width: 0;
+    font: inherit; font-size: 16px;
+    padding: 15px 18px;
+    border: 0; border-radius: var(--nk-r-core);
+    background: var(--nk-bg);
+    box-shadow: var(--nk-ring);
+    color: var(--nk-ink);
+  }
+  .nk-suivi__champ:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--nk-accent);
+  }
+  .nk-suivi__champ::placeholder { color: var(--nk-ink-3); }
+</style>
+
+{% schema %}
+{"name": "Suivi de commande", "settings": []}
+{% endschema %}
