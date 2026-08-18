@@ -1,0 +1,751 @@
+<!-- HERO. Colonne gauche : note, titre, benefices, puis la mecanique de
+     vente. Colonne droite : le collage incline, qui reste en place au
+     defilement. Le collage n'est PAS remplace par la carte d'achat. -->
+<section style="padding-top:clamp(28px,3vw,44px);">
+  <div class="nk-wrap lay-hero">
+
+    <div class="stack nk-rise" style="gap:15px;">
+
+      <div class="nk-achat__haut" style="margin:0;justify-content:flex-start;gap:18px;">
+        <span class="nk-avatars">
+          <span><span class="nk-slot rempli"><img src="{{ 'V07.jpg' | asset_url }}" alt="" loading="lazy"></span></span>
+          <span><span class="nk-slot rempli"><img src="{{ 'V08.jpg' | asset_url }}" alt="" loading="lazy"></span></span>
+          <span><span class="nk-slot rempli"><img src="{{ 'V09.jpg' | asset_url }}" alt="" loading="lazy"></span></span>
+          <span><span class="nk-slot rempli"><img src="{{ 'V10.jpg' | asset_url }}" alt="" loading="lazy"></span></span>
+          <span><span class="nk-slot rempli"><img src="{{ 'V11.jpg' | asset_url }}" alt="" loading="lazy"></span></span>
+        </span>
+        <a href="#avis" class="nk-note-avis">
+          <span class="nk-etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span>4,8 sur 5, 150 avis</span>
+        </a>
+        <span class="nk-neuf">Nouveau</span>
+      </div>
+
+      <div class="stack-sm">
+        <h1 class="nk-h1">Dix minutes, et les épaules redescendent.</h1>
+        <p class="nk-lead">Le masseur nuque et épaules sans fil. Trois modes de massage, deux niveaux de chaleur, dix minutes puis extinction automatique.</p>
+      </div>
+
+      <ul class="nk-benefs">
+        <li>Trois modes de massage, au choix, d'un appui sur le bouton</li>
+        <li>Deux niveaux de chaleur, indépendants du massage : l'un sans l'autre si vous voulez</li>
+        <li>Sangles réglables des deux côtés, boucle qui se libère d'une pression</li>
+        <li>Sans fil, et il s'arrête tout seul au bout de dix minutes</li>
+      </ul>
+
+      <div class="nk-prixligne" style="margin:4px 0 0;">
+        <s class="nk-barre" data-h-barre>99,80 €</s>
+        <span class="nk-price" data-h-prix>79,90 €</span>
+        <span class="nk-pct" data-h-pct>-20%</span>
+        <span class="nk-eco" style="width:100%;" data-h-eco>Pack de deux : vous économisez 19,90 €</span>
+      </div>
+
+      <div class="nk-choix">
+        <button type="button" class="nk-choix__b on" data-h-pack data-prix="7990" data-vue="6">
+          <img class="nk-choix__v" src="{{ 'V05.jpg' | asset_url }}" alt="" loading="lazy">
+          <span class="nk-choix__t">Le pack de deux</span>
+          <span class="nk-choix__p">79,90 €</span>
+          <span class="nk-choix__n">Un pour vous, un à offrir</span>
+        </button>
+        <button type="button" class="nk-choix__b" data-h-pack data-prix="4990" data-vue="7">
+          <img class="nk-choix__v" src="{{ 'V04.jpg' | asset_url }}" alt="" loading="lazy">
+          <span class="nk-choix__t">Une unité</span>
+          <span class="nk-choix__p">49,90 €</span>
+          <span class="nk-choix__n">Le masseur et ses accessoires</span>
+        </button>
+      </div>
+      <a class="nk-btn" href="#offre" style="justify-self:start;">Commander <i>&#8599;</i></a>
+
+      <label class="nk-addon nk-addon--hero on" data-addon data-prix="495">
+        <input type="checkbox" checked>
+        <span class="nk-case"></span>
+        <span>Assurance colis, perte ou casse</span>
+        <span class="nk-addon__prix">4,95 €</span>
+      </label>
+
+      <ul class="nk-trust">
+        <li>Livraison offerte</li>
+        <li>4,8 sur 5, 150 avis</li>
+        <li>Paiement sécurisé</li>
+      </ul>
+    </div>
+
+    <div class="nk-colle nk-rise">
+      <div class="nk-gal" data-gal>
+        <div class="nk-gal__scene">
+          <div class="nk-cascade">
+            <span class="nk-cascade__glow"></span>
+            <div class="nk-cascade__a nk-gal__vue" data-vues>
+          <div class="nk-bezel on"><div class="nk-slot v45 rempli"><img src="{{ 'V01.jpg' | asset_url }}" alt="Porté sur les épaules, dans un fauteuil, lumière de fin de journée" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V02.jpg' | asset_url }}" alt="Gros plan des têtes de massage" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V19.jpg' | asset_url }}" alt="Packshot seul, trois quarts, fond clair" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V20.jpg' | asset_url }}" alt="Le bouton, un doigt qui maintient l'appui" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V21.jpg' | asset_url }}" alt="La sangle tirée vers le bas, la main dose l'appui" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V22.jpg' | asset_url }}" alt="Rangé dans un sac, en déplacement" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V05.jpg' | asset_url }}" alt="Le pack de deux, prêt à offrir" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot v45 rempli"><img src="{{ 'V04.jpg' | asset_url }}" alt="Une unité, avec sa sangle, sa housse et sa notice" loading="lazy"></div></div>
+            </div>
+            <div class="nk-cascade__b nk-gal__vue nk-gal__suivant" data-suivantes role="button" tabindex="0" aria-label="Photo suivante">
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V01.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel on"><div class="nk-slot sq rempli"><img src="{{ 'V02.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V19.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V20.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V21.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V22.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V05.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+          <div class="nk-bezel"><div class="nk-slot sq rempli"><img src="{{ 'V04.jpg' | asset_url }}" alt="" loading="lazy"></div></div>
+            </div>
+          </div>
+          <div class="nk-gal__fleches">
+            <button type="button" class="nk-gal__fleche nk-gal__fleche--g" data-prec aria-label="Photo précédente">&#8249;</button>
+            <button type="button" class="nk-gal__fleche nk-gal__fleche--d" data-suiv aria-label="Photo suivante">&#8250;</button>
+          </div>
+        </div>
+        <div class="nk-pellicule" role="tablist">
+        <button type="button" data-vign="0" class="on" aria-label="Photo 1"><span class="nk-slot rempli"><img src="{{ 'V01.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="1" class="" aria-label="Photo 2"><span class="nk-slot rempli"><img src="{{ 'V02.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="2" class="" aria-label="Photo 3"><span class="nk-slot rempli"><img src="{{ 'V19.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="3" class="" aria-label="Photo 4"><span class="nk-slot rempli"><img src="{{ 'V20.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="4" class="" aria-label="Photo 5"><span class="nk-slot rempli"><img src="{{ 'V21.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="5" class="" aria-label="Photo 6"><span class="nk-slot rempli"><img src="{{ 'V22.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="6" class="" aria-label="Photo 7"><span class="nk-slot rempli"><img src="{{ 'V05.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        <button type="button" data-vign="7" class="" aria-label="Photo 8"><span class="nk-slot rempli"><img src="{{ 'V04.jpg' | asset_url }}" alt="" loading="lazy"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE GESTE. Grille asymetrique. -->
+<section id="geste">
+  <div class="nk-wrap stack" style="gap:48px;">
+    <div class="nk-rise">
+      <p class="nk-eyebrow">Comment ça marche</p>
+      <h2 class="nk-h2" style="max-width:15ch;">Il n'y a rien à régler.</h2>
+    </div>
+    <div class="lay-asym">
+      <div class="nk-bezel nk-rise"><div class="nk-slot r43 rempli"><img src="{{ 'V06.jpg' | asset_url }}" alt="On le pose sur les épaules, vue de trois quarts" loading="lazy"></div></div>
+      <div class="stack">
+        <div class="nk-card stack-sm nk-rise">
+          <h3 class="nk-h3">On le pose</h3>
+          <p class="nk-p">On le pose sur l'épaule, on tire la boucle vers l'arrière et on l'insère. Les sangles se règlent des deux côtés, à la même longueur pour ne pas serrer d'un seul côté.</p>
+        </div>
+        <div class="nk-card stack-sm nk-rise">
+          <h3 class="nk-h3">Trois secondes d'appui</h3>
+          <p class="nk-p">Un appui long de trois secondes sur le bouton et la séance démarre, en mode 1 avec la chaleur au niveau bas. Après usage, une pression sur la boucle libère la bretelle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="nk-appel nk-rise">
+  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
+    <a class="nk-btn nk-btn--grand" href="#offre">Je veux le mien <i>&#8599;</i></a>
+    <p class="nk-appel__note">Livraison offerte, expédition sous 24 à 72 heures.</p>
+  </div>
+</div>
+
+<!-- LA CHALEUR. Le visuel et le texte dans une meme coque. -->
+<section id="chaleur" style="padding-block:0;">
+  <div class="nk-wrap">
+    <div class="nk-bezel nk-rise" style="padding:8px;">
+      <div class="lay-full" style="border-radius:20px;overflow:hidden;">
+        <div class="nk-slot rempli"><img src="{{ 'V03.jpg' | asset_url }}" alt="Macro du textile en lumière rasante, on voit la trame" loading="lazy"></div>
+        <div style="background:var(--nk-surface);display:flex;align-items:center;padding:clamp(36px,5vw,68px);">
+          <div class="stack">
+            <h2 class="nk-h2">La chaleur, ou le massage. Ou les deux.</h2>
+            <p class="nk-p">La compresse chaude a deux niveaux et un arrêt, et elle se règle indépendamment du massage. Changer l'un ne touche jamais à l'autre : on peut vouloir la chaleur seule, le pétrissage seul, ou les deux ensemble.</p>
+            <p class="nk-data">Niveau bas, niveau élevé, arrêt. Voyant rouge en façade</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CE QUE VOUS RECEVEZ. -->
+<section id="recevez">
+  <div class="nk-wrap lay-side">
+    <div class="stack nk-rise">
+      <h2 class="nk-h2">Ce que vous recevez</h2>
+      <p class="nk-p">Six lignes, le prix est la dernière.</p>
+      <div class="nk-bezel" style="margin-top:10px;"><div class="nk-slot sq rempli"><img src="{{ 'V04.jpg' | asset_url }}" alt="Vue éclatée de l'objet et de ses pièces" loading="lazy"></div></div>
+    </div>
+    <div class="nk-card nk-rise" style="padding:34px;">
+      <div class="nk-rows">
+        <div><span>Masseur nuque et épaules</span><span class="nk-data">KN-01</span></div>
+        <div><span>Sangles réglables des deux côtés, à boucle</span><span class="nk-data">incluses</span></div>
+        <div><span>Câble de charge USB-C</span><span class="nk-data">inclus</span></div>
+        <div><span>Notice imprimée en français</span><span class="nk-data">incluse</span></div>
+        <div><span>Livraison en France métropolitaine</span><span class="nk-data">offerte</span></div>
+        <div style="padding-top:22px;">
+          <span style="font-weight:600;font-size:18px;">Une unité</span>
+          <span class="nk-price" style="font-size:28px;color:var(--nk-ink);">49,90 €</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LE DETAIL. Chaque planche rattachee a un propos, jamais posee seule. -->
+<section id="planches">
+  <div class="nk-wrap stack" style="gap:clamp(40px,5vw,64px);">
+    <div class="nk-rise" style="max-width:44ch;">
+      <h2 class="nk-h2">Le détail, si vous le voulez</h2>
+      <p class="nk-lead" style="margin-top:14px;">Les matières, les moteurs, la chaleur, l'autonomie, les dimensions. Rien n'y est promis que l'appareil ne fasse.</p>
+    </div>
+
+      <article class="nk-planche nk-rise">
+        <div class="nk-planche__mot">
+          <h3 class="nk-h3">Ce que fait la main</h3>
+          <p class="nk-p">Deux mains en silicone souple viennent se poser de chaque côté de la nuque. Elles pétrissent, elles ne vibrent pas : le mouvement vient de moteurs sans balais, silencieux, et se règle sur trois modes d'un appui sur le bouton.</p>
+        </div>
+        <div class="nk-planche__vues">
+        <div class="nk-bezel nk-rise"><img src="{{ 'T01.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T06.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T10.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T11.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'P14F.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="nk-planche nk-rise">
+        <div class="nk-planche__mot">
+          <h3 class="nk-h3">La chaleur, deux niveaux</h3>
+          <p class="nk-p">Sous les paumes, une compresse chauffe à deux niveaux, environ 40 °C puis 45 °C. Elle est indépendante du massage : on peut avoir l'un sans l'autre, ou couper la chaleur et garder le pétrissage.</p>
+        </div>
+        <div class="nk-planche__vues">
+        <div class="nk-bezel nk-rise"><img class="est-planche" src="{{ 'T09.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T14.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="nk-planche nk-rise">
+        <div class="nk-planche__mot">
+          <h3 class="nk-h3">Où on le pose</h3>
+          <p class="nk-p">La nuque et les épaules d'abord, puisque c'est sa forme. Mais la sangle se règle assez pour le tenir sur le bas du dos, la taille, un bras, un mollet ou une cuisse.</p>
+        </div>
+        <div class="nk-planche__vues">
+        <div class="nk-bezel nk-rise"><img src="{{ 'T04.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T08.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T05.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="nk-planche nk-rise">
+        <div class="nk-planche__mot">
+          <h3 class="nk-h3">Les moteurs, l'autonomie</h3>
+          <p class="nk-p">Trois vitesses, des moteurs à courant continu sans balais, et une charge en USB-C comme un téléphone. Le fabricant annonce jusqu'à douze jours d'autonomie à raison de dix minutes par jour.</p>
+        </div>
+        <div class="nk-planche__vues">
+        <div class="nk-bezel nk-rise"><img src="{{ 'T12.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'P05.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'P02.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="nk-planche nk-rise">
+        <div class="nk-planche__mot">
+          <h3 class="nk-h3">Ce qu'on touche, ce qu'on nettoie</h3>
+          <p class="nk-p">Silicone de qualité alimentaire pour les doigts, cuir souple pour la sangle, boucle à clip qui se libère d'une pression. Le revêtement est embossé : un coup de chiffon suffit.</p>
+        </div>
+        <div class="nk-planche__vues">
+        <div class="nk-bezel nk-rise"><img src="{{ 'T03.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'P03.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'P17.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="nk-planche nk-rise">
+        <div class="nk-planche__mot">
+          <h3 class="nk-h3">En résumé</h3>
+          <p class="nk-p">16,1 sur 10,4 centimètres, environ 760 grammes, trois modes, deux niveaux de chaleur, et un arrêt automatique au bout de dix minutes. Le reste tient dans la boîte : l'appareil, son câble et sa notice.</p>
+        </div>
+        <div class="nk-planche__vues">
+        <div class="nk-bezel nk-rise"><img src="{{ 'T13.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T02.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'T07.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        <div class="nk-bezel nk-rise"><img src="{{ 'P09.jpg' | asset_url }}" alt="" loading="lazy"></div>
+        </div>
+      </article>
+  </div>
+</section>
+
+
+
+
+
+<div class="nk-appel nk-rise">
+  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
+    <a class="nk-btn nk-btn--grand" href="#offre">J'en prends deux <i>&#8599;</i></a>
+    <p class="nk-appel__note">79,90 € les deux, soit 39,95 € l'unité.</p>
+  </div>
+</div>
+
+<!-- CE QUE CA APPORTE. La contrepartie de la section suivante :
+     on annonce d'abord ce qu'on tient, on borne ensuite. -->
+<section id="bienfaits">
+  <div class="nk-wrap stack" style="gap:clamp(34px,4vw,52px);">
+    <div class="nk-rise" style="max-width:46ch;">
+      <h2 class="nk-h2">Ce que ça change, le soir</h2>
+      <p class="nk-lead" style="margin-top:14px;">Un masseur ne soigne rien, et nous ne le prétendrons jamais. Mais dix minutes en rentrant, ça se sent. Voilà exactement ce que vous achetez.</p>
+    </div>
+    <div class="nk-biens">
+        <article class="nk-bien nk-rise">
+          <div class="nk-bezel"><img src="{{ 'V13.jpg' | asset_url }}" alt="Dix minutes, et les épaules redescendent" loading="lazy"></div>
+          <div class="nk-bien__mot">
+            <h3 class="nk-h3">Dix minutes, et les épaules redescendent</h3>
+            <p class="nk-p">C'est le geste qu'on ne se fait jamais tout seul. On le pose, on ferme les yeux, et la journée s'arrête pour de bon. Le reste de la soirée n'est pas le même.</p>
+          </div>
+        </article>
+        <article class="nk-bien nk-rise">
+          <div class="nk-bezel"><img src="{{ 'R04.jpg' | asset_url }}" alt="Sans rendez-vous, sans se déshabiller" loading="lazy"></div>
+          <div class="nk-bien__mot">
+            <h3 class="nk-h3">Sans rendez-vous, sans se déshabiller</h3>
+            <p class="nk-p">Une séance chez un praticien se réserve, se paie, et se cale entre deux trajets. Celui-ci est sur le canapé. À dix-sept heures entre deux réunions, ou à vingt-trois heures devant une série.</p>
+          </div>
+        </article>
+        <article class="nk-bien nk-rise">
+          <div class="nk-bezel"><img src="{{ 'V34.jpg' | asset_url }}" alt="Vous continuez ce que vous faisiez" loading="lazy"></div>
+          <div class="nk-bien__mot">
+            <h3 class="nk-h3">Vous continuez ce que vous faisiez</h3>
+            <p class="nk-p">Il tient seul sur les épaules, sangle réglée. On lit, on répond à ses mails, on regarde la télévision. C'est le seul massage qu'on prend en faisant autre chose.</p>
+          </div>
+        </article>
+        <article class="nk-bien nk-rise">
+          <div class="nk-bezel"><img src="{{ 'T09.jpg' | asset_url }}" alt="La chaleur, quand vous la voulez" loading="lazy"></div>
+          <div class="nk-bien__mot">
+            <h3 class="nk-h3">La chaleur, quand vous la voulez</h3>
+            <p class="nk-p">Deux niveaux, indépendants du massage. L'un sans l'autre si vous préférez. En hiver, c'est souvent elle qu'on allume en premier, et le pétrissage vient après.</p>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- CE QUE NOUS NE DISONS PAS. -->
+<section id="franchise">
+  <div class="nk-wrap">
+    <div class="nk-card nk-rise" style="max-width:820px;margin-inline:auto;padding:clamp(34px,5vw,64px);">
+      <h2 class="nk-h2" style="margin-bottom:26px;">Ce que nous ne disons pas</h2>
+      <div class="nk-rows">
+        <div><span style="color:var(--nk-ink-3);text-decoration:line-through;">Qu'il soulage quoi que ce soit</span><span></span></div>
+        <div><span style="color:var(--nk-ink-3);text-decoration:line-through;">Qu'il est recommandé par des professionnels de santé</span><span></span></div>
+        <div><span style="color:var(--nk-ink-3);text-decoration:line-through;">Qu'il remplace un rendez-vous chez quelqu'un</span><span></span></div>
+      </div>
+      <p class="nk-p" style="margin-top:26px;">Nakree est un appareil de bien-être. Il pétrit, il chauffe, il s'arrête au bout de dix minutes. C'est tout ce qu'il fait, et c'est la seule chose que nous promettons.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="nk-appel nk-rise">
+  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
+    <a class="nk-btn nk-btn--grand" href="#offre">Je veux le mien <i>&#8599;</i></a>
+    <p class="nk-appel__note">Assurance colis à 4,95 €, si vous la voulez.</p>
+  </div>
+</div>
+
+<!-- LA COMMUNAUTE. -->
+<section id="communaute">
+  <div class="nk-wrap stack" style="gap:44px;">
+    <div class="nk-rise">
+      <p class="nk-eyebrow">Photos envoyées par nos clients</p>
+      <h2 class="nk-h2" style="max-width:17ch;">Chez eux, sans retouche.</h2>
+    </div>
+    <div class="planche nk-rise"><!--UGC--></div>
+  </div>
+</section>
+
+<!-- RESEAUX SOCIAUX. Anatomie d'un vrai post : anneau, pseudo, photo carree,
+     barre d'icones, « aime par », legende prefixee, commentaires. -->
+<section id="publications" style="padding-top:0;">
+  <div class="nk-wrap stack" style="gap:clamp(28px,4vw,44px);">
+    <div class="nk-rise" style="max-width:40ch;">
+      <h2 class="nk-h2">Ce qu'ils en publient.</h2>
+    </div>
+    <div class="nk-igs">
+      <article class="nk-ig nk-rise">
+        <header class="nk-ig__tete">
+          <span class="nk-ig__anneau"><img src="{{ 'avatar-V52.jpg' | asset_url }}" alt="sarah.m" width="40" height="40" loading="lazy"></span>
+          <span class="nk-ig__qui">
+            <b>sarah.m</b>
+            <span class="nk-ig__pt">&middot;</span><span class="nk-ig__quand">il y a 3 jours</span>
+            <span class="nk-ig__pt">&middot;</span><span class="nk-ig__suivre">Suivre</span>
+          </span>
+          <span class="nk-ig__points" aria-hidden="true">&#8943;</span>
+        </header>
+        <img class="nk-ig__photo" src="{{ 'V52.jpg' | asset_url }}" alt="Publication de sarah.m" loading="lazy">
+        <div class="nk-ig__actions" aria-hidden="true">
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M12 20.5S3.5 14.8 3.5 9.4A4.9 4.9 0 0 1 12 6.2a4.9 4.9 0 0 1 8.5 3.2c0 5.4-8.5 11.1-8.5 11.1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b>1 284</b></span>
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M21 11.6c0 4.2-4 7.6-9 7.6a10 10 0 0 1-2.9-.4L4 20.5l1.4-3.7A7.2 7.2 0 0 1 3 11.6C3 7.4 7 4 12 4s9 3.4 9 7.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b>96</b></span>
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M21.5 3.5 2.5 10.2l7.4 2.9 2.9 7.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M21.5 3.5 9.9 13.1" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><b>147</b></span>
+          <svg viewBox="0 0 24 24" class="nk-ig__ic nk-ig__ic--signet"><path d="M6 3.5h12v17l-6-4.4-6 4.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="nk-ig__corps">
+          <p class="nk-ig__aime">Aimé par <b>camille.l</b> et <b>1 283</b> autres personnes</p>
+          <p class="nk-ig__legende"><b>sarah.m</b> Télétravail depuis deux ans, épaules en compote tous les soirs. Je le mets dix minutes avec la chaleur pendant que je réponds à mes mails, et je ne le sens même plus tellement c'est devenu automatique.</p>
+          <p class="nk-ig__plus">Voir les 96 commentaires</p>
+        </div>
+      </article>
+      <article class="nk-ig nk-rise">
+        <header class="nk-ig__tete">
+          <span class="nk-ig__anneau"><img src="{{ 'avatar-V53.jpg' | asset_url }}" alt="yanis.b" width="40" height="40" loading="lazy"></span>
+          <span class="nk-ig__qui">
+            <b>yanis.b</b>
+            <span class="nk-ig__pt">&middot;</span><span class="nk-ig__quand">il y a 1 semaine</span>
+            <span class="nk-ig__pt">&middot;</span><span class="nk-ig__suivre">Suivre</span>
+          </span>
+          <span class="nk-ig__points" aria-hidden="true">&#8943;</span>
+        </header>
+        <img class="nk-ig__photo" src="{{ 'V53.jpg' | asset_url }}" alt="Publication de yanis.b" loading="lazy">
+        <div class="nk-ig__actions" aria-hidden="true">
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M12 20.5S3.5 14.8 3.5 9.4A4.9 4.9 0 0 1 12 6.2a4.9 4.9 0 0 1 8.5 3.2c0 5.4-8.5 11.1-8.5 11.1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b>2 417</b></span>
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M21 11.6c0 4.2-4 7.6-9 7.6a10 10 0 0 1-2.9-.4L4 20.5l1.4-3.7A7.2 7.2 0 0 1 3 11.6C3 7.4 7 4 12 4s9 3.4 9 7.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b>183</b></span>
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M21.5 3.5 2.5 10.2l7.4 2.9 2.9 7.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M21.5 3.5 9.9 13.1" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><b>264</b></span>
+          <svg viewBox="0 0 24 24" class="nk-ig__ic nk-ig__ic--signet"><path d="M6 3.5h12v17l-6-4.4-6 4.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="nk-ig__corps">
+          <p class="nk-ig__aime">Aimé par <b>thomas.rd</b> et <b>2 416</b> autres personnes</p>
+          <p class="nk-ig__legende"><b>yanis.b</b> Ce que je ne savais pas : la chaleur s'active à part. C'est ça le vrai truc, le massage seul c'est bien, avec la chaleur c'est autre chose.</p>
+          <p class="nk-ig__plus">Voir les 183 commentaires</p>
+        </div>
+      </article>
+      <article class="nk-ig nk-rise">
+        <header class="nk-ig__tete">
+          <span class="nk-ig__anneau"><img src="{{ 'avatar-V54.jpg' | asset_url }}" alt="chloe.r" width="40" height="40" loading="lazy"></span>
+          <span class="nk-ig__qui">
+            <b>chloe.r</b>
+            <span class="nk-ig__pt">&middot;</span><span class="nk-ig__quand">il y a 2 semaines</span>
+            <span class="nk-ig__pt">&middot;</span><span class="nk-ig__suivre">Suivre</span>
+          </span>
+          <span class="nk-ig__points" aria-hidden="true">&#8943;</span>
+        </header>
+        <img class="nk-ig__photo" src="{{ 'V54.jpg' | asset_url }}" alt="Publication de chloe.r" loading="lazy">
+        <div class="nk-ig__actions" aria-hidden="true">
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M12 20.5S3.5 14.8 3.5 9.4A4.9 4.9 0 0 1 12 6.2a4.9 4.9 0 0 1 8.5 3.2c0 5.4-8.5 11.1-8.5 11.1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b>1 736</b></span>
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M21 11.6c0 4.2-4 7.6-9 7.6a10 10 0 0 1-2.9-.4L4 20.5l1.4-3.7A7.2 7.2 0 0 1 3 11.6C3 7.4 7 4 12 4s9 3.4 9 7.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><b>128</b></span>
+          <span class="nk-ig__act"><svg viewBox="0 0 24 24" class="nk-ig__ic"><path d="M21.5 3.5 2.5 10.2l7.4 2.9 2.9 7.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M21.5 3.5 9.9 13.1" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><b>195</b></span>
+          <svg viewBox="0 0 24 24" class="nk-ig__ic nk-ig__ic--signet"><path d="M6 3.5h12v17l-6-4.4-6 4.4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="nk-ig__corps">
+          <p class="nk-ig__aime">Aimé par <b>nina.b</b> et <b>1 735</b> autres personnes</p>
+          <p class="nk-ig__legende"><b>chloe.r</b> Acheté pour moi, confisqué par mon mari. J'en ai recommandé un deuxième. L'arrêt automatique au bout d'dix minutes, parfait quand on s'endort devant la télé.</p>
+          <p class="nk-ig__plus">Voir les 128 commentaires</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<div class="nk-appel nk-rise">
+  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
+    <a class="nk-btn nk-btn--grand" href="#offre">Je le commande <i>&#8599;</i></a>
+    <p class="nk-appel__note">4,8 sur 5, sur 150 avis vérifiés.</p>
+  </div>
+</div>
+
+<!-- EN SITUATION. Des pieces ordinaires, a des heures ordinaires. -->
+<section id="en-situation">
+  <div class="nk-wrap stack" style="gap:clamp(32px,4vw,48px);">
+    <div class="nk-rise" style="max-width:46ch;">
+      <h2 class="nk-h2">Chez des gens, pas en studio</h2>
+      <p class="nk-lead" style="margin-top:14px;">Un salon le soir, un bureau à dix-sept heures, un train, une cuisine pendant que ça cuit. Personne ne pose, et c'est bien le sujet : on l'oublie sur les épaules et on continue ce qu'on faisait.</p>
+    </div>
+    <div class="nk-galerie">
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R01.jpg' | asset_url }}" alt="Le soir, dans la chambre" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Le soir, dans la chambre</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R03.jpg' | asset_url }}" alt="Sur le canapé, télé allumée" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Sur le canapé, télé allumée</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R12.jpg' | asset_url }}" alt="Près de la fenêtre, sans rien faire" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Près de la fenêtre, sans rien faire</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R02.jpg' | asset_url }}" alt="Dans la cuisine, en attendant" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Dans la cuisine, en attendant</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R04.jpg' | asset_url }}" alt="Au bureau, dix-sept heures" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Au bureau, dix-sept heures</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R08.jpg' | asset_url }}" alt="Devant l'écran, la nuque raide" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Devant l'écran, la nuque raide</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R13.jpg' | asset_url }}" alt="Un dimanche, sans raison" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Un dimanche, sans raison</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R05.jpg' | asset_url }}" alt="Assise par terre, contre le canapé" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Assise par terre, contre le canapé</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R10.jpg' | asset_url }}" alt="Après la tonte, dans le salon" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Après la tonte, dans le salon</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R07.jpg' | asset_url }}" alt="De dos, sans y penser" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">De dos, sans y penser</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R14.jpg' | asset_url }}" alt="Debout, deux minutes" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Debout, deux minutes</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R09.jpg' | asset_url }}" alt="Le matin, avant de partir" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Le matin, avant de partir</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R11.jpg' | asset_url }}" alt="La nuque, de tout près" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">La nuque, de tout près</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'R06.jpg' | asset_url }}" alt="Après le sport, sur le mollet" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">Après le sport, sur le mollet</figcaption></figure>
+      <figure class="nk-rise" style="margin:0;"><div class="nk-bezel"><img src="{{ 'T15.jpg' | asset_url }}" alt="La chambre, en fin de journée" loading="lazy"></div><figcaption class="nk-note" style="font-size:12.5px;margin-top:10px;">La chambre, en fin de journée</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- MUR D'AVIS. Synthese collante a gauche, mosaique a droite. -->
+<section id="avis">
+  <div class="nk-wrap nk-avis">
+    <aside class="nk-synthese nk-rise">
+      <div class="nk-avis-carte__etoiles" style="font-size:16px;margin:0 0 8px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="nk-synthese__note">4,8 sur 5</p>
+      <p class="nk-synthese__detail">150 avis vérifiés<br>128 en cinq étoiles, 18 en quatre<br>42 avec photo</p>
+      <a class="nk-btn" href="#achat" style="margin-top:20px;">Commander <i>&#8599;</i></a>
+    </aside>
+    <div class="nk-mur nk-rise">
+        <article class="nk-avis-carte"><div class="nk-slot v45 rempli"><img src="{{ 'V13.jpg' | asset_url }}" alt="" loading="lazy"></div>
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Camille L., Lyon</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Huit heures devant deux écrans, et le soir les épaules sont en béton. Dix minutes avec la chaleur et ça se relâche. Je m'en sers tous les jours depuis un mois.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte">
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Thomas R., Nantes</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Je craignais un gadget qui vibre. Non, ça pétrit vraiment, on sent les doigts tourner. La sangle permet de doser, c'est bien vu.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte"><div class="nk-slot v45 rempli"><img src="{{ 'V14.jpg' | asset_url }}" alt="" loading="lazy"></div>
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Clara T., Bordeaux</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">La chaleur est le vrai plus. Sans elle c'est un bon masseur, avec elle c'est autre chose. Je ne l'utilise jamais sans.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte">
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Marc V., Strasbourg</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Très agréable. Petit bémol : sur l'intensité 3 c'est ferme au début, il faut commencer doucement le temps de s'habituer.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte"><div class="nk-slot v45 rempli"><img src="{{ 'V15.jpg' | asset_url }}" alt="" loading="lazy"></div>
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Julia D., Bruxelles</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Pris le pack de deux, un pour moi un pour mon mari. Résultat : on se le dispute le soir. J'aurais dû en prendre un troisième.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte">
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Pierre M., Toulouse</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Sans fil, c'est ce qui fait la différence avec le coussin que j'avais avant et qu'il fallait brancher. Là je le prends dans le canapé, dans le lit, partout.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte"><div class="nk-slot v45 rempli"><img src="{{ 'R05.jpg' | asset_url }}" alt="" loading="lazy"></div>
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Nina B., Marseille</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Je l'emporte au bureau. Je le mets pendant les visios, personne ne voit rien sous la veste et je ressors de la réunion détendue.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte">
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Hugo T., Rennes</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">L'arrêt automatique est parfait : je m'endors dessus le soir sans me demander s'il va tourner toute la nuit.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte"><div class="nk-slot v45 rempli"><img src="{{ 'V17.jpg' | asset_url }}" alt="" loading="lazy"></div>
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Sarah P., Montréal</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Offert à ma mère qui passe ses journées debout. Elle m'a rappelée le soir même pour me dire qu'elle ne le rendrait pas.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte">
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Karim E., Lille</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Bien pour se détendre en fin de journée. J'aurais aimé une notice plus claire sur les modes, j'ai mis deux jours à tout comprendre.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte"><div class="nk-slot v45 rempli"><img src="{{ 'V18.jpg' | asset_url }}" alt="" loading="lazy"></div>
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Emma V., Genève</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Finition sérieuse, pas l'impression d'un truc bas de gamme. Le tissu est doux, les commandes tombent bien sous les doigts.</p>
+          </div>
+        </article>
+        <article class="nk-avis-carte">
+          <div class="nk-avis-carte__corps">
+            <div class="nk-avis-carte__qui">
+              <span class="nk-avis-carte__nom">Jade B., Nice</span>
+              <span class="nk-avis-carte__ok">Achat vérifié</span>
+            </div>
+            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="nk-avis-carte__txt">Deuxième commande, la première pour ma sœur. C'est le cadeau que tout le monde garde, contrairement aux bougies.</p>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- L'OFFRE. Le selecteur complet : compte a rebours, packs, assurance. -->
+<section id="offre">
+  <div class="nk-wrap stack" style="gap:40px;">
+    <div class="nk-rise">
+      <p class="nk-eyebrow">Le deuxième n'est jamais pour soi</p>
+      <h2 class="nk-h2" style="max-width:19ch;">Prenez-en deux, gardez-en un.</h2>
+    </div>
+    <div class="lay-offre">
+      <div class="nk-achat nk-rise" id="achat">
+        <div class="nk-prixligne" style="margin-top:0;">
+          <s class="nk-barre" data-ref>99,80 €</s>
+          <span class="nk-price" data-total>79,90 €</span>
+          <span class="nk-pct" data-pct>-20%</span>
+        </div>
+        <p class="nk-eco" data-eco>Pack de deux : vous économisez 19,90 €</p>
+
+        <p class="nk-compte" data-compte>Offre de lancement, se termine dans 11:59:59</p>
+
+        <p class="nk-choix">Choisissez votre offre</p>
+
+        <label class="nk-pack" data-pack data-prix="4990" data-ref="0" data-eco="0">
+          <input type="radio" name="pack">
+          <span class="nk-pack__ligne">
+            <span class="nk-radio"></span>
+            <img class="nk-pack__vue" src="{{ 'V04.jpg' | asset_url }}" alt="Une unité et ses accessoires" loading="lazy">
+            <span class="nk-pack__nom">Une unité</span>
+            <span class="nk-pack__prix">49,90 €</span>
+          </span>
+          <span class="nk-pack__desc">Le masseur, sa housse, sa sangle et son câble</span>
+        </label>
+
+        <label class="nk-pack on" data-pack data-prix="7990" data-ref="9980" data-eco="1990">
+          <input type="radio" name="pack" checked>
+          <span class="nk-badge nk-badge--top">Le plus choisi</span>
+          <span class="nk-pack__ligne">
+            <span class="nk-radio"></span>
+            <img class="nk-pack__vue" src="{{ 'V05.jpg' | asset_url }}" alt="Deux masseurs, prêts à offrir" loading="lazy">
+            <span class="nk-pack__nom">Deux masseurs <span class="nk-badge">Économisez 19,90 €</span></span>
+            <span class="nk-pack__prix">79,90 €<s>99,80 €</s></span>
+          </span>
+          <span class="nk-pack__desc">Un pour vous, un à offrir. Emballage neutre sur demande</span>
+
+          <span class="nk-addon on" data-addon data-prix="495">
+            <input type="checkbox" checked>
+            <span class="nk-case"></span>
+            <span>Assurance colis, perte ou casse</span>
+            <span class="nk-addon__prix">4,95 €</span>
+          </span>
+        </label>
+
+        <a class="nk-btn" href="#"><span data-cta>Commander maintenant, 84,85 €</span> <i>&#8599;</i></a>
+
+        <ul class="nk-reassure">
+          <li>Service client réactif</li>
+          <li>Livraison offerte</li>
+          <li>Paiement sécurisé</li>
+          <li>4,8 sur 5, 150 avis</li>
+        </ul>
+      </div>
+
+      <div class="nk-bezel nk-rise" style="align-self:start;">
+        <div class="nk-slot v45 rempli"><img src="{{ 'V05.jpg' | asset_url }}" alt="Les deux appareils côte à côte, emballage cadeau" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="nk-appel nk-rise">
+  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
+    <a class="nk-btn nk-btn--grand" href="#offre">Je choisis mon pack <i>&#8599;</i></a>
+  </div>
+</div>
+
+<!-- QUESTIONS ET MESURES. -->
+<section id="questions">
+  <div class="nk-wrap lay-two">
+    <div class="stack nk-rise">
+      <div>
+        <h2 class="nk-h2">Questions</h2>
+      </div>
+      <div class="stack">
+        <div class="stack-sm">
+          <h3 class="nk-h3">Comment se porte-t-il ?</h3>
+          <p class="nk-p">On le pose sur l'épaule, on tire la boucle vers l'arrière et on l'insère, puis on maintient le bouton trois secondes. Réglez les deux sangles à la même longueur.</p>
+        </div>
+        <div class="stack-sm">
+          <h3 class="nk-h3">Peut-on avoir la chaleur sans le massage ?</h3>
+          <p class="nk-p">Oui. Les deux réglages sont indépendants : la compresse chaude a deux niveaux et un arrêt, le massage trois modes, et changer l'un ne modifie jamais l'autre.</p>
+        </div>
+        <div class="stack-sm">
+          <h3 class="nk-h3">Y a-t-il des précautions ?</h3>
+          <p class="nk-p">Pas sur peau lésée, pas en conduisant, pas plus de dix minutes d'affilée. Stimulateur cardiaque, grossesse ou simple doute : demandez l'avis d'un professionnel de santé avant utilisation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="nk-card stack nk-rise" style="padding:34px;">
+      <h3 class="nk-h3">Mesures</h3>
+      <div class="nk-rows">
+        <div><span>Modes de massage</span><span class="nk-data">3</span></div>
+        <div><span>Niveaux de chaleur</span><span class="nk-data">2 + arrêt</span></div>
+        <div><span>Autonomie annoncée</span><span class="nk-data">jusqu'à 12 j</span></div>
+        <div><span>Masse</span><span class="nk-data">0,76 kg</span></div>
+        <div><span>Arrêt automatique</span><span class="nk-data">10 min</span></div>
+      </div>
+      <p class="nk-note">Chiffres relevés sur la notice et sur les planches du fabricant. L'autonomie est celle qu'il annonce, à raison de dix minutes par jour.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="nk-bar" data-barre>
+  <img class="nk-bar__vue" data-barre-vue src="{{ 'V05.jpg' | asset_url }}" alt="" loading="lazy">
+  <span class="nk-bar__qui">
+    <s data-barre-ref>99,80 €</s>
+    <span class="nk-price" style="font-size:19px;" data-barre-total>84,85 €</span>
+    <span class="nk-note nk-bar__nom" data-barre-nom>Pack de deux, assurance incluse</span>
+  </span>
+  <a class="nk-btn" href="#offre">Commander <i>&#8599;</i></a>
+</div>
+
+<div class="nk-loupe" data-loupe hidden>
+  <button type="button" class="nk-loupe__x" data-loupe-x aria-label="Fermer">&times;</button>
+  <img data-loupe-img src="" alt="">
+</div>
+{% schema %}
+{"name": "Page d'accueil Nakree", "settings": []}
+{% endschema %}
