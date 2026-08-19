@@ -1,0 +1,29 @@
+{%- comment -%}
+  Moyens de paiement acceptes.
+
+  On ne dessine pas la liste a la main : shop.enabled_payment_types rend
+  exactement ce qui est actif a la caisse. Un moyen ajoute ou retire dans
+  les reglages se voit ici sans toucher au theme, et on n'affiche jamais
+  un logo qu'on n'accepte pas — PayPal en particulier, retire expres.
+{%- endcomment -%}
+
+{%- if shop.enabled_payment_types.size > 0 -%}
+  <div class="nk-pay" role="list" aria-label="Moyens de paiement acceptés">
+    {%- for type in shop.enabled_payment_types -%}
+      <span role="listitem">{{ type | payment_type_svg_tag: class: 'nk-pay__i' }}</span>
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+<style>
+  .nk-pay {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  }
+  .nk-pay span { display: inline-flex; }
+  .nk-pay .nk-pay__i {
+    display: block; width: 38px; height: 24px;
+    border-radius: 4px; background: var(--nk-surface);
+    box-shadow: var(--nk-ring);
+  }
+  .nk-panier__pied .nk-pay { justify-content: center; }
+</style>

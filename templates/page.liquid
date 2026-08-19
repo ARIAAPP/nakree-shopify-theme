@@ -9,6 +9,21 @@
 <section class="nk-texte">
   <div class="nk-wrap stack" style="max-width:760px;gap:clamp(24px,3vw,36px);">
     <h1 class="nk-h2">{{ page.title }}</h1>
+
+    {%- comment -%}
+      La notice existe aussi en PDF : c'est ce qu'on garde sur son
+      telephone ou qu'on imprime pour le glisser dans la boite. Le lien
+      n'apparait que sur cette page-la.
+    {%- endcomment -%}
+    {%- if page.handle == 'notice' -%}
+      <p>
+        <a class="nk-btn" href="{{ 'nakree-notice.pdf' | asset_url }}"
+           download="nakree-notice-utilisation.pdf">
+          Télécharger la notice en PDF <i>&#8595;</i>
+        </a>
+      </p>
+    {%- endif -%}
+
     <div class="nk-rte">{{ page.content }}</div>
   </div>
 </section>
