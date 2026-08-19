@@ -32,24 +32,29 @@
     pied.hidden = n === 0;
 
     lignes.innerHTML = panier.items.map(function (a) {
-      /* Le titre de variante vaut « Default Title » quand le produit n'a
-         pas d'option : on ne l'affiche pas au client. */
+      /* Le titre porte la marque en prefixe (« Nakree — … ») : dans le
+         tiroir elle est deja partout, et sa longueur cassait la ligne. */
+      var nom = a.product_title.replace(/^Nakree\s*[—-]\s*/, '');
+
+      /* « Default Title » quand le produit n'a pas d'option : rien a dire. */
       var variante = (a.variant_title && a.variant_title.indexOf('Default') === -1)
-        ? '<span class="nk-panier__var">' + ech(a.variant_title) + '</span>' : '';
+        ? '<p class="nk-panier__var">' + ech(a.variant_title) + '</p>' : '';
+
       var vue = a.image
         ? '<img src="' + a.image.replace(/(\.[a-z]+)(\?|$)/i, '_128x$1$2') + '" alt="" loading="lazy">'
-        : '<span></span>';
+        : '<span class="nk-panier__creux"></span>';
+
       return '<div class="nk-panier__ligne">' + vue +
-        '<div>' +
-          '<span class="nk-panier__nom">' + ech(a.product_title) + '</span>' + variante +
-          '<span class="nk-panier__qte">' +
-            '<button type="button" data-panier-qte="-" data-cle="' + ech(a.key) + '" aria-label="Retirer un">&minus;</button>' +
-            '<span>' + a.quantity + '</span>' +
-            '<button type="button" data-panier-qte="+" data-cle="' + ech(a.key) + '" aria-label="Ajouter un">+</button>' +
-          '</span>' +
-        '</div>' +
-        '<div style="text-align:right;">' +
-          '<span class="nk-panier__prix">' + euro(a.final_line_price) + '</span>' +
+        '<div class="nk-panier__det">' +
+          '<p class="nk-panier__nom">' + ech(nom) + '</p>' + variante +
+          '<div class="nk-panier__bas">' +
+            '<span class="nk-panier__qte">' +
+              '<button type="button" data-panier-qte="-" data-cle="' + ech(a.key) + '" aria-label="Retirer un">&minus;</button>' +
+              '<span>' + a.quantity + '</span>' +
+              '<button type="button" data-panier-qte="+" data-cle="' + ech(a.key) + '" aria-label="Ajouter un">+</button>' +
+            '</span>' +
+            '<span class="nk-panier__prix">' + euro(a.final_line_price) + '</span>' +
+          '</div>' +
           '<button type="button" class="nk-panier__ret" data-panier-retirer="' + ech(a.key) + '">Retirer</button>' +
         '</div>' +
       '</div>';

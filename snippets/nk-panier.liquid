@@ -102,22 +102,33 @@
   .nk-panier__corps { flex: 1; overflow-y: auto; padding: 20px 22px; }
   .nk-panier__corps > * + * { margin-top: 16px; }
 
+  /* Deux colonnes seulement, et tout s'empile dans la seconde : le titre
+     du produit est long, une troisieme colonne le compressait au point de
+     faire chevaucher la variante et le prix. */
   .nk-panier__ligne {
-    display: grid; grid-template-columns: 64px 1fr auto; gap: 14px;
-    align-items: center;
+    display: grid; grid-template-columns: 60px 1fr; gap: 14px;
+    align-items: start;
     background: var(--nk-surface); border-radius: var(--nk-r-core);
     box-shadow: var(--nk-ring); padding: 12px;
   }
   .nk-panier__ligne + .nk-panier__ligne { margin-top: 12px; }
-  .nk-panier__ligne img {
-    width: 64px; height: 64px; object-fit: cover;
+  .nk-panier__ligne img, .nk-panier__creux {
+    display: block; width: 60px; height: 60px; object-fit: cover;
     border-radius: 12px; background: var(--nk-sunk);
   }
-  .nk-panier__nom { font-size: 15px; font-weight: 600; color: var(--nk-ink); }
-  .nk-panier__var { font-size: 13px; color: var(--nk-ink-3); }
+  .nk-panier__det { min-width: 0; }
+  .nk-panier__nom {
+    font-size: 14.5px; font-weight: 600; line-height: 1.3;
+    color: var(--nk-ink); margin: 0;
+  }
+  .nk-panier__var { font-size: 13px; color: var(--nk-ink-3); margin: 2px 0 0; }
+  .nk-panier__bas {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; margin-top: 9px;
+  }
 
   .nk-panier__qte {
-    display: inline-flex; align-items: center; gap: 2px; margin-top: 6px;
+    display: inline-flex; align-items: center; gap: 2px;
     background: var(--nk-sunk); border-radius: 999px; padding: 2px;
   }
   .nk-panier__qte button {
@@ -129,7 +140,7 @@
 
   .nk-panier__prix { font-size: 15px; font-weight: 600; white-space: nowrap; }
   .nk-panier__ret {
-    display: block; margin-top: 6px; font-size: 12px;
+    display: block; margin-top: 7px; font-size: 12px;
     color: var(--nk-ink-3); text-decoration: underline;
   }
   .nk-panier__ret:hover { color: var(--nk-ink); }
