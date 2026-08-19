@@ -20,9 +20,40 @@
 {%- assign exclus = 'paypal' | split: ',' -%}
 {%- assign plafond = max | default: 99 -%}
 
+{%- comment -%}
+  Shopify rend les moyens de paiement dans son propre ordre, qui sortait
+  alphabetique : sous le bouton d'achat, plafonne a sept logos, on voyait
+  American Express, Apple Pay, Bancontact, BLIK, Cartes Bancaires, EPS,
+  Klarna — et ni Visa ni Mastercard, coupes par le plafond.
+
+  C'est exactement l'inverse de ce que ces logos servent a faire. Un
+  client francais cherche la carte qu'il a dans la poche ; s'il ne la
+  voit pas, la rangee ne rassure pas, elle inquiete. BLIK est polonais,
+  EPS autrichien : utiles, mais jamais devant Visa.
+
+  On impose donc une tete de file, et le reste garde l'ordre de Shopify.
+  Les identifiants absents de la boutique sont simplement ignores, donc
+  cette liste peut nommer des moyens qu'on n'accepte pas encore sans que
+  rien ne casse.
+{%- endcomment -%}
+{%- assign tete = 'visa,master,mastercard,cartes_bancaires,carte_bancaire,american_express,shopify_pay,apple_pay,google_pay' | split: ',' -%}
+
+{%- assign ordre = '' -%}
+{%- for type in tete -%}
+  {%- if shop.enabled_payment_types contains type -%}
+    {%- assign ordre = ordre | append: type | append: ',' -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- for type in shop.enabled_payment_types -%}
+  {%- unless tete contains type -%}
+    {%- assign ordre = ordre | append: type | append: ',' -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- assign classes = ordre | split: ',' -%}
+
 {%- assign montres = 0 -%}
 {%- capture logos -%}
-  {%- for type in shop.enabled_payment_types -%}
+  {%- for type in classes -%}
     {%- unless exclus contains type -%}
       {%- if montres < plafond -%}
         <span role="listitem">{{ type | payment_type_svg_tag: class: 'nk-pay__i' }}</span>
