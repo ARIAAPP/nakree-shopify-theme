@@ -163,15 +163,7 @@
     if (plus && sup) {
       var id = Number(sup.dataset.variant);
       ecrire('/cart/add.js', { items: [{ id: id, quantity: 1 }] })
-        .then(function () {
-          if (window.fbq) {
-            fbq('track', 'AddToCart', {
-              content_ids: [String(id)], content_type: 'product',
-              value: Number(sup.dataset.prix) / 100, currency: 'EUR'
-            });
-          }
-          return relire();
-        });
+        .then(relire);
     }
   });
 
@@ -187,15 +179,7 @@
       .then(function (r) { return r.json(); })
       .then(function (panier) {
         if (!panier.item_count) return;
-        if (window.fbq) {
-          fbq('track', 'InitiateCheckout', {
-            content_ids: panier.items.map(function (a) { return String(a.variant_id); }),
-            content_type: 'product',
-            value: panier.total_price / 100,
-            currency: panier.currency,
-            num_items: panier.item_count
-          });
-        }
+        /* Le suivi Meta passe par le canal Facebook & Instagram (CAPI). */
         if (!shopPay) { window.location.href = '/checkout'; return; }
         var lignes = panier.items.map(function (a) { return a.variant_id + ':' + a.quantity; });
         window.location.href = '/cart/' + lignes.join(',') + '?payment=shop_pay';

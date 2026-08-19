@@ -381,14 +381,7 @@
         : Promise.reject(new Error('tiroir absent'));
 
       pose.then(function () {
-          if (window.fbq) {
-            fbq('track', 'AddToCart', {
-              content_ids: lignes.map(function (l) { return String(l.id); }),
-              content_type: 'product',
-              value: (parseInt(pack.dataset.prix, 10) + (add ? 495 : 0)) / 100,
-              currency: 'EUR'
-            });
-          }
+          /* Le suivi Meta passe par le canal Facebook & Instagram (CAPI). */
           bouton.disabled = false;
           bouton.innerHTML = libelle;
         })
