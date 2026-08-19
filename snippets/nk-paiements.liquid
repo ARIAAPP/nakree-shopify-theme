@@ -7,12 +7,33 @@
   un logo qu'on n'accepte pas — PayPal en particulier, retire expres.
 {%- endcomment -%}
 
-{%- if shop.enabled_payment_types.size > 0 -%}
-  <div class="nk-pay" role="list" aria-label="Moyens de paiement acceptés">
-    {%- for type in shop.enabled_payment_types -%}
-      <span role="listitem">{{ type | payment_type_svg_tag: class: 'nk-pay__i' }}</span>
-    {%- endfor -%}
-  </div>
+{%- comment -%}
+  PayPal est ecarte de l'affichage : il a ete retire des boutiques a
+  cause des retrofacturations, et Shopify continue de le lister comme
+  disponible. Montrer un logo qu'on n'accepte pas, c'est une promesse
+  qu'on ne tient pas au moment de payer.
+
+  Le nombre d'icones se limite par le parametre « max » : douze logos
+  sous un bouton d'achat font du bruit, alors qu'ils rassurent dans le
+  pied du tiroir, la ou le client verifie avant de payer.
+{%- endcomment -%}
+{%- assign exclus = 'paypal' | split: ',' -%}
+{%- assign plafond = max | default: 99 -%}
+
+{%- assign montres = 0 -%}
+{%- capture logos -%}
+  {%- for type in shop.enabled_payment_types -%}
+    {%- unless exclus contains type -%}
+      {%- if montres < plafond -%}
+        <span role="listitem">{{ type | payment_type_svg_tag: class: 'nk-pay__i' }}</span>
+        {%- assign montres = montres | plus: 1 -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if montres > 0 -%}
+  <div class="nk-pay" role="list" aria-label="Moyens de paiement acceptés">{{ logos }}</div>
 {%- endif -%}
 
 <style>
