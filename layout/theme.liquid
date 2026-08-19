@@ -10,9 +10,15 @@
       <meta name="facebook-domain-verification" content="{{ settings.meta_domain_verification }}">
     {%- endif -%}
 
-    {%- if settings.logo != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.logo | image_url: width: 32 }}">
-    {%- endif -%}
+    {%- comment -%}
+      Favicon. Il etait conditionne a settings.logo, qui est vide : le site
+      n'avait donc aucune icone d'onglet, juste la page blanche du navigateur.
+      On le pose en dur. Le monogramme est celui de l'en-tete, « n. » blanc
+      sur le vert de la marque.
+    {%- endcomment -%}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ 'nakree-favicon-32.png' | asset_url }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ 'nakree-favicon-512.png' | asset_url }}">
+    <link rel="apple-touch-icon" href="{{ 'nakree-favicon-180.png' | asset_url }}">
 
     {%- comment -%}
       Referencement. Aucune promesse commerciale ici : ni « satisfait ou
