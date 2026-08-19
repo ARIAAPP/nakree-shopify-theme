@@ -1,13 +1,22 @@
 {%- comment -%}
-  Pied de page. Les liens pointent vers les objets Shopify plutot que vers
-  des ancres mortes : les politiques ont leurs URL propres, la page de suivi
-  et la notice sont des pages du contenu.
+  Pied de page.
 
-  La ligne d'identification est batie depuis les reglages de la boutique,
-  pour ne pas avoir a la maintenir a deux endroits. L'adresse postale n'est
-  volontairement PAS repetee ici : elle figure une seule fois, dans les
-  mentions legales, la ou la loi l'impose.
+  Les liens de politiques passaient par shop.refund_policy.published_url
+  et consorts : ces objets ne rendaient rien, et la colonne « Mentions »
+  ne contenait donc que « Cookies » — six pages legales invisibles alors
+  qu'elles repondent toutes. On pointe les routes /policies/… qui sont
+  stables chez Shopify et verifiees une a une.
+
+  Le SIREN etait tire de settings.siren, dont la valeur par defaut du
+  schema ne s'applique que si la section a ete enregistree une fois dans
+  l'editeur : la ligne d'identification sortait donc sans numero. Il est
+  ecrit ici, avec le reglage comme surcharge possible.
+
+  L'adresse postale n'est volontairement PAS repetee : elle figure une
+  seule fois, dans les mentions legales, la ou la loi l'impose.
 {%- endcomment -%}
+
+{%- assign siren = settings.siren | default: '833 336 088' -%}
 
 <footer class="nk-foot">
   <div class="nk-wrap">
@@ -16,13 +25,13 @@
       <div class="stack-sm" style="max-width:38ch;">
         <span class="nk-logo">nakree<i>.</i></span>
         <p class="nk-note">
-          {{ shop.name }}{% if settings.siren != blank %}, SIREN {{ settings.siren }}{% endif %}<br>
+          {{ shop.name }}, SIREN {{ siren }}<br>
           TVA non applicable, article 293 B du CGI<br>
           <a href="mailto:support@nakree.com">support@nakree.com</a>
         </p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div class="nk-foot__cols">
         <div>
           <h4>Boutique</h4>
           <a href="{{ routes.root_url }}#offre">L'offre</a>
@@ -34,25 +43,16 @@
           <a href="{{ routes.root_url }}#questions">Questions</a>
           <a href="{{ routes.root_url }}pages/notice">Notice</a>
           <a href="{{ routes.root_url }}pages/a-propos">À propos</a>
+          <a href="{{ routes.root_url }}pages/cookies">Cookies</a>
         </div>
         <div>
           <h4>Mentions</h4>
-          {%- if shop.terms_of_sale.published_url != blank -%}
-            <a href="{{ shop.terms_of_sale.published_url }}">Conditions de vente</a>
-          {%- endif -%}
-          {%- if shop.refund_policy.published_url != blank -%}
-            <a href="{{ shop.refund_policy.published_url }}">Remboursement</a>
-          {%- endif -%}
-          {%- if shop.shipping_policy.published_url != blank -%}
-            <a href="{{ shop.shipping_policy.published_url }}">Expédition</a>
-          {%- endif -%}
-          {%- if shop.privacy_policy.published_url != blank -%}
-            <a href="{{ shop.privacy_policy.published_url }}">Confidentialité</a>
-          {%- endif -%}
-          {%- if shop.subscription_policy.published_url != blank -%}
-            <a href="{{ shop.subscription_policy.published_url }}">Mentions légales</a>
-          {%- endif -%}
-          <a href="{{ routes.root_url }}pages/cookies">Cookies</a>
+          <a href="/policies/legal-notice">Mentions légales</a>
+          <a href="/policies/terms-of-sale">Conditions de vente</a>
+          <a href="/policies/refund-policy">Retours et remboursement</a>
+          <a href="/policies/shipping-policy">Expédition</a>
+          <a href="/policies/privacy-policy">Confidentialité</a>
+          <a href="/policies/terms-of-service">Conditions de service</a>
         </div>
       </div>
 
@@ -65,6 +65,13 @@
     </p>
   </div>
 </footer>
+
+<style>
+  .nk-foot__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 620px) {
+    .nk-foot__cols { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+  }
+</style>
 
 {% schema %}
 {
