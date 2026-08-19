@@ -31,10 +31,18 @@
     vide.hidden = n > 0;
     pied.hidden = n === 0;
 
-    lignes.innerHTML = panier.items.map(function (a) {
-      /* Le titre porte la marque en prefixe (« Nakree — … ») : dans le
-         tiroir elle est deja partout, et sa longueur cassait la ligne. */
-      var nom = a.product_title.replace(/^Nakree\s*[—-]\s*/, '');
+    /* Shopify remonte les derniers ajoutes en tete : l'assurance passait
+       donc avant le masseur, ce qui se lit a l'envers. Ce qui s'expedie
+       d'abord, les options ensuite. */
+    var articles = panier.items.slice().sort(function (a, b) {
+      return (b.requires_shipping ? 1 : 0) - (a.requires_shipping ? 1 : 0);
+    });
+
+    lignes.innerHTML = articles.map(function (a) {
+      /* Le titre porte la marque en prefixe (« Nakree — … ») et parfois un
+         sous-titre apres un tiret cadratin. Dans un tiroir large de 420 px,
+         les deux coutent des lignes sans rien apprendre a personne. */
+      var nom = a.product_title.replace(/^Nakree\s*[—-]\s*/, '').split(/\s+—\s+/)[0];
 
       /* « Default Title » quand le produit n'a pas d'option : rien a dire. */
       var variante = (a.variant_title && a.variant_title.indexOf('Default') === -1)
