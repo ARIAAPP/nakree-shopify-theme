@@ -225,8 +225,41 @@
   }
   .nk-panier__suite:hover { color: var(--nk-ink); }
 
-  @media (max-width: 480px) {
-    .nk-panier__corps { padding: 16px; }
-    .nk-panier__pied  { padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); }
+  /* Sur un telephone, le pied mangeait les deux tiers de l'ecran : le
+     panier ne montrait qu'une seule ligne et l'assurance, deuxieme article,
+     tombait sous la ligne de flottaison sans que rien ne le laisse deviner.
+     On rend au corps la hauteur qui lui revient.
+
+     Ce qu'on retire du pied ne disparait pas du site : les quatre reperes
+     de reassurance et les logos de paiement figurent deja sous le bouton
+     d'achat, a l'endroit ou le client hesite. Les repeter au moment de
+     payer coutait ici le seul chose qui compte, voir ce qu'on achete. */
+  @media (max-width: 600px) {
+    .nk-panier__corps { padding: 14px; }
+    .nk-panier__corps > * + * { margin-top: 12px; }
+
+    .nk-panier__ligne { grid-template-columns: 52px 1fr; gap: 12px; padding: 10px; }
+    .nk-panier__ligne img, .nk-panier__creux { width: 52px; height: 52px; }
+    .nk-panier__nom { font-size: 14px; }
+    .nk-panier__bas { margin-top: 7px; }
+    .nk-panier__ret { margin-top: 5px; }
+
+    .nk-panier__sup { padding: 13px; }
+    .nk-panier__sup__ligne { margin-top: 9px; }
+
+    .nk-panier__pied {
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    }
+    .nk-panier__pied > * + * { margin-top: 9px; }
+    .nk-panier__total .nk-price { font-size: 21px; }
+
+    /* Deja presents sur la page, juste au-dessus du bouton d'achat. */
+    .nk-panier__rass { display: none; }
+    .nk-panier__pied .nk-pay { display: none; }
+
+    .nk-panier__express > * + * { margin-top: 7px; }
+    .nk-shoppay { min-height: 44px; font-size: 16px; }
+    .nk-panier__payer { padding-block: 13px; }
+    .nk-panier__suite { font-size: 12.5px; }
   }
 </style>
