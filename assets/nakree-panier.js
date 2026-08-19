@@ -138,7 +138,10 @@
       ev.preventDefault(); window.NakreePanier.ouvrir(); return;
     }
     if (ev.target.closest('[data-panier-payer]')) {
-      ev.preventDefault(); window.location.href = '/checkout'; return;
+      ev.preventDefault(); versLePaiement(false); return;
+    }
+    if (ev.target.closest('[data-panier-shoppay]')) {
+      ev.preventDefault(); versLePaiement(true); return;
     }
 
     var ret = ev.target.closest('[data-panier-retirer]');
@@ -171,6 +174,33 @@
         });
     }
   });
+
+  /* Vers le paiement.
+
+     Shop Pay ne s'atteint pas depuis /checkout : il faut le permalien de
+     panier, « /cart/<variante>:<quantite>,... », avec payment=shop_pay.
+     C'est la meme methode que sur Glosso. On relit le panier juste avant
+     pour batir l'adresse sur son etat reel, et non sur ce qui est
+     affiche. */
+  function versLePaiement(shopPay) {
+    return fetch('/cart.js', { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (panier) {
+        if (!panier.item_count) return;
+        if (window.fbq) {
+          fbq('track', 'InitiateCheckout', {
+            content_ids: panier.items.map(function (a) { return String(a.variant_id); }),
+            content_type: 'product',
+            value: panier.total_price / 100,
+            currency: panier.currency,
+            num_items: panier.item_count
+          });
+        }
+        if (!shopPay) { window.location.href = '/checkout'; return; }
+        var lignes = panier.items.map(function (a) { return a.variant_id + ':' + a.quantity; });
+        window.location.href = '/cart/' + lignes.join(',') + '?payment=shop_pay';
+      });
+  }
 
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape' && !tiroir.hidden) fermer();

@@ -61,6 +61,22 @@
       <li>4,8 sur 5, 150 avis</li>
     </ul>
 
+    {%- comment -%}
+      Paiement express. Shop Pay retient l'adresse et la carte du client :
+      pour quelqu'un qui l'a deja utilise ailleurs, c'est une commande en
+      deux touches au lieu d'un formulaire. Le bouton ne s'affiche que si
+      le moyen est reellement actif a la caisse.
+    {%- endcomment -%}
+    {%- if shop.enabled_payment_types contains 'shopify_pay' -%}
+      <div class="nk-panier__express">
+        <p class="nk-panier__ou">Paiement express</p>
+        <button type="button" class="nk-shoppay" data-panier-shoppay>
+          shop<strong>Pay</strong>
+        </button>
+        <p class="nk-panier__ou"><span>ou</span></p>
+      </div>
+    {%- endif -%}
+
     <button type="button" class="nk-btn nk-panier__payer" data-panier-payer>
       Passer au paiement <i>&#8599;</i>
     </button>
@@ -177,6 +193,29 @@
   .nk-panier__rass li::before {
     content: ''; position: absolute; left: 0; top: 7px;
     width: 6px; height: 6px; border-radius: 999px; background: var(--nk-accent);
+  }
+
+  .nk-panier__express > * + * { margin-top: 9px; }
+  .nk-shoppay {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; min-height: 48px;
+    border-radius: var(--nk-r-pill);
+    background: #5A31F4; color: #fff;
+    font-size: 17px; font-weight: 600; letter-spacing: -.02em;
+    transition: transform .2s var(--nk-ease), filter .2s var(--nk-ease);
+  }
+  .nk-shoppay strong { font-weight: 800; }
+  .nk-shoppay:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+  /* Le « ou » entre les deux voies, avec ses filets de part et d'autre. */
+  .nk-panier__ou {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--nk-ink-3);
+    justify-content: center;
+  }
+  .nk-panier__ou::before, .nk-panier__ou::after {
+    content: ''; flex: 1; height: 1px; background: rgba(23, 23, 26, .09);
   }
 
   .nk-panier__payer { width: 100%; justify-content: center; }
