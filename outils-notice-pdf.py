@@ -218,7 +218,6 @@ d.para("Cette notice reprend celle qui est livr\u00e9e dans la bo\u00eete. Garde
 
 d.titre("Dans la bo\u00eete")
 for x in ["Le masseur nuque et \u00e9paules",
-          "Sa housse de rangement",
           "Sa sangle r\u00e9glable, avec boucle \u00e0 clip",
           "Son c\u00e2ble de charge USB-C",
           "Cette notice"]:
@@ -260,7 +259,7 @@ d.para("Le fabricant annonce jusqu'\u00e0 douze jours d'autonomie, \u00e0 raison
 d.titre("Entretien")
 d.para("Essuyez le tissu et les t\u00eates en silicone avec un chiffon doux l\u00e9g\u00e8rement humide, puis "
        "laissez s\u00e9cher \u00e0 l'air libre. Ne passez pas l'appareil sous l'eau, ne le mettez ni en "
-       "machine ni au s\u00e8che-cheveux. Rangez-le dans sa housse, \u00e0 l'abri de l'humidit\u00e9.")
+       "machine ni au s\u00e8che-cheveux. Rangez-le \u00e0 l'abri de l'humidit\u00e9.")
 
 d.titre("Pr\u00e9cautions")
 for x in ["Ne pas utiliser sur une peau l\u00e9s\u00e9e, irrit\u00e9e, ou apr\u00e8s une intervention r\u00e9cente.",
