@@ -352,12 +352,14 @@
   /* Mise au panier. Le selecteur porte l'identifiant de variante reel,
      pose par Liquid ; on n'ecrit jamais un identifiant en dur ici.
 
-     Deux boutons declenchent l'achat : celui du hero et celui du bloc
+     Deux boutons declenchent l'ajout : celui du hero et celui du bloc
      « L'offre ». Partout ailleurs, les appels a l'action restent des
      ancres qui ramenent au selecteur.
 
-     Le panier est vide avant chaque ajout : sans cela, un client qui
-     hesite entre les deux packs se retrouve avec les deux au paiement. */
+     L'ajout fait glisser le tiroir, il ne saute pas au paiement : c'est
+     le meme parcours que Glosso, Soufflo et Miaeau, et les taux d'une
+     boutique a l'autre ne se comparent que si le tunnel est identique.
+     Si le tiroir n'a pas pu se charger, on retombe sur /cart. */
   (function () {
     var boutons = document.querySelectorAll('[data-acheter]');
     if (!boutons.length) return;
@@ -374,16 +376,11 @@
       bouton.disabled = true;
       bouton.textContent = 'Un instant…';
 
-      fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
-        .then(function () {
-          return fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: lignes })
-          });
-        })
-        .then(function (r) {
-          if (!r.ok) throw new Error('ajout refuse');
+      var pose = window.NakreePanier
+        ? window.NakreePanier.remplacer(lignes)
+        : Promise.reject(new Error('tiroir absent'));
+
+      pose.then(function () {
           if (window.fbq) {
             fbq('track', 'AddToCart', {
               content_ids: lignes.map(function (l) { return String(l.id); }),
@@ -392,7 +389,8 @@
               currency: 'EUR'
             });
           }
-          window.location.href = '/checkout';
+          bouton.disabled = false;
+          bouton.innerHTML = libelle;
         })
         .catch(function () {
           bouton.disabled = false;

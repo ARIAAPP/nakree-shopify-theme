@@ -127,6 +127,9 @@
 
     {% section 'nk-pied' %}
 
+    {% render 'nk-panier' %}
+
+    {{ 'nakree-panier.js' | asset_url | script_tag }}
     {{ 'nakree.js' | asset_url | script_tag }}
   </body>
 </html>

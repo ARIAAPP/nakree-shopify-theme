@@ -1,10 +1,11 @@
 {%- comment -%}
-  Le parcours normal ne passe pas par cette page : le bouton d'achat vide
-  le panier, ajoute les lignes et va droit au paiement. Cette page sert de
-  filet quand l'ajout echoue ou quand quelqu'un tape /cart a la main.
+  Page panier. Le parcours normal passe par le tiroir ; cette page sert de
+  filet, quand le JavaScript ne s'execute pas ou quand quelqu'un tape
+  /cart a la main. Si le tiroir est disponible, on l'ouvre et on laisse la
+  page derriere : c'est ce que fait Glosso.
 {%- endcomment -%}
 
-<section class="nk-suivi">
+<section class="nk-texte">
   <div class="nk-wrap stack" style="max-width:640px;">
     <h1 class="nk-h2">Votre panier</h1>
 
@@ -22,7 +23,7 @@
             <div style="flex:1;">
               <p class="nk-p" style="margin:0;">{{ ligne.product.title }}</p>
               {%- unless ligne.variant.title contains 'Default' -%}
-                <p class="nk-note" style="margin:0;">{{ ligne.variant.title }}</p>
+                <p class="nk-note" style="margin:0;">{{ ligne.variant.title }} &times; {{ ligne.quantity }}</p>
               {%- endunless -%}
             </div>
             <span class="nk-price" style="font-size:19px;">{{ ligne.final_line_price | money }}</span>
@@ -36,8 +37,17 @@
 
         <p class="nk-note">Livraison offerte. Taxes incluses.</p>
 
-        <button type="submit" name="checkout" class="nk-btn">Finaliser la commande <i>&#8599;</i></button>
+        <button type="submit" name="checkout" class="nk-btn">Passer au paiement <i>&#8599;</i></button>
       </form>
     {%- endif -%}
   </div>
 </section>
+
+{% render 'texte-styles' %}
+
+<script>
+  /* Le tiroir dit la meme chose, en mieux : on l'ouvre si on l'a. */
+  document.addEventListener('DOMContentLoaded', function () {
+    if ({{ cart.item_count }} > 0 && window.NakreePanier) window.NakreePanier.ouvrir();
+  });
+</script>

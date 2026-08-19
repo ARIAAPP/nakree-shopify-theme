@@ -1,24 +1,53 @@
 {%- comment -%}
   En-tete.
 
-  Deux corrections : le logo etait un <span>, donc cliquer dessus ne
-  ramenait nulle part ; et les liens de navigation etaient des ancres
-  nues (#geste), qui ne menent a rien depuis /pages/notice ou une
-  politique. On prefixe par l'accueil : le lien marche partout, et se
-  contente d'un defilement quand on y est deja.
+  Le logo etait un <span> : cliquer dessus ne ramenait nulle part. Et les
+  liens de navigation etaient des ancres nues (#geste), donc mortes depuis
+  la notice ou une politique. Les deux sont corriges.
+
+  L'icone de panier n'apparait que lorsqu'il y a quelque chose dedans :
+  sur une page de vente a un seul produit, un panier vide affiche en
+  permanence ne fait qu'ajouter du bruit.
 {%- endcomment -%}
 
 <header class="nk-top">
   <div class="nk-top__in">
     <a class="nk-logo" href="{{ routes.root_url }}" aria-label="Nakree, retour à l'accueil">nakree<i>.</i></a>
+
     <nav class="nk-nav">
       <a href="{{ routes.root_url }}#geste">Comment ça marche</a>
       <a href="{{ routes.root_url }}#communaute">La communauté</a>
       <a href="{{ routes.root_url }}#questions">Questions</a>
     </nav>
-    <a class="nk-btn" href="{{ routes.root_url }}#offre">Commander <i>&#8599;</i></a>
+
+    <div class="nk-top__fin">
+      <button type="button" class="nk-cartouche" data-panier-ouvrir aria-label="Voir mon panier"
+              {% if cart.item_count == 0 %}hidden{% endif %} data-panier-nb-boite>
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span data-panier-nb>{{ cart.item_count }}</span>
+      </button>
+
+      <a class="nk-btn" href="{{ routes.root_url }}#offre">Commander <i>&#8599;</i></a>
+    </div>
   </div>
 </header>
+
+<style>
+  .nk-top__fin { display: flex; align-items: center; gap: 10px; }
+  .nk-cartouche {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 14px; border-radius: var(--nk-r-pill);
+    background: var(--nk-surface); box-shadow: var(--nk-ring);
+    font-size: 14px; font-weight: 600; color: var(--nk-ink);
+  }
+  .nk-cartouche:hover { box-shadow: var(--nk-ring-2), var(--nk-lift-1); }
+  .nk-cartouche svg { color: var(--nk-ink-2); }
+  @media (max-width: 560px) { .nk-cartouche span { display: none; } }
+</style>
 
 {% schema %}
 {"name": "Entete Nakree", "settings": []}

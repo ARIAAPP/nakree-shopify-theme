@@ -1,0 +1,180 @@
+{%- comment -%}
+  Tiroir de panier.
+
+  Meme parcours que Glosso, Soufflo et Miaeau : le bouton ajoute au panier
+  et fait glisser ce panneau, il ne saute pas au paiement. Les taux d'une
+  boutique a l'autre ne sont comparables que si le tunnel est le meme.
+
+  L'etat n'est pas tenu en JavaScript : on lit /cart.js, qui est la seule
+  verite. Un onglet laisse ouvert une heure affiche donc le vrai panier,
+  et non un souvenir.
+
+  L'assurance est resolue ici par son handle. Quand elle n'est pas dans le
+  panier, elle apparait en complement de commande, comme chez Glosso.
+{%- endcomment -%}
+
+{%- assign assurance = all_products['assurance-colis-perte-vol-ou-casse'] -%}
+{%- assign v_assurance = assurance.variants | first -%}
+
+<div class="nk-panier__voile" data-panier-voile hidden></div>
+
+<aside class="nk-panier" data-panier hidden aria-label="Votre panier">
+  <header class="nk-panier__tete">
+    <h2 class="nk-h3">Votre panier <span class="nk-note" data-panier-compte>(0)</span></h2>
+    <button type="button" class="nk-panier__x" data-panier-fermer aria-label="Fermer">&times;</button>
+  </header>
+
+  <div class="nk-panier__corps">
+    <p class="nk-p" data-panier-vide>Votre panier est vide.</p>
+    <div data-panier-lignes></div>
+
+    {%- if v_assurance -%}
+      <div class="nk-panier__sup" data-panier-sup hidden
+           data-variant="{{ v_assurance.id }}"
+           data-prix="{{ v_assurance.price }}">
+        <p class="nk-h3">Complétez votre commande</p>
+        <p class="nk-note">Une option, pas une obligation.</p>
+        <div class="nk-panier__sup__ligne">
+          <span>
+            <strong>{{ assurance.title | split: '—' | first | strip }}</strong>
+            <span class="nk-note">Perdu, volé ou cassé : réexpédié ou remboursé</span>
+          </span>
+          <button type="button" class="nk-btn nk-btn--ghost" data-panier-ajout-sup>
+            {{ v_assurance.price | money }}
+          </button>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <footer class="nk-panier__pied" data-panier-pied hidden>
+    <div class="nk-panier__total">
+      <span class="nk-p">Total</span>
+      <span class="nk-price" data-panier-total>0,00 €</span>
+    </div>
+    <p class="nk-note">Livraison offerte. Taxes incluses.</p>
+
+    <ul class="nk-panier__rass">
+      <li>Livraison offerte</li>
+      <li>Paiement sécurisé</li>
+      <li>Service client réactif</li>
+      <li>4,8 sur 5, 150 avis</li>
+    </ul>
+
+    <button type="button" class="nk-btn nk-panier__payer" data-panier-payer>
+      Passer au paiement <i>&#8599;</i>
+    </button>
+    <button type="button" class="nk-panier__suite" data-panier-fermer>Continuer mes achats</button>
+  </footer>
+</aside>
+
+<style>
+  .nk-panier__voile {
+    position: fixed; inset: 0; z-index: 90;
+    background: rgba(23, 23, 26, .45);
+    opacity: 0; transition: opacity .3s var(--nk-ease);
+  }
+  .nk-panier__voile.on { opacity: 1; }
+
+  .nk-panier {
+    position: fixed; z-index: 91;
+    top: 0; right: 0; bottom: 0;
+    width: min(420px, 100vw);
+    display: flex; flex-direction: column;
+    background: var(--nk-bg);
+    box-shadow: -24px 0 60px -30px rgba(23, 23, 26, .3);
+    transform: translateX(100%);
+    transition: transform .4s var(--nk-ease);
+  }
+  .nk-panier.on { transform: none; }
+
+  .nk-panier__tete {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 20px 22px;
+    box-shadow: 0 1px 0 rgba(23, 23, 26, .07);
+  }
+  .nk-panier__x {
+    font-size: 26px; line-height: 1; color: var(--nk-ink-2);
+    padding: 4px 8px; border-radius: 999px;
+  }
+  .nk-panier__x:hover { background: var(--nk-sunk); color: var(--nk-ink); }
+
+  .nk-panier__corps { flex: 1; overflow-y: auto; padding: 20px 22px; }
+  .nk-panier__corps > * + * { margin-top: 16px; }
+
+  .nk-panier__ligne {
+    display: grid; grid-template-columns: 64px 1fr auto; gap: 14px;
+    align-items: center;
+    background: var(--nk-surface); border-radius: var(--nk-r-core);
+    box-shadow: var(--nk-ring); padding: 12px;
+  }
+  .nk-panier__ligne + .nk-panier__ligne { margin-top: 12px; }
+  .nk-panier__ligne img {
+    width: 64px; height: 64px; object-fit: cover;
+    border-radius: 12px; background: var(--nk-sunk);
+  }
+  .nk-panier__nom { font-size: 15px; font-weight: 600; color: var(--nk-ink); }
+  .nk-panier__var { font-size: 13px; color: var(--nk-ink-3); }
+
+  .nk-panier__qte {
+    display: inline-flex; align-items: center; gap: 2px; margin-top: 6px;
+    background: var(--nk-sunk); border-radius: 999px; padding: 2px;
+  }
+  .nk-panier__qte button {
+    width: 26px; height: 26px; border-radius: 999px;
+    font-size: 15px; color: var(--nk-ink-2);
+  }
+  .nk-panier__qte button:hover { background: var(--nk-surface); color: var(--nk-ink); }
+  .nk-panier__qte span { min-width: 22px; text-align: center; font-size: 14px; font-weight: 600; }
+
+  .nk-panier__prix { font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .nk-panier__ret {
+    display: block; margin-top: 6px; font-size: 12px;
+    color: var(--nk-ink-3); text-decoration: underline;
+  }
+  .nk-panier__ret:hover { color: var(--nk-ink); }
+
+  .nk-panier__sup {
+    background: var(--nk-surface); border-radius: var(--nk-r-core);
+    box-shadow: 0 0 0 1px rgba(4, 120, 87, .26); padding: 16px;
+  }
+  .nk-panier__sup > * + * { margin-top: 6px; }
+  .nk-panier__sup__ligne {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; margin-top: 12px;
+  }
+  .nk-panier__sup__ligne strong { display: block; font-size: 14.5px; }
+  .nk-panier__sup__ligne .nk-note { display: block; margin-top: 2px; }
+  .nk-panier__sup__ligne .nk-btn { flex-shrink: 0; padding: 10px 16px; font-size: 14px; }
+
+  .nk-panier__pied {
+    padding: 18px 22px calc(18px + env(safe-area-inset-bottom));
+    background: var(--nk-surface);
+    box-shadow: 0 -1px 0 rgba(23, 23, 26, .07);
+  }
+  .nk-panier__pied > * + * { margin-top: 12px; }
+  .nk-panier__total { display: flex; align-items: baseline; justify-content: space-between; }
+  .nk-panier__total .nk-price { font-size: 24px; }
+
+  .nk-panier__rass {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px;
+    font-size: 13px; color: var(--nk-ink-2);
+  }
+  .nk-panier__rass li { position: relative; padding-left: 16px; }
+  .nk-panier__rass li::before {
+    content: ''; position: absolute; left: 0; top: 7px;
+    width: 6px; height: 6px; border-radius: 999px; background: var(--nk-accent);
+  }
+
+  .nk-panier__payer { width: 100%; justify-content: center; }
+  .nk-panier__suite {
+    display: block; width: 100%; text-align: center;
+    font-size: 13px; color: var(--nk-ink-3);
+  }
+  .nk-panier__suite:hover { color: var(--nk-ink); }
+
+  @media (max-width: 480px) {
+    .nk-panier__corps { padding: 16px; }
+    .nk-panier__pied  { padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); }
+  }
+</style>
