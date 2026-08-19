@@ -36,7 +36,12 @@
   cette liste peut nommer des moyens qu'on n'accepte pas encore sans que
   rien ne casse.
 {%- endcomment -%}
-{%- assign tete = 'visa,master,mastercard,cartes_bancaires,carte_bancaire,american_express,shopify_pay,apple_pay,google_pay' | split: ',' -%}
+{%- comment -%}
+  Klarna est dans la tete de file, et devant Bancontact : le paiement en
+  plusieurs fois est un argument sur un panier a 79,90 EUR, alors que
+  Bancontact ne parle qu'aux Belges. Avec sept logos, la place se paie.
+{%- endcomment -%}
+{%- assign tete = 'visa,master,mastercard,cartes_bancaires,carte_bancaire,american_express,klarna,shopify_pay,apple_pay,google_pay' | split: ',' -%}
 
 {%- assign ordre = '' -%}
 {%- for type in tete -%}
