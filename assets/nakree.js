@@ -72,12 +72,7 @@
       });
     });
 
-    if (addon) addon.addEventListener('click', function (e) {
-      e.stopPropagation();
-      addon.classList.toggle('on');
-      addon.querySelector('input').checked = addon.classList.contains('on');
-      refresh();
-    });
+    window.addEventListener('nk:maj', refresh);
 
     /* Selection sans focus : appelee par le hero. Passer par .click() sur le
        label ferait focaliser le bouton radio, et le navigateur ramenerait
@@ -111,19 +106,28 @@
   })();
 
   /* Assurance colis : les deux cases, celle du hero et celle du selecteur,
-     sont un seul et meme reglage. Cocher l'une coche l'autre. */
+     sont un seul et meme reglage. Un seul mecanisme, delegue au document.
+
+     Le hero est un <label> et le selecteur un <span> : le navigateur ne
+     bascule donc la case native que d'un cote. On prend la main sur les
+     deux, et preventDefault evite l'aller-retour du <label> qui annulait
+     notre bascule. C'est ce qui empechait de decocher l'assurance. */
   (function () {
     var cases = document.querySelectorAll('[data-addon]');
-    if (cases.length < 2) return;
-    cases.forEach(function (c) {
-      c.addEventListener('click', function () {
-        var actif = c.classList.contains('on');
-        cases.forEach(function (o) {
-          o.classList.toggle('on', actif);
-          o.querySelector('input').checked = actif;
-        });
-        window.dispatchEvent(new Event('nk:maj'));
+    if (!cases.length) return;
+
+    document.addEventListener('click', function (ev) {
+      var boite = ev.target.closest('[data-addon]');
+      if (!boite) return;
+      ev.preventDefault();
+
+      var actif = !boite.classList.contains('on');
+      cases.forEach(function (o) {
+        o.classList.toggle('on', actif);
+        var c = o.querySelector('input');
+        if (c) c.checked = actif;
       });
+      window.dispatchEvent(new Event('nk:maj'));
     });
   })();
 
@@ -348,13 +352,17 @@
   /* Mise au panier. Le selecteur porte l'identifiant de variante reel,
      pose par Liquid ; on n'ecrit jamais un identifiant en dur ici.
 
+     Deux boutons declenchent l'achat : celui du hero et celui du bloc
+     « L'offre ». Partout ailleurs, les appels a l'action restent des
+     ancres qui ramenent au selecteur.
+
      Le panier est vide avant chaque ajout : sans cela, un client qui
      hesite entre les deux packs se retrouve avec les deux au paiement. */
   (function () {
-    var bouton = document.querySelector('[data-acheter]');
-    if (!bouton) return;
+    var boutons = document.querySelectorAll('[data-acheter]');
+    if (!boutons.length) return;
 
-    bouton.addEventListener('click', function () {
+    function acheter(bouton) {
       var pack = document.querySelector('[data-pack].on') || document.querySelector('[data-pack]');
       if (!pack || !pack.dataset.variant) return;
 
@@ -391,6 +399,10 @@
           bouton.innerHTML = libelle;
           window.location.href = '/cart';
         });
+    }
+
+    boutons.forEach(function (bouton) {
+      bouton.addEventListener('click', function () { acheter(bouton); });
     });
   })();
 

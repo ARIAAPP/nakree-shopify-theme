@@ -157,7 +157,8 @@ section { padding-block: var(--nk-sec); }
   border-radius: var(--nk-r-pill);
   box-shadow: var(--nk-ring), var(--nk-lift-2), var(--nk-inner);
 }
-.nk-logo { font-size: 20px; font-weight: 600; letter-spacing: -.05em; }
+.nk-logo { font-size: 20px; font-weight: 600; letter-spacing: -.05em;
+           color: var(--nk-ink); text-decoration: none; }
 .nk-logo i { color: var(--nk-accent); font-style: normal; }
 .nk-nav { display: flex; gap: 30px; }
 .nk-nav a { font-size: 14.5px; color: var(--nk-ink-2); transition: color .35s var(--nk-ease); }

@@ -1,14 +1,25 @@
+{%- comment -%}
+  En-tete.
+
+  Deux corrections : le logo etait un <span>, donc cliquer dessus ne
+  ramenait nulle part ; et les liens de navigation etaient des ancres
+  nues (#geste), qui ne menent a rien depuis /pages/notice ou une
+  politique. On prefixe par l'accueil : le lien marche partout, et se
+  contente d'un defilement quand on y est deja.
+{%- endcomment -%}
+
 <header class="nk-top">
   <div class="nk-top__in">
-    <span class="nk-logo">nakree<i>.</i></span>
+    <a class="nk-logo" href="{{ routes.root_url }}" aria-label="Nakree, retour à l'accueil">nakree<i>.</i></a>
     <nav class="nk-nav">
-      <a href="#geste">Comment ça marche</a>
-      <a href="#communaute">La communauté</a>
-      <a href="#questions">Questions</a>
+      <a href="{{ routes.root_url }}#geste">Comment ça marche</a>
+      <a href="{{ routes.root_url }}#communaute">La communauté</a>
+      <a href="{{ routes.root_url }}#questions">Questions</a>
     </nav>
-    <a class="nk-btn" href="#offre">Commander <i>&#8599;</i></a>
+    <a class="nk-btn" href="{{ routes.root_url }}#offre">Commander <i>&#8599;</i></a>
   </div>
 </header>
+
 {% schema %}
 {"name": "Entete Nakree", "settings": []}
 {% endschema %}
