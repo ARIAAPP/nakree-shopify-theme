@@ -31,8 +31,8 @@
   --nk-ink-3:   #9A9AA4;
 
   /* --- accent unique, verrouille sur toute la page --- */
-  --nk-accent:   #047857;
-  --nk-accent-h: #05654A;
+  --nk-accent:   #8B7355;
+  --nk-accent-h: #7A6448;
 
   /* --- bagues hairline : elles remplacent toutes les bordures --- */
   --nk-ring:   0 0 0 1px rgba(23,23,26,.055);
@@ -189,7 +189,7 @@ section { padding-block: var(--nk-sec); }
   transition: transform var(--nk-dur) var(--nk-ease), box-shadow var(--nk-dur) var(--nk-ease);
 }
 .nk-card:hover { transform: translateY(-3px); box-shadow: var(--nk-ring), var(--nk-lift-2), var(--nk-inner); }
-.nk-card--accent { box-shadow: 0 0 0 1px rgba(4,120,87,.28), var(--nk-lift-3), var(--nk-inner); }
+.nk-card--accent { box-shadow: 0 0 0 1px rgba(139,115,85,.28), var(--nk-lift-3), var(--nk-inner); }
 
 /* ==========================================================================
    Z-AXIS CASCADE — les plans se chevauchent, legerement inclines
@@ -197,7 +197,7 @@ section { padding-block: var(--nk-sec); }
 .nk-cascade { position: relative; padding: 0 5% 9% 0; }
 .nk-cascade__glow {
   position: absolute; inset: -16% -12% -4% -8%;
-  background: radial-gradient(56% 56% at 58% 40%, rgba(4,120,87,.14), transparent 72%);
+  background: radial-gradient(56% 56% at 58% 40%, rgba(139,115,85,.14), transparent 72%);
   filter: blur(30px); pointer-events: none;
 }
 .nk-cascade__a { position: relative; z-index: 1; transform: rotate(-1.2deg); }
@@ -317,10 +317,10 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 }
 .nk-benefs li::before {
   content: ""; width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(4,120,87,.10);
-  box-shadow: inset 0 0 0 1px rgba(4,120,87,.22);
-  background-image: linear-gradient(rgba(4,120,87,1), rgba(4,120,87,1)),
-                    linear-gradient(rgba(4,120,87,1), rgba(4,120,87,1));
+  background: rgba(139,115,85,.10);
+  box-shadow: inset 0 0 0 1px rgba(139,115,85,.22);
+  background-image: linear-gradient(rgba(139,115,85,1), rgba(139,115,85,1)),
+                    linear-gradient(rgba(139,115,85,1), rgba(139,115,85,1));
   background-size: 7px 1.6px, 1.6px 7px;
   background-position: center, center;
   background-repeat: no-repeat;
@@ -351,7 +351,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-post:hover { transform: translateY(-3px); box-shadow: var(--nk-ring), var(--nk-lift-2), var(--nk-inner); }
 .nk-post__tete { display: flex; align-items: center; gap: 11px; padding: 4px 6px 14px; }
 .nk-post__av { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
-  box-shadow: 0 0 0 2px var(--nk-surface), 0 0 0 3.5px rgba(4,120,87,.35); }
+  box-shadow: 0 0 0 2px var(--nk-surface), 0 0 0 3.5px rgba(139,115,85,.35); }
 .nk-post__av .nk-slot { height: 100%; padding: 0; }
 .nk-post__av .nk-slot b { font-size: 9px; padding: 2px 5px; box-shadow: none; }
 .nk-post__av .nk-slot span { display: none; }
@@ -383,7 +383,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-avatars .nk-slot b { font-size: 8.5px; padding: 1px 4px; box-shadow: none; background: rgba(255,255,255,.75); }
 .nk-avatars .nk-slot span { display: none; }
 .nk-neuf { font-size: 12px; font-weight: 500; color: var(--nk-accent);
-  background: rgba(4,120,87,.09); border-radius: var(--nk-r-pill); padding: 6px 13px; white-space: nowrap; }
+  background: rgba(139,115,85,.09); border-radius: var(--nk-r-pill); padding: 6px 13px; white-space: nowrap; }
 
 .nk-note-avis { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--nk-ink-2); }
 .nk-etoiles { color: #E0A400; letter-spacing: .08em; font-size: 14px; }
@@ -406,7 +406,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
   box-shadow: var(--nk-ring); position: relative;
   transition: box-shadow .35s var(--nk-ease), background .35s var(--nk-ease); }
 .nk-pack:hover { box-shadow: var(--nk-ring-2); }
-.nk-pack.on { background: rgba(4,120,87,.035); box-shadow: 0 0 0 1.5px var(--nk-accent); }
+.nk-pack.on { background: rgba(139,115,85,.035); box-shadow: 0 0 0 1.5px var(--nk-accent); }
 .nk-pack input { position: absolute; opacity: 0; pointer-events: none; }
 .nk-pack__ligne { display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: center; }
 .nk-radio { width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(23,23,26,.22); position: relative; }
@@ -609,7 +609,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
   transition: box-shadow .25s var(--nk-ease), background .25s var(--nk-ease);
 }
 .nk-choix__b:hover { box-shadow: var(--nk-ring), var(--nk-lift-1); }
-.nk-choix__b.on { background: var(--nk-accent-tres-clair, #ECF6F1); box-shadow: 0 0 0 2px var(--nk-accent); }
+.nk-choix__b.on { background: var(--nk-accent-tres-clair, #F5F0E8); box-shadow: 0 0 0 2px var(--nk-accent); }
 .nk-choix__t { font-size: 14.5px; font-weight: 600; }
 .nk-choix__p { font-size: 19px; font-weight: 650; letter-spacing: -.01em; }
 .nk-choix__b.on .nk-choix__p { color: var(--nk-accent); }
@@ -621,7 +621,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
    Methode Glosso : jamais un aplat par section, un voile en degrade qui se
    fond dans la page. Sans quoi on defile sur un gris uniforme du haut en bas.
    ========================================================================== */
-:root { --nk-voile: #EDF3F0; }        /* vert tres lave, tire de l'accent */
+:root { --nk-voile: #F3EDE7; }        /* ambre tres lave, tire de l'accent */
 
 #geste, #planches, #publications, #offre {
   background: linear-gradient(178deg, var(--nk-voile) 0%, var(--nk-bg) 100%);
@@ -694,7 +694,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-btn--grand {
   font-size: 16px;
   padding: 17px 20px 17px 30px;
-  box-shadow: var(--nk-ring), 0 10px 24px -12px rgba(4,120,87,.55);
+  box-shadow: var(--nk-ring), 0 10px 24px -12px rgba(139,115,85,.55);
 }
 .nk-btn--grand i { width: 30px; height: 30px; }
 .nk-appel__note { margin: 0; font-size: 13.5px; color: var(--nk-ink-3); text-align: center; }

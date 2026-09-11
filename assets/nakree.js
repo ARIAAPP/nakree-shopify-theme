@@ -59,7 +59,11 @@
         cible.pct.textContent = '-' + Math.round(((ref - prix) / ref) * 100) + '%';
       }
       cible.eco.style.display = eco ? '' : 'none';
-      if (eco) cible.eco.textContent = 'Pack de deux : vous économisez ' + euro(eco);
+      if (eco) {
+        var nb = parseInt(actif.dataset.nb || '0', 10);
+        var etiq = nb === 4 ? 'Cure 4 flacons' : nb === 2 ? 'Cure 2 flacons' : 'Cure';
+        cible.eco.textContent = etiq + ' : vous &#233;conomisez ' + euro(eco);
+      }
       cible.cta.textContent = 'Commander maintenant, ' + euro(prix + sup);
     }
 
@@ -157,8 +161,10 @@
       var s = barre.querySelector('[data-barre-ref]');
       s.style.display = ref ? '' : 'none';
       if (ref) s.textContent = e(ref);
+      var nb = pack.dataset.nb || '1';
+      var nom = nb === '4' ? 'Cure 4 flacons' : nb === '2' ? 'Cure 2 flacons' : 'Un flacon';
       barre.querySelector('[data-barre-nom]').textContent =
-        (ref ? 'Pack de deux' : 'Une unité') + (add ? ', assurance incluse' : '');
+        nom + (add ? ', assurance incluse' : '');
       /* La vignette est celle du pack choisi : on la reprend du selecteur
          plutot que de reecrire un chemin, qui serait faux sous Shopify. */
       var vue = barre.querySelector('[data-barre-vue]');
@@ -265,17 +271,20 @@
     function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
 
     function peindre(p) {
-      var ref = p === 7990 ? 9980 : 0;
-      var economie = p === 7990 ? 1990 : 0;
+      var map = { 5990: { ref: 9960, eco: 3970, nb: 4 }, 3990: { ref: 4980, eco: 990, nb: 2 }, 2490: { ref: 0, eco: 0, nb: 1 } };
+      var d = map[p] || { ref: 0, eco: 0, nb: 1 };
       prix.textContent = euro(p);
-      barre.style.display = ref ? '' : 'none';
-      pct.style.display = ref ? '' : 'none';
-      if (ref) {
-        barre.textContent = euro(ref);
-        pct.textContent = '-' + Math.round(((ref - p) / ref) * 100) + '%';
+      barre.style.display = d.ref ? '' : 'none';
+      pct.style.display = d.ref ? '' : 'none';
+      if (d.ref) {
+        barre.textContent = euro(d.ref);
+        pct.textContent = '-' + Math.round(((d.ref - p) / d.ref) * 100) + '%';
       }
-      eco.style.display = economie ? '' : 'none';
-      if (economie) eco.textContent = 'Pack de deux : vous économisez ' + euro(economie);
+      eco.style.display = d.eco ? '' : 'none';
+      if (d.eco) {
+        var etiq = d.nb === 4 ? 'Cure 4 flacons' : 'Cure 2 flacons';
+        eco.textContent = etiq + ' : vous économisez ' + euro(d.eco);
+      }
       choix.forEach(function (b) {
         b.classList.toggle('on', parseInt(b.dataset.prix, 10) === p);
       });
@@ -305,7 +314,7 @@
 
     /* au chargement, le duo est preselectionne : on ouvre sur sa photo */
     var actif = carte && carte.querySelector('[data-pack].on');
-    var depart = actif ? parseInt(actif.dataset.prix, 10) : 7990;
+    var depart = actif ? parseInt(actif.dataset.prix, 10) : 3990;
     peindre(depart);
     var b = document.querySelector('[data-h-pack][data-prix="' + depart + '"]');
     if (b && window.nkVue) window.nkVue(parseInt(b.dataset.vue, 10));

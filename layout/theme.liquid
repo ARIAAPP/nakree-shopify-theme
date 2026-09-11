@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#047857">
+    <meta name="theme-color" content="#8B7355">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.meta_domain_verification != blank -%}
@@ -27,7 +27,7 @@
     {%- endcomment -%}
     <title>
       {%- if request.page_type == 'index' -%}
-        Nakree — Masseur nuque et épaules sans fil, chauffant
+        Nakree — Sérum Concentré aux Peptides et Acide Hyaluronique
       {%- elsif request.page_type == 'product' -%}
         {{ product.title }} | Nakree
       {%- elsif request.page_type == 'cart' -%}
@@ -37,13 +37,13 @@
       {%- endif -%}
     </title>
 
-    {%- assign desc_defaut = "Le masseur nuque et épaules Nakree : trois modes de massage, deux niveaux de chaleur, arrêt automatique à dix minutes. Sans fil, charge USB-C. Livraison offerte." -%}
+    {%- assign desc_defaut = "Sérum concentré Nakree aux peptides biomimétiques et acide hyaluronique. Pénètre en trente secondes, hydrate en profondeur. Livraison offerte." -%}
     <meta name="description" content="{% if page_description %}{{ page_description | escape }}{% else %}{{ desc_defaut }}{% endif %}">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nakree">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:title" content="{{ page_title | default: 'Nakree — Masseur nuque et épaules sans fil, chauffant' | escape }}">
+    <meta property="og:title" content="{{ page_title | default: 'Nakree — Sérum Concentré aux Peptides et Acide Hyaluronique' | escape }}">
     <meta property="og:description" content="{% if page_description %}{{ page_description | escape }}{% else %}{{ desc_defaut }}{% endif %}">
     <meta property="og:url" content="{{ canonical_url }}">
     {%- if request.page_type == 'product' and product.featured_image -%}

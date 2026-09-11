@@ -1,22 +1,3 @@
-{%- comment -%} v2 {%- endcomment -%}
-{%- comment -%}
-  Pied de page.
-
-  Les liens de politiques passaient par shop.refund_policy.published_url
-  et consorts : ces objets ne rendaient rien, et la colonne « Mentions »
-  ne contenait donc que « Cookies » — six pages legales invisibles alors
-  qu'elles repondent toutes. On pointe les routes /policies/… qui sont
-  stables chez Shopify et verifiees une a une.
-
-  Le SIREN etait tire de settings.siren, dont la valeur par defaut du
-  schema ne s'applique que si la section a ete enregistree une fois dans
-  l'editeur : la ligne d'identification sortait donc sans numero. Il est
-  ecrit ici, avec le reglage comme surcharge possible.
-
-  L'adresse postale n'est volontairement PAS repetee : elle figure une
-  seule fois, dans les mentions legales, la ou la loi l'impose.
-{%- endcomment -%}
-
 {%- assign siren = settings.siren | default: '833 336 088' -%}
 
 <footer class="nk-foot">
@@ -35,24 +16,24 @@
       <div class="nk-foot__cols">
         <div>
           <h4>Boutique</h4>
-          <a href="{{ routes.root_url }}#offre">L'offre</a>
-          <a href="{{ routes.root_url }}#geste">Comment ça marche</a>
+          <a href="{{ routes.root_url }}#offre">Choisir ma cure</a>
+          <a href="{{ routes.root_url }}#actifs">Les actifs</a>
+          <a href="{{ routes.root_url }}#geste">Le rituel</a>
           <a href="{{ routes.root_url }}pages/suivi">Suivre ma commande</a>
         </div>
         <div>
           <h4>Informations</h4>
           <a href="{{ routes.root_url }}#questions">Questions</a>
-          <a href="{{ routes.root_url }}pages/notice">Notice</a>
-          <a href="{{ routes.root_url }}pages/a-propos">À propos</a>
+          <a href="{{ routes.root_url }}pages/a-propos">&#192; propos</a>
           <a href="{{ routes.root_url }}pages/cookies">Cookies</a>
         </div>
         <div>
           <h4>Mentions</h4>
-          <a href="/policies/legal-notice">Mentions légales</a>
+          <a href="/policies/legal-notice">Mentions l&#233;gales</a>
           <a href="/policies/terms-of-sale">Conditions de vente</a>
           <a href="/policies/refund-policy">Retours et remboursement</a>
-          <a href="/policies/shipping-policy">Expédition</a>
-          <a href="/policies/privacy-policy">Confidentialité</a>
+          <a href="/policies/shipping-policy">Exp&#233;dition</a>
+          <a href="/policies/privacy-policy">Confidentialit&#233;</a>
           <a href="/policies/terms-of-service">Conditions de service</a>
         </div>
       </div>
@@ -60,9 +41,9 @@
     </div>
 
     <p class="nk-note" style="margin-top:56px;">
-      Appareil de bien-être. Ce produit n'est pas un dispositif médical et ne
-      remplace pas un avis professionnel de santé. Conforme CE, DEEE,
-      batterie Li-ion.
+      Produit cosm&#233;tique. Conforme au r&#232;glement CE 1223/2009. Ne constitue
+      pas un dispositif m&#233;dical et ne remplace pas un avis professionnel
+      de sant&#233;. Usage externe uniquement.
     </p>
   </div>
 </footer>
