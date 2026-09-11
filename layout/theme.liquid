@@ -27,7 +27,7 @@
     {%- endcomment -%}
     <title>
       {%- if request.page_type == 'index' -%}
-        Nakree — Sérum Concentré aux Peptides et Acide Hyaluronique
+        Nakree — S&#233;rum Raffermissant au NAD+ EGF et Collag&#232;ne
       {%- elsif request.page_type == 'product' -%}
         {{ product.title }} | Nakree
       {%- elsif request.page_type == 'cart' -%}
@@ -37,7 +37,7 @@
       {%- endif -%}
     </title>
 
-    {%- assign desc_defaut = "Sérum concentré Nakree aux peptides biomimétiques et acide hyaluronique. Pénètre en trente secondes, hydrate en profondeur. Livraison offerte." -%}
+    {%- assign desc_defaut = "Sérum raffermissant Nakree au NAD+, EGF et extrait de collagène. Pénètre en trente secondes, raffermit et lisse. Livraison offerte." -%}
     <meta name="description" content="{% if page_description %}{{ page_description | escape }}{% else %}{{ desc_defaut }}{% endif %}">
 
     <meta property="og:type" content="website">
