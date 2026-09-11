@@ -1,68 +1,42 @@
 /* ==========================================================================
-   NAKREE — systeme de design
-   Deux skills combines :
-   - « design-taste-frontend » retire les tics d'IA (interdits)
-   - « high-end-visual-design » ajoute ce qui fait cher (matiere, mouvement)
-
-   ARCHETYPES RETENUS
-   Vibe   : Soft Structuralism (consumer / sante) : fond gris argent, grosse
-            grotesque, composants flottants a ombres tres diffusees.
-   Layout : Z-Axis Cascade : les plans se chevauchent, legere rotation, on
-            casse la grille numerique.
-
-   INTERDITS RESPECTES (les deux skills)
-   - polices : ni Inter, ni Roboto, ni Arial. Geist.
-   - AUCUNE bordure 1px grise generique : on utilise des bagues hairline en
-     tres basse opacite. C'est le premier marqueur de site bon marche.
-   - aucune ombre dure ni noire : ombres teintees, tres diffusees, empilees.
-   - la barre de navigation n'est PAS collee bord a bord en haut : ilot
-     flottant detache.
-   - aucune transition linear ni ease-in-out : une seule courbe, physique.
-   - zero tiret cadratin, zero sur-titre numerote, un seul theme, un accent.
+   NAKREE — systeme de design SERUM LUXE
+   Direction : dark luxury, or champagne, typo serif titres.
    ========================================================================== */
 
 :root {
-  /* --- Soft Structuralism : gris argent, jamais creme --- */
-  --nk-bg:      #F7F7F8;
-  --nk-surface: #FFFFFF;
-  --nk-sunk:    #F1F1F3;
-  --nk-ink:     #17171A;
-  --nk-ink-2:   #56565E;
-  --nk-ink-3:   #9A9AA4;
+  --nk-bg:      #0C0B09;
+  --nk-surface: #181614;
+  --nk-sunk:    #0F0E0C;
+  --nk-ink:     #F0EBE3;
+  --nk-ink-2:   #9E978C;
+  --nk-ink-3:   #635E58;
 
-  /* --- accent unique, verrouille sur toute la page --- */
-  --nk-accent:   #8B7355;
-  --nk-accent-h: #7A6448;
+  --nk-accent:   #C9A87C;
+  --nk-accent-h: #D9BC94;
 
-  /* --- bagues hairline : elles remplacent toutes les bordures --- */
-  --nk-ring:   0 0 0 1px rgba(23,23,26,.055);
-  --nk-ring-2: 0 0 0 1px rgba(23,23,26,.09);
+  --nk-ring:   0 0 0 1px rgba(201,168,124,.10);
+  --nk-ring-2: 0 0 0 1px rgba(201,168,124,.20);
 
-  /* --- ombres empilees, tres diffusees, teintees encre --- */
-  --nk-lift-1: 0 1px 2px rgba(23,23,26,.03), 0 6px 16px -10px rgba(23,23,26,.10);
-  --nk-lift-2: 0 1px 2px rgba(23,23,26,.03), 0 12px 28px -14px rgba(23,23,26,.12),
-               0 44px 80px -48px rgba(23,23,26,.22);
-  --nk-lift-3: 0 2px 4px rgba(23,23,26,.04), 0 20px 44px -18px rgba(23,23,26,.16),
-               0 70px 120px -60px rgba(23,23,26,.30);
+  --nk-lift-1: 0 2px 8px rgba(0,0,0,.35);
+  --nk-lift-2: 0 4px 20px rgba(0,0,0,.45);
+  --nk-lift-3: 0 8px 40px rgba(0,0,0,.55);
 
-  /* --- reflet interieur : ce qui donne l'aspect verre pose sur metal --- */
-  --nk-inner: inset 0 1px 0 rgba(255,255,255,.9);
+  --nk-inner: inset 0 1px 0 rgba(255,255,255,.04);
 
-  /* --- rayons concentriques : coque 26px, coeur 26 moins le padding --- */
   --nk-r-shell: 26px;
   --nk-r-core:  20px;
   --nk-r-pill:  999px;
 
-  --nk-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --nk-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --nk-sans:  'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --nk-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --nk-mono:  'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* --- une seule courbe pour tout le site, avec de la masse --- */
   --nk-ease: cubic-bezier(.32,.72,0,1);
   --nk-dur:  .7s;
 
   --nk-marge: clamp(20px, 5vw, 64px);
   --nk-max: 1200px;
-  --nk-sec: clamp(96px, 12vw, 168px);   /* macro-whitespace : on double */
+  --nk-sec: clamp(96px, 12vw, 168px);
 }
 
 * { box-sizing: border-box; }
@@ -85,10 +59,19 @@ a { color: inherit; text-decoration: none; }
 section { padding-block: var(--nk-sec); }
 
 /* ==========================================================================
-   TYPOGRAPHIE — grosse grotesque, hierarchie par graisse
+   TYPOGRAPHIE — serif pour titres, sans pour corps
    ========================================================================== */
-.nk-h1 { font-size: clamp(38px, 5.2vw, 68px); line-height: 1.02; letter-spacing: -.042em; font-weight: 600; margin: 0; }
-.nk-h2 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -.036em; font-weight: 600; margin: 0; }
+.nk-h1 {
+  font-family: var(--nk-serif);
+  font-size: clamp(42px, 5.6vw, 74px); line-height: 1.02;
+  letter-spacing: -.02em; font-weight: 500; margin: 0;
+  color: var(--nk-ink);
+}
+.nk-h2 {
+  font-family: var(--nk-serif);
+  font-size: clamp(32px, 3.6vw, 50px); line-height: 1.08;
+  letter-spacing: -.02em; font-weight: 500; margin: 0;
+}
 .nk-h3 { font-size: 19px; line-height: 1.35; letter-spacing: -.018em; font-weight: 600; margin: 0; }
 
 .nk-lead { font-size: 17.5px; line-height: 1.55; color: var(--nk-ink-2); max-width: 54ch; margin: 0; }
@@ -97,14 +80,13 @@ section { padding-block: var(--nk-sec); }
 .nk-data { font-family: var(--nk-mono); font-size: 13px; color: var(--nk-ink-3); font-variant-numeric: tabular-nums; }
 .nk-price { font-variant-numeric: tabular-nums; letter-spacing: -.038em; font-weight: 600; }
 
-/* sur-titre en pastille microscopique : il nomme, il ne numerote jamais */
 .nk-eyebrow {
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 10.5px; font-weight: 500; text-transform: uppercase;
-  letter-spacing: .2em; color: var(--nk-ink-2);
-  background: var(--nk-surface);
+  letter-spacing: .2em; color: var(--nk-accent);
+  background: rgba(201,168,124,.08);
   border-radius: var(--nk-r-pill); padding: 7px 14px;
-  box-shadow: var(--nk-ring), var(--nk-lift-1);
+  box-shadow: 0 0 0 1px rgba(201,168,124,.18);
   margin: 0 0 20px;
 }
 .nk-eyebrow::before {
@@ -113,24 +95,25 @@ section { padding-block: var(--nk-sec); }
 }
 
 /* ==========================================================================
-   BOUTONS — pilule, icone encapsulee dans son propre cercle
+   BOUTONS
    ========================================================================== */
 .nk-btn {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: inherit; font-size: 15.5px; font-weight: 500;
   padding: 11px 12px 11px 26px; border: 0; cursor: pointer;
   border-radius: var(--nk-r-pill);
-  background: var(--nk-accent); color: #FFFFFF;
+  background: var(--nk-accent); color: #0C0B09;
   white-space: nowrap;
-  box-shadow: var(--nk-lift-1), inset 0 1px 0 rgba(255,255,255,.18);
+  box-shadow: var(--nk-lift-1), 0 0 20px rgba(201,168,124,.15);
   transition: transform var(--nk-dur) var(--nk-ease),
               box-shadow var(--nk-dur) var(--nk-ease),
               background .35s var(--nk-ease);
 }
-.nk-btn:hover { background: var(--nk-accent-h); transform: translateY(-2px); box-shadow: var(--nk-lift-2); }
+.nk-btn:hover { background: var(--nk-accent-h); transform: translateY(-2px);
+  box-shadow: var(--nk-lift-2), 0 0 30px rgba(201,168,124,.20); }
 .nk-btn i {
   width: 30px; height: 30px; border-radius: 50%;
-  background: rgba(255,255,255,.16);
+  background: rgba(12,11,9,.16);
   display: inline-flex; align-items: center; justify-content: center;
   font-style: normal; font-size: 14px; line-height: 1;
   transition: transform var(--nk-dur) var(--nk-ease);
@@ -142,22 +125,22 @@ section { padding-block: var(--nk-sec); }
   box-shadow: var(--nk-ring), var(--nk-lift-1);
 }
 .nk-btn--ghost:hover { background: var(--nk-surface); box-shadow: var(--nk-ring-2), var(--nk-lift-2); }
-.nk-btn--ghost i { background: rgba(23,23,26,.06); }
+.nk-btn--ghost i { background: rgba(255,255,255,.06); }
 
 /* ==========================================================================
-   NAVIGATION — ilot flottant, jamais colle bord a bord
+   NAVIGATION — ilot flottant sombre
    ========================================================================== */
 .nk-top { position: sticky; top: 0; z-index: 50; padding: 18px var(--nk-marge) 0; }
 .nk-top__in {
   max-width: var(--nk-max); margin-inline: auto; height: 64px;
   padding: 0 12px 0 26px;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  background: rgba(255,255,255,.72);
+  background: rgba(12,11,9,.72);
   backdrop-filter: saturate(180%) blur(20px);
   border-radius: var(--nk-r-pill);
   box-shadow: var(--nk-ring), var(--nk-lift-2), var(--nk-inner);
 }
-.nk-logo { font-size: 20px; font-weight: 600; letter-spacing: -.05em;
+.nk-logo { font-family: var(--nk-serif); font-size: 24px; font-weight: 600; letter-spacing: -.02em;
            color: var(--nk-ink); text-decoration: none; }
 .nk-logo i { color: var(--nk-accent); font-style: normal; }
 .nk-nav { display: flex; gap: 30px; }
@@ -166,11 +149,10 @@ section { padding-block: var(--nk-sec); }
 @media (max-width: 900px) { .nk-nav { display: none; } .nk-top__in { padding-left: 20px; } }
 
 /* ==========================================================================
-   DOUBLE LISERE — rien n'est pose a plat sur le fond.
-   Une coque tient un coeur, avec des rayons concentriques.
+   BEZEL + CARTES — verre sur metal sombre
    ========================================================================== */
 .nk-bezel {
-  background: rgba(23,23,26,.035);
+  background: rgba(201,168,124,.04);
   border-radius: var(--nk-r-shell);
   padding: 6px;
   box-shadow: var(--nk-ring);
@@ -188,16 +170,16 @@ section { padding-block: var(--nk-sec); }
   box-shadow: var(--nk-ring), var(--nk-lift-1), var(--nk-inner);
   transition: transform var(--nk-dur) var(--nk-ease), box-shadow var(--nk-dur) var(--nk-ease);
 }
-.nk-card:hover { transform: translateY(-3px); box-shadow: var(--nk-ring), var(--nk-lift-2), var(--nk-inner); }
-.nk-card--accent { box-shadow: 0 0 0 1px rgba(139,115,85,.28), var(--nk-lift-3), var(--nk-inner); }
+.nk-card:hover { transform: translateY(-3px); box-shadow: var(--nk-ring-2), var(--nk-lift-2), var(--nk-inner); }
+.nk-card--accent { box-shadow: 0 0 0 1px rgba(201,168,124,.28), var(--nk-lift-3), var(--nk-inner); }
 
 /* ==========================================================================
-   Z-AXIS CASCADE — les plans se chevauchent, legerement inclines
+   Z-AXIS CASCADE
    ========================================================================== */
 .nk-cascade { position: relative; padding: 0 5% 9% 0; }
 .nk-cascade__glow {
   position: absolute; inset: -16% -12% -4% -8%;
-  background: radial-gradient(56% 56% at 58% 40%, rgba(139,115,85,.14), transparent 72%);
+  background: radial-gradient(56% 56% at 58% 40%, rgba(201,168,124,.10), transparent 72%);
   filter: blur(30px); pointer-events: none;
 }
 .nk-cascade__a { position: relative; z-index: 1; transform: rotate(-1.2deg); }
@@ -209,19 +191,18 @@ section { padding-block: var(--nk-sec); }
 .nk-cascade:hover .nk-cascade__a { transform: rotate(-1.8deg) translateY(-4px); }
 .nk-cascade:hover .nk-cascade__b { transform: rotate(3.4deg) translateY(-8px); }
 @media (max-width: 900px) {
-  /* les rotations et les chevauchements sautent : conflits de zone tactile */
   .nk-cascade { padding: 0 0 14% 0; }
   .nk-cascade__a, .nk-cascade__b, .nk-cascade:hover .nk-cascade__a, .nk-cascade:hover .nk-cascade__b { transform: none; }
   .nk-cascade__b { width: 54%; }
 }
 
 /* ==========================================================================
-   LISTES — filets tres pales, jamais de bordure grise franche
+   LISTES
    ========================================================================== */
 .nk-rows > * {
   display: grid; grid-template-columns: 1fr auto; gap: 20px;
   align-items: baseline; padding: 17px 0;
-  box-shadow: inset 0 -1px 0 rgba(23,23,26,.06);
+  box-shadow: inset 0 -1px 0 rgba(201,168,124,.10);
 }
 .nk-rows > *:last-child { box-shadow: none; }
 .nk-rows .nk-data { text-align: right; }
@@ -233,25 +214,20 @@ section { padding-block: var(--nk-sec); }
   position: relative; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 10px;
   width: 100%; padding: 20px; text-align: center;
-  background: linear-gradient(160deg, #EDEDEF 0%, #E4E4E7 100%);
+  background: linear-gradient(160deg, #1A1816 0%, #141210 100%);
   color: var(--nk-ink-3); overflow: hidden;
 }
 .nk-slot b {
   font-family: var(--nk-mono); font-size: 12px; font-weight: 500;
-  color: var(--nk-ink-2); background: rgba(255,255,255,.8);
+  color: var(--nk-ink-2); background: rgba(201,168,124,.08);
   border-radius: var(--nk-r-pill); padding: 5px 13px;
-  box-shadow: var(--nk-ring);
+  box-shadow: 0 0 0 1px rgba(201,168,124,.12);
 }
 .nk-slot span { font-size: 13px; line-height: 1.45; max-width: 32ch; }
 
 /* ==========================================================================
-   MOUVEMENT — apparition au defilement, une seule courbe, avec de la masse
+   MOUVEMENT — apparition au defilement
    ========================================================================== */
-/* AMELIORATION PROGRESSIVE, et pas l'inverse.
-   Le contenu est VISIBLE par defaut. Il n'est masque que si le script a
-   pu poser la classe .js sur <html>. Consequence : si le JavaScript est
-   bloque, absent ou plante, la page reste entierement lisible.
-   La premiere version faisait le contraire et affichait une page blanche. */
 .nk-rise { opacity: 1; transform: none; }
 
 html.js .nk-rise { opacity: 0; transform: translateY(26px); }
@@ -263,18 +239,17 @@ html.js .nk-rise:nth-child(2) { transition-delay: .07s; }
 html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 
 /* ==========================================================================
-   BARRE D'ACHAT MOBILE — ilot flottant, pas une barre collee
+   BARRE D'ACHAT COLLANTE
    ========================================================================== */
-/* Barre d'achat collante, sur TOUS les ecrans, pas seulement mobile.
-   Elle apparait des que le hero sort du champ et suit la lecture. */
 .nk-bar {
-  position: fixed; inset: auto 16px 16px 16px; z-index: 60;
-  max-width: var(--nk-max); margin-inline: auto;
-  background: rgba(255,255,255,.82);
+  position: fixed; inset: auto 0 16px 0; z-index: 60;
+  width: min(620px, calc(100% - 2 * clamp(16px, 4vw, 40px)));
+  max-width: none; margin-inline: auto;
+  background: rgba(12,11,9,.82);
   backdrop-filter: saturate(180%) blur(20px);
   border-radius: var(--nk-r-pill);
-  padding: 10px 10px 10px 26px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px 10px 10px 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
   box-shadow: var(--nk-ring), var(--nk-lift-3), var(--nk-inner);
   transform: translateY(calc(100% + 24px));
   transition: transform var(--nk-dur) var(--nk-ease);
@@ -282,9 +257,14 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-bar.on { transform: translateY(0); }
 .nk-bar__qui { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .nk-bar__qui s { color: var(--nk-ink-3); font-size: 14px; }
-@media (max-width: 640px) { .nk-bar { padding-left: 18px; } .nk-bar__nom { display: none; } }
+@media (max-width: 640px) { .nk-bar { padding-left: 10px; } .nk-bar__nom { display: none; } .nk-bar__vue { width: 38px; height: 38px; } }
 
-/* assurance posee dans le hero, sous les deux boutons */
+.nk-bar__vue {
+  width: 44px; height: 44px; border-radius: 12px;
+  object-fit: cover; display: block; flex: 0 0 auto;
+  background: #0d0d0f; box-shadow: var(--nk-ring);
+}
+
 .nk-addon--hero { display: inline-grid; grid-template-columns: 20px 1fr auto; gap: 11px;
   align-items: center; cursor: pointer; padding: 12px 18px; margin: 0;
   background: var(--nk-surface); border-radius: var(--nk-r-pill);
@@ -294,10 +274,10 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 /* ==========================================================================
    PIED DE PAGE
    ========================================================================== */
-.nk-foot { padding-block: var(--nk-sec) 40px; box-shadow: inset 0 1px 0 rgba(23,23,26,.07); }
+.nk-foot { padding-block: var(--nk-sec) 40px; box-shadow: inset 0 1px 0 rgba(201,168,124,.08); }
 .nk-foot a { display: block; font-size: 15px; color: var(--nk-ink-2); padding: 5px 0; transition: color .35s var(--nk-ease); }
-.nk-foot a:hover { color: var(--nk-ink); }
-.nk-foot h4 { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--nk-ink-3); margin: 0 0 14px; }
+.nk-foot a:hover { color: var(--nk-accent); }
+.nk-foot h4 { font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--nk-accent); margin: 0 0 14px; }
 
 @media (prefers-reduced-motion: reduce) {
   .nk-rise { opacity: 1 !important; transform: none !important; }
@@ -305,10 +285,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 }
 
 /* ==========================================================================
-   HERO DENSIFIE — benefices et reassurance.
-   Le skill « taste » plafonne le hero a 4 elements de texte et interdit la
-   bande de reassurance dedans. Arbitrage assume du proprietaire : ses trois
-   boutiques en production convertissent avec un hero dense.
+   HERO — benefices et reassurance
    ========================================================================== */
 .nk-benefs { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .nk-benefs li {
@@ -317,10 +294,10 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 }
 .nk-benefs li::before {
   content: ""; width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(139,115,85,.10);
-  box-shadow: inset 0 0 0 1px rgba(139,115,85,.22);
-  background-image: linear-gradient(rgba(139,115,85,1), rgba(139,115,85,1)),
-                    linear-gradient(rgba(139,115,85,1), rgba(139,115,85,1));
+  background: rgba(201,168,124,.10);
+  box-shadow: inset 0 0 0 1px rgba(201,168,124,.25);
+  background-image: linear-gradient(var(--nk-accent), var(--nk-accent)),
+                    linear-gradient(var(--nk-accent), var(--nk-accent));
   background-size: 7px 1.6px, 1.6px 7px;
   background-position: center, center;
   background-repeat: no-repeat;
@@ -334,13 +311,11 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-trust li {
   font-size: 13px; color: var(--nk-ink-2);
   background: var(--nk-surface); border-radius: var(--nk-r-pill);
-  padding: 8px 15px; box-shadow: var(--nk-ring), var(--nk-lift-1);
+  padding: 8px 15px; box-shadow: var(--nk-ring);
 }
 
 /* ==========================================================================
-   PUBLICATIONS — cartes reseau social. Photo, pseudo, texte, compteurs.
-   Pas de chrome Instagram imite (coeur, bulle, avion) : c'est ce faux
-   habillage qui trahit une vitrine.
+   PUBLICATIONS — cartes reseau social
    ========================================================================== */
 .nk-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 @media (max-width: 900px) { .nk-posts { grid-template-columns: 1fr; } }
@@ -348,10 +323,10 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-post { background: var(--nk-surface); border-radius: var(--nk-r-core);
   padding: 14px; box-shadow: var(--nk-ring), var(--nk-lift-1), var(--nk-inner);
   transition: transform var(--nk-dur) var(--nk-ease), box-shadow var(--nk-dur) var(--nk-ease); }
-.nk-post:hover { transform: translateY(-3px); box-shadow: var(--nk-ring), var(--nk-lift-2), var(--nk-inner); }
+.nk-post:hover { transform: translateY(-3px); box-shadow: var(--nk-ring-2), var(--nk-lift-2), var(--nk-inner); }
 .nk-post__tete { display: flex; align-items: center; gap: 11px; padding: 4px 6px 14px; }
 .nk-post__av { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; flex: 0 0 auto;
-  box-shadow: 0 0 0 2px var(--nk-surface), 0 0 0 3.5px rgba(139,115,85,.35); }
+  box-shadow: 0 0 0 2px var(--nk-surface), 0 0 0 3.5px rgba(201,168,124,.35); }
 .nk-post__av .nk-slot { height: 100%; padding: 0; }
 .nk-post__av .nk-slot b { font-size: 9px; padding: 2px 5px; box-shadow: none; }
 .nk-post__av .nk-slot span { display: none; }
@@ -363,14 +338,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-post__compte { font-family: var(--nk-mono); font-size: 12px; color: var(--nk-ink-3); margin: 0 6px 4px; }
 
 /* ==========================================================================
-   CARTE D'ACHAT — la mecanique de conversion, identique a Glosso, Soufflo,
-   Peelou et CleanEar. Elle ne se rediscute pas d'une boutique a l'autre :
-   avatars, note, prix barre, pourcentage, ligne d'economie, compte a
-   rebours, selecteur de packs, assurance colis, bande de reassurance.
-
-   ARBITRAGE : le skill « taste » interdit les comptes a rebours et plafonne
-   le hero a 4 elements. Les boutiques en production du proprietaire
-   convertissent avec ce bloc. Sa decision prime sur la regle.
+   CARTE D'ACHAT — mecanique de conversion
    ========================================================================== */
 .nk-achat { background: var(--nk-surface); border-radius: var(--nk-r-shell);
   padding: 22px; box-shadow: var(--nk-ring), var(--nk-lift-3), var(--nk-inner); }
@@ -380,52 +348,52 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-avatars > span { width: 34px; height: 34px; border-radius: 50%; overflow: hidden;
   margin-right: -10px; box-shadow: 0 0 0 2px var(--nk-surface); }
 .nk-avatars .nk-slot { height: 100%; padding: 0; }
-.nk-avatars .nk-slot b { font-size: 8.5px; padding: 1px 4px; box-shadow: none; background: rgba(255,255,255,.75); }
+.nk-avatars .nk-slot b { font-size: 8.5px; padding: 1px 4px; box-shadow: none; background: rgba(255,255,255,.08); }
 .nk-avatars .nk-slot span { display: none; }
 .nk-neuf { font-size: 12px; font-weight: 500; color: var(--nk-accent);
-  background: rgba(139,115,85,.09); border-radius: var(--nk-r-pill); padding: 6px 13px; white-space: nowrap; }
+  background: rgba(201,168,124,.10); border-radius: var(--nk-r-pill); padding: 6px 13px; white-space: nowrap; }
 
 .nk-note-avis { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--nk-ink-2); }
 .nk-etoiles { color: #E0A400; letter-spacing: .08em; font-size: 14px; }
 
 .nk-prixligne { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 16px 0 4px; }
 .nk-barre { color: var(--nk-ink-3); font-size: 18px; }
-.nk-prixligne .nk-price { font-size: 42px; line-height: 1; }
-.nk-pct { font-size: 12.5px; font-weight: 600; color: #fff; background: var(--nk-accent);
+.nk-prixligne .nk-price { font-size: 42px; line-height: 1; color: var(--nk-ink); }
+.nk-pct { font-size: 12.5px; font-weight: 600; color: #0C0B09; background: var(--nk-accent);
   border-radius: var(--nk-r-pill); padding: 5px 11px; }
 .nk-eco { font-size: 14.5px; font-weight: 500; color: var(--nk-accent); margin: 0; }
 
-.nk-compte { margin: 16px 0 0; font-size: 13.5px; font-weight: 500; color: #8A5A00;
-  background: rgba(224,164,0,.10); border-radius: var(--nk-r-pill); padding: 10px 16px; text-align: center; }
+.nk-compte { margin: 16px 0 0; font-size: 13.5px; font-weight: 500; color: var(--nk-accent);
+  background: rgba(201,168,124,.08); border-radius: var(--nk-r-pill); padding: 10px 16px; text-align: center; }
 
 .nk-choix { font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
   color: var(--nk-ink-3); margin: 22px 0 10px; }
 
 .nk-pack { display: block; cursor: pointer; border-radius: var(--nk-r-core);
-  padding: 16px 18px; margin-bottom: 10px; background: var(--nk-surface);
-  box-shadow: var(--nk-ring); position: relative;
+  padding: 16px 18px; margin-bottom: 10px; background: var(--nk-sunk);
+  box-shadow: 0 0 0 1px rgba(201,168,124,.08); position: relative;
   transition: box-shadow .35s var(--nk-ease), background .35s var(--nk-ease); }
-.nk-pack:hover { box-shadow: var(--nk-ring-2); }
-.nk-pack.on { background: rgba(139,115,85,.035); box-shadow: 0 0 0 1.5px var(--nk-accent); }
+.nk-pack:hover { box-shadow: 0 0 0 1px rgba(201,168,124,.18); }
+.nk-pack.on { background: rgba(201,168,124,.06); box-shadow: 0 0 0 1.5px var(--nk-accent); }
 .nk-pack input { position: absolute; opacity: 0; pointer-events: none; }
-.nk-pack__ligne { display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: center; }
-.nk-radio { width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(23,23,26,.22); position: relative; }
+.nk-pack__ligne { display: grid; grid-template-columns: 20px 46px 1fr auto; gap: 12px; align-items: center; }
+.nk-radio { width: 20px; height: 20px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px rgba(201,168,124,.30); position: relative; }
 .nk-pack.on .nk-radio { box-shadow: inset 0 0 0 6px var(--nk-accent); }
 .nk-pack__nom { font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
 .nk-pack__desc { font-size: 13.5px; color: var(--nk-ink-3); margin: 3px 0 0; grid-column: 2; }
 .nk-pack__prix { text-align: right; font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .nk-pack__prix s { display: block; font-size: 13px; font-weight: 400; color: var(--nk-ink-3); }
-.nk-badge { font-size: 11px; font-weight: 600; color: #fff; background: var(--nk-accent);
+.nk-badge { font-size: 11px; font-weight: 600; color: #0C0B09; background: var(--nk-accent);
   border-radius: var(--nk-r-pill); padding: 4px 10px; white-space: nowrap; }
 .nk-badge--top { position: absolute; top: -10px; right: 16px; }
 
 .nk-addon { display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: center;
   cursor: pointer; margin-top: 14px; padding-top: 14px;
-  box-shadow: inset 0 1px 0 rgba(23,23,26,.07); font-size: 14.5px; }
+  box-shadow: inset 0 1px 0 rgba(201,168,124,.10); font-size: 14.5px; }
 .nk-addon input { position: absolute; opacity: 0; pointer-events: none; }
-.nk-case { width: 20px; height: 20px; border-radius: 6px; box-shadow: inset 0 0 0 1.5px rgba(23,23,26,.22); }
+.nk-case { width: 20px; height: 20px; border-radius: 6px; box-shadow: inset 0 0 0 1.5px rgba(201,168,124,.30); }
 .nk-addon.on .nk-case { background: var(--nk-accent); box-shadow: none;
-  background-image: linear-gradient(#fff,#fff), linear-gradient(#fff,#fff);
+  background-image: linear-gradient(#0C0B09,#0C0B09), linear-gradient(#0C0B09,#0C0B09);
   background-size: 8px 1.8px, 1.8px 5px;
   background-position: 5.5px 10.5px, 9.5px 8px;
   background-repeat: no-repeat; }
@@ -436,13 +404,11 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-reassure { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 16px 0 0;
   padding: 0; list-style: none; text-align: center; }
 .nk-reassure li { font-size: 11.5px; color: var(--nk-ink-3); line-height: 1.35;
-  padding: 0 6px; box-shadow: inset -1px 0 0 rgba(23,23,26,.07); }
+  padding: 0 6px; box-shadow: inset -1px 0 0 rgba(201,168,124,.08); }
 .nk-reassure li:last-child { box-shadow: none; }
 
 /* ==========================================================================
-   MUR D'AVIS — mosaique en colonnes, comme sur les autres boutiques.
-   Colonne de synthese collante a gauche, avis a droite. Pas de carrousel :
-   on doit pouvoir tout lire sans cliquer.
+   MUR D'AVIS
    ========================================================================== */
 .nk-avis { display: grid; grid-template-columns: minmax(0,280px) minmax(0,1fr); gap: clamp(28px,4vw,56px); align-items: start; }
 @media (max-width: 900px) { .nk-avis { grid-template-columns: 1fr; } }
@@ -467,10 +433,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 .nk-avis-carte__txt { font-size: 14.5px; line-height: 1.6; color: var(--nk-ink-2); margin: 0; }
 
 /* ==========================================================================
-   GALERIE DU HERO — le collage devient parcourable.
-   La grande plaque porte le visuel actif, la petite montre le SUIVANT et
-   sert de bouton, la pellicule de vignettes court dessous. Flechage,
-   clavier et glissement tactile.
+   GALERIE DU HERO
    ========================================================================== */
 .nk-gal { position: relative; }
 .nk-gal__scene { position: relative; }
@@ -494,7 +457,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
   position: absolute; top: 42%; pointer-events: auto;
   width: 44px; height: 44px; border: 0; cursor: pointer;
   border-radius: var(--nk-r-pill);
-  background: rgba(255,255,255,.86); backdrop-filter: blur(10px);
+  background: rgba(24,22,20,.86); backdrop-filter: blur(10px);
   box-shadow: var(--nk-ring), var(--nk-lift-2);
   font-size: 17px; color: var(--nk-ink); line-height: 1;
   transition: transform var(--nk-dur) var(--nk-ease), box-shadow var(--nk-dur) var(--nk-ease);
@@ -524,7 +487,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 
 
 /* ==========================================================================
-   EMPLACEMENTS REMPLIS — la photo prend la place du gris, sans rien deplacer
+   EMPLACEMENTS REMPLIS
    ========================================================================== */
 .nk-slot.rempli { padding: 0; background: #0d0d0f; }
 .nk-slot.rempli > img {
@@ -534,7 +497,6 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 }
 .nk-slot.rempli b, .nk-slot.rempli span { display: none; }
 
-/* GALERIES — chaque image garde son format, les colonnes s'ajustent */
 .nk-galerie { column-count: 3; column-gap: 20px; }
 .nk-galerie > * { break-inside: avoid; margin: 0 0 20px; }
 .nk-galerie img { display: block; width: 100%; height: auto; }
@@ -543,7 +505,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 
 
 /* ==========================================================================
-   PLANCHES — un propos a gauche, ses visuels a droite, jamais l'inverse
+   PLANCHES
    ========================================================================== */
 .nk-planche {
   display: grid; grid-template-columns: minmax(0,300px) minmax(0,1fr);
@@ -562,7 +524,7 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 
 
 /* ==========================================================================
-   PUBLICATIONS — l'anatomie d'un post, pas une carte editoriale
+   PUBLICATIONS IG
    ========================================================================== */
 .nk-igs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(16px,2vw,26px); align-items: start; }
 @media (max-width: 900px) { .nk-igs { grid-template-columns: 1fr; } }
@@ -597,58 +559,55 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 
 
 /* ==========================================================================
-   CHOIX DU PACK DANS LE HERO — deux offres lisibles, pas deux liens
+   CHOIX DU PACK DANS LE HERO
    ========================================================================== */
-.nk-choix { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 2px 0 0; }
+.nk-choix { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 2px 0 0; }
 @media (max-width: 520px) { .nk-choix { grid-template-columns: 1fr; } }
 .nk-choix__b {
   display: grid; gap: 2px; text-align: left; cursor: pointer;
   padding: 13px 15px; border: 0; border-radius: var(--nk-r-core);
   background: var(--nk-surface); color: var(--nk-ink);
-  box-shadow: var(--nk-ring); font: inherit;
+  box-shadow: 0 0 0 1px rgba(201,168,124,.08); font: inherit;
   transition: box-shadow .25s var(--nk-ease), background .25s var(--nk-ease);
 }
-.nk-choix__b:hover { box-shadow: var(--nk-ring), var(--nk-lift-1); }
-.nk-choix__b.on { background: var(--nk-accent-tres-clair, #F5F0E8); box-shadow: 0 0 0 2px var(--nk-accent); }
+.nk-choix__b:hover { box-shadow: 0 0 0 1px rgba(201,168,124,.20), var(--nk-lift-1); }
+.nk-choix__b.on { background: rgba(201,168,124,.08); box-shadow: 0 0 0 2px var(--nk-accent); }
 .nk-choix__t { font-size: 14.5px; font-weight: 600; }
 .nk-choix__p { font-size: 19px; font-weight: 650; letter-spacing: -.01em; }
 .nk-choix__b.on .nk-choix__p { color: var(--nk-accent); }
 .nk-choix__n { font-size: 12.5px; color: var(--nk-ink-3); }
 
+.nk-choix__b { grid-template-columns: 1fr; grid-template-areas: "t" "p" "n"; }
+.nk-choix__t { grid-area: t; }
+.nk-choix__p { grid-area: p; }
+.nk-choix__n { grid-area: n; }
+
 
 /* ==========================================================================
-   RYTHME DU FOND — le corps porte la couleur, quelques sections respirent.
-   Methode Glosso : jamais un aplat par section, un voile en degrade qui se
-   fond dans la page. Sans quoi on defile sur un gris uniforme du haut en bas.
+   RYTHME DU FOND — sections alternees sombres
    ========================================================================== */
-:root { --nk-voile: #F3EDE7; }        /* ambre tres lave, tire de l'accent */
+:root { --nk-voile: #141210; }
 
 #geste, #planches, #publications, #offre {
   background: linear-gradient(178deg, var(--nk-voile) 0%, var(--nk-bg) 100%);
 }
 
-/* une seule bande profonde de toute la page : la ou l'on dit ce que le
-   produit ne fait pas. Le contraste sert le propos. */
 #franchise {
   background: var(--nk-accent);
-  color: #fff;
+  color: #0C0B09;
 }
-#franchise .nk-h2, #franchise .nk-h3, #franchise .nk-p, #franchise .nk-lead { color: #fff; }
-#franchise .nk-note, #franchise .nk-eyebrow { color: rgba(255,255,255,.66); }
-#franchise .nk-eyebrow::before { background: rgba(255,255,255,.5); }
+#franchise .nk-h2, #franchise .nk-h3, #franchise .nk-p, #franchise .nk-lead { color: #0C0B09; }
+#franchise .nk-note, #franchise .nk-eyebrow { color: rgba(12,11,9,.55); }
+#franchise .nk-eyebrow::before { background: rgba(12,11,9,.4); }
 #franchise .nk-card {
-  background: rgba(255,255,255,.07);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+  background: rgba(12,11,9,.08);
+  box-shadow: inset 0 0 0 1px rgba(12,11,9,.12);
 }
-#franchise a { color: #fff; }
+#franchise a { color: #0C0B09; }
 
-/* la galerie du hero garde le fond de page : elle ouvre, elle ne respire pas */
 #chaleur, #recevez, #communaute, #en-situation, #questions { background: transparent; }
 
 
-
-/* --- une photo par offre : la difference se voit avant de se lire --- */
-.nk-pack__ligne { grid-template-columns: 20px 46px 1fr auto; }
 .nk-pack__vue {
   width: 46px; height: 46px; border-radius: 10px;
   object-fit: cover; display: block; background: #0d0d0f;
@@ -659,15 +618,9 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
   .nk-pack__vue { width: 38px; height: 38px; }
 }
 
-.nk-choix__b { grid-template-columns: 52px 1fr; grid-template-areas: "v t" "v p" "v n"; align-items: center; column-gap: 12px; }
-.nk-choix__v { grid-area: v; width: 52px; height: 52px; border-radius: 12px; object-fit: cover; display: block; background: #0d0d0f; box-shadow: var(--nk-ring); }
-.nk-choix__t { grid-area: t; }
-.nk-choix__p { grid-area: p; }
-.nk-choix__n { grid-area: n; }
-
 
 /* ==========================================================================
-   CE QUE CA APPORTE — deux colonnes, la photo et le propos a hauteur d'oeil
+   CE QUE CA APPORTE — grille d'actifs
    ========================================================================== */
 .nk-biens { display: grid; gap: clamp(22px,3vw,34px); grid-template-columns: repeat(2,minmax(0,1fr)); }
 @media (max-width: 860px) { .nk-biens { grid-template-columns: 1fr; } }
@@ -677,41 +630,21 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 
 
 
-/* la barre d'achat est un ilot, pas un bandeau : on la lit d'un seul coup */
-.nk-bar {
-  inset: auto 0 16px 0;
-  width: min(620px, calc(100% - 2 * clamp(16px, 4vw, 40px)));
-  max-width: none;
-  margin-inline: auto;
-}
-
-
 /* ==========================================================================
-   APPELS A L'ACTION — un bouton centre a la fin de chaque chapitre, comme
-   sur Glosso. Pas un bandeau : un bouton, seul, qui appelle le geste.
+   APPELS A L'ACTION
    ========================================================================== */
 .nk-appel { padding-block: clamp(26px, 4vw, 44px); }
 .nk-btn--grand {
   font-size: 16px;
   padding: 17px 20px 17px 30px;
-  box-shadow: var(--nk-ring), 0 10px 24px -12px rgba(139,115,85,.55);
+  box-shadow: var(--nk-ring), 0 10px 24px -12px rgba(201,168,124,.35);
 }
 .nk-btn--grand i { width: 30px; height: 30px; }
 .nk-appel__note { margin: 0; font-size: 13.5px; color: var(--nk-ink-3); text-align: center; }
 
 
-/* la barre montre l'offre retenue, elle ne se contente pas de la nommer */
-.nk-bar__vue {
-  width: 44px; height: 44px; border-radius: 12px;
-  object-fit: cover; display: block; flex: 0 0 auto;
-  background: #0d0d0f; box-shadow: var(--nk-ring);
-}
-.nk-bar { padding-left: 10px; gap: 14px; }
-@media (max-width: 640px) { .nk-bar__vue { width: 38px; height: 38px; } }
-
-
 /* ==========================================================================
-   LOUPE — les planches portent du texte, il faut pouvoir les lire en grand
+   LOUPE
    ========================================================================== */
 .nk-galerie img, .nk-planche__vues img, .nk-bien img,
 .planche img, .nk-ig__photo, .nk-slot.rempli img { cursor: zoom-in; }
@@ -720,14 +653,11 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
   position: fixed; inset: 0; z-index: 200;
   display: grid; place-items: center;
   padding: clamp(14px, 3vw, 40px);
-  background: rgba(13,13,15,.92);
+  background: rgba(12,11,9,.94);
   backdrop-filter: blur(6px);
 }
 .nk-loupe[hidden] { display: none; }
 .nk-loupe img {
-  /* on borne en unites d'ecran : dans une grille, max-height:100% se resout
-     contre une piste dimensionnee par l'image elle-meme, et le navigateur
-     laisse deborder. On garde aussi une marge pour la croix de fermeture. */
   width: auto; height: auto;
   max-width: min(1100px, calc(100vw - 2 * clamp(16px, 5vw, 64px)));
   max-height: calc(100vh - 2 * clamp(48px, 8vh, 96px));
@@ -743,7 +673,6 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
 }
 .nk-loupe__x:hover { background: rgba(255,255,255,.24); }
 
-/* une planche ne se rogne pas : son titre est dans l'image */
 .nk-bien img.est-planche { object-fit: contain; background: var(--nk-surface); }
 
 
@@ -764,5 +693,26 @@ html.js .nk-rise:nth-child(3) { transition-delay: .14s; }
   .stack{display:grid;gap:26px;} .stack-sm{display:grid;gap:14px;}
   .planche{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
   @media(max-width:900px){.planche{grid-template-columns:repeat(3,1fr);}}
-  .ap-note{background:var(--nk-ink);color:#fff;font-family:var(--nk-mono);font-size:12px;
+  .ap-note{background:var(--nk-surface);color:var(--nk-ink-2);font-family:var(--nk-mono);font-size:12px;
     padding:10px 20px;text-align:center;}
+
+
+/* ==========================================================================
+   SEPARATEUR DORE — ligne fine or champagne entre sections
+   ========================================================================== */
+.nk-sep {
+  height: 1px; border: 0; margin: 0;
+  background: linear-gradient(90deg, transparent, rgba(201,168,124,.20), transparent);
+}
+
+/* ==========================================================================
+   HALO PRODUIT — lueur doree derriere l'image hero
+   ========================================================================== */
+.nk-colle .nk-bezel {
+  position: relative;
+}
+.nk-colle .nk-bezel::before {
+  content: ""; position: absolute; inset: -20%; z-index: -1;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(201,168,124,.08), transparent 70%);
+  filter: blur(40px); pointer-events: none;
+}
