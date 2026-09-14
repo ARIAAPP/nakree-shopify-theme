@@ -251,21 +251,23 @@
 
 <script>
   /* Videos UGC : lecture automatique a l'apparition, pause hors ecran.
-     Un fichier pas encore charge dans Shopify Files declenche error :
-     la video se retire et la carte editoriale dessous reste en place. */
+     Un fichier absent de Shopify Files declenche l'evenement error : la
+     video se retire et la carte editoriale dessous reste en place. On ne
+     retire JAMAIS sur un play() rejete (politique d'autoplay) ni sur un
+     etat transitoire : networkState passe par NO_SOURCE juste apres la
+     pose du src, meme pour un fichier valide. */
   (function () {
     var vids = document.querySelectorAll('[data-vids] video');
     if (!vids.length) return;
     vids.forEach(function (v) {
       v.addEventListener('error', function () { v.remove(); }, { once: true });
-      if (v.readyState === 0 && v.networkState === 3) v.remove();
     });
     if (!('IntersectionObserver' in window)) return;
     var obs = new IntersectionObserver(function (ee) {
       ee.forEach(function (e) {
         var v = e.target;
         if (!v.isConnected) return;
-        if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function () { v.remove(); }); }
+        if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function () {}); }
         else v.pause();
       });
     }, { threshold: .35 });
