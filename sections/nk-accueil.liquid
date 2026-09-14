@@ -201,6 +201,52 @@
   </div>
 </section>
 
+<!-- EN VIDEO — UGC -->
+<section id="videos" style="padding-top:0;">
+  <div class="nk-wrap">
+    <div class="nk-rise" style="max-width:52ch;margin-bottom:clamp(30px,4vw,44px);">
+      <p class="nk-eyebrow">En vid&#233;o</p>
+      <h2 class="nk-h2">Elles l'int&#232;grent<br><em>&#224; leur routine.</em></h2>
+    </div>
+    <div class="nk-vids nk-rise" data-vids>
+      {%- assign vids = "01|Routine du soir,02|3 gouttes suffisent,03|Application en 30 s,04|Sous la cr&#232;me de jour,05|Le geste du cou,06|Texture s&#233;rum" | split: "," -%}
+      {%- for item in vids -%}
+        {%- assign parts = item | split: "|" -%}
+        {%- assign mp4 = 'nakree-ugc-' | append: parts[0] | append: '.mp4' -%}
+        <div class="nk-vid">
+          <div class="nk-vid__ph"><b>{{ parts[1] }}</b></div>
+          <video src="{{ mp4 | file_url }}" playsinline muted loop preload="metadata" aria-label="{{ parts[1] | escape }}"></video>
+          <span class="nk-vid__tag">{{ parts[1] }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  /* Videos UGC : lecture automatique a l'apparition, pause hors ecran.
+     Un fichier pas encore charge dans Shopify Files declenche error :
+     la video se retire et la carte editoriale dessous reste en place. */
+  (function () {
+    var vids = document.querySelectorAll('[data-vids] video');
+    if (!vids.length) return;
+    vids.forEach(function (v) {
+      v.addEventListener('error', function () { v.remove(); }, { once: true });
+      if (v.readyState === 0 && v.networkState === 3) v.remove();
+    });
+    if (!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function (ee) {
+      ee.forEach(function (e) {
+        var v = e.target;
+        if (!v.isConnected) return;
+        if (e.isIntersecting) { var p = v.play(); if (p) p.catch(function () { v.remove(); }); }
+        else v.pause();
+      });
+    }, { threshold: .35 });
+    vids.forEach(function (v) { obs.observe(v); });
+  })();
+</script>
+
 <!-- CE QUE NOUS NE PROMETTONS PAS -->
 <section id="franchise">
   <div class="nk-wrap nk-rise">
@@ -212,6 +258,63 @@
       <span>Que les r&#233;sultats sont garantis pour tout le monde</span>
     </div>
     <p class="nk-p">Nakree est un cosm&#233;tique. Le NAD+, l'EGF et le collag&#232;ne sont document&#233;s par des &#233;tudes publi&#233;es. Les r&#233;sultats varient d'une peau &#224; l'autre, et nous ne pr&#233;tendrons jamais le contraire.</p>
+  </div>
+</section>
+
+<!-- REPEREES SUR LES RESEAUX -->
+<section id="posts">
+  <div class="nk-wrap stack" style="gap:clamp(30px,4vw,44px);">
+    <div class="nk-rise" style="max-width:52ch;">
+      <p class="nk-eyebrow">Sur les r&#233;seaux</p>
+      <h2 class="nk-h2">Rep&#233;r&#233; dans<br><em>vos routines.</em></h2>
+    </div>
+    <div class="nk-posts nk-rise">
+      <article class="nk-post">
+        <div class="nk-post__tete">
+          <span class="nk-avatar">LM</span>
+          <span><span class="nk-post__pseudo">@lea.mrn</span><br><span class="nk-post__ou">Lyon</span></span>
+          <span class="nk-post__coeur">&#9825;</span>
+        </div>
+        <div class="nk-post__vue">
+          <b>&#171; Le geste du soir que je ne saute plus. &#187;</b>
+          <img src="{{ 'nakree-post-01.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-post__corps">
+          <p class="nk-post__txt"><b>@lea.mrn</b> 3 gouttes matin et soir. Il a remplac&#233; trois produits dans ma routine.</p>
+          <div class="nk-post__pied"><span>&#9825; 1 248</span><span>il y a 3 j</span></div>
+        </div>
+      </article>
+      <article class="nk-post">
+        <div class="nk-post__tete">
+          <span class="nk-avatar">SR</span>
+          <span><span class="nk-post__pseudo">@sophie.skn</span><br><span class="nk-post__ou">Lille</span></span>
+          <span class="nk-post__coeur">&#9825;</span>
+        </div>
+        <div class="nk-post__vue">
+          <b>&#171; Aucune irritation, m&#234;me peau r&#233;active. &#187;</b>
+          <img src="{{ 'nakree-post-02.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-post__corps">
+          <p class="nk-post__txt"><b>@sophie.skn</b> Sans parfum, sans alcool : enfin un s&#233;rum qui ne pique pas les yeux.</p>
+          <div class="nk-post__pied"><span>&#9825; 892</span><span>il y a 1 sem</span></div>
+        </div>
+      </article>
+      <article class="nk-post">
+        <div class="nk-post__tete">
+          <span class="nk-avatar">CV</span>
+          <span><span class="nk-post__pseudo">@clara.vlc</span><br><span class="nk-post__ou">Marseille</span></span>
+          <span class="nk-post__coeur">&#9825;</span>
+        </div>
+        <div class="nk-post__vue">
+          <b>&#171; La cure compl&#232;te, sans y penser. &#187;</b>
+          <img src="{{ 'nakree-post-03.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-post__corps">
+          <p class="nk-post__txt"><b>@clara.vlc</b> Partie sur la cure 4 flacons, le 4&#7497; offert. Trente secondes le soir, c'est tout.</p>
+          <div class="nk-post__pied"><span>&#9825; 2 034</span><span>il y a 2 sem</span></div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
