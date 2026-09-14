@@ -85,7 +85,7 @@
             <div class="nk-vue on">
               <video src="{{ 'nakree-hero.mp4' | file_url }}" autoplay muted loop playsinline preload="auto" aria-label="Le s&#233;rum Nakree en application" onerror="this.remove()"></video>
             </div>
-            {%- for image in serum.images limit: 4 -%}
+            {%- for image in serum.images limit: 8 -%}
             <div class="nk-vue">
               <img src="{{ image | image_url: width: 1000 }}" alt="{{ serum.title }} &#8212; visuel {{ forloop.index }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
             </div>
@@ -107,14 +107,14 @@
         </div>
         <div data-suivantes hidden aria-hidden="true">
           <span></span>
-          {%- for image in serum.images limit: 4 -%}<span></span>{%- endfor -%}
+          {%- for image in serum.images limit: 8 -%}<span></span>{%- endfor -%}
           {%- if serum.images.size == 0 -%}<span></span>{%- endif -%}
         </div>
         <div class="nk-pellicule">
           <button type="button" data-vign="0" class="on" aria-label="Voir la vid&#233;o">
             <span class="nk-pellicule__play">&#9654;</span>
           </button>
-          {%- for image in serum.images limit: 4 -%}
+          {%- for image in serum.images limit: 8 -%}
           <button type="button" data-vign="{{ forloop.index }}" aria-label="Voir le visuel {{ forloop.index }}">
             <img src="{{ image | image_url: width: 140 }}" alt="" loading="lazy">
           </button>
