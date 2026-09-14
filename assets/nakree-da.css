@@ -735,6 +735,7 @@ section { padding-block: var(--nk-sec); }
 .nk-choix__t { font-size: 13.5px; font-weight: 600; grid-area: t; color: var(--nk-ink-2); }
 .nk-choix__b.on .nk-choix__t { color: var(--nk-ink); }
 .nk-choix__p { font-size: 20px; font-weight: 700; letter-spacing: -.03em; font-variant-numeric: tabular-nums; grid-area: p; }
+.nk-choix__p s { font-size: 12.5px; font-weight: 400; color: var(--nk-ink-3); }
 .nk-choix__b.on .nk-choix__p { color: var(--nk-accent-h); }
 .nk-choix__n { font-size: 12px; color: var(--nk-ink-3); grid-area: n; }
 .nk-choix__tag {
