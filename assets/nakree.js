@@ -271,7 +271,7 @@
     function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
 
     function peindre(p) {
-      var map = { 5990: { ref: 9960, eco: 3970, nb: 4 }, 4490: { ref: 4980, eco: 490, nb: 2 }, 2490: { ref: 0, eco: 0, nb: 1 } };
+      var map = { 6990: { ref: 9960, eco: 2970, nb: 4 }, 4490: { ref: 4980, eco: 490, nb: 2 }, 2490: { ref: 0, eco: 0, nb: 1 } };
       var d = map[p] || { ref: 0, eco: 0, nb: 1 };
       prix.textContent = euro(p);
       barre.style.display = d.ref ? '' : 'none';
@@ -314,7 +314,7 @@
 
     /* au chargement, le duo est preselectionne : on ouvre sur sa photo */
     var actif = carte && carte.querySelector('[data-pack].on');
-    var depart = actif ? parseInt(actif.dataset.prix, 10) : 5990;
+    var depart = actif ? parseInt(actif.dataset.prix, 10) : 6990;
     peindre(depart);
     var b = document.querySelector('[data-h-pack][data-prix="' + depart + '"]');
     if (b && window.nkVue) window.nkVue(parseInt(b.dataset.vue, 10));
