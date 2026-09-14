@@ -79,7 +79,7 @@
 
     <div class="nk-colle nk-rise">
       <div class="nk-scene" id="hero-img">
-        {%- if serum.featured_image -%}
+        {%- if serum.featured_image != blank -%}
           <div class="nk-slot rempli" style="position:absolute;inset:0;">
             <img src="{{ serum.featured_image | image_url: width: 1000 }}" alt="{{ serum.title }}" loading="eager">
           </div>
@@ -349,7 +349,7 @@
 
       <div class="stack nk-rise" style="gap:18px;">
         <div class="nk-scene nk-scene--mini">
-          {%- if serum.featured_image -%}
+          {%- if serum.featured_image != blank -%}
             <div class="nk-slot rempli" style="position:absolute;inset:0;">
               <img src="{{ serum.featured_image | image_url: width: 800 }}" alt="{{ serum.title }}" loading="lazy">
             </div>
