@@ -179,21 +179,45 @@
       <h2 class="nk-h2">Trente secondes,<br><em>matin ou soir.</em></h2>
     </div>
     <div class="nk-etapes nk-rise">
-      <div class="nk-etape">
-        <span class="nk-etape__n">1</span>
-        <h3 class="nk-h3">Nettoyer</h3>
-        <p class="nk-p">Sur peau propre et s&#232;che. Le s&#233;rum p&#233;n&#232;tre mieux sans barri&#232;re.</p>
-      </div>
-      <div class="nk-etape">
-        <span class="nk-etape__n">2</span>
-        <h3 class="nk-h3">Appliquer</h3>
-        <p class="nk-p">3 &#224; 4 gouttes, du bout des doigts. Front, joues, menton, cou.</p>
-      </div>
-      <div class="nk-etape">
-        <span class="nk-etape__n">3</span>
-        <h3 class="nk-h3">Masser</h3>
-        <p class="nk-p">Tapotements l&#233;gers, trente secondes. La peau ne colle pas.</p>
-      </div>
+      <figure class="nk-etape">
+        <div class="nk-etape__vue">
+          <span class="nk-ph" data-nom="Photo &#233;tape 1"></span>
+          <img src="{{ 'nakree-etape-01.jpg' | file_url }}" alt="Nettoyer la peau avant le s&#233;rum" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption class="nk-etape__cap">
+          <span class="nk-etape__n">1</span>
+          <span>
+            <h3 class="nk-h3"><i>&#9679;</i> Nettoyer</h3>
+            <p class="nk-p">Sur peau propre et s&#232;che. Le s&#233;rum p&#233;n&#232;tre mieux sans barri&#232;re.</p>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="nk-etape">
+        <div class="nk-etape__vue">
+          <span class="nk-ph nk-ph--b" data-nom="Photo &#233;tape 2"></span>
+          <img src="{{ 'nakree-etape-02.jpg' | file_url }}" alt="Appliquer 3 &#224; 4 gouttes de s&#233;rum" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption class="nk-etape__cap">
+          <span class="nk-etape__n">2</span>
+          <span>
+            <h3 class="nk-h3"><i>&#9679;</i> Appliquer</h3>
+            <p class="nk-p">3 &#224; 4 gouttes, du bout des doigts. Front, joues, menton, cou.</p>
+          </span>
+        </figcaption>
+      </figure>
+      <figure class="nk-etape">
+        <div class="nk-etape__vue">
+          <span class="nk-ph nk-ph--c" data-nom="Photo &#233;tape 3"></span>
+          <img src="{{ 'nakree-etape-03.jpg' | file_url }}" alt="Masser le s&#233;rum trente secondes" loading="lazy" onerror="this.remove()">
+        </div>
+        <figcaption class="nk-etape__cap">
+          <span class="nk-etape__n">3</span>
+          <span>
+            <h3 class="nk-h3"><i>&#9679;</i> Masser</h3>
+            <p class="nk-p">Tapotements l&#233;gers, trente secondes. La peau ne colle pas.</p>
+          </span>
+        </figcaption>
+      </figure>
     </div>
     <div class="nk-rise" style="display:grid;justify-items:center;">
       <a class="nk-btn" href="#offre">Commencer la cure <i>&#8599;</i></a>
@@ -258,6 +282,48 @@
       <span>Que les r&#233;sultats sont garantis pour tout le monde</span>
     </div>
     <p class="nk-p">Nakree est un cosm&#233;tique. Le NAD+, l'EGF et le collag&#232;ne sont document&#233;s par des &#233;tudes publi&#233;es. Les r&#233;sultats varient d'une peau &#224; l'autre, et nous ne pr&#233;tendrons jamais le contraire.</p>
+  </div>
+</section>
+
+<!-- CHEZ NOS CLIENTES -->
+<section id="clientes" style="padding-inline:0;overflow:clip;">
+  <div class="nk-wrap">
+    <div class="nk-rise" style="text-align:center;max-width:52ch;margin:0 auto clamp(30px,4vw,44px);">
+      <p class="nk-eyebrow">Sans retouche</p>
+      <h2 class="nk-h2">Chez nos <em>clientes.</em></h2>
+      <p class="nk-lead" style="margin:14px auto 0;">De vraies photos, envoy&#233;es par celles qui l'utilisent tous les jours.</p>
+    </div>
+  </div>
+  <div class="nk-rails nk-rise">
+    <div class="nk-rail">
+      <div class="nk-rail__int">
+        {%- for gr in (1..2) -%}
+        <div class="nk-rail__gr">
+          {%- for i in (1..6) -%}
+            <figure class="nk-vign" style="margin:0;">
+              <span class="nk-ph{% cycle '', ' nk-ph--b', ' nk-ph--c' %}"></span>
+              <img src="{{ 'nakree-cliente-0' | append: i | append: '.jpg' | file_url }}" alt="Photo cliente Nakree" loading="lazy" onerror="this.remove()">
+            </figure>
+          {%- endfor -%}
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="nk-rail nk-rail--inv">
+      <div class="nk-rail__int">
+        {%- for gr in (1..2) -%}
+        <div class="nk-rail__gr">
+          {%- for i in (7..12) -%}
+            {%- assign num = i | prepend: '0' | slice: -2, 2 -%}
+            <figure class="nk-vign" style="margin:0;">
+              <span class="nk-ph{% cycle ' nk-ph--c', '', ' nk-ph--b' %}"></span>
+              <img src="{{ 'nakree-cliente-' | append: num | append: '.jpg' | file_url }}" alt="Photo cliente Nakree" loading="lazy" onerror="this.remove()">
+            </figure>
+          {%- endfor -%}
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -336,7 +402,12 @@
     </div>
 
     <div class="nk-mur nk-rise">
-      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+      <article class="nk-avis-carte">
+        <div class="nk-avis-carte__photo">
+          <span class="nk-ph" data-nom="Photo avis"></span>
+          <img src="{{ 'nakree-avis-01.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">LM</span><span><span class="nk-avis-carte__nom">L&#233;a M., Lyon</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Texture l&#233;g&#232;re, pas de film gras. Je le mets sous ma cr&#232;me de jour et &#231;a ne roule pas. C'est le premier s&#233;rum que je finis vraiment.</p>
@@ -346,7 +417,12 @@
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Ma copine me l'a piqu&#233;. J'en ai recommand&#233; un pour moi. Le grain de peau change en deux semaines.</p>
       </div></article>
-      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+      <article class="nk-avis-carte">
+        <div class="nk-avis-carte__photo">
+          <span class="nk-ph nk-ph--b" data-nom="Photo avis"></span>
+          <img src="{{ 'nakree-avis-02.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">MC</span><span><span class="nk-avis-carte__nom">Marie-Claire B., Bordeaux</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">&#192; 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment att&#233;nu&#233;es apr&#232;s un mois.</p>
@@ -356,7 +432,12 @@
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Enfin un s&#233;rum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulp&#233;e d&#232;s le matin.</p>
       </div></article>
-      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+      <article class="nk-avis-carte">
+        <div class="nk-avis-carte__photo">
+          <span class="nk-ph nk-ph--c" data-nom="Photo avis"></span>
+          <img src="{{ 'nakree-avis-03.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">TL</span><span><span class="nk-avis-carte__nom">Thomas L., Strasbourg</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Le rapport qualit&#233;-prix est imbattable. J'ai compar&#233; les compositions avec des s&#233;rums &#224; 80 &#8364;, les actifs sont les m&#234;mes.</p>
@@ -371,7 +452,12 @@
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Bon s&#233;rum, je lui aurais juste mis un compte-gouttes un peu plus pr&#233;cis. Mais la formule est top.</p>
       </div></article>
-      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+      <article class="nk-avis-carte">
+        <div class="nk-avis-carte__photo">
+          <span class="nk-ph" data-nom="Photo avis"></span>
+          <img src="{{ 'nakree-avis-04.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">KE</span><span><span class="nk-avis-carte__nom">Karim E., Toulouse</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Je ne mettais rien sur le visage avant, ma femme m'a forc&#233;. En trois semaines les pores du nez se sont resserr&#233;s.</p>
