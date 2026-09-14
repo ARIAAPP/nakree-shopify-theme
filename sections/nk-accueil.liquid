@@ -86,7 +86,7 @@
               <video src="{{ 'nakree-hero.mp4' | file_url }}" autoplay muted loop playsinline preload="auto" aria-label="Le s&#233;rum Nakree en application" onerror="this.remove()"></video>
             </div>
             {%- for image in serum.images limit: 8 -%}
-            <div class="nk-vue">
+            <div class="nk-vue{% if forloop.index > 3 %} nk-vue--doc{% endif %}">
               <img src="{{ image | image_url: width: 1000 }}" alt="{{ serum.title }} &#8212; visuel {{ forloop.index }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
             </div>
             {%- endfor -%}

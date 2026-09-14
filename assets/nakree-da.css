@@ -277,6 +277,14 @@ section { padding-block: var(--nk-sec); }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover;
 }
+/* Infographies carrees : entieres, jamais rognees */
+.nk-vue--doc { background: #FFFFFF; }
+.nk-vue--doc > img { object-fit: contain; }
+/* Les pastilles flottantes n'accompagnent que la vue video */
+.nk-puce { transition: opacity .35s var(--nk-ease); }
+.nk-scene:has(.nk-vues > .nk-vue:first-child:not(.on)) .nk-puce {
+  opacity: 0; pointer-events: none;
+}
 .nk-gal__fleche--g { left: 14px; }
 .nk-gal__fleche--d { right: 14px; }
 .nk-pellicule button { position: relative; }
