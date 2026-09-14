@@ -263,6 +263,32 @@ section { padding-block: var(--nk-sec); }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; z-index: 2;
 }
+
+/* Galerie du hero : vues empilees, fondu entre elles */
+.nk-vues { position: absolute; inset: 0; z-index: 1; }
+.nk-vue {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  opacity: 0; transition: opacity .55s var(--nk-ease);
+  pointer-events: none;
+}
+.nk-vue.on { opacity: 1; pointer-events: auto; }
+.nk-vue > video, .nk-vue > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+}
+.nk-gal__fleche--g { left: 14px; }
+.nk-gal__fleche--d { right: 14px; }
+.nk-pellicule button { position: relative; }
+.nk-pellicule button img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.nk-pellicule__play {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background: linear-gradient(160deg, #FFE9E2, #F6B3A7);
+  color: var(--nk-accent-h); font-size: 16px; padding-left: 3px;
+}
 .nk-flacon { width: clamp(168px, 17vw, 224px); filter: drop-shadow(0 26px 34px rgba(150,40,52,.35)); }
 .nk-scene--mini .nk-flacon { width: 160px; }
 

@@ -41,19 +41,19 @@
       </div>
 
       <div class="nk-choix">
-        <button type="button" class="nk-choix__b on" data-h-pack data-prix="6990">
+        <button type="button" class="nk-choix__b on" data-h-pack data-vue="0" data-prix="6990">
           <span class="nk-choix__tag">3 + 1 OFFERT</span>
           <span class="nk-choix__t">4 flacons</span>
           <span class="nk-choix__p">69,90 &#8364; <s>99,60 &#8364;</s></span>
           <span class="nk-choix__n">Cure 4 mois &#183; 17,48 &#8364; le flacon</span>
         </button>
-        <button type="button" class="nk-choix__b" data-h-pack data-prix="4490">
+        <button type="button" class="nk-choix__b" data-h-pack data-vue="0" data-prix="4490">
           <span class="nk-choix__tag">-10 %</span>
           <span class="nk-choix__t">2 flacons</span>
           <span class="nk-choix__p">44,90 &#8364; <s>49,80 &#8364;</s></span>
           <span class="nk-choix__n">Cure 2 mois &#183; 22,45 &#8364; le flacon</span>
         </button>
-        <button type="button" class="nk-choix__b" data-h-pack data-prix="2490">
+        <button type="button" class="nk-choix__b" data-h-pack data-vue="0" data-prix="2490">
           <span class="nk-choix__t">1 flacon</span>
           <span class="nk-choix__p">24,90 &#8364;</span>
           <span class="nk-choix__n">30 ml &#183; environ 1 mois</span>
@@ -79,20 +79,47 @@
     </div>
 
     <div class="nk-colle nk-rise">
-      <div class="nk-scene" id="hero-img">
-        {%- if serum.featured_image != blank -%}
-          <div class="nk-slot rempli" style="position:absolute;inset:0;">
-            <img src="{{ serum.featured_image | image_url: width: 1000 }}" alt="{{ serum.title }}" loading="eager">
+      <div class="nk-gal" data-gal>
+        <div class="nk-scene nk-gal__scene" id="hero-img">
+          <div class="nk-vues" data-vues>
+            <div class="nk-vue on">
+              <video src="{{ 'nakree-hero.mp4' | file_url }}" autoplay muted loop playsinline preload="auto" aria-label="Le s&#233;rum Nakree en application" onerror="this.remove()"></video>
+            </div>
+            {%- for image in serum.images limit: 4 -%}
+            <div class="nk-vue">
+              <img src="{{ image | image_url: width: 1000 }}" alt="{{ serum.title }} &#8212; visuel {{ forloop.index }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+            </div>
+            {%- endfor -%}
+            {%- if serum.images.size == 0 -%}
+            <div class="nk-vue">
+              <span class="nk-scene__n" aria-hidden="true">n.</span>
+              {% render 'nk-flacon', suffixe: 'h' %}
+            </div>
+            {%- endif -%}
           </div>
-        {%- else -%}
-          <span class="nk-scene__n" aria-hidden="true">n.</span>
-          {% render 'nk-flacon', suffixe: 'h' %}
-        {%- endif -%}
-        <video class="nk-scene__vid" src="{{ 'nakree-hero.mp4' | file_url }}" autoplay muted loop playsinline preload="auto" aria-label="Le s&#233;rum Nakree en application" onerror="this.remove()"></video>
-        <span class="nk-puce">NAD+ &#8212; &#233;nergie cellulaire</span>
-        <span class="nk-puce">EGF &#8212; renouvellement</span>
-        <span class="nk-puce">Collag&#232;ne &#8212; fermet&#233;</span>
-        <span class="nk-puce nk-puce--ok">P&#233;n&#232;tre en 30 s</span>
+          <div class="nk-gal__fleches">
+            <button type="button" class="nk-gal__fleche nk-gal__fleche--g" data-prec aria-label="Visuel pr&#233;c&#233;dent">&#8592;</button>
+            <button type="button" class="nk-gal__fleche nk-gal__fleche--d" data-suiv aria-label="Visuel suivant">&#8594;</button>
+          </div>
+          <span class="nk-puce">NAD+ &#8212; &#233;nergie cellulaire</span>
+          <span class="nk-puce">EGF &#8212; renouvellement</span>
+          <span class="nk-puce nk-puce--ok">P&#233;n&#232;tre en 30 s</span>
+        </div>
+        <div data-suivantes hidden aria-hidden="true">
+          <span></span>
+          {%- for image in serum.images limit: 4 -%}<span></span>{%- endfor -%}
+          {%- if serum.images.size == 0 -%}<span></span>{%- endif -%}
+        </div>
+        <div class="nk-pellicule">
+          <button type="button" data-vign="0" class="on" aria-label="Voir la vid&#233;o">
+            <span class="nk-pellicule__play">&#9654;</span>
+          </button>
+          {%- for image in serum.images limit: 4 -%}
+          <button type="button" data-vign="{{ forloop.index }}" aria-label="Voir le visuel {{ forloop.index }}">
+            <img src="{{ image | image_url: width: 140 }}" alt="" loading="lazy">
+          </button>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
 
