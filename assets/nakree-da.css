@@ -567,6 +567,54 @@ section { padding-block: var(--nk-sec); }
 .nk-avis-carte__etoiles { color: #E8A20A; font-size: 13px; letter-spacing: .07em; margin: 12px 0 8px; }
 .nk-avis-carte__txt { font-size: 14.5px; line-height: 1.6; color: var(--nk-ink-2); margin: 0; }
 
+/* Modale « tous les avis » (pattern Eole) */
+.nk-avis-plus { display: grid; justify-items: center; margin-top: 36px; }
+.nk-avm { border: 0; padding: 0; background: transparent; width: min(720px, calc(100vw - 28px)); margin: auto; }
+.nk-avm::backdrop { background: rgba(26,18,19,.55); backdrop-filter: blur(4px); }
+.nk-avm__panel { background: var(--nk-surface); border-radius: 24px; overflow: hidden;
+  display: flex; flex-direction: column; max-height: min(84vh, 880px); box-shadow: var(--nk-lift-3); }
+.nk-avm__tete { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(16px,3vw,30px);
+  align-items: center; padding: 24px 26px; box-shadow: inset 0 -1px 0 rgba(0,0,0,.07); }
+.nk-avm__note { display: grid; justify-items: start; gap: 3px; }
+.nk-avm__big { font-family: var(--nk-serif); font-weight: 600; font-size: 44px; line-height: 1; }
+.nk-avm__big small { font-size: 17px; color: var(--nk-ink-3); font-family: var(--nk-sans); font-weight: 400; }
+.nk-avm__total { font-size: 12.5px; color: var(--nk-ink-3); }
+.nk-avm__barres { display: grid; gap: 5px; max-width: 340px; width: 100%; }
+.nk-avm__barre { display: grid; grid-template-columns: 28px 1fr 22px; gap: 10px; align-items: center;
+  font-size: 12px; color: var(--nk-ink-2); }
+.nk-avm__barre i { height: 7px; border-radius: 99px; background: var(--nk-sunk); overflow: hidden; display: block; font-style: normal; }
+.nk-avm__barre b { display: block; height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--nk-accent), var(--nk-accent-h)); }
+.nk-avm__barre em { font-style: normal; text-align: right; color: var(--nk-ink-3); }
+.nk-avm__x { width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--nk-sunk);
+  color: var(--nk-ink); font-size: 20px; line-height: 1; cursor: pointer; align-self: start; }
+.nk-avm__liste { overflow-y: auto; padding: 4px 26px 20px; overscroll-behavior: contain; }
+.nk-avm__item { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 18px 0;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.06); }
+.nk-avm__item:last-child { box-shadow: none; }
+.nk-avm__qui { display: flex; align-items: center; gap: 11px; }
+.nk-avm__nom { font-size: 14px; font-weight: 600; display: block; line-height: 1.3; }
+.nk-avm__date { font-size: 12px; color: var(--nk-ink-3); }
+.nk-avm__date b { color: var(--nk-accent-h); font-weight: 500; }
+.nk-avm__etoiles { color: #E8A20A; font-size: 12.5px; letter-spacing: .06em; margin-left: auto; white-space: nowrap; }
+.nk-avm__etoiles i { font-style: normal; }
+.nk-avm__etoiles i.off { color: rgba(0,0,0,.16); }
+.nk-avm__txt { font-size: 14px; line-height: 1.55; color: var(--nk-ink-2); margin: 8px 0 0; }
+.nk-avm__ph { width: 84px; height: 84px; border-radius: 12px; overflow: hidden; border: 0; padding: 0;
+  cursor: pointer; background: var(--nk-sunk); align-self: center; flex: none; }
+.nk-avm__ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 620px) {
+  .nk-avm__tete { grid-template-columns: 1fr auto; }
+  .nk-avm__barres { grid-column: 1 / -1; max-width: none; }
+  .nk-avm__ph { width: 66px; height: 66px; }
+}
+.nk-avl { border: 0; background: transparent; padding: 0; margin: auto; width: min(860px, calc(100vw - 24px)); }
+.nk-avl::backdrop { background: rgba(26,18,19,.82); backdrop-filter: blur(4px); }
+.nk-avl img { max-width: 100%; max-height: 82vh; border-radius: 14px; display: block; margin: auto; }
+.nk-avl__x { position: absolute; top: -14px; right: -8px; width: 40px; height: 40px; border: 0;
+  border-radius: 50%; background: rgba(255,255,255,.92); color: var(--nk-ink); font-size: 22px;
+  line-height: 1; cursor: pointer; box-shadow: var(--nk-lift-2); }
+
 .nk-note-avis { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--nk-ink-2); }
 .nk-neuf { font-size: 12px; font-weight: 600; color: #FFFFFF; background: var(--nk-accent);
   border-radius: var(--nk-r-pill); padding: 6px 13px; white-space: nowrap; }

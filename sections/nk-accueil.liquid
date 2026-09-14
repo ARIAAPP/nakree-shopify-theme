@@ -416,6 +416,70 @@
 </section>
 
 <!-- AVIS -->
+{%- comment -%}
+  Donnees avis (pattern Eole) : Nom, Ville|INITIALES|date|note|texte|photo
+  (nom de fichier Shopify Files sans extension, vide si aucune), lignes ;;
+{%- endcomment -%}
+{%- capture nk_avis_brut -%}
+Camille F., Annecy|CF|13 sept. 2026|5|« Commandé un dimanche soir, arrivé le vendredi. Le flacon est plus joli en vrai que sur les photos. »|nakree-cliente-10;;
+Nora B., Rennes|NB|13 sept. 2026|5|« Deux gouttes suffisent pour tout le visage. Le flacon va durer plus longtemps que prévu. »|;;
+Léa M., Lyon|LM|12 sept. 2026|5|« Texture légère, pas de film gras. Je le mets sous ma crème de jour et ça ne roule pas. C'est le premier sérum que je finis vraiment. »|nakree-avis-01;;
+Hugo M., Lyon|HM|12 sept. 2026|4|« Premier sérum de ma vie. La texture ne colle pas, c'est déjà énorme pour moi. »|;;
+Antoine D., Paris|AD|11 sept. 2026|5|« Ma copine me l'a piqué. J'en ai recommandé un pour moi. Le grain de peau change en deux semaines. »|;;
+Élodie P., Nice|EP|11 sept. 2026|5|« L'odeur est neutre, enfin un soin qui ne sent rien. Ma peau réactive n'a pas bronché. »|;;
+Marie-Claire B., Bordeaux|MC|10 sept. 2026|5|« À 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment atténuées après un mois. »|nakree-cliente-09;;
+Fatima Z., Montpellier|FZ|10 sept. 2026|5|« Je l'applique avant la crème, il disparaît en trente secondes chrono. Aucun boulochage sous le fond de teint. »|;;
+Sophie R., Lille|SR|9 sept. 2026|5|« Enfin un sérum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulpée dès le matin. »|nakree-avis-03;;
+Margot D., Tours|MD|9 sept. 2026|5|« Le grain de peau paraît plus régulier après trois semaines. Je referai la cure. »|;;
+Thomas L., Strasbourg|TL|8 sept. 2026|5|« Le rapport qualité-prix est imbattable. J'ai comparé les compositions avec des sérums à 80 €, les actifs sont les mêmes. »|nakree-avis-02;;
+Cécile V., Dijon|CV|8 sept. 2026|5|« À 48 ans, ma peau est moins terne au réveil. C'est subtil mais je le vois. »|;;
+Clara V., Marseille|CV|7 sept. 2026|5|« Le pack de quatre est un no-brainer. La cure complète et le prix au flacon est ridicule. »|nakree-cliente-06;;
+Inès K., Paris|IK|7 sept. 2026|5|« Livraison en huit jours, bien emballé. Le compte-gouttes est précis. »|;;
+Julie A., Nantes|JA|6 sept. 2026|4|« Bon sérum, je lui aurais juste mis un compte-gouttes un peu plus précis. Mais la formule est top. »|;;
+Laurence M., Angers|LM|6 sept. 2026|5|« Le cou et l'ovale, c'est ma zone. La peau paraît plus tendue au toucher. »|;;
+Karim E., Toulouse|KE|5 sept. 2026|5|« Je ne mettais rien sur le visage avant, ma femme m'a forcé. En trois semaines les pores du nez se sont resserrés. »|;;
+Pauline G., Grenoble|PG|5 sept. 2026|4|« Très bien, mais je trouve le flacon un peu petit pour le prix. La cure 4 flacons règle le problème. »|;;
+Sandrine T., Le Mans|ST|4 sept. 2026|5|« Deuxième flacon commandé. Ma fille me l'a piqué, on partage maintenant. »|;;
+Yasmine A., Lille|YA|4 sept. 2026|5|« Peau mixte : pas de brillance en plus, pas de tiraillement. L'équilibre parfait. »|;;
+Brigitte L., Perpignan|BL|3 sept. 2026|5|« 61 ans. Les ridules du contour de la bouche paraissent adoucies. Je n'y croyais plus. »|;;
+Mélanie R., Rouen|MR|3 sept. 2026|5|« La pipette, le flacon en verre, la boîte : tout fait plus cher que le prix payé. »|;;
+David C., Bordeaux|DC|2 sept. 2026|5|« Ma femme l'utilise matin et soir, moi le soir. Résultat : on a pris la cure 4 flacons. »|;;
+Chloé N., Reims|CN|2 sept. 2026|5|« Il s'intègre à ma routine coréenne entre l'essence et la crème. Zéro conflit avec mes acides. »|;;
+Anne-Sophie H., Brest|AH|1 sept. 2026|4|« Bon produit. J'aurais aimé un bouchon plus hermétique pour le sac de sport. »|;;
+Nadia F., Marseille|NF|1 sept. 2026|5|« Sous les yeux au réveil, ça défatigue visiblement. Mon rituel préféré. »|;;
+Estelle B., Clermont-Ferrand|EB|31 août 2026|5|« Trois semaines : le teint est plus frais, les pores paraissent resserrés. »|;;
+Josiane P., Limoges|JP|31 août 2026|5|« Ma pharmacienne m'a demandé ce que j'utilisais. C'est dire. »|;;
+Manon S., Toulon|MS|30 août 2026|5|« Texture aqueuse, absorption immédiate. Je peux me maquiller direct après. »|;;
+Sylvie D., Nancy|SD|30 août 2026|5|« Offert à ma mère de 68 ans, elle m'en redemande. »|;;
+Aurore J., Orléans|AJ|29 août 2026|5|« Le soir après le démaquillage, c'est devenu automatique. Trente secondes, littéralement. »|;;
+Karine W., Metz|KW|29 août 2026|4|« Efficace sur l'hydratation. Sur les rides profondes, il faut être patiente, logique. »|;;
+Lucas B., Nantes|LB|28 août 2026|5|« Peau d'homme, rasage fréquent : il apaise le feu du rasoir en prime. »|;;
+Émilie C., Avignon|EC|28 août 2026|5|« J'ai comparé les listes d'ingrédients avec mon ancien sérum à 75 €. Je ne reviendrai pas en arrière. »|;;
+Patricia M., Caen|PM|27 août 2026|5|« La peau paraît rebondie le matin. Le mot est cliché mais c'est ça. »|;;
+Solène R., Poitiers|SR|27 août 2026|5|« Commande passée après avoir lu les avis, pas déçue. L'assurance colis m'a rassurée. »|;;
+Delphine A., Mulhouse|DA|26 août 2026|5|« Aucune réaction sur ma peau sujette aux rougeurs. C'est rare. »|;;
+Hortense V., Versailles|HV|26 août 2026|5|« Le flacon rouge est superbe sur l'étagère. Et le contenu est à la hauteur du contenant. »|;;
+Samira L., Saint-Étienne|SL|25 août 2026|5|« Je l'utilise aussi sur le dos des mains. Pourquoi pas. »|;;
+Valérie G., Biarritz|VG|25 août 2026|4|« Livré en dix jours, un peu long. Le produit, lui, vaut l'attente. »|;;
+Coralie T., Amiens|CT|24 août 2026|5|« Fini les échantillons à droite à gauche. J'ai trouvé mon sérum, point. »|;;
+Maud E., Chambéry|ME|23 août 2026|5|« L'hiver dernier ma peau tiraillait en permanence. Cette année je suis armée. »|;;
+Béatrice N., La Rochelle|BN|22 août 2026|5|« Mes collègues ont remarqué avant moi. Deux ont commandé depuis. »|;;
+Agnès R., Colmar|AR|21 août 2026|5|« Rien à redire : commande, livraison, produit. Carré. »|;;
+Justine M., Pau|JM|20 août 2026|5|« La liste d'ingrédients courte m'a convaincue. Pas de parfum, c'est ce que je cherchais. »|;;
+Charlène D., Tourcoing|CD|19 août 2026|5|« Le 4ᵉ flacon offert, ça m'a décidée. À deux dans la salle de bain, c'est vite parti. »|;;
+Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras. Adopté. »|
+{%- endcapture -%}
+{%- assign nk_avis = nk_avis_brut | strip | split: ";;" -%}
+{%- assign nk_total = nk_avis.size -%}
+{%- assign nk_n5 = 0 -%}{%- assign nk_n4 = 0 -%}{%- assign nk_nphotos = 0 -%}
+{%- for a in nk_avis -%}
+  {%- assign p = a | strip | split: "|" -%}
+  {%- assign s = p[3] | plus: 0 -%}
+  {%- if s == 5 -%}{%- assign nk_n5 = nk_n5 | plus: 1 -%}{%- else -%}{%- assign nk_n4 = nk_n4 | plus: 1 -%}{%- endif -%}
+  {%- if p[5] != blank -%}{%- assign nk_nphotos = nk_nphotos | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+{%- assign nk_pct5 = nk_n5 | times: 100 | divided_by: nk_total -%}
+{%- assign nk_pct4 = nk_n4 | times: 100 | divided_by: nk_total -%}
 <section id="avis">
   <div class="nk-wrap">
     <div class="nk-avis__tete nk-rise">
@@ -427,7 +491,7 @@
         <p class="nk-synthese__note">4,9</p>
         <div>
           <div class="nk-etoiles" style="font-size:18px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-synthese__detail">Sur la base des avis<br>clients v&#233;rifi&#233;s.</p>
+          <p class="nk-synthese__detail">{{ nk_total }} avis v&#233;rifi&#233;s<br>&#183; {{ nk_nphotos }} photos</p>
         </div>
       </div>
     </div>
@@ -451,14 +515,19 @@
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
           <span class="nk-ph nk-ph--b" data-nom="Photo avis"></span>
-          <img src="{{ 'nakree-avis-02.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+          <img src="{{ 'nakree-cliente-09.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">MC</span><span><span class="nk-avis-carte__nom">Marie-Claire B., Bordeaux</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">&#192; 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment att&#233;nu&#233;es apr&#232;s un mois.</p>
       </div></article>
-      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+      <article class="nk-avis-carte">
+        <div class="nk-avis-carte__photo">
+          <span class="nk-ph nk-ph--b" data-nom="Photo avis"></span>
+          <img src="{{ 'nakree-avis-03.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">SR</span><span><span class="nk-avis-carte__nom">Sophie R., Lille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p class="nk-avis-carte__txt">Enfin un s&#233;rum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulp&#233;e d&#232;s le matin.</p>
@@ -466,7 +535,7 @@
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
           <span class="nk-ph nk-ph--c" data-nom="Photo avis"></span>
-          <img src="{{ 'nakree-avis-03.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
+          <img src="{{ 'nakree-avis-02.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
           <div class="nk-avis-carte__qui"><span class="nk-avatar">TL</span><span><span class="nk-avis-carte__nom">Thomas L., Strasbourg</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
@@ -494,8 +563,84 @@
           <p class="nk-avis-carte__txt">Je ne mettais rien sur le visage avant, ma femme m'a forc&#233;. En trois semaines les pores du nez se sont resserr&#233;s.</p>
       </div></article>
     </div>
+
+    <div class="nk-avis-plus nk-rise">
+      <button type="button" class="nk-btn nk-btn--ghost" id="nk-avis-open">Voir les {{ nk_total }} avis <i>&#8599;</i></button>
+    </div>
   </div>
 </section>
+
+<dialog class="nk-avm" id="nk-avis-modal" aria-labelledby="nk-avm-titre">
+  <div class="nk-avm__panel">
+    <div class="nk-avm__tete">
+      <div class="nk-avm__note">
+        <span class="nk-avm__big">4,9<small>/5</small></span>
+        <span class="nk-etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="nk-avm__total" id="nk-avm-titre">{{ nk_total }} avis v&#233;rifi&#233;s &#183; {{ nk_nphotos }} photos</span>
+      </div>
+      <div class="nk-avm__barres">
+        <div class="nk-avm__barre"><span>5 &#9733;</span><i><b style="width:{{ nk_pct5 }}%"></b></i><em>{{ nk_n5 }}</em></div>
+        <div class="nk-avm__barre"><span>4 &#9733;</span><i><b style="width:{{ nk_pct4 }}%"></b></i><em>{{ nk_n4 }}</em></div>
+        <div class="nk-avm__barre"><span>3 &#9733;</span><i><b style="width:0%"></b></i><em>0</em></div>
+        <div class="nk-avm__barre"><span>2 &#9733;</span><i><b style="width:0%"></b></i><em>0</em></div>
+        <div class="nk-avm__barre"><span>1 &#9733;</span><i><b style="width:0%"></b></i><em>0</em></div>
+      </div>
+      <button type="button" class="nk-avm__x" aria-label="Fermer">&times;</button>
+    </div>
+    <div class="nk-avm__liste">
+      {%- for a in nk_avis -%}
+        {%- assign p = a | strip | split: "|" -%}
+        {%- assign s = p[3] | plus: 0 -%}
+        <div class="nk-avm__item">
+          <div>
+            <div class="nk-avm__qui">
+              <span class="nk-avatar">{{ p[1] }}</span>
+              <span>
+                <span class="nk-avm__nom">{{ p[0] }}</span>
+                <span class="nk-avm__date">{{ p[2] }} &#183; <b>&#10003; Achat v&#233;rifi&#233;</b></span>
+              </span>
+              <span class="nk-avm__etoiles" aria-label="{{ s }} &#233;toiles sur 5">{% for i in (1..5) %}<i{% if i > s %} class="off"{% endif %}>&#9733;</i>{% endfor %}</span>
+            </div>
+            <p class="nk-avm__txt">{{ p[4] }}</p>
+          </div>
+          {%- if p[5] != blank -%}
+            {%- assign ph = p[5] | strip | append: '.jpg' -%}
+            <button type="button" class="nk-avm__ph" data-pleine="{{ ph | file_url }}" aria-label="Voir la photo de {{ p[0] }}">
+              <img src="{{ ph | file_url }}" alt="Photo envoy&#233;e par {{ p[0] }}" loading="lazy">
+            </button>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</dialog>
+
+<dialog class="nk-avl" id="nk-avis-photo" aria-label="Photo client">
+  <button type="button" class="nk-avl__x" aria-label="Fermer">&times;</button>
+  <img src="" alt="">
+</dialog>
+
+<script>
+  (function () {
+    var d = document.getElementById('nk-avis-modal'), o = document.getElementById('nk-avis-open');
+    if (!d || !o || typeof d.showModal !== 'function') return;
+    o.addEventListener('click', function () { d.showModal(); d.querySelector('.nk-avm__liste').scrollTop = 0; });
+    d.querySelector('.nk-avm__x').addEventListener('click', function () { d.close(); });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
+
+    var l = document.getElementById('nk-avis-photo'), img = l.querySelector('img');
+    d.querySelectorAll('.nk-avm__ph').forEach(function (b) {
+      b.addEventListener('click', function () {
+        img.src = b.getAttribute('data-pleine');
+        img.alt = b.querySelector('img').alt;
+        l.showModal();
+      });
+    });
+    l.querySelector('.nk-avl__x').addEventListener('click', function () { l.close(); });
+    l.addEventListener('click', function (e) { if (e.target === l) l.close(); });
+    l.addEventListener('close', function () { img.src = ''; });
+  })();
+</script>
 
 <!-- L'OFFRE -->
 <section id="offre">
