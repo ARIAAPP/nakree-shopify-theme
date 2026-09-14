@@ -165,7 +165,7 @@ section { padding-block: var(--nk-sec); }
   overflow: hidden; padding: 9px 0;
 }
 .nk-annonce .nk-defil__int { animation-duration: 26s; }
-.nk-annonce span { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+.nk-annonce .nk-defil__gr span { font-size: 11.5px; letter-spacing: .14em; }
 
 .nk-defil {
   background: var(--nk-accent-h); color: #FFFFFF;
@@ -176,13 +176,13 @@ section { padding-block: var(--nk-sec); }
   animation: nk-defile 30s linear infinite;
 }
 .nk-defil__gr { display: flex; align-items: center; flex: none; }
-.nk-defil span {
+.nk-defil span, .nk-annonce span {
   display: inline-flex; align-items: center; gap: 26px;
   padding: 0 13px;
   font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
   white-space: nowrap;
 }
-.nk-defil span::after { content: "\2726"; font-size: 11px; opacity: .6; }
+.nk-defil span::after, .nk-annonce span::after { content: "\2726"; font-size: 11px; opacity: .6; }
 @keyframes nk-defile { to { transform: translateX(-50%); } }
 
 /* ==========================================================================
