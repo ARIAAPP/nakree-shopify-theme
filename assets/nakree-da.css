@@ -296,8 +296,9 @@ section { padding-block: var(--nk-sec); }
 }
 .nk-stats__c:last-child { box-shadow: none; }
 .nk-stats__n {
-  font-family: var(--nk-serif); font-weight: 600;
-  font-size: clamp(26px, 3vw, 40px); line-height: 1.1; color: var(--nk-accent-h);
+  font-weight: 700; letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(24px, 2.6vw, 34px); line-height: 1.1; color: var(--nk-accent-h);
   display: block;
 }
 .nk-stats__l { font-size: 13px; color: var(--nk-ink-2); margin-top: 4px; display: block; }
