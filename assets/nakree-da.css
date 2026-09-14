@@ -259,6 +259,10 @@ section { padding-block: var(--nk-sec); }
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover;
 }
+.nk-scene__vid {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 2;
+}
 .nk-flacon { width: clamp(168px, 17vw, 224px); filter: drop-shadow(0 26px 34px rgba(150,40,52,.35)); }
 .nk-scene--mini .nk-flacon { width: 160px; }
 
