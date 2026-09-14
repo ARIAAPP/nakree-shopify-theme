@@ -1,3 +1,14 @@
+<div class="nk-annonce" aria-hidden="true">
+  <div class="nk-defil__int">
+    <div class="nk-defil__gr">
+      <span>Offre de lancement : jusqu'&#224; -40 %</span><span>Livraison offerte</span><span>Cure 4 mois : le 4&#7497; flacon offert</span><span>Formule cor&#233;enne</span>
+    </div>
+    <div class="nk-defil__gr">
+      <span>Offre de lancement : jusqu'&#224; -40 %</span><span>Livraison offerte</span><span>Cure 4 mois : le 4&#7497; flacon offert</span><span>Formule cor&#233;enne</span>
+    </div>
+  </div>
+</div>
+
 <header class="nk-top">
   <div class="nk-top__in">
     <a class="nk-logo" href="{{ routes.root_url }}" aria-label="Nakree, retour &#224; l'accueil">nakree<i>.</i></a>
@@ -5,6 +16,7 @@
     <nav class="nk-nav">
       <a href="{{ routes.root_url }}#actifs">Les actifs</a>
       <a href="{{ routes.root_url }}#geste">Le rituel</a>
+      <a href="{{ routes.root_url }}#avis">Avis</a>
       <a href="{{ routes.root_url }}#questions">Questions</a>
     </nav>
 
@@ -19,7 +31,7 @@
         <span data-panier-nb>{{ cart.item_count }}</span>
       </button>
 
-      <a class="nk-btn" href="{{ routes.root_url }}#offre">Commander <i>&#8599;</i></a>
+      <a class="nk-btn nk-btn--mini" href="{{ routes.root_url }}#offre">Commander <i>&#8599;</i></a>
     </div>
   </div>
 </header>
@@ -33,7 +45,7 @@
     font-size: 14px; font-weight: 600; color: var(--nk-ink);
   }
   .nk-cartouche:hover { box-shadow: var(--nk-ring-2), var(--nk-lift-1); }
-  .nk-cartouche svg { color: var(--nk-ink-2); }
+  .nk-cartouche svg { color: var(--nk-accent-h); }
   @media (max-width: 560px) { .nk-cartouche span { display: none; } }
 </style>
 

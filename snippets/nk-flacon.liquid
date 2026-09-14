@@ -1,0 +1,37 @@
+{%- comment -%}
+  Flacon compte-gouttes dessine en SVG. Sert de visuel produit tant que
+  les photos reelles ne sont pas chargees sur la fiche Shopify : la scene
+  du hero et celle de l'offre le rendent au lieu d'un cadre vide.
+{%- endcomment -%}
+<svg class="nk-flacon" viewBox="0 0 220 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flacon du s&#233;rum Nakree, 30 ml">
+  <defs>
+    <linearGradient id="nkSerum{{ suffixe }}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F79E97"/>
+      <stop offset=".55" stop-color="#E8646E"/>
+      <stop offset="1" stop-color="#C93D50"/>
+    </linearGradient>
+    <linearGradient id="nkVerre{{ suffixe }}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(255,255,255,.72)"/>
+      <stop offset=".5" stop-color="rgba(255,255,255,.4)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,.62)"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="110" cy="346" rx="72" ry="10" fill="rgba(160,42,56,.22)"/>
+
+  <rect x="52" y="96" width="116" height="242" rx="26" fill="url(#nkVerre{{ suffixe }})" stroke="rgba(120,30,40,.14)" stroke-width="1.5"/>
+  <rect x="60" y="168" width="100" height="162" rx="19" fill="url(#nkSerum{{ suffixe }})"/>
+  <rect x="66" y="106" width="9" height="222" rx="4.5" fill="rgba(255,255,255,.55)"/>
+
+  <rect x="59" y="192" width="102" height="92" rx="10" fill="#FFFFFF"/>
+  <text x="110" y="228" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="26" font-weight="600" fill="#1A1A1A" letter-spacing="-.5">nakree<tspan fill="#E8646E">.</tspan></text>
+  <text x="110" y="247" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="8" font-weight="600" fill="#D4475A" letter-spacing="2.4">S&#201;RUM RAFFERMISSANT</text>
+  <text x="110" y="261" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="7.5" fill="#8A8A8A" letter-spacing="1.1">NAD+ &#183; EGF &#183; COLLAG&#200;NE</text>
+  <text x="110" y="276" text-anchor="middle" font-family="Geist Mono, ui-monospace, monospace" font-size="7.5" fill="#B5B5B5" letter-spacing="1.6">30 ML</text>
+
+  <rect x="105" y="62" width="10" height="76" rx="5" fill="rgba(201,61,80,.4)"/>
+  <path d="M110 128 c-4 6 -4 11 0 13 c4 -2 4 -7 0 -13 z" fill="#C93D50"/>
+  <rect x="86" y="38" width="48" height="28" rx="7" fill="#1E1B1C"/>
+  <rect x="93" y="6" width="34" height="36" rx="16" fill="#2E2A2B"/>
+  <rect x="99" y="12" width="8" height="18" rx="4" fill="rgba(255,255,255,.14)"/>
+</svg>

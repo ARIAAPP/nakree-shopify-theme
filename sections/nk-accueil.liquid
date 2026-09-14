@@ -8,58 +8,60 @@
 {%- assign v_assurance = assurance.variants | first -%}
 
 <!-- HERO -->
-<section style="padding-top:clamp(28px,3vw,44px);">
+<section class="nk-hero">
   <div class="nk-wrap lay-hero">
 
-    <div class="stack nk-rise" style="gap:15px;">
+    <div class="stack nk-rise" style="gap:18px;">
 
-      <div class="nk-achat__haut" style="margin:0;justify-content:flex-start;gap:18px;">
+      <div class="nk-hero__haut">
         <a href="#avis" class="nk-note-avis">
           <span class="nk-etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span>4,9 sur 5</span>
+          <span>4,9 sur 5 &#8212; avis v&#233;rifi&#233;s</span>
         </a>
         <span class="nk-neuf">Nouveau</span>
       </div>
 
-      <div class="stack-sm">
-        <h1 class="nk-h1">Moins de promesses. Plus d'actifs.</h1>
-        <p class="nk-lead">S&#233;rum raffermissant au NAD+, EGF et extrait de collag&#232;ne. P&#233;n&#232;tre en trente secondes, sans film gras.</p>
+      <div class="stack-sm" style="gap:18px;">
+        <h1 class="nk-h1">Moins de promesses.<br><em>Plus d'actifs.</em></h1>
+        <p class="nk-lead">S&#233;rum raffermissant cor&#233;en au NAD+, EGF et extrait de collag&#232;ne. P&#233;n&#232;tre en trente secondes, sans film gras.</p>
       </div>
 
-      <ul class="nk-benefs">
-        <li>NAD+ : booste l'&#233;nergie cellulaire, aide la peau &#224; se r&#233;parer</li>
-        <li>EGF : facteur de croissance qui favorise le renouvellement cellulaire</li>
-        <li>Extrait de collag&#232;ne : renforce la fermet&#233; et l'&#233;lasticit&#233;</li>
-        <li>Texture s&#233;rum : p&#233;n&#232;tre en 30 secondes, ne colle pas sous le maquillage</li>
+      <ul class="nk-chips">
+        <li>NAD+</li>
+        <li>EGF</li>
+        <li>Extrait de collag&#232;ne</li>
+        <li>Sans parfum, sans alcool</li>
       </ul>
 
-      <div class="nk-prixligne" style="margin:4px 0 0;">
+      <div class="nk-prixligne" style="margin:6px 0 0;">
         <s class="nk-barre" data-h-barre>99,60 &#8364;</s>
         <span class="nk-price" data-h-prix>59,90 &#8364;</span>
         <span class="nk-pct" data-h-pct>-40%</span>
         <span class="nk-eco" style="width:100%;" data-h-eco>Cure 4 mois : le 4&#7497; flacon offert</span>
       </div>
 
-      <div class="nk-choix" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="nk-choix">
         <button type="button" class="nk-choix__b on" data-h-pack data-prix="5990">
+          <span class="nk-choix__tag">4&#7497; offert</span>
           <span class="nk-choix__t">Cure 4 mois</span>
           <span class="nk-choix__p">59,90 &#8364;</span>
-          <span class="nk-choix__n">4 flacons, le 4&#7497; offert</span>
+          <span class="nk-choix__n">soit 14,98 &#8364; le flacon</span>
         </button>
         <button type="button" class="nk-choix__b" data-h-pack data-prix="3990">
           <span class="nk-choix__t">Cure 2 mois</span>
           <span class="nk-choix__p">39,90 &#8364;</span>
-          <span class="nk-choix__n">2 flacons</span>
+          <span class="nk-choix__n">soit 19,95 &#8364; le flacon</span>
         </button>
         <button type="button" class="nk-choix__b" data-h-pack data-prix="2490">
           <span class="nk-choix__t">1 flacon</span>
           <span class="nk-choix__p">24,90 &#8364;</span>
-          <span class="nk-choix__n">30 ml</span>
+          <span class="nk-choix__n">30 ml, 1 mois</span>
         </button>
       </div>
-      <button type="button" class="nk-btn" data-acheter style="justify-self:start;"><span data-cta-hero>Commander</span> <i>&#8599;</i></button>
 
-      <label class="nk-addon nk-addon--hero on" data-addon data-prix="495" data-variant="{{ v_assurance.id }}">
+      <button type="button" class="nk-btn nk-btn--grand" data-acheter style="justify-self:start;"><span data-cta-hero>Commander</span> <i>&#8599;</i></button>
+
+      <label class="nk-addon nk-addon--hero on" data-addon data-prix="495" data-variant="{{ v_assurance.id }}" style="justify-self:start;">
         <input type="checkbox" checked>
         <span class="nk-case"></span>
         <span>Assurance colis, perte ou casse</span>
@@ -76,191 +78,211 @@
     </div>
 
     <div class="nk-colle nk-rise">
-      <div class="nk-bezel">
-        <div class="nk-slot v45 rempli" id="hero-img">
-          {%- if serum.featured_image -%}
-            <img src="{{ serum.featured_image | image_url: width: 900 }}" alt="{{ serum.title }}" loading="eager">
-          {%- else -%}
-            <div class="nk-slot v45" style="min-height:420px;">
-              <b>Visuel produit</b>
-              <span>Photo du s&#233;rum &#224; ajouter</span>
-            </div>
-          {%- endif -%}
+      <div class="nk-scene" id="hero-img">
+        {%- if serum.featured_image -%}
+          <div class="nk-slot rempli" style="position:absolute;inset:0;">
+            <img src="{{ serum.featured_image | image_url: width: 1000 }}" alt="{{ serum.title }}" loading="eager">
+          </div>
+        {%- else -%}
+          <span class="nk-scene__n" aria-hidden="true">n.</span>
+          {% render 'nk-flacon', suffixe: 'h' %}
+        {%- endif -%}
+        <span class="nk-puce">NAD+ &#8212; &#233;nergie cellulaire</span>
+        <span class="nk-puce">EGF &#8212; renouvellement</span>
+        <span class="nk-puce">Collag&#232;ne &#8212; fermet&#233;</span>
+        <span class="nk-puce nk-puce--ok">P&#233;n&#232;tre en 30 s</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="nk-defil" aria-hidden="true">
+  <div class="nk-defil__int">
+    <div class="nk-defil__gr">
+      <span>NAD+</span><span>EGF</span><span>Collag&#232;ne</span><span>Sans parfum</span><span>Sans alcool</span><span>Formule cor&#233;enne</span><span>Livraison offerte</span><span>30 ml</span>
+    </div>
+    <div class="nk-defil__gr">
+      <span>NAD+</span><span>EGF</span><span>Collag&#232;ne</span><span>Sans parfum</span><span>Sans alcool</span><span>Formule cor&#233;enne</span><span>Livraison offerte</span><span>30 ml</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="nk-stats">
+  <div class="nk-stats__in">
+    <div class="nk-stats__c"><span class="nk-stats__n">3</span><span class="nk-stats__l">actifs document&#233;s, z&#233;ro remplissage</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">30 s</span><span class="nk-stats__l">pour p&#233;n&#233;trer, sans coller</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">0</span><span class="nk-stats__l">parfum, alcool, huile essentielle</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">4,9/5</span><span class="nk-stats__l">sur les avis clients v&#233;rifi&#233;s</span></div>
+  </div>
+</div>
+
+<!-- LES ACTIFS -->
+<section id="actifs">
+  <div class="nk-wrap">
+    <div class="nk-rise" style="max-width:52ch;margin-bottom:clamp(44px,5vw,72px);">
+      <p class="nk-eyebrow">Les actifs</p>
+      <h2 class="nk-h2">Trois actifs.<br><em>Z&#233;ro remplissage.</em></h2>
+      <p class="nk-lead" style="margin-top:16px;">Pas de parfum, pas d'alcool, pas d'huile essentielle. Ce flacon contient ce qui est document&#233;, et rien d'autre.</p>
+    </div>
+
+    <div class="nk-actifs">
+      <article class="nk-actif nk-rise">
+        <div class="nk-actif__vue nk-actif__vue--a">
+          <span class="nk-actif__idx">01 / 03</span>
+          <span class="nk-actif__nom">NAD+</span>
+          <span class="nk-actif__tag">&#201;nergie cellulaire</span>
+        </div>
+        <div class="nk-actif__txt">
+          <h3 class="nk-h3" style="margin-bottom:14px;">NAD+</h3>
+          <p class="nk-p">Nicotinamide ad&#233;nine dinucl&#233;otide. Booste l'&#233;nergie cellulaire et aide la peau &#224; activer ses propres m&#233;canismes de r&#233;paration. Sa production diminue avec l'&#226;ge.</p>
+          <span class="nk-note">Mol&#233;cule cl&#233; du m&#233;tabolisme cellulaire</span>
+        </div>
+      </article>
+
+      <article class="nk-actif nk-actif--inv nk-rise">
+        <div class="nk-actif__vue nk-actif__vue--b">
+          <span class="nk-actif__idx">02 / 03</span>
+          <span class="nk-actif__nom">EGF</span>
+          <span class="nk-actif__tag">Renouvellement</span>
+        </div>
+        <div class="nk-actif__txt">
+          <h3 class="nk-h3" style="margin-bottom:14px;">EGF</h3>
+          <p class="nk-p">Facteur de croissance &#233;pidermique. Favorise le renouvellement cellulaire et aide &#224; lisser la texture de la peau. Utilis&#233; en dermatologie cor&#233;enne depuis plus de dix ans.</p>
+          <span class="nk-note">Actif phare du soin cor&#233;en anti-&#226;ge</span>
+        </div>
+      </article>
+
+      <article class="nk-actif nk-rise">
+        <div class="nk-actif__vue nk-actif__vue--c">
+          <span class="nk-actif__idx">03 / 03</span>
+          <span class="nk-actif__nom">Collag&#232;ne</span>
+          <span class="nk-actif__tag">Fermet&#233;</span>
+        </div>
+        <div class="nk-actif__txt">
+          <h3 class="nk-h3" style="margin-bottom:14px;">Extrait de collag&#232;ne</h3>
+          <p class="nk-p">Renforce la fermet&#233; et l'&#233;lasticit&#233; de la peau. Compl&#232;te l'action du NAD+ et de l'EGF pour un effet raffermissant visible.</p>
+          <span class="nk-note">Le duo fermet&#233; + &#233;lasticit&#233;</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LE RITUEL -->
+<section id="geste">
+  <div class="nk-wrap stack" style="gap:clamp(44px,5vw,68px);">
+    <div class="nk-rise" style="text-align:center;max-width:52ch;margin-inline:auto;">
+      <p class="nk-eyebrow">Le rituel</p>
+      <h2 class="nk-h2">Trente secondes,<br><em>matin ou soir.</em></h2>
+    </div>
+    <div class="nk-etapes nk-rise">
+      <div class="nk-etape">
+        <span class="nk-etape__n">1</span>
+        <h3 class="nk-h3">Nettoyer</h3>
+        <p class="nk-p">Sur peau propre et s&#232;che. Le s&#233;rum p&#233;n&#232;tre mieux sans barri&#232;re.</p>
+      </div>
+      <div class="nk-etape">
+        <span class="nk-etape__n">2</span>
+        <h3 class="nk-h3">Appliquer</h3>
+        <p class="nk-p">3 &#224; 4 gouttes, du bout des doigts. Front, joues, menton, cou.</p>
+      </div>
+      <div class="nk-etape">
+        <span class="nk-etape__n">3</span>
+        <h3 class="nk-h3">Masser</h3>
+        <p class="nk-p">Tapotements l&#233;gers, trente secondes. La peau ne colle pas.</p>
+      </div>
+    </div>
+    <div class="nk-rise" style="display:grid;justify-items:center;">
+      <a class="nk-btn" href="#offre">Commencer la cure <i>&#8599;</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CE QUE NOUS NE PROMETTONS PAS -->
+<section id="franchise">
+  <div class="nk-wrap nk-rise">
+    <p class="nk-eyebrow" style="margin-bottom:26px;">Notre franchise</p>
+    <h2 class="nk-h2">Ce que nous ne promettons pas</h2>
+    <div class="nk-non">
+      <span>Que les rides disparaissent en une nuit</span>
+      <span>Que ce s&#233;rum remplace un acte m&#233;dical ou esth&#233;tique</span>
+      <span>Que les r&#233;sultats sont garantis pour tout le monde</span>
+    </div>
+    <p class="nk-p">Nakree est un cosm&#233;tique. Le NAD+, l'EGF et le collag&#232;ne sont document&#233;s par des &#233;tudes publi&#233;es. Les r&#233;sultats varient d'une peau &#224; l'autre, et nous ne pr&#233;tendrons jamais le contraire.</p>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="nk-wrap">
+    <div class="nk-avis__tete nk-rise">
+      <div>
+        <p class="nk-eyebrow">Avis v&#233;rifi&#233;s</p>
+        <h2 class="nk-h2">Ce qu'ils <em>en disent.</em></h2>
+      </div>
+      <div class="nk-synthese">
+        <p class="nk-synthese__note">4,9</p>
+        <div>
+          <div class="nk-etoiles" style="font-size:18px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-synthese__detail">Sur la base des avis<br>clients v&#233;rifi&#233;s.</p>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
-
-
-<div class="nk-appel nk-rise">
-  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
-    <a class="nk-btn nk-btn--grand" href="#offre">Choisir ma cure <i>&#8599;</i></a>
-    <p class="nk-appel__note">59,90 &#8364; la cure 4 mois, soit 14,98 &#8364; le flacon.</p>
-  </div>
-</div>
-
-
-<!-- LES ACTIFS -->
-<section id="actifs">
-  <div class="nk-wrap stack" style="gap:clamp(34px,4vw,52px);">
-    <div class="nk-rise" style="max-width:46ch;">
-      <p class="nk-eyebrow">Les actifs</p>
-      <h2 class="nk-h2">Trois actifs, z&#233;ro remplissage</h2>
-      <p class="nk-lead" style="margin-top:14px;">Pas de parfum, pas d'alcool, pas d'huile essentielle. Ce flacon contient ce qui est document&#233;, et rien d'autre.</p>
-    </div>
-    <div class="nk-biens">
-        <article class="nk-bien nk-rise">
-          <div class="nk-card" style="min-height:220px;">
-            <h3 class="nk-h3" style="margin-bottom:12px;">NAD+</h3>
-            <p class="nk-p">Nicotinamide ad&#233;nine dinucl&#233;otide. Booste l'&#233;nergie cellulaire et aide la peau &#224; activer ses propres m&#233;canismes de r&#233;paration. Sa production diminue avec l'&#226;ge.</p>
-            <p class="nk-note" style="margin-top:10px;">Mol&#233;cule cl&#233; du m&#233;tabolisme cellulaire.</p>
-          </div>
-        </article>
-        <article class="nk-bien nk-rise">
-          <div class="nk-card" style="min-height:220px;">
-            <h3 class="nk-h3" style="margin-bottom:12px;">EGF</h3>
-            <p class="nk-p">Facteur de croissance &#233;pidermique. Favorise le renouvellement cellulaire et aide &#224; lisser la texture de la peau. Utilis&#233; en dermatologie cor&#233;enne depuis plus de dix ans.</p>
-            <p class="nk-note" style="margin-top:10px;">Actif phare du soin cor&#233;en anti-&#226;ge.</p>
-          </div>
-        </article>
-        <article class="nk-bien nk-rise">
-          <div class="nk-card" style="min-height:220px;">
-            <h3 class="nk-h3" style="margin-bottom:12px;">Extrait de collag&#232;ne</h3>
-            <p class="nk-p">Renforce la fermet&#233; et l'&#233;lasticit&#233; de la peau. Compl&#232;te l'action du NAD+ et de l'EGF pour un effet raffermissant visible.</p>
-          </div>
-        </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- CE QUE NOUS NE PROMETTONS PAS -->
-<section id="franchise">
-  <div class="nk-wrap">
-    <div class="nk-card nk-rise" style="max-width:820px;margin-inline:auto;padding:clamp(34px,5vw,64px);">
-      <h2 class="nk-h2" style="margin-bottom:26px;">Ce que nous ne promettons pas</h2>
-      <div class="nk-rows">
-        <div><span style="color:rgba(255,255,255,.55);text-decoration:line-through;">Que les rides disparaissent en une nuit</span><span></span></div>
-        <div><span style="color:rgba(255,255,255,.55);text-decoration:line-through;">Que ce s&#233;rum remplace un acte m&#233;dical ou esth&#233;tique</span><span></span></div>
-        <div><span style="color:rgba(255,255,255,.55);text-decoration:line-through;">Que les r&#233;sultats sont garantis pour tout le monde</span><span></span></div>
-      </div>
-      <p class="nk-p" style="margin-top:26px;">Nakree est un cosm&#233;tique. Le NAD+, l'EGF et le collag&#232;ne sont document&#233;s par des &#233;tudes publi&#233;es. Les r&#233;sultats varient d'une peau &#224; l'autre, et nous ne pr&#233;tendrons jamais le contraire.</p>
+    <div class="nk-mur nk-rise">
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">LM</span><span><span class="nk-avis-carte__nom">L&#233;a M., Lyon</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Texture l&#233;g&#232;re, pas de film gras. Je le mets sous ma cr&#232;me de jour et &#231;a ne roule pas. C'est le premier s&#233;rum que je finis vraiment.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">AD</span><span><span class="nk-avis-carte__nom">Antoine D., Paris</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Ma copine me l'a piqu&#233;. J'en ai recommand&#233; un pour moi. Le grain de peau change en deux semaines.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">MC</span><span><span class="nk-avis-carte__nom">Marie-Claire B., Bordeaux</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">&#192; 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment att&#233;nu&#233;es apr&#232;s un mois.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">SR</span><span><span class="nk-avis-carte__nom">Sophie R., Lille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Enfin un s&#233;rum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulp&#233;e d&#232;s le matin.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">TL</span><span><span class="nk-avis-carte__nom">Thomas L., Strasbourg</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Le rapport qualit&#233;-prix est imbattable. J'ai compar&#233; les compositions avec des s&#233;rums &#224; 80 &#8364;, les actifs sont les m&#234;mes.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">CV</span><span><span class="nk-avis-carte__nom">Clara V., Marseille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Le pack de quatre est un no-brainer. La cure compl&#232;te et le prix au flacon est ridicule.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">JA</span><span><span class="nk-avis-carte__nom">Julie A., Nantes</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Bon s&#233;rum, je lui aurais juste mis un compte-gouttes un peu plus pr&#233;cis. Mais la formule est top.</p>
+      </div></article>
+      <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">KE</span><span><span class="nk-avis-carte__nom">Karim E., Toulouse</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="nk-avis-carte__txt">Je ne mettais rien sur le visage avant, ma femme m'a forc&#233;. En trois semaines les pores du nez se sont resserr&#233;s.</p>
+      </div></article>
     </div>
   </div>
 </section>
-
-
-<div class="nk-appel nk-rise">
-  <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
-    <a class="nk-btn nk-btn--grand" href="#offre">Commencer la cure <i>&#8599;</i></a>
-    <p class="nk-appel__note">Assurance colis &#224; 4,95 &#8364;, si vous la voulez.</p>
-  </div>
-</div>
-
-
-<!-- LE RITUEL -->
-<section id="geste">
-  <div class="nk-wrap stack" style="gap:clamp(34px,4vw,52px);">
-    <div class="nk-rise" style="max-width:46ch;">
-      <p class="nk-eyebrow">Le rituel</p>
-      <h2 class="nk-h2">Trente secondes, matin ou soir</h2>
-      <p class="nk-lead" style="margin-top:14px;">Un geste simple qui s'ajoute &#224; votre routine sans la compliquer.</p>
-    </div>
-    <div class="nk-biens" style="grid-template-columns:repeat(3,minmax(0,1fr));">
-        <article class="nk-bien nk-rise">
-          <div class="nk-card" style="text-align:center;padding:clamp(24px,3vw,40px);">
-            <span style="font-size:40px;line-height:1;display:block;margin-bottom:18px;font-weight:600;letter-spacing:-.03em;">1</span>
-            <h3 class="nk-h3" style="margin-bottom:10px;">Nettoyer</h3>
-            <p class="nk-p" style="max-width:none;">Sur peau propre et s&#232;che. Le s&#233;rum p&#233;n&#232;tre mieux sans barri&#232;re.</p>
-          </div>
-        </article>
-        <article class="nk-bien nk-rise">
-          <div class="nk-card" style="text-align:center;padding:clamp(24px,3vw,40px);">
-            <span style="font-size:40px;line-height:1;display:block;margin-bottom:18px;font-weight:600;letter-spacing:-.03em;">2</span>
-            <h3 class="nk-h3" style="margin-bottom:10px;">Appliquer</h3>
-            <p class="nk-p" style="max-width:none;">3 &#224; 4 gouttes, du bout des doigts. Front, joues, menton, cou.</p>
-          </div>
-        </article>
-        <article class="nk-bien nk-rise">
-          <div class="nk-card" style="text-align:center;padding:clamp(24px,3vw,40px);">
-            <span style="font-size:40px;line-height:1;display:block;margin-bottom:18px;font-weight:600;letter-spacing:-.03em;">3</span>
-            <h3 class="nk-h3" style="margin-bottom:10px;">Masser</h3>
-            <p class="nk-p" style="max-width:none;">Tapotements l&#233;gers, trente secondes. Le s&#233;rum p&#233;n&#232;tre, la peau ne colle pas.</p>
-          </div>
-        </article>
-    </div>
-  </div>
-</section>
-
-
-<!-- AVIS -->
-<section id="avis">
-  <div class="nk-wrap stack" style="gap:44px;">
-    <div class="nk-rise">
-      <p class="nk-eyebrow">Avis v&#233;rifi&#233;s</p>
-      <h2 class="nk-h2" style="max-width:19ch;">Ce qu'ils en disent.</h2>
-    </div>
-    <div class="nk-avis">
-      <div class="nk-synthese nk-rise">
-        <div class="nk-etoiles" style="font-size:20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="nk-synthese__note">4,9<span style="font-size:20px;color:var(--nk-ink-3);font-weight:400;"> / 5</span></p>
-        <p class="nk-synthese__detail">Sur la base des avis clients v&#233;rifi&#233;s.</p>
-      </div>
-      <div class="nk-mur nk-rise">
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">L&#233;a M., Lyon</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Texture l&#233;g&#232;re, pas de film gras. Je le mets sous ma cr&#232;me de jour et &#231;a ne roule pas. C'est le premier s&#233;rum que je finis vraiment.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Antoine D., Paris</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Ma copine me l'a piqu&#233;. J'en ai recommand&#233; un pour moi. Le grain de peau change en deux semaines.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Marie-Claire B., Bordeaux</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">&#192; 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment att&#233;nu&#233;es apr&#232;s un mois.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Sophie R., Lille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Enfin un s&#233;rum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulp&#233;e d&#232;s le matin.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Thomas L., Strasbourg</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Le rapport qualit&#233;-prix est imbattable. J'ai compar&#233; les compositions avec des s&#233;rums &#224; 80 &#8364;, les actifs sont les m&#234;mes.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Clara V., Marseille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Le pack de quatre est un no-brainer. La cure compl&#232;te et le prix au flacon est ridicule.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Julie A., Nantes</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Bon s&#233;rum, je lui aurais juste mis un compte-gouttes un peu plus pr&#233;cis. Mais la formule est top.</p>
-        </div></article>
-        <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-            <div class="nk-avis-carte__qui"><span class="nk-avis-carte__nom">Karim E., Toulouse</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></div>
-            <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="nk-avis-carte__txt">Je ne mettais rien sur le visage avant, ma femme m'a forc&#233;. En trois semaines les pores du nez se sont resserr&#233;s.</p>
-        </div></article>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- L'OFFRE -->
 <section id="offre">
-  <div class="nk-wrap stack" style="gap:40px;">
-    <div class="nk-rise">
+  <div class="nk-wrap stack" style="gap:clamp(36px,4vw,52px);">
+    <div class="nk-rise" style="text-align:center;max-width:56ch;margin-inline:auto;">
       <p class="nk-eyebrow">Choisir sa cure</p>
-      <h2 class="nk-h2" style="max-width:19ch;">Plus la cure est longue, plus le flacon est petit prix.</h2>
+      <h2 class="nk-h2">Plus la cure est longue,<br><em>plus le flacon est petit prix.</em></h2>
     </div>
     <div class="lay-offre">
       <div class="nk-achat nk-rise" id="achat">
@@ -273,12 +295,12 @@
 
         <p class="nk-compte" data-compte>Offre de lancement, se termine dans 11:59:59</p>
 
-        <p style="font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--nk-ink-3);margin:22px 0 10px;">Choisissez votre cure</p>
+        <p class="nk-choix-titre">Choisissez votre cure</p>
 
         <label class="nk-pack on" data-pack data-nb="4" data-prix="5990" data-ref="9960" data-eco="3970" data-variant="{{ v_quatre.id }}">
           <input type="radio" name="pack" checked>
           <span class="nk-badge nk-badge--top">Le plus choisi</span>
-          <span class="nk-pack__ligne" style="grid-template-columns:20px 1fr auto;">
+          <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
             <span class="nk-pack__nom">Cure 4 mois <span class="nk-badge">4&#7497; offert</span></span>
             <span class="nk-pack__prix">59,90 &#8364;<s>99,60 &#8364;</s></span>
@@ -295,7 +317,7 @@
 
         <label class="nk-pack" data-pack data-nb="2" data-prix="3990" data-ref="4980" data-eco="990" data-variant="{{ v_deux.id }}">
           <input type="radio" name="pack">
-          <span class="nk-pack__ligne" style="grid-template-columns:20px 1fr auto;">
+          <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
             <span class="nk-pack__nom">Cure 2 mois <span class="nk-badge">-20 %</span></span>
             <span class="nk-pack__prix">39,90 &#8364;<s>49,80 &#8364;</s></span>
@@ -305,7 +327,7 @@
 
         <label class="nk-pack" data-pack data-nb="1" data-prix="2490" data-ref="0" data-eco="0" data-variant="{{ v_un.id }}">
           <input type="radio" name="pack">
-          <span class="nk-pack__ligne" style="grid-template-columns:20px 1fr auto;">
+          <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
             <span class="nk-pack__nom">1 flacon</span>
             <span class="nk-pack__prix">24,90 &#8364;</span>
@@ -325,16 +347,22 @@
         {% render 'nk-paiements', max: 7 %}
       </div>
 
-      <div class="nk-bezel nk-rise" style="align-self:start;">
-        <div class="nk-slot v45 rempli">
+      <div class="stack nk-rise" style="gap:18px;">
+        <div class="nk-scene nk-scene--mini">
           {%- if serum.featured_image -%}
-            <img src="{{ serum.featured_image | image_url: width: 800 }}" alt="{{ serum.title }}" loading="lazy">
-          {%- else -%}
-            <div class="nk-slot v45" style="min-height:380px;">
-              <b>Visuel produit</b>
-              <span>Photo du s&#233;rum &#224; ajouter</span>
+            <div class="nk-slot rempli" style="position:absolute;inset:0;">
+              <img src="{{ serum.featured_image | image_url: width: 800 }}" alt="{{ serum.title }}" loading="lazy">
             </div>
+          {%- else -%}
+            <span class="nk-scene__n" aria-hidden="true">n.</span>
+            {% render 'nk-flacon', suffixe: 'o' %}
           {%- endif -%}
+        </div>
+        <div class="nk-garanties">
+          <div><i>&#10003;</i>Livraison offerte et suivie</div>
+          <div><i>&#10003;</i>Paiement s&#233;curis&#233; Shopify</div>
+          <div><i>&#10003;</i>Formule cor&#233;enne, PAO 12 mois</div>
+          <div><i>&#10003;</i>Assurance colis en option, 4,95 &#8364;</div>
         </div>
       </div>
     </div>
@@ -342,9 +370,9 @@
 </section>
 
 
-<div class="nk-appel nk-rise">
+<div class="nk-appel nk-rise" style="background:var(--nk-sunk);padding-bottom:clamp(56px,6vw,80px);margin-top:calc(-1 * clamp(24px,3vw,40px));">
   <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
-    <a class="nk-btn nk-btn--grand" href="#offre">Je choisis ma cure <i>&#8599;</i></a>
+    <p class="nk-appel__note">59,90 &#8364; la cure 4 mois, soit 14,98 &#8364; le flacon.</p>
   </div>
 </div>
 
@@ -352,32 +380,31 @@
 <!-- QUESTIONS + COMPOSITION -->
 <section id="questions">
   <div class="nk-wrap lay-two">
-    <div class="stack nk-rise">
-      <div><h2 class="nk-h2">Questions</h2></div>
-      <div class="stack">
-        <div class="stack-sm">
-          <h3 class="nk-h3">Pour quel type de peau ?</h3>
-          <p class="nk-p">Tous types. La formule est sans parfum, sans alcool, sans huile essentielle. Peaux sensibles comprises.</p>
-        </div>
-        <div class="stack-sm">
-          <h3 class="nk-h3">Quand voit-on les premiers r&#233;sultats ?</h3>
-          <p class="nk-p">L'hydratation est imm&#233;diate. Les effets raffermissants et lissants apparaissent en deux &#224; quatre semaines d'utilisation quotidienne.</p>
-        </div>
-        <div class="stack-sm">
-          <h3 class="nk-h3">Peut-on l'utiliser avec d'autres soins ?</h3>
-          <p class="nk-p">Oui. Il se pose apr&#232;s le nettoyant et avant la cr&#232;me. Compatible avec le r&#233;tinol, la vitamine C et les AHA/BHA.</p>
-        </div>
-        <div class="stack-sm">
-          <h3 class="nk-h3">Combien de temps dure un flacon ?</h3>
-          <p class="nk-p">Un flacon de 30 ml dure environ un mois &#224; raison de 3 &#224; 4 gouttes par jour. Matin et soir : compter trois semaines.</p>
-        </div>
-        <div class="stack-sm">
-          <h3 class="nk-h3">D'o&#249; vient le s&#233;rum ?</h3>
-          <p class="nk-p">Formule d&#233;velopp&#233;e en Cor&#233;e du Sud, expertise K-beauty. PAO 12 mois apr&#232;s ouverture.</p>
-        </div>
-      </div>
+    <div class="nk-rise">
+      <p class="nk-eyebrow">Questions</p>
+      <h2 class="nk-h2" style="margin-bottom:26px;">Tout ce qu'on<br><em>nous demande.</em></h2>
+      <details class="nk-faq">
+        <summary>Pour quel type de peau ?</summary>
+        <p class="nk-p">Tous types. La formule est sans parfum, sans alcool, sans huile essentielle. Peaux sensibles comprises.</p>
+      </details>
+      <details class="nk-faq">
+        <summary>Quand voit-on les premiers r&#233;sultats ?</summary>
+        <p class="nk-p">L'hydratation est imm&#233;diate. Les effets raffermissants et lissants apparaissent en deux &#224; quatre semaines d'utilisation quotidienne.</p>
+      </details>
+      <details class="nk-faq">
+        <summary>Peut-on l'utiliser avec d'autres soins ?</summary>
+        <p class="nk-p">Oui. Il se pose apr&#232;s le nettoyant et avant la cr&#232;me. Compatible avec le r&#233;tinol, la vitamine C et les AHA/BHA.</p>
+      </details>
+      <details class="nk-faq">
+        <summary>Combien de temps dure un flacon ?</summary>
+        <p class="nk-p">Un flacon de 30 ml dure environ un mois &#224; raison de 3 &#224; 4 gouttes par jour. Matin et soir : compter trois semaines.</p>
+      </details>
+      <details class="nk-faq">
+        <summary>D'o&#249; vient le s&#233;rum ?</summary>
+        <p class="nk-p">Formule d&#233;velopp&#233;e en Cor&#233;e du Sud, expertise K-beauty. PAO 12 mois apr&#232;s ouverture.</p>
+      </details>
     </div>
-    <div class="nk-card stack nk-rise" style="padding:34px;">
+    <div class="nk-card stack nk-rise nk-colle" style="padding:34px;gap:18px;">
       <h3 class="nk-h3">Composition</h3>
       <div class="nk-rows">
         <div><span>Contenance</span><span class="nk-data">30 ml</span></div>
@@ -390,6 +417,7 @@
         <div><span>Origine</span><span class="nk-data">Cor&#233;e du Sud</span></div>
       </div>
       <p class="nk-note">Liste INCI compl&#232;te sur l'emballage du produit.</p>
+      <a class="nk-btn" href="#offre" style="justify-self:start;">Choisir ma cure <i>&#8599;</i></a>
     </div>
   </div>
 </section>
