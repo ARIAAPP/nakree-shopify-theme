@@ -1,9 +1,14 @@
 {%- assign serum = all_products['nakree-serum-concentre-aux-peptides-et-acide-hyaluronique'] -%}
 {%- assign assurance = all_products['assurance-colis-perte-vol-ou-casse'] -%}
+{%- comment -%}
+  Le titre de variante est traduit par Shopify selon la langue de l'URL :
+  on teste donc le francais ET l'anglais, sinon la version /en perdrait
+  ses identifiants de variante et le panier serait mort.
+{%- endcomment -%}
 {%- for v in serum.variants -%}
-  {%- if v.title contains 'Un flacon' -%}{%- assign v_un = v -%}{%- endif -%}
-  {%- if v.title contains 'Deux' -%}{%- assign v_deux = v -%}{%- endif -%}
-  {%- if v.title contains 'Quatre' -%}{%- assign v_quatre = v -%}{%- endif -%}
+  {%- if v.title contains 'Un flacon' or v.title contains 'One bottle' -%}{%- assign v_un = v -%}{%- endif -%}
+  {%- if v.title contains 'Deux' or v.title contains 'Two' -%}{%- assign v_deux = v -%}{%- endif -%}
+  {%- if v.title contains 'Quatre' or v.title contains 'Four' -%}{%- assign v_quatre = v -%}{%- endif -%}
 {%- endfor -%}
 {%- assign v_assurance = assurance.variants | first -%}
 {%- assign nk_en = false -%}
