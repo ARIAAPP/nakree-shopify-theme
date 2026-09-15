@@ -29,6 +29,15 @@
     window.addEventListener('load', function () { clearTimeout(filet); setTimeout(tout, 2500); });
   })();
 
+  /* Libelles et format monetaire : la page pose window.NK_I18N depuis les
+     fichiers de langue. Sans lui (vieux cache), on retombe sur le francais. */
+  var NKI = window.NK_I18N || {};
+  function nkEuro(c) {
+    if (NKI.fmt === 'en') return '€' + (c / 100).toFixed(2);
+    return (c / 100).toFixed(2).replace('.', ',') + ' €';
+  }
+  window.nkEuro = nkEuro;
+
   /* Mecanique de la carte d'achat : selection du pack, assurance colis,
      recalcul du total et du prix affiche, compte a rebours.
      Meme comportement que sur les autres boutiques. */
@@ -41,7 +50,7 @@
                   pct: carte.querySelector('[data-pct]'), eco: carte.querySelector('[data-eco]'),
                   cta: carte.querySelector('[data-cta]') };
 
-    function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
+    var euro = nkEuro;
 
     function refresh() {
       var actif = carte.querySelector('[data-pack].on') || packs[0];
@@ -61,10 +70,10 @@
       cible.eco.style.display = eco ? '' : 'none';
       if (eco) {
         var nb = parseInt(actif.dataset.nb || '0', 10);
-        var etiq = nb === 4 ? 'Cure 4 flacons' : nb === 2 ? 'Cure 2 flacons' : 'Cure';
-        cible.eco.textContent = etiq + ' : vous &#233;conomisez ' + euro(eco);
+        var etiq = nb === 4 ? (NKI.cure4 || 'Cure 4 flacons') : nb === 2 ? (NKI.cure2 || 'Cure 2 flacons') : (NKI.cure || 'Cure');
+        cible.eco.textContent = etiq + (NKI.fmt === 'en' ? ': ' : ' : ') + (NKI.economisez || 'vous économisez') + ' ' + euro(eco);
       }
-      cible.cta.textContent = 'Commander maintenant, ' + euro(prix + sup);
+      cible.cta.textContent = (NKI.commander || 'Commander maintenant,') + ' ' + euro(prix + sup);
     }
 
     packs.forEach(function (pk) {
@@ -102,7 +111,7 @@
         var h = String(Math.floor(reste / 3600)).padStart(2, '0');
         var m = String(Math.floor((reste % 3600) / 60)).padStart(2, '0');
         var sec = String(reste % 60).padStart(2, '0');
-        compte.textContent = 'Offre de lancement, se termine dans ' + h + ':' + m + ':' + sec;
+        compte.textContent = (NKI.compte || 'Offre de lancement, se termine dans') + ' ' + h + ':' + m + ':' + sec;
       }, 1000);
     }
 
@@ -156,15 +165,15 @@
       if (!pack) return;
       var prix = parseInt(pack.dataset.prix, 10) + (add ? 495 : 0);
       var ref = parseInt(pack.dataset.ref, 10);
-      var e = function (c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; };
+      var e = nkEuro;
       barre.querySelector('[data-barre-total]').textContent = e(prix);
       var s = barre.querySelector('[data-barre-ref]');
       s.style.display = ref ? '' : 'none';
       if (ref) s.textContent = e(ref);
       var nb = pack.dataset.nb || '1';
-      var nom = nb === '4' ? 'Cure 4 flacons' : nb === '2' ? 'Cure 2 flacons' : 'Un flacon';
+      var nom = nb === '4' ? (NKI.cure4 || 'Cure 4 flacons') : nb === '2' ? (NKI.cure2 || 'Cure 2 flacons') : (NKI.unFlacon || 'Un flacon');
       barre.querySelector('[data-barre-nom]').textContent =
-        nom + (add ? ', assurance incluse' : '');
+        nom + (add ? (NKI.assurance || ', assurance incluse') : '');
       /* La vignette est celle du pack choisi : on la reprend du selecteur
          plutot que de reecrire un chemin, qui serait faux sous Shopify. */
       var vue = barre.querySelector('[data-barre-vue]');
@@ -268,7 +277,7 @@
         pct   = document.querySelector('[data-h-pct]'),
         eco   = document.querySelector('[data-h-eco]');
 
-    function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
+    var euro = nkEuro;
 
     function peindre(p) {
       var map = { 6990: { ref: 9960, eco: 2970, nb: 4 }, 4490: { ref: 4980, eco: 490, nb: 2 }, 2490: { ref: 0, eco: 0, nb: 1 } };
@@ -282,8 +291,8 @@
       }
       eco.style.display = d.eco ? '' : 'none';
       if (d.eco) {
-        var etiq = d.nb === 4 ? 'Cure 4 flacons' : 'Cure 2 flacons';
-        eco.textContent = etiq + ' : vous économisez ' + euro(d.eco);
+        var etiq = d.nb === 4 ? (NKI.cure4 || 'Cure 4 flacons') : (NKI.cure2 || 'Cure 2 flacons');
+        eco.textContent = etiq + (NKI.fmt === 'en' ? ': ' : ' : ') + (NKI.economisez || 'vous économisez') + ' ' + euro(d.eco);
       }
       choix.forEach(function (b) {
         b.classList.toggle('on', parseInt(b.dataset.prix, 10) === p);
@@ -383,7 +392,7 @@
 
       var libelle = bouton.innerHTML;
       bouton.disabled = true;
-      bouton.textContent = 'Un instant…';
+      bouton.textContent = NKI.instant || 'Un instant…';
 
       var pose = window.NakreePanier
         ? window.NakreePanier.remplacer(lignes)

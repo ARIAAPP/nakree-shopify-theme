@@ -18,26 +18,26 @@
 
 <div class="nk-panier__voile" data-panier-voile hidden></div>
 
-<aside class="nk-panier" data-panier hidden aria-label="Votre panier">
+<aside class="nk-panier" data-panier hidden aria-label="{{ 'nk.panier.aria' | t }}">
   <header class="nk-panier__tete">
-    <h2 class="nk-h3">Votre panier <span class="nk-note" data-panier-compte>(0)</span></h2>
-    <button type="button" class="nk-panier__x" data-panier-fermer aria-label="Fermer">&times;</button>
+    <h2 class="nk-h3">{{ 'nk.panier.titre' | t }} <span class="nk-note" data-panier-compte>(0)</span></h2>
+    <button type="button" class="nk-panier__x" data-panier-fermer aria-label="{{ 'nk.panier.fermer' | t }}">&times;</button>
   </header>
 
   <div class="nk-panier__corps">
-    <p class="nk-p" data-panier-vide>Votre panier est vide.</p>
+    <p class="nk-p" data-panier-vide>{{ 'nk.panier.vide' | t }}</p>
     <div data-panier-lignes></div>
 
     {%- if v_assurance -%}
       <div class="nk-panier__sup" data-panier-sup hidden
            data-variant="{{ v_assurance.id }}"
            data-prix="{{ v_assurance.price }}">
-        <p class="nk-h3">Complétez votre commande</p>
-        <p class="nk-note">Une option, pas une obligation.</p>
+        <p class="nk-h3">{{ 'nk.panier.sup_t' | t }}</p>
+        <p class="nk-note">{{ 'nk.panier.sup_note' | t }}</p>
         <div class="nk-panier__sup__ligne">
           <span>
-            <strong>{{ assurance.title | split: '—' | first | strip }}</strong>
-            <span class="nk-note">Perdu, volé ou cassé : réexpédié ou remboursé</span>
+            <strong>{% if request.locale.iso_code == 'en' %}{{ 'nk.hero.addon' | t }}{% else %}{{ assurance.title | split: '—' | first | strip }}{% endif %}</strong>
+            <span class="nk-note">{{ 'nk.panier.sup_desc' | t }}</span>
           </span>
           <button type="button" class="nk-btn nk-btn--ghost" data-panier-ajout-sup>
             {{ v_assurance.price | money }}
@@ -49,16 +49,16 @@
 
   <footer class="nk-panier__pied" data-panier-pied hidden>
     <div class="nk-panier__total">
-      <span class="nk-p">Total</span>
+      <span class="nk-p">{{ 'nk.panier.total' | t }}</span>
       <span class="nk-price" data-panier-total>0,00 €</span>
     </div>
-    <p class="nk-note">Livraison offerte d&#232;s 50 &#8364;. Taxes incluses.</p>
+    <p class="nk-note">{{ 'nk.panier.note' | t }}</p>
 
     <ul class="nk-panier__rass">
-      <li>Livraison offerte d&#232;s 50 &#8364;</li>
-      <li>Paiement sécurisé</li>
-      <li>Service client réactif</li>
-      <li>4,8 sur 5, 150 avis</li>
+      <li>{{ 'nk.panier.rass1' | t }}</li>
+      <li>{{ 'nk.panier.rass2' | t }}</li>
+      <li>{{ 'nk.panier.rass3' | t }}</li>
+      <li>{{ 'nk.panier.rass4' | t }}</li>
     </ul>
 
     {%- comment -%}
@@ -69,18 +69,18 @@
     {%- endcomment -%}
     {%- if shop.enabled_payment_types contains 'shopify_pay' -%}
       <div class="nk-panier__express">
-        <p class="nk-panier__ou">Paiement express</p>
+        <p class="nk-panier__ou">{{ 'nk.panier.express' | t }}</p>
         <button type="button" class="nk-shoppay" data-panier-shoppay>
           shop<strong>Pay</strong>
         </button>
-        <p class="nk-panier__ou"><span>ou</span></p>
+        <p class="nk-panier__ou"><span>{{ 'nk.panier.ou' | t }}</span></p>
       </div>
     {%- endif -%}
 
     <button type="button" class="nk-btn nk-panier__payer" data-panier-payer>
-      Passer au paiement <i>&#8599;</i>
+      {{ 'nk.panier.payer' | t }} <i>&#8599;</i>
     </button>
-    <button type="button" class="nk-panier__suite" data-panier-fermer>Continuer mes achats</button>
+    <button type="button" class="nk-panier__suite" data-panier-fermer>{{ 'nk.panier.continuer' | t }}</button>
 
     {% render 'nk-paiements' %}
   </footer>

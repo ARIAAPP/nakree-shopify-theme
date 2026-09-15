@@ -6,16 +6,39 @@
     <meta name="theme-color" content="#FFFFFF">
     <link rel="canonical" href="{{ canonical_url }}">
 
+    {%- comment -%}
+      Langues. Le francais vit a la racine, l'anglais sous /en (reglage
+      Marches / langue par defaut du domaine). hreflang dit aux moteurs
+      quelle version servir ; le petit script aiguille le visiteur dont le
+      navigateur n'est pas en francais vers /en, une seule fois, et son
+      choix manuel (bouton FR/EN de l'entete) est memorise et respecte.
+    {%- endcomment -%}
+    {%- assign nk_chemin = request.path | remove_first: '/en/' | prepend: '/' | replace: '//', '/' -%}
+    {%- if request.path == '/en' -%}{%- assign nk_chemin = '/' -%}{%- endif -%}
+    <link rel="alternate" hreflang="fr" href="{{ shop.url }}{{ nk_chemin }}">
+    <link rel="alternate" hreflang="en" href="{{ shop.url }}/en{{ nk_chemin | replace: '//', '/' }}">
+    <link rel="alternate" hreflang="x-default" href="{{ shop.url }}{{ nk_chemin }}">
+    {%- if request.locale.iso_code == 'fr' -%}
+    <script>
+      (function () {
+        try {
+          if (/bot|crawler|spider|lighthouse|headless/i.test(navigator.userAgent)) return;
+          var choix = localStorage.getItem('nk-lang');
+          if (choix === 'fr') return;
+          var nav = (navigator.language || '').slice(0, 2).toLowerCase();
+          if (choix === 'en' || (nav && nav !== 'fr')) {
+            if (!choix) localStorage.setItem('nk-lang', 'en');
+            location.replace('/en' + location.pathname + location.search + location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    {%- endif -%}
+
     {%- if settings.meta_domain_verification != blank -%}
       <meta name="facebook-domain-verification" content="{{ settings.meta_domain_verification }}">
     {%- endif -%}
 
-    {%- comment -%}
-      Favicon. Il etait conditionne a settings.logo, qui est vide : le site
-      n'avait donc aucune icone d'onglet, juste la page blanche du navigateur.
-      On le pose en dur. Le monogramme est celui de l'en-tete, « n. » blanc
-      sur le vert de la marque.
-    {%- endcomment -%}
     <link rel="icon" type="image/png" sizes="32x32" href="{{ 'nakree-favicon-32.png' | asset_url }}">
     <link rel="icon" type="image/png" sizes="512x512" href="{{ 'nakree-favicon-512.png' | asset_url }}">
     <link rel="apple-touch-icon" href="{{ 'nakree-favicon-180.png' | asset_url }}">
@@ -27,23 +50,23 @@
     {%- endcomment -%}
     <title>
       {%- if request.page_type == 'index' -%}
-        Nakree — S&#233;rum Raffermissant au NAD+ EGF et Collag&#232;ne
+        {{ 'nk.meta.title_index' | t }}
       {%- elsif request.page_type == 'product' -%}
         {{ product.title }} | Nakree
       {%- elsif request.page_type == 'cart' -%}
-        Panier | Nakree
+        {{ 'nk.meta.title_panier' | t }} | Nakree
       {%- else -%}
         {{ page_title }} | Nakree
       {%- endif -%}
     </title>
 
-    {%- assign desc_defaut = "Sérum raffermissant Nakree au NAD+, EGF et extrait de collagène. Pénètre en trente secondes, raffermit et lisse. Livraison offerte dès 50 €." -%}
+    {%- assign desc_defaut = 'nk.meta.description' | t -%}
     <meta name="description" content="{% if page_description %}{{ page_description | escape }}{% else %}{{ desc_defaut }}{% endif %}">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nakree">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:title" content="{{ page_title | default: 'Nakree — Sérum Concentré aux Peptides et Acide Hyaluronique' | escape }}">
+    <meta property="og:locale" content="{{ 'nk.meta.og_locale' | t }}">
+    <meta property="og:title" content="{{ page_title | default: 'Nakree' | escape }}">
     <meta property="og:description" content="{% if page_description %}{{ page_description | escape }}{% else %}{{ desc_defaut }}{% endif %}">
     <meta property="og:url" content="{{ canonical_url }}">
     {%- if request.page_type == 'product' and product.featured_image -%}
@@ -116,6 +139,30 @@
     {% section 'nk-pied' %}
 
     {% render 'nk-panier' %}
+
+    {%- comment -%}
+      Textes que le JavaScript ecrit lui-meme (prix, compte a rebours,
+      libelles du tiroir). Poses ici depuis les fichiers de langue pour que
+      nakree.js et nakree-panier.js parlent la langue de la page.
+    {%- endcomment -%}
+    <script>
+      window.NK_I18N = {
+        fmt: {{ 'nk.js.fmt' | t | json }},
+        cure4: {{ 'nk.js.cure4' | t | json }},
+        cure2: {{ 'nk.js.cure2' | t | json }},
+        cure: {{ 'nk.js.cure' | t | json }},
+        unFlacon: {{ 'nk.js.un_flacon' | t | json }},
+        cure4mois: {{ 'nk.js.cure4mois' | t | json }},
+        economisez: {{ 'nk.js.economisez' | t | json }},
+        commander: {{ 'nk.js.commander' | t | json }},
+        compte: {{ 'nk.js.compte' | t | json }},
+        assurance: {{ 'nk.js.assurance' | t | json }},
+        instant: {{ 'nk.js.instant' | t | json }},
+        retirer: {{ 'nk.js.retirer' | t | json }},
+        retirerUn: {{ 'nk.js.retirer_un' | t | json }},
+        ajouterUn: {{ 'nk.js.ajouter_un' | t | json }}
+      };
+    </script>
 
     {{ 'nakree-panier.js' | asset_url | script_tag }}
     {{ 'nakree.js' | asset_url | script_tag }}

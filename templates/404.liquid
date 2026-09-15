@@ -1,16 +1,15 @@
 {%- comment -%}
-  Page introuvable. Elle utilisait les classes du kit dentaire (.container,
-  .btn, .text-4xl) qui n'existent plus : elle sortait sans style.
+  Page introuvable.
 {%- endcomment -%}
 
 <section class="nk-texte" style="text-align:center;">
   <div class="nk-wrap stack" style="max-width:560px;justify-items:center;">
-    <p class="nk-eyebrow">Erreur 404</p>
-    <h1 class="nk-h2">Cette page n'existe pas.</h1>
-    <p class="nk-lead">Le lien est peut-être ancien, ou l'adresse comporte une faute.</p>
+    <p class="nk-eyebrow">{{ 'nk.quatrecent.eyebrow' | t }}</p>
+    <h1 class="nk-h2">{{ 'nk.quatrecent.h1' | t }}</h1>
+    <p class="nk-lead">{{ 'nk.quatrecent.lead' | t }}</p>
     <p style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-      <a class="nk-btn" href="{{ routes.root_url }}">Retour à l'accueil <i>&#8599;</i></a>
-      <a class="nk-btn nk-btn--ghost" href="{{ routes.root_url }}pages/suivi">Suivre ma commande</a>
+      <a class="nk-btn" href="{{ routes.root_url }}">{{ 'nk.quatrecent.retour' | t }} <i>&#8599;</i></a>
+      <a class="nk-btn nk-btn--ghost" href="{{ routes.root_url }}pages/suivi">{{ 'nk.pied.suivi' | t }}</a>
     </p>
   </div>
 </section>

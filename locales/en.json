@@ -3,62 +3,332 @@
     "accessibility": {
       "skip_to_content": "Skip to content",
       "close": "Close",
-      "menu": "Menu",
-      "search": "Search",
-      "cart": "Cart",
-      "account": "Account"
+      "cart": "Cart"
+    }
+  },
+  "nk": {
+    "meta": {
+      "title_index": "Nakree — Firming Serum with NAD+ EGF and Collagen",
+      "title_panier": "Cart",
+      "description": "Nakree Korean firming serum with NAD+, EGF and collagen extract. Absorbs in thirty seconds, firms and smooths. Free shipping over €50.",
+      "og_locale": "en_GB"
     },
-    "currency": {
-      "symbol": "€"
+    "annonce": {
+      "a1": "Launch offer: up to -40%",
+      "a2": "Free shipping over €50",
+      "a3": "4 bottles: buy 3, get 1 free",
+      "a4": "Korean formula"
+    },
+    "nav": {
+      "actifs": "The actives",
+      "rituel": "The ritual",
+      "avis": "Reviews",
+      "questions": "FAQ",
+      "panier": "View my cart",
+      "commander": "Order now",
+      "logo_aria": "Nakree, back to home"
+    },
+    "hero": {
+      "note": "4.9 out of 5 — verified reviews",
+      "neuf": "New",
+      "h1_html": "Fewer promises.<br><em>More actives.</em>",
+      "lead": "Korean firming serum with NAD+, EGF and collagen extract. Absorbs in thirty seconds, no greasy film.",
+      "chip_collagene": "Collagen extract",
+      "chip_sans": "Fragrance-free, alcohol-free",
+      "eco4": "4 bottles: buy 3, get 1 free",
+      "pack4_tag": "3 + 1 FREE",
+      "pack4_t": "4 bottles",
+      "pack4_p_html": "€69.90 <s>€99.60</s>",
+      "pack4_n": "4-month course · €17.48 per bottle",
+      "pack2_tag": "-10%",
+      "pack2_t": "2 bottles",
+      "pack2_p_html": "€44.90 <s>€49.80</s>",
+      "pack2_n": "2-month course · €22.45 per bottle",
+      "pack1_t": "1 bottle",
+      "pack1_p": "€24.90",
+      "pack1_n": "30 ml · about 1 month",
+      "cta": "Order now",
+      "addon": "Package protection — loss or damage",
+      "addon_prix": "€4.95",
+      "trust1": "Free shipping over €50",
+      "trust2": "Korean skincare",
+      "trust3": "Secure payment",
+      "video_aria": "Nakree serum being applied",
+      "alt_visuel": "{{ titre }} — view {{ n }}",
+      "prec": "Previous view",
+      "suiv": "Next view",
+      "vign_video": "Watch the video",
+      "vign_visuel": "See view {{ n }}",
+      "puce1": "NAD+ — cellular energy",
+      "puce2": "EGF — renewal",
+      "puce3": "Absorbs in 30 s"
+    },
+    "marquee": {
+      "m1": "Collagen",
+      "m2": "Fragrance-free",
+      "m3": "Alcohol-free",
+      "m4": "Korean formula",
+      "m5": "Free shipping over €50",
+      "m6": "30 ml"
+    },
+    "stats": {
+      "l1": "documented actives, zero fillers",
+      "l2": "to absorb, without stickiness",
+      "l3": "fragrance, alcohol, essential oils",
+      "l4": "across verified customer reviews"
+    },
+    "actifs": {
+      "eyebrow": "The actives",
+      "h2_html": "Three actives.<br><em>Zero fillers.</em>",
+      "lead": "No fragrance, no alcohol, no essential oils. This bottle contains what is documented, and nothing else.",
+      "a1_tag": "Cellular energy",
+      "a1_p": "Nicotinamide adenine dinucleotide. Boosts cellular energy and helps the skin activate its own repair mechanisms. Its production declines with age.",
+      "a1_note": "Key molecule of cellular metabolism",
+      "a2_tag": "Renewal",
+      "a2_p": "Epidermal growth factor. Supports cell renewal and helps smooth the skin's texture. Used in Korean dermatology for over ten years.",
+      "a2_note": "Star active of Korean anti-aging care",
+      "a3_nom": "Collagen",
+      "a3_tag": "Firmness",
+      "a3_h": "Collagen extract",
+      "a3_p": "Reinforces the skin's firmness and elasticity. Completes the action of NAD+ and EGF for a visible firming effect.",
+      "a3_note": "The firmness + elasticity duo"
+    },
+    "rituel": {
+      "eyebrow": "The ritual",
+      "h2_html": "Thirty seconds,<br><em>morning or night.</em>",
+      "ph": "Step {{ n }} photo",
+      "e1_t": "Cleanse",
+      "e1_p": "On clean, dry skin. The serum absorbs better without any barrier.",
+      "e1_alt": "Cleansing the skin before the serum",
+      "e2_t": "Apply",
+      "e2_p": "3 to 4 drops, with your fingertips. Forehead, cheeks, chin, neck.",
+      "e2_alt": "Applying 3 to 4 drops of serum",
+      "e3_t": "Massage",
+      "e3_p": "Light tapping, thirty seconds. The skin doesn't feel sticky.",
+      "e3_alt": "Massaging the serum for thirty seconds",
+      "cta": "Start the course"
+    },
+    "videos": {
+      "eyebrow": "On video",
+      "h2_html": "They've made it<br><em>part of their routine.</em>",
+      "v1": "Evening routine",
+      "v2": "3 drops are enough",
+      "v3": "Applied in 30 s",
+      "v4": "Under day cream",
+      "v5": "The neck move",
+      "v6": "Serum texture"
+    },
+    "franchise": {
+      "eyebrow": "Straight talk",
+      "h2": "What we don't promise",
+      "n1": "That wrinkles disappear overnight",
+      "n2": "That this serum replaces a medical or aesthetic procedure",
+      "n3": "That results are guaranteed for everyone",
+      "p": "Nakree is a cosmetic. NAD+, EGF and collagen are documented in published studies. Results vary from one skin to another, and we will never claim otherwise."
+    },
+    "clientes": {
+      "eyebrow": "Unretouched",
+      "h2_html": "At our <em>customers'.</em>",
+      "lead": "Real photos, sent by the women who use it every day.",
+      "alt": "Nakree customer photo"
+    },
+    "posts": {
+      "eyebrow": "On social media",
+      "h2_html": "Spotted in<br><em>your routines.</em>",
+      "p1_quote": "“The evening step I never skip anymore.”",
+      "p1_txt_html": "<b>@lea.mrn</b> 3 drops morning and night. It replaced three products in my routine.",
+      "p1_temps": "3d ago",
+      "p2_quote": "“No irritation, even on reactive skin.”",
+      "p2_txt_html": "<b>@sophie.skn</b> Fragrance-free, alcohol-free: finally a serum that doesn't sting my eyes.",
+      "p2_temps": "1w ago",
+      "p3_quote": "“The full course, without thinking about it.”",
+      "p3_txt_html": "<b>@clara.vlc</b> Went for the 4-bottle course, the 4th one free. Thirty seconds at night, that's it.",
+      "p3_temps": "2w ago"
+    },
+    "avis": {
+      "eyebrow": "Verified reviews",
+      "h2_html": "What they <em>say about it.</em>",
+      "detail_html": "{{ n }} verified reviews<br>· {{ p }} photos",
+      "verifie": "Verified purchase",
+      "verifie_coche": "✓ Verified purchase",
+      "c1": "Light texture, no greasy film. I wear it under my day cream and it doesn't pill. It's the first serum I've ever actually finished.",
+      "c2": "My girlfriend stole it from me. I ordered another one for myself. Skin texture changes within two weeks.",
+      "c3": "At 55 I wasn't expecting much anymore. The fine lines around my eyes are genuinely softened after a month.",
+      "c4": "Finally a serum that doesn't make my eyes water. Morning and night, zero irritation. Skin feels plumped from the morning on.",
+      "c5": "The value for money is unbeatable. I compared the ingredient lists with €80 serums — the actives are the same.",
+      "c6": "The pack of four is a no-brainer. The full course, and the price per bottle is ridiculous.",
+      "c7": "Good serum, I just wish the dropper were a bit more precise. But the formula is excellent.",
+      "c8": "I never put anything on my face before, my wife made me. Within three weeks the pores on my nose tightened.",
+      "plus": "See all {{ n }} reviews",
+      "modal_total": "{{ n }} verified reviews · {{ p }} photos",
+      "ph_aria": "See {{ nom }}'s photo",
+      "ph_alt": "Photo sent by {{ nom }}",
+      "photo_client": "Customer photo",
+      "etoiles_aria": "{{ n }} stars out of 5"
+    },
+    "offre": {
+      "eyebrow": "Choose your course",
+      "h2_html": "The longer the course,<br><em>the less each bottle costs.</em>",
+      "eco": "4-month course: the 4th bottle is free",
+      "compte": "Launch offer, ends in 11:59:59",
+      "choix": "Choose your course",
+      "badge_top": "Most popular",
+      "p4_nom": "4 bottles",
+      "p4_badge": "3 + 1 free",
+      "p4_prix_html": "€69.90<s>€99.60</s>",
+      "p4_desc": "4-month course — buy 3 get 1 free, i.e. €17.48 per bottle",
+      "p2_nom": "2 bottles",
+      "p2_badge": "-10%",
+      "p2_prix_html": "€44.90<s>€49.80</s>",
+      "p2_desc": "2-month course — i.e. €22.45 per bottle",
+      "p1_nom": "1 bottle",
+      "p1_prix": "€24.90",
+      "p1_desc": "30 ml, about 1 month of use",
+      "cta": "Order now, €74.85",
+      "r1": "Korean skincare",
+      "r2": "Free shipping over €50",
+      "r3": "Secure payment",
+      "r4": "4.9 out of 5",
+      "g1": "Tracked shipping — free over €50, otherwise €4.99",
+      "g2": "Secure Shopify payment",
+      "g3": "Korean formula, 12-month PAO",
+      "g4": "Optional package protection, €4.95",
+      "appel": "€69.90 for the 4-month course, i.e. €17.48 per bottle."
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "h2_html": "Everything people<br><em>ask us.</em>",
+      "q1": "Which skin types is it for?",
+      "r1": "All of them. The formula is fragrance-free, alcohol-free, essential-oil-free. Sensitive skin included.",
+      "q2": "When do you see the first results?",
+      "r2": "Hydration is immediate. The firming and smoothing effects appear within two to four weeks of daily use.",
+      "q3": "Can it be used with other skincare?",
+      "r3": "Yes. It goes on after cleansing and before your cream. Compatible with retinol, vitamin C and AHAs/BHAs.",
+      "q4": "How long does one bottle last?",
+      "r4": "A 30 ml bottle lasts about a month at 3 to 4 drops a day. Morning and night: count on three weeks.",
+      "q5": "Where does the serum come from?",
+      "r5": "Formula developed in South Korea, K-beauty expertise. 12-month PAO after opening.",
+      "compo_h": "Composition",
+      "l1": "Volume",
+      "v1": "30 ml",
+      "l2": "NAD+",
+      "v2": "Nicotinamide adenine dinucleotide",
+      "l3": "EGF",
+      "v3": "Epidermal growth factor",
+      "l4": "Collagen",
+      "v4": "Concentrated extract",
+      "l5": "Fragrance",
+      "v5": "None",
+      "l6": "Alcohol",
+      "v6": "None",
+      "l7": "PAO",
+      "v7": "12 months",
+      "l8": "Origin",
+      "v8": "South Korea",
+      "inci": "Full INCI list on the product packaging.",
+      "cta": "Choose my course"
+    },
+    "barre": {
+      "nom": "4-month course, protection included",
+      "commander": "Order now"
+    },
+    "loupe": {
+      "fermer": "Close"
+    },
+    "panier": {
+      "titre": "Your cart",
+      "fermer": "Close",
+      "aria": "Your cart",
+      "vide": "Your cart is empty.",
+      "sup_t": "Complete your order",
+      "sup_note": "An option, not an obligation.",
+      "sup_desc": "Lost, stolen or damaged: reshipped or refunded",
+      "total": "Total",
+      "note": "Free shipping over €50. Taxes included.",
+      "rass1": "Free shipping over €50",
+      "rass2": "Secure payment",
+      "rass3": "Responsive customer service",
+      "rass4": "4.8 out of 5, 150 reviews",
+      "express": "Express checkout",
+      "ou": "or",
+      "payer": "Proceed to checkout",
+      "continuer": "Continue shopping"
+    },
+    "pied": {
+      "phrase": "The Korean firming serum, without fillers.",
+      "boutique": "Shop",
+      "cure": "Choose my course",
+      "suivi": "Track my order",
+      "infos": "Information",
+      "apropos": "About",
+      "cookies": "Cookies",
+      "mentions": "Legal",
+      "legal": "Legal notice",
+      "cgv": "Terms of sale",
+      "retours": "Returns and refunds",
+      "exped": "Shipping",
+      "conf": "Privacy",
+      "service": "Terms of service",
+      "disclaimer": "Cosmetic product. Compliant with EC Regulation 1223/2009. Not a medical device and not a substitute for professional medical advice. External use only."
+    },
+    "suivi": {
+      "h1": "Track my order",
+      "lead": "Enter the tracking number you received by email when your order shipped.",
+      "label": "Tracking number",
+      "placeholder": "For example 5Y00597076013",
+      "pattern_title": "Between 6 and 40 characters, letters and numbers only",
+      "cta": "Track",
+      "note": "The number is in the “Your order has shipped” email. Remember to check your spam folder.",
+      "b1_h": "How long before it starts moving?",
+      "b1_p1": "Your order is prepared and shipped within 24 to 72 business hours. Tracking can stay silent for two to three days after shipping, while the parcel is scanned into the network. That's normal, and it doesn't mean it's stuck.",
+      "b1_p2": "Then allow 7 to 12 business days for delivery within Europe. These times are indicative.",
+      "b2_h": "Tracking has stopped moving",
+      "b2_p1": "Write to us at",
+      "b2_p2": "with your order number. We'll open a claim with the carrier and keep you informed.",
+      "b2_note": "Reply within 24 to 48 business hours, Monday to Friday."
+    },
+    "quatrecent": {
+      "eyebrow": "Error 404",
+      "h1": "This page doesn't exist.",
+      "lead": "The link may be old, or the address may contain a typo.",
+      "retour": "Back to home"
+    },
+    "cart_page": {
+      "titre": "Your cart",
+      "vide": "Your cart is empty.",
+      "voir": "See the offer",
+      "total": "Total",
+      "note": "Free shipping over €50. Taxes included.",
+      "payer": "Proceed to checkout"
+    },
+    "produit": {
+      "lead": "The product is ordered from the home page.",
+      "voir": "See the offer"
+    },
+    "page": {
+      "notice_btn": "Download the leaflet as PDF",
+      "retour": "Back to home"
+    },
+    "js": {
+      "fmt": "en",
+      "cure4": "4-bottle course",
+      "cure2": "2-bottle course",
+      "cure": "Course",
+      "un_flacon": "One bottle",
+      "cure4mois": "4-month course",
+      "economisez": "you save",
+      "commander": "Order now,",
+      "compte": "Launch offer, ends in",
+      "assurance": ", protection included",
+      "instant": "One moment…",
+      "retirer": "Remove",
+      "retirer_un": "Remove one",
+      "ajouter_un": "Add one"
+    },
+    "lang": {
+      "autre": "FR",
+      "autre_aria": "Passer en français",
+      "cible": "/"
     }
-  },
-  "products": {
-    "product": {
-      "add_to_cart": "Add to cart",
-      "buy_now": "Buy now",
-      "sold_out": "Sold out",
-      "unavailable": "Unavailable",
-      "quantity": "Quantity",
-      "price": "Price",
-      "regular_price": "Regular price",
-      "sale_price": "Sale price",
-      "save": "Save {{ savings }}",
-      "shipping_calculated": "Shipping calculated at checkout"
-    }
-  },
-  "cart": {
-    "general": {
-      "title": "Your cart",
-      "subtotal": "Subtotal",
-      "checkout": "Checkout",
-      "continue_shopping": "Continue shopping",
-      "empty": "Your cart is empty.",
-      "remove": "Remove",
-      "increase": "Increase",
-      "decrease": "Decrease",
-      "items_count": {
-        "one": "{{ count }} item",
-        "other": "{{ count }} items"
-      },
-      "shipping_taxes_note": "Shipping and taxes calculated at checkout.",
-      "express_checkout": "Express checkout",
-      "or": "or",
-      "shop_pay": "Pay with Shop Pay"
-    }
-  },
-  "header": {
-    "home": "Home",
-    "contact": "Contact",
-    "track_order": "Track my order"
-  },
-  "newsletter": {
-    "title": "10% off your first order",
-    "subtitle": "Sign up and receive your discount code by email.",
-    "email_placeholder": "Email",
-    "submit": "Subscribe",
-    "success": "Thanks for subscribing!"
-  },
-  "footer": {
-    "copyright": "© {{ year }} {{ shop_name }}. All rights reserved."
   }
 }

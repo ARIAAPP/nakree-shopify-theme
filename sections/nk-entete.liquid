@@ -1,27 +1,39 @@
+{%- assign nk_autre_lang = 'en' -%}
+{%- assign nk_lang_href = '/en' | append: request.path -%}
+{%- if request.locale.iso_code == 'en' -%}
+  {%- assign nk_autre_lang = 'fr' -%}
+  {%- assign nk_lang_href = request.path | remove_first: '/en' -%}
+  {%- if nk_lang_href == '' -%}{%- assign nk_lang_href = '/' -%}{%- endif -%}
+{%- endif -%}
+
 <div class="nk-annonce" aria-hidden="true">
   <div class="nk-defil__int">
     <div class="nk-defil__gr">
-      <span>Offre de lancement : jusqu'&#224; -40 %</span><span>Livraison offerte d&#232;s 50 &#8364;</span><span>4 flacons : 3 achet&#233;s + 1 offert</span><span>Formule cor&#233;enne</span>
+      <span>{{ 'nk.annonce.a1' | t }}</span><span>{{ 'nk.annonce.a2' | t }}</span><span>{{ 'nk.annonce.a3' | t }}</span><span>{{ 'nk.annonce.a4' | t }}</span>
     </div>
     <div class="nk-defil__gr">
-      <span>Offre de lancement : jusqu'&#224; -40 %</span><span>Livraison offerte d&#232;s 50 &#8364;</span><span>4 flacons : 3 achet&#233;s + 1 offert</span><span>Formule cor&#233;enne</span>
+      <span>{{ 'nk.annonce.a1' | t }}</span><span>{{ 'nk.annonce.a2' | t }}</span><span>{{ 'nk.annonce.a3' | t }}</span><span>{{ 'nk.annonce.a4' | t }}</span>
     </div>
   </div>
 </div>
 
 <header class="nk-top">
   <div class="nk-top__in">
-    <a class="nk-logo" href="{{ routes.root_url }}" aria-label="Nakree, retour &#224; l'accueil">nakree<i>.</i></a>
+    <a class="nk-logo" href="{{ routes.root_url }}" aria-label="{{ 'nk.nav.logo_aria' | t }}">nakree<i>.</i></a>
 
     <nav class="nk-nav">
-      <a href="{{ routes.root_url }}#actifs">Les actifs</a>
-      <a href="{{ routes.root_url }}#geste">Le rituel</a>
-      <a href="{{ routes.root_url }}#avis">Avis</a>
-      <a href="{{ routes.root_url }}#questions">Questions</a>
+      <a href="{{ routes.root_url }}#actifs">{{ 'nk.nav.actifs' | t }}</a>
+      <a href="{{ routes.root_url }}#geste">{{ 'nk.nav.rituel' | t }}</a>
+      <a href="{{ routes.root_url }}#avis">{{ 'nk.nav.avis' | t }}</a>
+      <a href="{{ routes.root_url }}#questions">{{ 'nk.nav.questions' | t }}</a>
     </nav>
 
     <div class="nk-top__fin">
-      <button type="button" class="nk-cartouche" data-panier-ouvrir aria-label="Voir mon panier"
+      <a class="nk-langue" href="{{ nk_lang_href }}" data-lang="{{ nk_autre_lang }}"
+         aria-label="{{ 'nk.lang.autre_aria' | t }}"
+         onclick="try{localStorage.setItem('nk-lang',this.dataset.lang)}catch(e){}">{{ 'nk.lang.autre' | t }}</a>
+
+      <button type="button" class="nk-cartouche" data-panier-ouvrir aria-label="{{ 'nk.nav.panier' | t }}"
               {% if cart.item_count == 0 %}hidden{% endif %} data-panier-nb-boite>
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -31,13 +43,19 @@
         <span data-panier-nb>{{ cart.item_count }}</span>
       </button>
 
-      <a class="nk-btn nk-btn--mini" href="{{ routes.root_url }}#offre">Commander <i>&#8599;</i></a>
+      <a class="nk-btn nk-btn--mini" href="{{ routes.root_url }}#offre">{{ 'nk.nav.commander' | t }} <i>&#8599;</i></a>
     </div>
   </div>
 </header>
 
 <style>
   .nk-top__fin { display: flex; align-items: center; gap: 10px; }
+  .nk-langue {
+    font-size: 12.5px; font-weight: 700; letter-spacing: .06em;
+    color: var(--nk-ink-2); padding: 7px 10px; border-radius: var(--nk-r-pill);
+    box-shadow: var(--nk-ring); background: var(--nk-surface);
+  }
+  .nk-langue:hover { color: var(--nk-ink); box-shadow: var(--nk-ring-2); }
   .nk-cartouche {
     display: inline-flex; align-items: center; gap: 7px;
     padding: 9px 14px; border: 0; border-radius: var(--nk-r-pill);

@@ -4,7 +4,7 @@
 
       <div class="stack-sm" style="max-width:38ch;">
         <span class="nk-logo">nakree<i>.</i></span>
-        <p class="nk-foot__phrase">Le s&#233;rum raffermissant cor&#233;en, sans remplissage.</p>
+        <p class="nk-foot__phrase">{{ 'nk.pied.phrase' | t }}</p>
         <p class="nk-note" style="margin-top:10px;">
           <a href="mailto:support@nakree.com">support@nakree.com</a>
         </p>
@@ -12,26 +12,26 @@
 
       <div class="nk-foot__cols">
         <div>
-          <h4>Boutique</h4>
-          <a href="{{ routes.root_url }}#offre">Choisir ma cure</a>
-          <a href="{{ routes.root_url }}#actifs">Les actifs</a>
-          <a href="{{ routes.root_url }}#geste">Le rituel</a>
-          <a href="{{ routes.root_url }}pages/suivi">Suivre ma commande</a>
+          <h4>{{ 'nk.pied.boutique' | t }}</h4>
+          <a href="{{ routes.root_url }}#offre">{{ 'nk.pied.cure' | t }}</a>
+          <a href="{{ routes.root_url }}#actifs">{{ 'nk.nav.actifs' | t }}</a>
+          <a href="{{ routes.root_url }}#geste">{{ 'nk.nav.rituel' | t }}</a>
+          <a href="{{ routes.root_url }}pages/suivi">{{ 'nk.pied.suivi' | t }}</a>
         </div>
         <div>
-          <h4>Informations</h4>
-          <a href="{{ routes.root_url }}#questions">Questions</a>
-          <a href="{{ routes.root_url }}pages/a-propos">&#192; propos</a>
-          <a href="{{ routes.root_url }}pages/cookies">Cookies</a>
+          <h4>{{ 'nk.pied.infos' | t }}</h4>
+          <a href="{{ routes.root_url }}#questions">{{ 'nk.nav.questions' | t }}</a>
+          <a href="{{ routes.root_url }}pages/a-propos">{{ 'nk.pied.apropos' | t }}</a>
+          <a href="{{ routes.root_url }}pages/cookies">{{ 'nk.pied.cookies' | t }}</a>
         </div>
         <div>
-          <h4>Mentions</h4>
-          <a href="/policies/legal-notice">Mentions l&#233;gales</a>
-          <a href="/policies/terms-of-sale">Conditions de vente</a>
-          <a href="/policies/refund-policy">Retours et remboursement</a>
-          <a href="/policies/shipping-policy">Exp&#233;dition</a>
-          <a href="/policies/privacy-policy">Confidentialit&#233;</a>
-          <a href="/policies/terms-of-service">Conditions de service</a>
+          <h4>{{ 'nk.pied.mentions' | t }}</h4>
+          <a href="/policies/legal-notice">{{ 'nk.pied.legal' | t }}</a>
+          <a href="/policies/terms-of-sale">{{ 'nk.pied.cgv' | t }}</a>
+          <a href="/policies/refund-policy">{{ 'nk.pied.retours' | t }}</a>
+          <a href="/policies/shipping-policy">{{ 'nk.pied.exped' | t }}</a>
+          <a href="/policies/privacy-policy">{{ 'nk.pied.conf' | t }}</a>
+          <a href="/policies/terms-of-service">{{ 'nk.pied.service' | t }}</a>
         </div>
       </div>
 
@@ -39,9 +39,7 @@
 
     <div class="nk-foot__bas">
       <p class="nk-note">
-        Produit cosm&#233;tique. Conforme au r&#232;glement CE 1223/2009. Ne constitue
-        pas un dispositif m&#233;dical et ne remplace pas un avis professionnel
-        de sant&#233;. Usage externe uniquement.
+        {{ 'nk.pied.disclaimer' | t }}
       </p>
     </div>
   </div>

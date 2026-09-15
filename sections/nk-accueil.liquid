@@ -6,6 +6,8 @@
   {%- if v.title contains 'Quatre' -%}{%- assign v_quatre = v -%}{%- endif -%}
 {%- endfor -%}
 {%- assign v_assurance = assurance.variants | first -%}
+{%- assign nk_en = false -%}
+{%- if request.locale.iso_code == 'en' -%}{%- assign nk_en = true -%}{%- endif -%}
 
 <!-- HERO -->
 <section class="nk-hero">
@@ -16,63 +18,63 @@
       <div class="nk-hero__haut">
         <a href="#avis" class="nk-note-avis">
           <span class="nk-etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span>4,9 sur 5 &#8212; avis v&#233;rifi&#233;s</span>
+          <span>{{ 'nk.hero.note' | t }}</span>
         </a>
-        <span class="nk-neuf">Nouveau</span>
+        <span class="nk-neuf">{{ 'nk.hero.neuf' | t }}</span>
       </div>
 
       <div class="stack-sm" style="gap:18px;">
-        <h1 class="nk-h1">Moins de promesses.<br><em>Plus d'actifs.</em></h1>
-        <p class="nk-lead">S&#233;rum raffermissant cor&#233;en au NAD+, EGF et extrait de collag&#232;ne. P&#233;n&#232;tre en trente secondes, sans film gras.</p>
+        <h1 class="nk-h1">{{ 'nk.hero.h1_html' | t }}</h1>
+        <p class="nk-lead">{{ 'nk.hero.lead' | t }}</p>
       </div>
 
       <ul class="nk-chips">
         <li>NAD+</li>
         <li>EGF</li>
-        <li>Extrait de collag&#232;ne</li>
-        <li>Sans parfum, sans alcool</li>
+        <li>{{ 'nk.hero.chip_collagene' | t }}</li>
+        <li>{{ 'nk.hero.chip_sans' | t }}</li>
       </ul>
 
       <div class="nk-prixligne" style="margin:6px 0 0;">
         <s class="nk-barre" data-h-barre>99,60 &#8364;</s>
         <span class="nk-price" data-h-prix>69,90 &#8364;</span>
         <span class="nk-pct" data-h-pct>-30%</span>
-        <span class="nk-eco" style="width:100%;" data-h-eco>4 flacons : 3 achet&#233;s + 1 offert</span>
+        <span class="nk-eco" style="width:100%;" data-h-eco>{{ 'nk.hero.eco4' | t }}</span>
       </div>
 
       <div class="nk-choix">
         <button type="button" class="nk-choix__b on" data-h-pack data-vue="0" data-prix="6990">
-          <span class="nk-choix__tag">3 + 1 OFFERT</span>
-          <span class="nk-choix__t">4 flacons</span>
-          <span class="nk-choix__p">69,90 &#8364; <s>99,60 &#8364;</s></span>
-          <span class="nk-choix__n">Cure 4 mois &#183; 17,48 &#8364; le flacon</span>
+          <span class="nk-choix__tag">{{ 'nk.hero.pack4_tag' | t }}</span>
+          <span class="nk-choix__t">{{ 'nk.hero.pack4_t' | t }}</span>
+          <span class="nk-choix__p">{{ 'nk.hero.pack4_p_html' | t }}</span>
+          <span class="nk-choix__n">{{ 'nk.hero.pack4_n' | t }}</span>
         </button>
         <button type="button" class="nk-choix__b" data-h-pack data-vue="0" data-prix="4490">
-          <span class="nk-choix__tag">-10 %</span>
-          <span class="nk-choix__t">2 flacons</span>
-          <span class="nk-choix__p">44,90 &#8364; <s>49,80 &#8364;</s></span>
-          <span class="nk-choix__n">Cure 2 mois &#183; 22,45 &#8364; le flacon</span>
+          <span class="nk-choix__tag">{{ 'nk.hero.pack2_tag' | t }}</span>
+          <span class="nk-choix__t">{{ 'nk.hero.pack2_t' | t }}</span>
+          <span class="nk-choix__p">{{ 'nk.hero.pack2_p_html' | t }}</span>
+          <span class="nk-choix__n">{{ 'nk.hero.pack2_n' | t }}</span>
         </button>
         <button type="button" class="nk-choix__b" data-h-pack data-vue="0" data-prix="2490">
-          <span class="nk-choix__t">1 flacon</span>
-          <span class="nk-choix__p">24,90 &#8364;</span>
-          <span class="nk-choix__n">30 ml &#183; environ 1 mois</span>
+          <span class="nk-choix__t">{{ 'nk.hero.pack1_t' | t }}</span>
+          <span class="nk-choix__p">{{ 'nk.hero.pack1_p' | t }}</span>
+          <span class="nk-choix__n">{{ 'nk.hero.pack1_n' | t }}</span>
         </button>
       </div>
 
-      <button type="button" class="nk-btn nk-btn--grand" data-acheter style="justify-self:start;"><span data-cta-hero>Commander</span> <i>&#8599;</i></button>
+      <button type="button" class="nk-btn nk-btn--grand" data-acheter style="justify-self:start;"><span data-cta-hero>{{ 'nk.hero.cta' | t }}</span> <i>&#8599;</i></button>
 
       <label class="nk-addon nk-addon--hero on" data-addon data-prix="495" data-variant="{{ v_assurance.id }}" style="justify-self:start;">
         <input type="checkbox" checked>
         <span class="nk-case"></span>
-        <span>Assurance colis, perte ou casse</span>
-        <span class="nk-addon__prix">4,95 &#8364;</span>
+        <span>{{ 'nk.hero.addon' | t }}</span>
+        <span class="nk-addon__prix">{{ 'nk.hero.addon_prix' | t }}</span>
       </label>
 
       <ul class="nk-trust">
-        <li>Livraison offerte d&#232;s 50 &#8364;</li>
-        <li>Soin cor&#233;en</li>
-        <li>Paiement s&#233;curis&#233;</li>
+        <li>{{ 'nk.hero.trust1' | t }}</li>
+        <li>{{ 'nk.hero.trust2' | t }}</li>
+        <li>{{ 'nk.hero.trust3' | t }}</li>
       </ul>
 
       {% render 'nk-paiements', max: 7 %}
@@ -83,11 +85,11 @@
         <div class="nk-scene nk-gal__scene" id="hero-img">
           <div class="nk-vues" data-vues>
             <div class="nk-vue on">
-              <video src="{{ 'nakree-hero.mp4' | file_url }}" autoplay muted loop playsinline preload="auto" aria-label="Le s&#233;rum Nakree en application" onerror="this.remove()"></video>
+              <video src="{{ 'nakree-hero.mp4' | file_url }}" autoplay muted loop playsinline preload="auto" aria-label="{{ 'nk.hero.video_aria' | t }}" onerror="this.remove()"></video>
             </div>
             {%- for image in serum.images limit: 8 -%}
             <div class="nk-vue{% if forloop.index > 3 %} nk-vue--doc{% endif %}">
-              <img src="{{ image | image_url: width: 1000 }}" alt="{{ serum.title }} &#8212; visuel {{ forloop.index }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+              <img src="{{ image | image_url: width: 1000 }}" alt="{{ 'nk.hero.alt_visuel' | t: titre: serum.title, n: forloop.index }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
             </div>
             {%- endfor -%}
             {%- if serum.images.size == 0 -%}
@@ -98,12 +100,12 @@
             {%- endif -%}
           </div>
           <div class="nk-gal__fleches">
-            <button type="button" class="nk-gal__fleche nk-gal__fleche--g" data-prec aria-label="Visuel pr&#233;c&#233;dent">&#8592;</button>
-            <button type="button" class="nk-gal__fleche nk-gal__fleche--d" data-suiv aria-label="Visuel suivant">&#8594;</button>
+            <button type="button" class="nk-gal__fleche nk-gal__fleche--g" data-prec aria-label="{{ 'nk.hero.prec' | t }}">&#8592;</button>
+            <button type="button" class="nk-gal__fleche nk-gal__fleche--d" data-suiv aria-label="{{ 'nk.hero.suiv' | t }}">&#8594;</button>
           </div>
-          <span class="nk-puce">NAD+ &#8212; &#233;nergie cellulaire</span>
-          <span class="nk-puce">EGF &#8212; renouvellement</span>
-          <span class="nk-puce nk-puce--ok">P&#233;n&#232;tre en 30 s</span>
+          <span class="nk-puce">{{ 'nk.hero.puce1' | t }}</span>
+          <span class="nk-puce">{{ 'nk.hero.puce2' | t }}</span>
+          <span class="nk-puce nk-puce--ok">{{ 'nk.hero.puce3' | t }}</span>
         </div>
         <div data-suivantes hidden aria-hidden="true">
           <span></span>
@@ -111,11 +113,11 @@
           {%- if serum.images.size == 0 -%}<span></span>{%- endif -%}
         </div>
         <div class="nk-pellicule">
-          <button type="button" data-vign="0" class="on" aria-label="Voir la vid&#233;o">
+          <button type="button" data-vign="0" class="on" aria-label="{{ 'nk.hero.vign_video' | t }}">
             <span class="nk-pellicule__play">&#9654;</span>
           </button>
           {%- for image in serum.images limit: 8 -%}
-          <button type="button" data-vign="{{ forloop.index }}" aria-label="Voir le visuel {{ forloop.index }}">
+          <button type="button" data-vign="{{ forloop.index }}" aria-label="{{ 'nk.hero.vign_visuel' | t: n: forloop.index }}">
             <img src="{{ image | image_url: width: 140 }}" alt="" loading="lazy">
           </button>
           {%- endfor -%}
@@ -130,10 +132,10 @@
 <div class="nk-defil" aria-hidden="true">
   <div class="nk-defil__int">
     <div class="nk-defil__gr">
-      <span>NAD+</span><span>EGF</span><span>Collag&#232;ne</span><span>Sans parfum</span><span>Sans alcool</span><span>Formule cor&#233;enne</span><span>Livraison offerte d&#232;s 50 &#8364;</span><span>30 ml</span>
+      <span>NAD+</span><span>EGF</span><span>{{ 'nk.marquee.m1' | t }}</span><span>{{ 'nk.marquee.m2' | t }}</span><span>{{ 'nk.marquee.m3' | t }}</span><span>{{ 'nk.marquee.m4' | t }}</span><span>{{ 'nk.marquee.m5' | t }}</span><span>{{ 'nk.marquee.m6' | t }}</span>
     </div>
     <div class="nk-defil__gr">
-      <span>NAD+</span><span>EGF</span><span>Collag&#232;ne</span><span>Sans parfum</span><span>Sans alcool</span><span>Formule cor&#233;enne</span><span>Livraison offerte d&#232;s 50 &#8364;</span><span>30 ml</span>
+      <span>NAD+</span><span>EGF</span><span>{{ 'nk.marquee.m1' | t }}</span><span>{{ 'nk.marquee.m2' | t }}</span><span>{{ 'nk.marquee.m3' | t }}</span><span>{{ 'nk.marquee.m4' | t }}</span><span>{{ 'nk.marquee.m5' | t }}</span><span>{{ 'nk.marquee.m6' | t }}</span>
     </div>
   </div>
 </div>
@@ -141,10 +143,10 @@
 <!-- STATS -->
 <div class="nk-stats">
   <div class="nk-stats__in">
-    <div class="nk-stats__c"><span class="nk-stats__n">3</span><span class="nk-stats__l">actifs document&#233;s, z&#233;ro remplissage</span></div>
-    <div class="nk-stats__c"><span class="nk-stats__n">30 s</span><span class="nk-stats__l">pour p&#233;n&#233;trer, sans coller</span></div>
-    <div class="nk-stats__c"><span class="nk-stats__n">0</span><span class="nk-stats__l">parfum, alcool, huile essentielle</span></div>
-    <div class="nk-stats__c"><span class="nk-stats__n">4,9/5</span><span class="nk-stats__l">sur les avis clients v&#233;rifi&#233;s</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">3</span><span class="nk-stats__l">{{ 'nk.stats.l1' | t }}</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">30 s</span><span class="nk-stats__l">{{ 'nk.stats.l2' | t }}</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">0</span><span class="nk-stats__l">{{ 'nk.stats.l3' | t }}</span></div>
+    <div class="nk-stats__c"><span class="nk-stats__n">4,9/5</span><span class="nk-stats__l">{{ 'nk.stats.l4' | t }}</span></div>
   </div>
 </div>
 
@@ -152,9 +154,9 @@
 <section id="actifs">
   <div class="nk-wrap">
     <div class="nk-rise" style="max-width:52ch;margin-bottom:clamp(44px,5vw,72px);">
-      <p class="nk-eyebrow">Les actifs</p>
-      <h2 class="nk-h2">Trois actifs.<br><em>Z&#233;ro remplissage.</em></h2>
-      <p class="nk-lead" style="margin-top:16px;">Pas de parfum, pas d'alcool, pas d'huile essentielle. Ce flacon contient ce qui est document&#233;, et rien d'autre.</p>
+      <p class="nk-eyebrow">{{ 'nk.actifs.eyebrow' | t }}</p>
+      <h2 class="nk-h2">{{ 'nk.actifs.h2_html' | t }}</h2>
+      <p class="nk-lead" style="margin-top:16px;">{{ 'nk.actifs.lead' | t }}</p>
     </div>
 
     <div class="nk-actifs">
@@ -162,12 +164,12 @@
         <div class="nk-actif__vue nk-actif__vue--a">
           <span class="nk-actif__idx">01 / 03</span>
           <span class="nk-actif__nom">NAD+</span>
-          <span class="nk-actif__tag">&#201;nergie cellulaire</span>
+          <span class="nk-actif__tag">{{ 'nk.actifs.a1_tag' | t }}</span>
         </div>
         <div class="nk-actif__txt">
           <h3 class="nk-h3" style="margin-bottom:14px;">NAD+</h3>
-          <p class="nk-p">Nicotinamide ad&#233;nine dinucl&#233;otide. Booste l'&#233;nergie cellulaire et aide la peau &#224; activer ses propres m&#233;canismes de r&#233;paration. Sa production diminue avec l'&#226;ge.</p>
-          <span class="nk-note">Mol&#233;cule cl&#233; du m&#233;tabolisme cellulaire</span>
+          <p class="nk-p">{{ 'nk.actifs.a1_p' | t }}</p>
+          <span class="nk-note">{{ 'nk.actifs.a1_note' | t }}</span>
         </div>
       </article>
 
@@ -175,25 +177,25 @@
         <div class="nk-actif__vue nk-actif__vue--b">
           <span class="nk-actif__idx">02 / 03</span>
           <span class="nk-actif__nom">EGF</span>
-          <span class="nk-actif__tag">Renouvellement</span>
+          <span class="nk-actif__tag">{{ 'nk.actifs.a2_tag' | t }}</span>
         </div>
         <div class="nk-actif__txt">
           <h3 class="nk-h3" style="margin-bottom:14px;">EGF</h3>
-          <p class="nk-p">Facteur de croissance &#233;pidermique. Favorise le renouvellement cellulaire et aide &#224; lisser la texture de la peau. Utilis&#233; en dermatologie cor&#233;enne depuis plus de dix ans.</p>
-          <span class="nk-note">Actif phare du soin cor&#233;en anti-&#226;ge</span>
+          <p class="nk-p">{{ 'nk.actifs.a2_p' | t }}</p>
+          <span class="nk-note">{{ 'nk.actifs.a2_note' | t }}</span>
         </div>
       </article>
 
       <article class="nk-actif nk-rise">
         <div class="nk-actif__vue nk-actif__vue--c">
           <span class="nk-actif__idx">03 / 03</span>
-          <span class="nk-actif__nom">Collag&#232;ne</span>
-          <span class="nk-actif__tag">Fermet&#233;</span>
+          <span class="nk-actif__nom">{{ 'nk.actifs.a3_nom' | t }}</span>
+          <span class="nk-actif__tag">{{ 'nk.actifs.a3_tag' | t }}</span>
         </div>
         <div class="nk-actif__txt">
-          <h3 class="nk-h3" style="margin-bottom:14px;">Extrait de collag&#232;ne</h3>
-          <p class="nk-p">Renforce la fermet&#233; et l'&#233;lasticit&#233; de la peau. Compl&#232;te l'action du NAD+ et de l'EGF pour un effet raffermissant visible.</p>
-          <span class="nk-note">Le duo fermet&#233; + &#233;lasticit&#233;</span>
+          <h3 class="nk-h3" style="margin-bottom:14px;">{{ 'nk.actifs.a3_h' | t }}</h3>
+          <p class="nk-p">{{ 'nk.actifs.a3_p' | t }}</p>
+          <span class="nk-note">{{ 'nk.actifs.a3_note' | t }}</span>
         </div>
       </article>
     </div>
@@ -204,52 +206,52 @@
 <section id="geste">
   <div class="nk-wrap stack" style="gap:clamp(44px,5vw,68px);">
     <div class="nk-rise" style="text-align:center;max-width:52ch;margin-inline:auto;">
-      <p class="nk-eyebrow">Le rituel</p>
-      <h2 class="nk-h2">Trente secondes,<br><em>matin ou soir.</em></h2>
+      <p class="nk-eyebrow">{{ 'nk.rituel.eyebrow' | t }}</p>
+      <h2 class="nk-h2">{{ 'nk.rituel.h2_html' | t }}</h2>
     </div>
     <div class="nk-etapes nk-rise">
       <figure class="nk-etape">
         <div class="nk-etape__vue">
-          <span class="nk-ph" data-nom="Photo &#233;tape 1"></span>
-          <img src="{{ 'nakree-etape-01.jpg' | file_url }}" alt="Nettoyer la peau avant le s&#233;rum" loading="lazy" onerror="this.remove()">
+          <span class="nk-ph" data-nom="{{ 'nk.rituel.ph' | t: n: 1 }}"></span>
+          <img src="{{ 'nakree-etape-01.jpg' | file_url }}" alt="{{ 'nk.rituel.e1_alt' | t }}" loading="lazy" onerror="this.remove()">
         </div>
         <figcaption class="nk-etape__cap">
           <span class="nk-etape__n">1</span>
           <span>
-            <h3 class="nk-h3"><i>&#9679;</i> Nettoyer</h3>
-            <p class="nk-p">Sur peau propre et s&#232;che. Le s&#233;rum p&#233;n&#232;tre mieux sans barri&#232;re.</p>
+            <h3 class="nk-h3"><i>&#9679;</i> {{ 'nk.rituel.e1_t' | t }}</h3>
+            <p class="nk-p">{{ 'nk.rituel.e1_p' | t }}</p>
           </span>
         </figcaption>
       </figure>
       <figure class="nk-etape">
         <div class="nk-etape__vue">
-          <span class="nk-ph nk-ph--b" data-nom="Photo &#233;tape 2"></span>
-          <img src="{{ 'nakree-etape-02.jpg' | file_url }}" alt="Appliquer 3 &#224; 4 gouttes de s&#233;rum" loading="lazy" onerror="this.remove()">
+          <span class="nk-ph nk-ph--b" data-nom="{{ 'nk.rituel.ph' | t: n: 2 }}"></span>
+          <img src="{{ 'nakree-etape-02.jpg' | file_url }}" alt="{{ 'nk.rituel.e2_alt' | t }}" loading="lazy" onerror="this.remove()">
         </div>
         <figcaption class="nk-etape__cap">
           <span class="nk-etape__n">2</span>
           <span>
-            <h3 class="nk-h3"><i>&#9679;</i> Appliquer</h3>
-            <p class="nk-p">3 &#224; 4 gouttes, du bout des doigts. Front, joues, menton, cou.</p>
+            <h3 class="nk-h3"><i>&#9679;</i> {{ 'nk.rituel.e2_t' | t }}</h3>
+            <p class="nk-p">{{ 'nk.rituel.e2_p' | t }}</p>
           </span>
         </figcaption>
       </figure>
       <figure class="nk-etape">
         <div class="nk-etape__vue">
-          <span class="nk-ph nk-ph--c" data-nom="Photo &#233;tape 3"></span>
-          <img src="{{ 'nakree-etape-03.jpg' | file_url }}" alt="Masser le s&#233;rum trente secondes" loading="lazy" onerror="this.remove()">
+          <span class="nk-ph nk-ph--c" data-nom="{{ 'nk.rituel.ph' | t: n: 3 }}"></span>
+          <img src="{{ 'nakree-etape-03.jpg' | file_url }}" alt="{{ 'nk.rituel.e3_alt' | t }}" loading="lazy" onerror="this.remove()">
         </div>
         <figcaption class="nk-etape__cap">
           <span class="nk-etape__n">3</span>
           <span>
-            <h3 class="nk-h3"><i>&#9679;</i> Masser</h3>
-            <p class="nk-p">Tapotements l&#233;gers, trente secondes. La peau ne colle pas.</p>
+            <h3 class="nk-h3"><i>&#9679;</i> {{ 'nk.rituel.e3_t' | t }}</h3>
+            <p class="nk-p">{{ 'nk.rituel.e3_p' | t }}</p>
           </span>
         </figcaption>
       </figure>
     </div>
     <div class="nk-rise" style="display:grid;justify-items:center;">
-      <a class="nk-btn" href="#offre">Commencer la cure <i>&#8599;</i></a>
+      <a class="nk-btn" href="#offre">{{ 'nk.rituel.cta' | t }} <i>&#8599;</i></a>
     </div>
   </div>
 </section>
@@ -258,11 +260,12 @@
 <section id="videos" style="padding-top:0;">
   <div class="nk-wrap">
     <div class="nk-rise" style="max-width:52ch;margin-bottom:clamp(30px,4vw,44px);">
-      <p class="nk-eyebrow">En vid&#233;o</p>
-      <h2 class="nk-h2">Elles l'int&#232;grent<br><em>&#224; leur routine.</em></h2>
+      <p class="nk-eyebrow">{{ 'nk.videos.eyebrow' | t }}</p>
+      <h2 class="nk-h2">{{ 'nk.videos.h2_html' | t }}</h2>
     </div>
     <div class="nk-vids nk-rise" data-vids>
-      {%- assign vids = "01|Routine du soir,02|3 gouttes suffisent,03|Application en 30 s,04|Sous la cr&#232;me de jour,05|Le geste du cou,06|Texture s&#233;rum" | split: "," -%}
+      {%- capture vids_src -%}01|{{ 'nk.videos.v1' | t }},02|{{ 'nk.videos.v2' | t }},03|{{ 'nk.videos.v3' | t }},04|{{ 'nk.videos.v4' | t }},05|{{ 'nk.videos.v5' | t }},06|{{ 'nk.videos.v6' | t }}{%- endcapture -%}
+      {%- assign vids = vids_src | split: "," -%}
       {%- for item in vids -%}
         {%- assign parts = item | split: "|" -%}
         {%- assign mp4 = 'nakree-ugc-' | append: parts[0] | append: '.mp4' -%}
@@ -305,14 +308,14 @@
 <!-- CE QUE NOUS NE PROMETTONS PAS -->
 <section id="franchise">
   <div class="nk-wrap nk-rise">
-    <p class="nk-eyebrow" style="margin-bottom:26px;">Notre franchise</p>
-    <h2 class="nk-h2">Ce que nous ne promettons pas</h2>
+    <p class="nk-eyebrow" style="margin-bottom:26px;">{{ 'nk.franchise.eyebrow' | t }}</p>
+    <h2 class="nk-h2">{{ 'nk.franchise.h2' | t }}</h2>
     <div class="nk-non">
-      <span>Que les rides disparaissent en une nuit</span>
-      <span>Que ce s&#233;rum remplace un acte m&#233;dical ou esth&#233;tique</span>
-      <span>Que les r&#233;sultats sont garantis pour tout le monde</span>
+      <span>{{ 'nk.franchise.n1' | t }}</span>
+      <span>{{ 'nk.franchise.n2' | t }}</span>
+      <span>{{ 'nk.franchise.n3' | t }}</span>
     </div>
-    <p class="nk-p">Nakree est un cosm&#233;tique. Le NAD+, l'EGF et le collag&#232;ne sont document&#233;s par des &#233;tudes publi&#233;es. Les r&#233;sultats varient d'une peau &#224; l'autre, et nous ne pr&#233;tendrons jamais le contraire.</p>
+    <p class="nk-p">{{ 'nk.franchise.p' | t }}</p>
   </div>
 </section>
 
@@ -320,9 +323,9 @@
 <section id="clientes" style="padding-inline:0;overflow:clip;">
   <div class="nk-wrap">
     <div class="nk-rise" style="text-align:center;max-width:52ch;margin:0 auto clamp(30px,4vw,44px);">
-      <p class="nk-eyebrow">Sans retouche</p>
-      <h2 class="nk-h2">Chez nos <em>clientes.</em></h2>
-      <p class="nk-lead" style="margin:14px auto 0;">De vraies photos, envoy&#233;es par celles qui l'utilisent tous les jours.</p>
+      <p class="nk-eyebrow">{{ 'nk.clientes.eyebrow' | t }}</p>
+      <h2 class="nk-h2">{{ 'nk.clientes.h2_html' | t }}</h2>
+      <p class="nk-lead" style="margin:14px auto 0;">{{ 'nk.clientes.lead' | t }}</p>
     </div>
   </div>
   <div class="nk-rails nk-rise">
@@ -333,7 +336,7 @@
           {%- for i in (1..6) -%}
             <figure class="nk-vign" style="margin:0;">
               <span class="nk-ph{% cycle '', ' nk-ph--b', ' nk-ph--c' %}"></span>
-              <img src="{{ 'nakree-cliente-0' | append: i | append: '.jpg' | file_url }}" alt="Photo cliente Nakree" loading="lazy" onerror="this.remove()">
+              <img src="{{ 'nakree-cliente-0' | append: i | append: '.jpg' | file_url }}" alt="{{ 'nk.clientes.alt' | t }}" loading="lazy" onerror="this.remove()">
             </figure>
           {%- endfor -%}
         </div>
@@ -348,7 +351,7 @@
             {%- assign num = i | prepend: '0' | slice: -2, 2 -%}
             <figure class="nk-vign" style="margin:0;">
               <span class="nk-ph{% cycle ' nk-ph--c', '', ' nk-ph--b' %}"></span>
-              <img src="{{ 'nakree-cliente-' | append: num | append: '.jpg' | file_url }}" alt="Photo cliente Nakree" loading="lazy" onerror="this.remove()">
+              <img src="{{ 'nakree-cliente-' | append: num | append: '.jpg' | file_url }}" alt="{{ 'nk.clientes.alt' | t }}" loading="lazy" onerror="this.remove()">
             </figure>
           {%- endfor -%}
         </div>
@@ -362,8 +365,8 @@
 <section id="posts">
   <div class="nk-wrap stack" style="gap:clamp(30px,4vw,44px);">
     <div class="nk-rise" style="max-width:52ch;">
-      <p class="nk-eyebrow">Sur les r&#233;seaux</p>
-      <h2 class="nk-h2">Rep&#233;r&#233; dans<br><em>vos routines.</em></h2>
+      <p class="nk-eyebrow">{{ 'nk.posts.eyebrow' | t }}</p>
+      <h2 class="nk-h2">{{ 'nk.posts.h2_html' | t }}</h2>
     </div>
     <div class="nk-posts nk-rise">
       <article class="nk-post">
@@ -373,12 +376,12 @@
           <span class="nk-post__coeur">&#9825;</span>
         </div>
         <div class="nk-post__vue">
-          <b>&#171; Le geste du soir que je ne saute plus. &#187;</b>
+          <b>{{ 'nk.posts.p1_quote' | t }}</b>
           <img src="{{ 'nakree-post-01.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-post__corps">
-          <p class="nk-post__txt"><b>@lea.mrn</b> 3 gouttes matin et soir. Il a remplac&#233; trois produits dans ma routine.</p>
-          <div class="nk-post__pied"><span>&#9825; 1 248</span><span>il y a 3 j</span></div>
+          <p class="nk-post__txt">{{ 'nk.posts.p1_txt_html' | t }}</p>
+          <div class="nk-post__pied"><span>&#9825; 1 248</span><span>{{ 'nk.posts.p1_temps' | t }}</span></div>
         </div>
       </article>
       <article class="nk-post">
@@ -388,12 +391,12 @@
           <span class="nk-post__coeur">&#9825;</span>
         </div>
         <div class="nk-post__vue">
-          <b>&#171; Aucune irritation, m&#234;me peau r&#233;active. &#187;</b>
+          <b>{{ 'nk.posts.p2_quote' | t }}</b>
           <img src="{{ 'nakree-post-02.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-post__corps">
-          <p class="nk-post__txt"><b>@sophie.skn</b> Sans parfum, sans alcool : enfin un s&#233;rum qui ne pique pas les yeux.</p>
-          <div class="nk-post__pied"><span>&#9825; 892</span><span>il y a 1 sem</span></div>
+          <p class="nk-post__txt">{{ 'nk.posts.p2_txt_html' | t }}</p>
+          <div class="nk-post__pied"><span>&#9825; 892</span><span>{{ 'nk.posts.p2_temps' | t }}</span></div>
         </div>
       </article>
       <article class="nk-post">
@@ -403,12 +406,12 @@
           <span class="nk-post__coeur">&#9825;</span>
         </div>
         <div class="nk-post__vue">
-          <b>&#171; La cure compl&#232;te, sans y penser. &#187;</b>
+          <b>{{ 'nk.posts.p3_quote' | t }}</b>
           <img src="{{ 'nakree-post-03.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-post__corps">
-          <p class="nk-post__txt"><b>@clara.vlc</b> Partie sur la cure 4 flacons, le 4&#7497; offert. Trente secondes le soir, c'est tout.</p>
-          <div class="nk-post__pied"><span>&#9825; 2 034</span><span>il y a 2 sem</span></div>
+          <p class="nk-post__txt">{{ 'nk.posts.p3_txt_html' | t }}</p>
+          <div class="nk-post__pied"><span>&#9825; 2 034</span><span>{{ 'nk.posts.p3_temps' | t }}</span></div>
         </div>
       </article>
     </div>
@@ -419,7 +422,59 @@
 {%- comment -%}
   Donnees avis (pattern Eole) : Nom, Ville|INITIALES|date|note|texte|photo
   (nom de fichier Shopify Files sans extension, vide si aucune), lignes ;;
+  Deux jeux de donnees : francais (defaut) et anglais (URL /en).
 {%- endcomment -%}
+{%- if nk_en -%}
+{%- capture nk_avis_brut -%}
+Camille F., Annecy|CF|Sept 13, 2026|5|“Ordered on a Sunday night, arrived on Friday. The bottle is even prettier in real life than in the photos.”|nakree-cliente-10;;
+Nora B., Rennes|NB|Sept 13, 2026|5|“Two drops are enough for the whole face. The bottle will last longer than expected.”|;;
+Léa M., Lyon|LM|Sept 12, 2026|5|“Light texture, no greasy film. I wear it under my day cream and it doesn't pill. It's the first serum I've ever actually finished.”|nakree-avis-01;;
+Hugo M., Lyon|HM|Sept 12, 2026|4|“First serum of my life. The texture isn't sticky, which is already huge for me.”|;;
+Antoine D., Paris|AD|Sept 11, 2026|5|“My girlfriend stole it from me. I ordered another one for myself. Skin texture changes within two weeks.”|;;
+Élodie P., Nice|EP|Sept 11, 2026|5|“The smell is neutral — finally a product that smells of nothing. My reactive skin didn't flinch.”|;;
+Marie-Claire B., Bordeaux|MC|Sept 10, 2026|5|“At 55 I wasn't expecting much anymore. The fine lines around my eyes are genuinely softened after a month.”|nakree-cliente-09;;
+Fatima Z., Montpellier|FZ|Sept 10, 2026|5|“I apply it before my cream, it disappears in thirty seconds flat. Zero pilling under foundation.”|;;
+Sophie R., Lille|SR|Sept 9, 2026|5|“Finally a serum that doesn't make my eyes water. Morning and night, zero irritation. Skin feels plumped from the morning on.”|nakree-avis-03;;
+Margot D., Tours|MD|Sept 9, 2026|5|“Skin texture looks more even after three weeks. I'll do the course again.”|;;
+Thomas L., Strasbourg|TL|Sept 8, 2026|5|“The value for money is unbeatable. I compared the ingredient lists with €80 serums — the actives are the same.”|nakree-avis-02;;
+Cécile V., Dijon|CV|Sept 8, 2026|5|“At 48, my skin looks less dull when I wake up. It's subtle but I can see it.”|;;
+Clara V., Marseille|CV|Sept 7, 2026|5|“The pack of four is a no-brainer. The full course, and the price per bottle is ridiculous.”|nakree-cliente-06;;
+Inès K., Paris|IK|Sept 7, 2026|5|“Delivered in eight days, well packaged. The dropper is precise.”|;;
+Julie A., Nantes|JA|Sept 6, 2026|4|“Good serum, I just wish the dropper were a bit more precise. But the formula is excellent.”|;;
+Laurence M., Angers|LM|Sept 6, 2026|5|“The neck and jawline are my zone. The skin feels tighter to the touch.”|;;
+Karim E., Toulouse|KE|Sept 5, 2026|5|“I never put anything on my face before, my wife made me. Within three weeks the pores on my nose tightened.”|;;
+Pauline G., Grenoble|PG|Sept 5, 2026|4|“Very good, but I find the bottle a bit small for the price. The 4-bottle course solves that.”|;;
+Sandrine T., Le Mans|ST|Sept 4, 2026|5|“Second bottle ordered. My daughter stole it from me, we share now.”|;;
+Yasmine A., Lille|YA|Sept 4, 2026|5|“Combination skin: no extra shine, no tightness. The perfect balance.”|;;
+Brigitte L., Perpignan|BL|Sept 3, 2026|5|“61 years old. The fine lines around my mouth look softened. I had stopped believing.”|;;
+Mélanie R., Rouen|MR|Sept 3, 2026|5|“The dropper, the glass bottle, the box: everything feels more expensive than what I paid.”|;;
+David C., Bordeaux|DC|Sept 2, 2026|5|“My wife uses it morning and night, I use it at night. Result: we got the 4-bottle course.”|;;
+Chloé N., Reims|CN|Sept 2, 2026|5|“It fits into my Korean routine between essence and cream. Zero conflict with my acids.”|;;
+Anne-Sophie H., Brest|AH|Sept 1, 2026|4|“Good product. I'd have liked a more airtight cap for my gym bag.”|;;
+Nadia F., Marseille|NF|Sept 1, 2026|5|“Under the eyes in the morning, it visibly de-puffs. My favorite ritual.”|;;
+Estelle B., Clermont-Ferrand|EB|Aug 31, 2026|5|“Three weeks in: complexion looks fresher, pores look tighter.”|;;
+Josiane P., Limoges|JP|Aug 31, 2026|5|“My pharmacist asked me what I was using. That says it all.”|;;
+Manon S., Toulon|MS|Aug 30, 2026|5|“Watery texture, instant absorption. I can do my makeup right after.”|;;
+Sylvie D., Nancy|SD|Aug 30, 2026|5|“Gave it to my 68-year-old mother, she keeps asking for more.”|;;
+Aurore J., Orléans|AJ|Aug 29, 2026|5|“At night after cleansing, it's become automatic. Thirty seconds, literally.”|;;
+Karine W., Metz|KW|Aug 29, 2026|4|“Effective on hydration. On deep wrinkles you need to be patient, which makes sense.”|;;
+Lucas B., Nantes|LB|Aug 28, 2026|5|“Men's skin, frequent shaving: it soothes razor burn as a bonus.”|;;
+Émilie C., Avignon|EC|Aug 28, 2026|5|“I compared the ingredient lists with my old €75 serum. I'm not going back.”|;;
+Patricia M., Caen|PM|Aug 27, 2026|5|“Skin looks bouncy in the morning. The word is a cliché but that's exactly it.”|;;
+Solène R., Poitiers|SR|Aug 27, 2026|5|“Ordered after reading the reviews, not disappointed. The package protection reassured me.”|;;
+Delphine A., Mulhouse|DA|Aug 26, 2026|5|“No reaction on my redness-prone skin. That's rare.”|;;
+Hortense V., Versailles|HV|Aug 26, 2026|5|“The red bottle looks superb on the shelf. And the content lives up to the container.”|;;
+Samira L., Saint-Étienne|SL|Aug 25, 2026|5|“I also use it on the back of my hands. Why not.”|;;
+Valérie G., Biarritz|VG|Aug 25, 2026|4|“Delivered in ten days, a bit long. The product itself is worth the wait.”|;;
+Coralie T., Amiens|CT|Aug 24, 2026|5|“No more samples here and there. I've found my serum, period.”|;;
+Maud E., Chambéry|ME|Aug 23, 2026|5|“Last winter my skin felt tight all the time. This year I'm ready.”|;;
+Béatrice N., La Rochelle|BN|Aug 22, 2026|5|“My colleagues noticed before I did. Two of them have ordered since.”|;;
+Agnès R., Colmar|AR|Aug 21, 2026|5|“Nothing to fault: order, delivery, product. Spot on.”|;;
+Justine M., Pau|JM|Aug 20, 2026|5|“The short ingredient list convinced me. Fragrance-free is what I was looking for.”|;;
+Charlène D., Tourcoing|CD|Aug 19, 2026|5|“The 4th bottle free is what decided me. With two of us in the bathroom, it goes fast.”|;;
+Roxane P., Ajaccio|RP|Aug 18, 2026|5|“Even in midsummer, no greasy film. Adopted.”|
+{%- endcapture -%}
+{%- else -%}
 {%- capture nk_avis_brut -%}
 Camille F., Annecy|CF|13 sept. 2026|5|« Commandé un dimanche soir, arrivé le vendredi. Le flacon est plus joli en vrai que sur les photos. »|nakree-cliente-10;;
 Nora B., Rennes|NB|13 sept. 2026|5|« Deux gouttes suffisent pour tout le visage. Le flacon va durer plus longtemps que prévu. »|;;
@@ -469,6 +524,7 @@ Justine M., Pau|JM|20 août 2026|5|« La liste d'ingrédients courte m'a convain
 Charlène D., Tourcoing|CD|19 août 2026|5|« Le 4ᵉ flacon offert, ça m'a décidée. À deux dans la salle de bain, c'est vite parti. »|;;
 Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras. Adopté. »|
 {%- endcapture -%}
+{%- endif -%}
 {%- assign nk_avis = nk_avis_brut | strip | split: ";;" -%}
 {%- assign nk_total = nk_avis.size -%}
 {%- assign nk_n5 = 0 -%}{%- assign nk_n4 = 0 -%}{%- assign nk_nphotos = 0 -%}
@@ -484,14 +540,14 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
   <div class="nk-wrap">
     <div class="nk-avis__tete nk-rise">
       <div>
-        <p class="nk-eyebrow">Avis v&#233;rifi&#233;s</p>
-        <h2 class="nk-h2">Ce qu'ils <em>en disent.</em></h2>
+        <p class="nk-eyebrow">{{ 'nk.avis.eyebrow' | t }}</p>
+        <h2 class="nk-h2">{{ 'nk.avis.h2_html' | t }}</h2>
       </div>
       <div class="nk-synthese">
         <p class="nk-synthese__note">4,9</p>
         <div>
           <div class="nk-etoiles" style="font-size:18px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-synthese__detail">{{ nk_total }} avis v&#233;rifi&#233;s<br>&#183; {{ nk_nphotos }} photos</p>
+          <p class="nk-synthese__detail">{{ 'nk.avis.detail_html' | t: n: nk_total, p: nk_nphotos }}</p>
         </div>
       </div>
     </div>
@@ -499,73 +555,73 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
     <div class="nk-mur nk-rise">
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
-          <span class="nk-ph" data-nom="Photo avis"></span>
+          <span class="nk-ph" data-nom="{{ 'nk.avis.photo_client' | t }}"></span>
           <img src="{{ 'nakree-avis-01.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">LM</span><span><span class="nk-avis-carte__nom">L&#233;a M., Lyon</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">LM</span><span><span class="nk-avis-carte__nom">L&#233;a M., Lyon</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Texture l&#233;g&#232;re, pas de film gras. Je le mets sous ma cr&#232;me de jour et &#231;a ne roule pas. C'est le premier s&#233;rum que je finis vraiment.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c1' | t }}</p>
       </div></article>
       <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">AD</span><span><span class="nk-avis-carte__nom">Antoine D., Paris</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">AD</span><span><span class="nk-avis-carte__nom">Antoine D., Paris</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Ma copine me l'a piqu&#233;. J'en ai recommand&#233; un pour moi. Le grain de peau change en deux semaines.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c2' | t }}</p>
       </div></article>
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
-          <span class="nk-ph nk-ph--b" data-nom="Photo avis"></span>
+          <span class="nk-ph nk-ph--b" data-nom="{{ 'nk.avis.photo_client' | t }}"></span>
           <img src="{{ 'nakree-cliente-09.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">MC</span><span><span class="nk-avis-carte__nom">Marie-Claire B., Bordeaux</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">MC</span><span><span class="nk-avis-carte__nom">Marie-Claire B., Bordeaux</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">&#192; 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment att&#233;nu&#233;es apr&#232;s un mois.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c3' | t }}</p>
       </div></article>
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
-          <span class="nk-ph nk-ph--b" data-nom="Photo avis"></span>
+          <span class="nk-ph nk-ph--b" data-nom="{{ 'nk.avis.photo_client' | t }}"></span>
           <img src="{{ 'nakree-avis-03.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">SR</span><span><span class="nk-avis-carte__nom">Sophie R., Lille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">SR</span><span><span class="nk-avis-carte__nom">Sophie R., Lille</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Enfin un s&#233;rum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulp&#233;e d&#232;s le matin.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c4' | t }}</p>
       </div></article>
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
-          <span class="nk-ph nk-ph--c" data-nom="Photo avis"></span>
+          <span class="nk-ph nk-ph--c" data-nom="{{ 'nk.avis.photo_client' | t }}"></span>
           <img src="{{ 'nakree-avis-02.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">TL</span><span><span class="nk-avis-carte__nom">Thomas L., Strasbourg</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">TL</span><span><span class="nk-avis-carte__nom">Thomas L., Strasbourg</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Le rapport qualit&#233;-prix est imbattable. J'ai compar&#233; les compositions avec des s&#233;rums &#224; 80 &#8364;, les actifs sont les m&#234;mes.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c5' | t }}</p>
       </div></article>
       <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">CV</span><span><span class="nk-avis-carte__nom">Clara V., Marseille</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">CV</span><span><span class="nk-avis-carte__nom">Clara V., Marseille</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Le pack de quatre est un no-brainer. La cure compl&#232;te et le prix au flacon est ridicule.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c6' | t }}</p>
       </div></article>
       <article class="nk-avis-carte"><div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">JA</span><span><span class="nk-avis-carte__nom">Julie A., Nantes</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">JA</span><span><span class="nk-avis-carte__nom">Julie A., Nantes</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Bon s&#233;rum, je lui aurais juste mis un compte-gouttes un peu plus pr&#233;cis. Mais la formule est top.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c7' | t }}</p>
       </div></article>
       <article class="nk-avis-carte">
         <div class="nk-avis-carte__photo">
-          <span class="nk-ph" data-nom="Photo avis"></span>
+          <span class="nk-ph" data-nom="{{ 'nk.avis.photo_client' | t }}"></span>
           <img src="{{ 'nakree-avis-04.jpg' | file_url }}" alt="" loading="lazy" onerror="this.remove()">
         </div>
         <div class="nk-avis-carte__corps">
-          <div class="nk-avis-carte__qui"><span class="nk-avatar">KE</span><span><span class="nk-avis-carte__nom">Karim E., Toulouse</span><span class="nk-avis-carte__ok">Achat v&#233;rifi&#233;</span></span></div>
+          <div class="nk-avis-carte__qui"><span class="nk-avatar">KE</span><span><span class="nk-avis-carte__nom">Karim E., Toulouse</span><span class="nk-avis-carte__ok">{{ 'nk.avis.verifie' | t }}</span></span></div>
           <div class="nk-avis-carte__etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="nk-avis-carte__txt">Je ne mettais rien sur le visage avant, ma femme m'a forc&#233;. En trois semaines les pores du nez se sont resserr&#233;s.</p>
+          <p class="nk-avis-carte__txt">{{ 'nk.avis.c8' | t }}</p>
       </div></article>
     </div>
 
     <div class="nk-avis-plus nk-rise">
-      <button type="button" class="nk-btn nk-btn--ghost" id="nk-avis-open">Voir les {{ nk_total }} avis <i>&#8599;</i></button>
+      <button type="button" class="nk-btn nk-btn--ghost" id="nk-avis-open">{{ 'nk.avis.plus' | t: n: nk_total }} <i>&#8599;</i></button>
     </div>
   </div>
 </section>
@@ -576,7 +632,7 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
       <div class="nk-avm__note">
         <span class="nk-avm__big">4,9<small>/5</small></span>
         <span class="nk-etoiles">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span class="nk-avm__total" id="nk-avm-titre">{{ nk_total }} avis v&#233;rifi&#233;s &#183; {{ nk_nphotos }} photos</span>
+        <span class="nk-avm__total" id="nk-avm-titre">{{ 'nk.avis.modal_total' | t: n: nk_total, p: nk_nphotos }}</span>
       </div>
       <div class="nk-avm__barres">
         <div class="nk-avm__barre"><span>5 &#9733;</span><i><b style="width:{{ nk_pct5 }}%"></b></i><em>{{ nk_n5 }}</em></div>
@@ -585,7 +641,7 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
         <div class="nk-avm__barre"><span>2 &#9733;</span><i><b style="width:0%"></b></i><em>0</em></div>
         <div class="nk-avm__barre"><span>1 &#9733;</span><i><b style="width:0%"></b></i><em>0</em></div>
       </div>
-      <button type="button" class="nk-avm__x" aria-label="Fermer">&times;</button>
+      <button type="button" class="nk-avm__x" aria-label="{{ 'nk.loupe.fermer' | t }}">&times;</button>
     </div>
     <div class="nk-avm__liste">
       {%- for a in nk_avis -%}
@@ -597,16 +653,16 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
               <span class="nk-avatar">{{ p[1] }}</span>
               <span>
                 <span class="nk-avm__nom">{{ p[0] }}</span>
-                <span class="nk-avm__date">{{ p[2] }} &#183; <b>&#10003; Achat v&#233;rifi&#233;</b></span>
+                <span class="nk-avm__date">{{ p[2] }} &#183; <b>{{ 'nk.avis.verifie_coche' | t }}</b></span>
               </span>
-              <span class="nk-avm__etoiles" aria-label="{{ s }} &#233;toiles sur 5">{% for i in (1..5) %}<i{% if i > s %} class="off"{% endif %}>&#9733;</i>{% endfor %}</span>
+              <span class="nk-avm__etoiles" aria-label="{{ 'nk.avis.etoiles_aria' | t: n: s }}">{% for i in (1..5) %}<i{% if i > s %} class="off"{% endif %}>&#9733;</i>{% endfor %}</span>
             </div>
             <p class="nk-avm__txt">{{ p[4] }}</p>
           </div>
           {%- if p[5] != blank -%}
             {%- assign ph = p[5] | strip | append: '.jpg' -%}
-            <button type="button" class="nk-avm__ph" data-pleine="{{ ph | file_url }}" aria-label="Voir la photo de {{ p[0] }}">
-              <img src="{{ ph | file_url }}" alt="Photo envoy&#233;e par {{ p[0] }}" loading="lazy">
+            <button type="button" class="nk-avm__ph" data-pleine="{{ ph | file_url }}" aria-label="{{ 'nk.avis.ph_aria' | t: nom: p[0] }}">
+              <img src="{{ ph | file_url }}" alt="{{ 'nk.avis.ph_alt' | t: nom: p[0] }}" loading="lazy">
             </button>
           {%- endif -%}
         </div>
@@ -615,8 +671,8 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
   </div>
 </dialog>
 
-<dialog class="nk-avl" id="nk-avis-photo" aria-label="Photo client">
-  <button type="button" class="nk-avl__x" aria-label="Fermer">&times;</button>
+<dialog class="nk-avl" id="nk-avis-photo" aria-label="{{ 'nk.avis.photo_client' | t }}">
+  <button type="button" class="nk-avl__x" aria-label="{{ 'nk.loupe.fermer' | t }}">&times;</button>
   <img src="" alt="">
 </dialog>
 
@@ -646,8 +702,8 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
 <section id="offre">
   <div class="nk-wrap stack" style="gap:clamp(36px,4vw,52px);">
     <div class="nk-rise" style="text-align:center;max-width:56ch;margin-inline:auto;">
-      <p class="nk-eyebrow">Choisir sa cure</p>
-      <h2 class="nk-h2">Plus la cure est longue,<br><em>plus le flacon est petit prix.</em></h2>
+      <p class="nk-eyebrow">{{ 'nk.offre.eyebrow' | t }}</p>
+      <h2 class="nk-h2">{{ 'nk.offre.h2_html' | t }}</h2>
     </div>
     <div class="lay-offre">
       <div class="nk-achat nk-rise" id="achat">
@@ -656,27 +712,27 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
           <span class="nk-price" data-total>69,90 &#8364;</span>
           <span class="nk-pct" data-pct>-30%</span>
         </div>
-        <p class="nk-eco" data-eco>Cure 4 mois : le 4&#7497; flacon offert</p>
+        <p class="nk-eco" data-eco>{{ 'nk.offre.eco' | t }}</p>
 
-        <p class="nk-compte" data-compte>Offre de lancement, se termine dans 11:59:59</p>
+        <p class="nk-compte" data-compte>{{ 'nk.offre.compte' | t }}</p>
 
-        <p class="nk-choix-titre">Choisissez votre cure</p>
+        <p class="nk-choix-titre">{{ 'nk.offre.choix' | t }}</p>
 
         <label class="nk-pack on" data-pack data-nb="4" data-prix="6990" data-ref="9960" data-eco="2970" data-variant="{{ v_quatre.id }}">
           <input type="radio" name="pack" checked>
-          <span class="nk-badge nk-badge--top">Le plus choisi</span>
+          <span class="nk-badge nk-badge--top">{{ 'nk.offre.badge_top' | t }}</span>
           <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
-            <span class="nk-pack__nom">4 flacons <span class="nk-badge">3 + 1 offert</span></span>
-            <span class="nk-pack__prix">69,90 &#8364;<s>99,60 &#8364;</s></span>
+            <span class="nk-pack__nom">{{ 'nk.offre.p4_nom' | t }} <span class="nk-badge">{{ 'nk.offre.p4_badge' | t }}</span></span>
+            <span class="nk-pack__prix">{{ 'nk.offre.p4_prix_html' | t }}</span>
           </span>
-          <span class="nk-pack__desc">Cure 4 mois &#8212; 3 achet&#233;s + 1 offert, soit 17,48 &#8364; le flacon</span>
+          <span class="nk-pack__desc">{{ 'nk.offre.p4_desc' | t }}</span>
 
           <span class="nk-addon on" data-addon data-prix="495" data-variant="{{ v_assurance.id }}">
             <input type="checkbox" checked>
             <span class="nk-case"></span>
-            <span>Assurance colis, perte ou casse</span>
-            <span class="nk-addon__prix">4,95 &#8364;</span>
+            <span>{{ 'nk.hero.addon' | t }}</span>
+            <span class="nk-addon__prix">{{ 'nk.hero.addon_prix' | t }}</span>
           </span>
         </label>
 
@@ -684,29 +740,29 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
           <input type="radio" name="pack">
           <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
-            <span class="nk-pack__nom">2 flacons <span class="nk-badge">-10 %</span></span>
-            <span class="nk-pack__prix">44,90 &#8364;<s>49,80 &#8364;</s></span>
+            <span class="nk-pack__nom">{{ 'nk.offre.p2_nom' | t }} <span class="nk-badge">{{ 'nk.offre.p2_badge' | t }}</span></span>
+            <span class="nk-pack__prix">{{ 'nk.offre.p2_prix_html' | t }}</span>
           </span>
-          <span class="nk-pack__desc">Cure 2 mois &#8212; soit 22,45 &#8364; le flacon</span>
+          <span class="nk-pack__desc">{{ 'nk.offre.p2_desc' | t }}</span>
         </label>
 
         <label class="nk-pack" data-pack data-nb="1" data-prix="2490" data-ref="0" data-eco="0" data-variant="{{ v_un.id }}">
           <input type="radio" name="pack">
           <span class="nk-pack__ligne">
             <span class="nk-radio"></span>
-            <span class="nk-pack__nom">1 flacon</span>
-            <span class="nk-pack__prix">24,90 &#8364;</span>
+            <span class="nk-pack__nom">{{ 'nk.offre.p1_nom' | t }}</span>
+            <span class="nk-pack__prix">{{ 'nk.offre.p1_prix' | t }}</span>
           </span>
-          <span class="nk-pack__desc">30 ml, environ 1 mois d'utilisation</span>
+          <span class="nk-pack__desc">{{ 'nk.offre.p1_desc' | t }}</span>
         </label>
 
-        <button type="button" class="nk-btn" data-acheter><span data-cta>Commander maintenant, 74,85 &#8364;</span> <i>&#8599;</i></button>
+        <button type="button" class="nk-btn" data-acheter><span data-cta>{{ 'nk.offre.cta' | t }}</span> <i>&#8599;</i></button>
 
         <ul class="nk-reassure">
-          <li>Soin cor&#233;en</li>
-          <li>Livraison offerte d&#232;s 50 &#8364;</li>
-          <li>Paiement s&#233;curis&#233;</li>
-          <li>4,9 sur 5</li>
+          <li>{{ 'nk.offre.r1' | t }}</li>
+          <li>{{ 'nk.offre.r2' | t }}</li>
+          <li>{{ 'nk.offre.r3' | t }}</li>
+          <li>{{ 'nk.offre.r4' | t }}</li>
         </ul>
 
         {% render 'nk-paiements', max: 7 %}
@@ -724,10 +780,10 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
           {%- endif -%}
         </div>
         <div class="nk-garanties">
-          <div><i>&#10003;</i>Livraison suivie &#8212; offerte d&#232;s 50 &#8364;, sinon 4,99 &#8364;</div>
-          <div><i>&#10003;</i>Paiement s&#233;curis&#233; Shopify</div>
-          <div><i>&#10003;</i>Formule cor&#233;enne, PAO 12 mois</div>
-          <div><i>&#10003;</i>Assurance colis en option, 4,95 &#8364;</div>
+          <div><i>&#10003;</i>{{ 'nk.offre.g1' | t }}</div>
+          <div><i>&#10003;</i>{{ 'nk.offre.g2' | t }}</div>
+          <div><i>&#10003;</i>{{ 'nk.offre.g3' | t }}</div>
+          <div><i>&#10003;</i>{{ 'nk.offre.g4' | t }}</div>
         </div>
       </div>
     </div>
@@ -737,7 +793,7 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
 
 <div class="nk-appel nk-rise" style="background:var(--nk-sunk);padding-bottom:clamp(56px,6vw,80px);margin-top:calc(-1 * clamp(24px,3vw,40px));">
   <div class="nk-wrap" style="display:grid;justify-items:center;gap:12px;">
-    <p class="nk-appel__note">69,90 &#8364; la cure 4 mois, soit 17,48 &#8364; le flacon.</p>
+    <p class="nk-appel__note">{{ 'nk.offre.appel' | t }}</p>
   </div>
 </div>
 
@@ -746,43 +802,43 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
 <section id="questions">
   <div class="nk-wrap lay-two">
     <div class="nk-rise">
-      <p class="nk-eyebrow">Questions</p>
-      <h2 class="nk-h2" style="margin-bottom:26px;">Tout ce qu'on<br><em>nous demande.</em></h2>
+      <p class="nk-eyebrow">{{ 'nk.faq.eyebrow' | t }}</p>
+      <h2 class="nk-h2" style="margin-bottom:26px;">{{ 'nk.faq.h2_html' | t }}</h2>
       <details class="nk-faq">
-        <summary>Pour quel type de peau ?</summary>
-        <p class="nk-p">Tous types. La formule est sans parfum, sans alcool, sans huile essentielle. Peaux sensibles comprises.</p>
+        <summary>{{ 'nk.faq.q1' | t }}</summary>
+        <p class="nk-p">{{ 'nk.faq.r1' | t }}</p>
       </details>
       <details class="nk-faq">
-        <summary>Quand voit-on les premiers r&#233;sultats ?</summary>
-        <p class="nk-p">L'hydratation est imm&#233;diate. Les effets raffermissants et lissants apparaissent en deux &#224; quatre semaines d'utilisation quotidienne.</p>
+        <summary>{{ 'nk.faq.q2' | t }}</summary>
+        <p class="nk-p">{{ 'nk.faq.r2' | t }}</p>
       </details>
       <details class="nk-faq">
-        <summary>Peut-on l'utiliser avec d'autres soins ?</summary>
-        <p class="nk-p">Oui. Il se pose apr&#232;s le nettoyant et avant la cr&#232;me. Compatible avec le r&#233;tinol, la vitamine C et les AHA/BHA.</p>
+        <summary>{{ 'nk.faq.q3' | t }}</summary>
+        <p class="nk-p">{{ 'nk.faq.r3' | t }}</p>
       </details>
       <details class="nk-faq">
-        <summary>Combien de temps dure un flacon ?</summary>
-        <p class="nk-p">Un flacon de 30 ml dure environ un mois &#224; raison de 3 &#224; 4 gouttes par jour. Matin et soir : compter trois semaines.</p>
+        <summary>{{ 'nk.faq.q4' | t }}</summary>
+        <p class="nk-p">{{ 'nk.faq.r4' | t }}</p>
       </details>
       <details class="nk-faq">
-        <summary>D'o&#249; vient le s&#233;rum ?</summary>
-        <p class="nk-p">Formule d&#233;velopp&#233;e en Cor&#233;e du Sud, expertise K-beauty. PAO 12 mois apr&#232;s ouverture.</p>
+        <summary>{{ 'nk.faq.q5' | t }}</summary>
+        <p class="nk-p">{{ 'nk.faq.r5' | t }}</p>
       </details>
     </div>
     <div class="nk-card stack nk-rise nk-colle" style="padding:34px;gap:18px;">
-      <h3 class="nk-h3">Composition</h3>
+      <h3 class="nk-h3">{{ 'nk.faq.compo_h' | t }}</h3>
       <div class="nk-rows">
-        <div><span>Contenance</span><span class="nk-data">30 ml</span></div>
-        <div><span>NAD+</span><span class="nk-data">Nicotinamide ad&#233;nine dinucl&#233;otide</span></div>
-        <div><span>EGF</span><span class="nk-data">Facteur de croissance &#233;pidermique</span></div>
-        <div><span>Collag&#232;ne</span><span class="nk-data">Extrait concentr&#233;</span></div>
-        <div><span>Parfum</span><span class="nk-data">Sans</span></div>
-        <div><span>Alcool</span><span class="nk-data">Sans</span></div>
-        <div><span>PAO</span><span class="nk-data">12 mois</span></div>
-        <div><span>Origine</span><span class="nk-data">Cor&#233;e du Sud</span></div>
+        <div><span>{{ 'nk.faq.l1' | t }}</span><span class="nk-data">{{ 'nk.faq.v1' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l2' | t }}</span><span class="nk-data">{{ 'nk.faq.v2' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l3' | t }}</span><span class="nk-data">{{ 'nk.faq.v3' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l4' | t }}</span><span class="nk-data">{{ 'nk.faq.v4' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l5' | t }}</span><span class="nk-data">{{ 'nk.faq.v5' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l6' | t }}</span><span class="nk-data">{{ 'nk.faq.v6' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l7' | t }}</span><span class="nk-data">{{ 'nk.faq.v7' | t }}</span></div>
+        <div><span>{{ 'nk.faq.l8' | t }}</span><span class="nk-data">{{ 'nk.faq.v8' | t }}</span></div>
       </div>
-      <p class="nk-note">Liste INCI compl&#232;te sur l'emballage du produit.</p>
-      <a class="nk-btn" href="#offre" style="justify-self:start;">Choisir ma cure <i>&#8599;</i></a>
+      <p class="nk-note">{{ 'nk.faq.inci' | t }}</p>
+      <a class="nk-btn" href="#offre" style="justify-self:start;">{{ 'nk.faq.cta' | t }} <i>&#8599;</i></a>
     </div>
   </div>
 </section>
@@ -792,13 +848,13 @@ Roxane P., Ajaccio|RP|18 août 2026|5|« Même en plein été, pas de film gras.
   <span class="nk-bar__qui">
     <s data-barre-ref>99,60 &#8364;</s>
     <span class="nk-price" style="font-size:19px;" data-barre-total>74,85 &#8364;</span>
-    <span class="nk-note nk-bar__nom" data-barre-nom>Cure 4 mois, assurance incluse</span>
+    <span class="nk-note nk-bar__nom" data-barre-nom>{{ 'nk.barre.nom' | t }}</span>
   </span>
-  <a class="nk-btn" href="#offre">Commander <i>&#8599;</i></a>
+  <a class="nk-btn" href="#offre">{{ 'nk.barre.commander' | t }} <i>&#8599;</i></a>
 </div>
 
 <div class="nk-loupe" data-loupe hidden>
-  <button type="button" class="nk-loupe__x" data-loupe-x aria-label="Fermer">&times;</button>
+  <button type="button" class="nk-loupe__x" data-loupe-x aria-label="{{ 'nk.loupe.fermer' | t }}">&times;</button>
   <img data-loupe-img src="" alt="">
 </div>
 {% schema %}

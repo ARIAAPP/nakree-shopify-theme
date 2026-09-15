@@ -20,7 +20,11 @@
   var compte  = tiroir.querySelector('[data-panier-compte]');
   var total   = tiroir.querySelector('[data-panier-total]');
 
-  function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
+  var NKI = window.NK_I18N || {};
+  function euro(c) {
+    if (NKI.fmt === 'en') return '€' + (c / 100).toFixed(2);
+    return (c / 100).toFixed(2).replace('.', ',') + ' €';
+  }
   function ech(s) { return String(s).replace(/[&<>"]/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
   }); }
@@ -57,13 +61,13 @@
           '<p class="nk-panier__nom">' + ech(nom) + '</p>' + variante +
           '<div class="nk-panier__bas">' +
             '<span class="nk-panier__qte">' +
-              '<button type="button" data-panier-qte="-" data-cle="' + ech(a.key) + '" aria-label="Retirer un">&minus;</button>' +
+              '<button type="button" data-panier-qte="-" data-cle="' + ech(a.key) + '" aria-label="' + (NKI.retirerUn || 'Retirer un') + '">&minus;</button>' +
               '<span>' + a.quantity + '</span>' +
-              '<button type="button" data-panier-qte="+" data-cle="' + ech(a.key) + '" aria-label="Ajouter un">+</button>' +
+              '<button type="button" data-panier-qte="+" data-cle="' + ech(a.key) + '" aria-label="' + (NKI.ajouterUn || 'Ajouter un') + '">+</button>' +
             '</span>' +
             '<span class="nk-panier__prix">' + euro(a.final_line_price) + '</span>' +
           '</div>' +
-          '<button type="button" class="nk-panier__ret" data-panier-retirer="' + ech(a.key) + '">Retirer</button>' +
+          '<button type="button" class="nk-panier__ret" data-panier-retirer="' + ech(a.key) + '">' + (NKI.retirer || 'Retirer') + '</button>' +
         '</div>' +
       '</div>';
     }).join('');

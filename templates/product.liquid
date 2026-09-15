@@ -10,8 +10,8 @@
 <section class="nk-suivi">
   <div class="nk-wrap stack" style="max-width:640px;text-align:center;">
     <h1 class="nk-h2">{{ product.title }}</h1>
-    <p class="nk-lead">Le produit se commande depuis la page d'accueil.</p>
-    <p><a class="nk-btn" href="{{ routes.root_url }}#offre">Voir l'offre <i>&#8599;</i></a></p>
+    <p class="nk-lead">{{ 'nk.produit.lead' | t }}</p>
+    <p><a class="nk-btn" href="{{ routes.root_url }}#offre">{{ 'nk.produit.voir' | t }} <i>&#8599;</i></a></p>
   </div>
 </section>
 

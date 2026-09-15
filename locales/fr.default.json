@@ -3,62 +3,332 @@
     "accessibility": {
       "skip_to_content": "Aller au contenu",
       "close": "Fermer",
-      "menu": "Menu",
-      "search": "Rechercher",
-      "cart": "Panier",
-      "account": "Compte"
+      "cart": "Panier"
+    }
+  },
+  "nk": {
+    "meta": {
+      "title_index": "Nakree — Sérum Raffermissant au NAD+ EGF et Collagène",
+      "title_panier": "Panier",
+      "description": "Sérum raffermissant Nakree au NAD+, EGF et extrait de collagène. Pénètre en trente secondes, raffermit et lisse. Livraison offerte dès 50 €.",
+      "og_locale": "fr_FR"
     },
-    "currency": {
-      "symbol": "€"
+    "annonce": {
+      "a1": "Offre de lancement : jusqu'à -40 %",
+      "a2": "Livraison offerte dès 50 €",
+      "a3": "4 flacons : 3 achetés + 1 offert",
+      "a4": "Formule coréenne"
+    },
+    "nav": {
+      "actifs": "Les actifs",
+      "rituel": "Le rituel",
+      "avis": "Avis",
+      "questions": "Questions",
+      "panier": "Voir mon panier",
+      "commander": "Commander",
+      "logo_aria": "Nakree, retour à l'accueil"
+    },
+    "hero": {
+      "note": "4,9 sur 5 — avis vérifiés",
+      "neuf": "Nouveau",
+      "h1_html": "Moins de promesses.<br><em>Plus d'actifs.</em>",
+      "lead": "Sérum raffermissant coréen au NAD+, EGF et extrait de collagène. Pénètre en trente secondes, sans film gras.",
+      "chip_collagene": "Extrait de collagène",
+      "chip_sans": "Sans parfum, sans alcool",
+      "eco4": "4 flacons : 3 achetés + 1 offert",
+      "pack4_tag": "3 + 1 OFFERT",
+      "pack4_t": "4 flacons",
+      "pack4_p_html": "69,90 € <s>99,60 €</s>",
+      "pack4_n": "Cure 4 mois · 17,48 € le flacon",
+      "pack2_tag": "-10 %",
+      "pack2_t": "2 flacons",
+      "pack2_p_html": "44,90 € <s>49,80 €</s>",
+      "pack2_n": "Cure 2 mois · 22,45 € le flacon",
+      "pack1_t": "1 flacon",
+      "pack1_p": "24,90 €",
+      "pack1_n": "30 ml · environ 1 mois",
+      "cta": "Commander",
+      "addon": "Assurance colis, perte ou casse",
+      "addon_prix": "4,95 €",
+      "trust1": "Livraison offerte dès 50 €",
+      "trust2": "Soin coréen",
+      "trust3": "Paiement sécurisé",
+      "video_aria": "Le sérum Nakree en application",
+      "alt_visuel": "{{ titre }} — visuel {{ n }}",
+      "prec": "Visuel précédent",
+      "suiv": "Visuel suivant",
+      "vign_video": "Voir la vidéo",
+      "vign_visuel": "Voir le visuel {{ n }}",
+      "puce1": "NAD+ — énergie cellulaire",
+      "puce2": "EGF — renouvellement",
+      "puce3": "Pénètre en 30 s"
+    },
+    "marquee": {
+      "m1": "Collagène",
+      "m2": "Sans parfum",
+      "m3": "Sans alcool",
+      "m4": "Formule coréenne",
+      "m5": "Livraison offerte dès 50 €",
+      "m6": "30 ml"
+    },
+    "stats": {
+      "l1": "actifs documentés, zéro remplissage",
+      "l2": "pour pénétrer, sans coller",
+      "l3": "parfum, alcool, huile essentielle",
+      "l4": "sur les avis clients vérifiés"
+    },
+    "actifs": {
+      "eyebrow": "Les actifs",
+      "h2_html": "Trois actifs.<br><em>Zéro remplissage.</em>",
+      "lead": "Pas de parfum, pas d'alcool, pas d'huile essentielle. Ce flacon contient ce qui est documenté, et rien d'autre.",
+      "a1_tag": "Énergie cellulaire",
+      "a1_p": "Nicotinamide adénine dinucléotide. Booste l'énergie cellulaire et aide la peau à activer ses propres mécanismes de réparation. Sa production diminue avec l'âge.",
+      "a1_note": "Molécule clé du métabolisme cellulaire",
+      "a2_tag": "Renouvellement",
+      "a2_p": "Facteur de croissance épidermique. Favorise le renouvellement cellulaire et aide à lisser la texture de la peau. Utilisé en dermatologie coréenne depuis plus de dix ans.",
+      "a2_note": "Actif phare du soin coréen anti-âge",
+      "a3_nom": "Collagène",
+      "a3_tag": "Fermeté",
+      "a3_h": "Extrait de collagène",
+      "a3_p": "Renforce la fermeté et l'élasticité de la peau. Complète l'action du NAD+ et de l'EGF pour un effet raffermissant visible.",
+      "a3_note": "Le duo fermeté + élasticité"
+    },
+    "rituel": {
+      "eyebrow": "Le rituel",
+      "h2_html": "Trente secondes,<br><em>matin ou soir.</em>",
+      "ph": "Photo étape {{ n }}",
+      "e1_t": "Nettoyer",
+      "e1_p": "Sur peau propre et sèche. Le sérum pénètre mieux sans barrière.",
+      "e1_alt": "Nettoyer la peau avant le sérum",
+      "e2_t": "Appliquer",
+      "e2_p": "3 à 4 gouttes, du bout des doigts. Front, joues, menton, cou.",
+      "e2_alt": "Appliquer 3 à 4 gouttes de sérum",
+      "e3_t": "Masser",
+      "e3_p": "Tapotements légers, trente secondes. La peau ne colle pas.",
+      "e3_alt": "Masser le sérum trente secondes",
+      "cta": "Commencer la cure"
+    },
+    "videos": {
+      "eyebrow": "En vidéo",
+      "h2_html": "Elles l'intègrent<br><em>à leur routine.</em>",
+      "v1": "Routine du soir",
+      "v2": "3 gouttes suffisent",
+      "v3": "Application en 30 s",
+      "v4": "Sous la crème de jour",
+      "v5": "Le geste du cou",
+      "v6": "Texture sérum"
+    },
+    "franchise": {
+      "eyebrow": "Notre franchise",
+      "h2": "Ce que nous ne promettons pas",
+      "n1": "Que les rides disparaissent en une nuit",
+      "n2": "Que ce sérum remplace un acte médical ou esthétique",
+      "n3": "Que les résultats sont garantis pour tout le monde",
+      "p": "Nakree est un cosmétique. Le NAD+, l'EGF et le collagène sont documentés par des études publiées. Les résultats varient d'une peau à l'autre, et nous ne prétendrons jamais le contraire."
+    },
+    "clientes": {
+      "eyebrow": "Sans retouche",
+      "h2_html": "Chez nos <em>clientes.</em>",
+      "lead": "De vraies photos, envoyées par celles qui l'utilisent tous les jours.",
+      "alt": "Photo cliente Nakree"
+    },
+    "posts": {
+      "eyebrow": "Sur les réseaux",
+      "h2_html": "Repéré dans<br><em>vos routines.</em>",
+      "p1_quote": "« Le geste du soir que je ne saute plus. »",
+      "p1_txt_html": "<b>@lea.mrn</b> 3 gouttes matin et soir. Il a remplacé trois produits dans ma routine.",
+      "p1_temps": "il y a 3 j",
+      "p2_quote": "« Aucune irritation, même peau réactive. »",
+      "p2_txt_html": "<b>@sophie.skn</b> Sans parfum, sans alcool : enfin un sérum qui ne pique pas les yeux.",
+      "p2_temps": "il y a 1 sem",
+      "p3_quote": "« La cure complète, sans y penser. »",
+      "p3_txt_html": "<b>@clara.vlc</b> Partie sur la cure 4 flacons, le 4ᵉ offert. Trente secondes le soir, c'est tout.",
+      "p3_temps": "il y a 2 sem"
+    },
+    "avis": {
+      "eyebrow": "Avis vérifiés",
+      "h2_html": "Ce qu'ils <em>en disent.</em>",
+      "detail_html": "{{ n }} avis vérifiés<br>· {{ p }} photos",
+      "verifie": "Achat vérifié",
+      "verifie_coche": "✓ Achat vérifié",
+      "c1": "Texture légère, pas de film gras. Je le mets sous ma crème de jour et ça ne roule pas. C'est le premier sérum que je finis vraiment.",
+      "c2": "Ma copine me l'a piqué. J'en ai recommandé un pour moi. Le grain de peau change en deux semaines.",
+      "c3": "À 55 ans je n'attendais plus grand-chose. Les ridules du contour des yeux sont vraiment atténuées après un mois.",
+      "c4": "Enfin un sérum qui ne fait pas pleurer les yeux. Matin et soir, aucune irritation. La peau est repulpée dès le matin.",
+      "c5": "Le rapport qualité-prix est imbattable. J'ai comparé les compositions avec des sérums à 80 €, les actifs sont les mêmes.",
+      "c6": "Le pack de quatre est un no-brainer. La cure complète et le prix au flacon est ridicule.",
+      "c7": "Bon sérum, je lui aurais juste mis un compte-gouttes un peu plus précis. Mais la formule est top.",
+      "c8": "Je ne mettais rien sur le visage avant, ma femme m'a forcé. En trois semaines les pores du nez se sont resserrés.",
+      "plus": "Voir les {{ n }} avis",
+      "modal_total": "{{ n }} avis vérifiés · {{ p }} photos",
+      "ph_aria": "Voir la photo de {{ nom }}",
+      "ph_alt": "Photo envoyée par {{ nom }}",
+      "photo_client": "Photo client",
+      "etoiles_aria": "{{ n }} étoiles sur 5"
+    },
+    "offre": {
+      "eyebrow": "Choisir sa cure",
+      "h2_html": "Plus la cure est longue,<br><em>plus le flacon est petit prix.</em>",
+      "eco": "Cure 4 mois : le 4ᵉ flacon offert",
+      "compte": "Offre de lancement, se termine dans 11:59:59",
+      "choix": "Choisissez votre cure",
+      "badge_top": "Le plus choisi",
+      "p4_nom": "4 flacons",
+      "p4_badge": "3 + 1 offert",
+      "p4_prix_html": "69,90 €<s>99,60 €</s>",
+      "p4_desc": "Cure 4 mois — 3 achetés + 1 offert, soit 17,48 € le flacon",
+      "p2_nom": "2 flacons",
+      "p2_badge": "-10 %",
+      "p2_prix_html": "44,90 €<s>49,80 €</s>",
+      "p2_desc": "Cure 2 mois — soit 22,45 € le flacon",
+      "p1_nom": "1 flacon",
+      "p1_prix": "24,90 €",
+      "p1_desc": "30 ml, environ 1 mois d'utilisation",
+      "cta": "Commander maintenant, 74,85 €",
+      "r1": "Soin coréen",
+      "r2": "Livraison offerte dès 50 €",
+      "r3": "Paiement sécurisé",
+      "r4": "4,9 sur 5",
+      "g1": "Livraison suivie — offerte dès 50 €, sinon 4,99 €",
+      "g2": "Paiement sécurisé Shopify",
+      "g3": "Formule coréenne, PAO 12 mois",
+      "g4": "Assurance colis en option, 4,95 €",
+      "appel": "69,90 € la cure 4 mois, soit 17,48 € le flacon."
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "h2_html": "Tout ce qu'on<br><em>nous demande.</em>",
+      "q1": "Pour quel type de peau ?",
+      "r1": "Tous types. La formule est sans parfum, sans alcool, sans huile essentielle. Peaux sensibles comprises.",
+      "q2": "Quand voit-on les premiers résultats ?",
+      "r2": "L'hydratation est immédiate. Les effets raffermissants et lissants apparaissent en deux à quatre semaines d'utilisation quotidienne.",
+      "q3": "Peut-on l'utiliser avec d'autres soins ?",
+      "r3": "Oui. Il se pose après le nettoyant et avant la crème. Compatible avec le rétinol, la vitamine C et les AHA/BHA.",
+      "q4": "Combien de temps dure un flacon ?",
+      "r4": "Un flacon de 30 ml dure environ un mois à raison de 3 à 4 gouttes par jour. Matin et soir : compter trois semaines.",
+      "q5": "D'où vient le sérum ?",
+      "r5": "Formule développée en Corée du Sud, expertise K-beauty. PAO 12 mois après ouverture.",
+      "compo_h": "Composition",
+      "l1": "Contenance",
+      "v1": "30 ml",
+      "l2": "NAD+",
+      "v2": "Nicotinamide adénine dinucléotide",
+      "l3": "EGF",
+      "v3": "Facteur de croissance épidermique",
+      "l4": "Collagène",
+      "v4": "Extrait concentré",
+      "l5": "Parfum",
+      "v5": "Sans",
+      "l6": "Alcool",
+      "v6": "Sans",
+      "l7": "PAO",
+      "v7": "12 mois",
+      "l8": "Origine",
+      "v8": "Corée du Sud",
+      "inci": "Liste INCI complète sur l'emballage du produit.",
+      "cta": "Choisir ma cure"
+    },
+    "barre": {
+      "nom": "Cure 4 mois, assurance incluse",
+      "commander": "Commander"
+    },
+    "loupe": {
+      "fermer": "Fermer"
+    },
+    "panier": {
+      "titre": "Votre panier",
+      "fermer": "Fermer",
+      "aria": "Votre panier",
+      "vide": "Votre panier est vide.",
+      "sup_t": "Complétez votre commande",
+      "sup_note": "Une option, pas une obligation.",
+      "sup_desc": "Perdu, volé ou cassé : réexpédié ou remboursé",
+      "total": "Total",
+      "note": "Livraison offerte dès 50 €. Taxes incluses.",
+      "rass1": "Livraison offerte dès 50 €",
+      "rass2": "Paiement sécurisé",
+      "rass3": "Service client réactif",
+      "rass4": "4,8 sur 5, 150 avis",
+      "express": "Paiement express",
+      "ou": "ou",
+      "payer": "Passer au paiement",
+      "continuer": "Continuer mes achats"
+    },
+    "pied": {
+      "phrase": "Le sérum raffermissant coréen, sans remplissage.",
+      "boutique": "Boutique",
+      "cure": "Choisir ma cure",
+      "suivi": "Suivre ma commande",
+      "infos": "Informations",
+      "apropos": "À propos",
+      "cookies": "Cookies",
+      "mentions": "Mentions",
+      "legal": "Mentions légales",
+      "cgv": "Conditions de vente",
+      "retours": "Retours et remboursement",
+      "exped": "Expédition",
+      "conf": "Confidentialité",
+      "service": "Conditions de service",
+      "disclaimer": "Produit cosmétique. Conforme au règlement CE 1223/2009. Ne constitue pas un dispositif médical et ne remplace pas un avis professionnel de santé. Usage externe uniquement."
+    },
+    "suivi": {
+      "h1": "Suivre ma commande",
+      "lead": "Entrez le numéro de suivi reçu par email au moment de l'expédition.",
+      "label": "Numéro de suivi",
+      "placeholder": "Par exemple 5Y00597076013",
+      "pattern_title": "Entre 6 et 40 caractères, lettres et chiffres uniquement",
+      "cta": "Suivre",
+      "note": "Le numéro figure dans l'email « Votre commande a été expédiée ». Pensez à vérifier vos spams.",
+      "b1_h": "Combien de temps avant de le voir bouger ?",
+      "b1_p1": "Votre commande est préparée et expédiée sous 24 à 72 heures ouvrées. Le suivi peut rester silencieux deux à trois jours après l'expédition, le temps que le colis soit scanné dans le réseau. C'est normal, et cela ne veut pas dire qu'il est bloqué.",
+      "b1_p2": "Comptez ensuite 7 à 12 jours ouvrés pour la France métropolitaine. Ces délais sont indicatifs.",
+      "b2_h": "Le suivi n'avance plus",
+      "b2_p1": "Écrivez-nous à",
+      "b2_p2": "avec votre numéro de commande. Nous ouvrons une réclamation auprès du transporteur et nous vous tenons informé.",
+      "b2_note": "Réponse sous 24 à 48 heures ouvrées, du lundi au vendredi."
+    },
+    "quatrecent": {
+      "eyebrow": "Erreur 404",
+      "h1": "Cette page n'existe pas.",
+      "lead": "Le lien est peut-être ancien, ou l'adresse comporte une faute.",
+      "retour": "Retour à l'accueil"
+    },
+    "cart_page": {
+      "titre": "Votre panier",
+      "vide": "Votre panier est vide.",
+      "voir": "Voir l'offre",
+      "total": "Total",
+      "note": "Livraison offerte dès 50 €. Taxes incluses.",
+      "payer": "Passer au paiement"
+    },
+    "produit": {
+      "lead": "Le produit se commande depuis la page d'accueil.",
+      "voir": "Voir l'offre"
+    },
+    "page": {
+      "notice_btn": "Télécharger la notice en PDF",
+      "retour": "Retour à l'accueil"
+    },
+    "js": {
+      "fmt": "fr",
+      "cure4": "Cure 4 flacons",
+      "cure2": "Cure 2 flacons",
+      "cure": "Cure",
+      "un_flacon": "Un flacon",
+      "cure4mois": "Cure 4 mois",
+      "economisez": "vous économisez",
+      "commander": "Commander maintenant,",
+      "compte": "Offre de lancement, se termine dans",
+      "assurance": ", assurance incluse",
+      "instant": "Un instant…",
+      "retirer": "Retirer",
+      "retirer_un": "Retirer un",
+      "ajouter_un": "Ajouter un"
+    },
+    "lang": {
+      "autre": "EN",
+      "autre_aria": "Switch to English",
+      "cible": "/en"
     }
-  },
-  "products": {
-    "product": {
-      "add_to_cart": "Ajouter au panier",
-      "buy_now": "Acheter maintenant",
-      "sold_out": "Rupture de stock",
-      "unavailable": "Indisponible",
-      "quantity": "Quantite",
-      "price": "Prix",
-      "regular_price": "Prix normal",
-      "sale_price": "Prix promo",
-      "save": "Economisez {{ savings }}",
-      "shipping_calculated": "Livraison calculee a l'etape suivante"
-    }
-  },
-  "cart": {
-    "general": {
-      "title": "Votre panier",
-      "subtotal": "Sous-total",
-      "checkout": "Finaliser la commande",
-      "continue_shopping": "Continuer mes achats",
-      "empty": "Votre panier est vide.",
-      "remove": "Retirer",
-      "increase": "Augmenter",
-      "decrease": "Diminuer",
-      "items_count": {
-        "one": "{{ count }} article",
-        "other": "{{ count }} articles"
-      },
-      "shipping_taxes_note": "Livraison et taxes calculees a l'etape suivante.",
-      "express_checkout": "Paiement express",
-      "or": "ou",
-      "shop_pay": "Payer avec Shop Pay"
-    }
-  },
-  "header": {
-    "home": "Accueil",
-    "contact": "Contact",
-    "track_order": "Suivre ma commande"
-  },
-  "newsletter": {
-    "title": "-10% sur votre 1ere commande",
-    "subtitle": "Inscrivez-vous et recevez votre code de reduction par email.",
-    "email_placeholder": "Email",
-    "submit": "S'inscrire",
-    "success": "Merci pour votre inscription !"
-  },
-  "footer": {
-    "copyright": "© {{ year }} {{ shop_name }}. Tous droits reserves."
   }
 }

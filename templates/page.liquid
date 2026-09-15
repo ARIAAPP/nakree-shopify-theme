@@ -1,9 +1,5 @@
 {%- comment -%}
   Gabarit des pages de contenu : a propos, notice, cookies.
-
-  L'ancien gabarit utilisait les variables du kit dentaire (--color-fg,
-  --color-primary, .container, .py-16) qui n'existent plus nulle part :
-  toutes les pages sortaient sans style. On repart des jetons Nakree.
 {%- endcomment -%}
 
 <section class="nk-texte">
@@ -19,7 +15,7 @@
       <p>
         <a class="nk-btn" href="{{ 'nakree-notice.pdf' | asset_url }}"
            download="nakree-notice-utilisation.pdf">
-          Télécharger la notice en PDF <i>&#8595;</i>
+          {{ 'nk.page.notice_btn' | t }} <i>&#8595;</i>
         </a>
       </p>
     {%- endif -%}

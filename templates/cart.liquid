@@ -7,11 +7,11 @@
 
 <section class="nk-texte">
   <div class="nk-wrap stack" style="max-width:640px;">
-    <h1 class="nk-h2">Votre panier</h1>
+    <h1 class="nk-h2">{{ 'nk.cart_page.titre' | t }}</h1>
 
     {%- if cart.item_count == 0 -%}
-      <p class="nk-lead">Votre panier est vide.</p>
-      <p><a class="nk-btn" href="{{ routes.root_url }}#offre">Voir l'offre <i>&#8599;</i></a></p>
+      <p class="nk-lead">{{ 'nk.cart_page.vide' | t }}</p>
+      <p><a class="nk-btn" href="{{ routes.root_url }}#offre">{{ 'nk.cart_page.voir' | t }} <i>&#8599;</i></a></p>
     {%- else -%}
       <form action="{{ routes.cart_url }}" method="post" novalidate class="stack">
         {%- for ligne in cart.items -%}
@@ -31,13 +31,13 @@
         {%- endfor -%}
 
         <div class="nk-card" style="display:flex;justify-content:space-between;align-items:center;padding:18px;">
-          <span class="nk-p" style="margin:0;">Total</span>
+          <span class="nk-p" style="margin:0;">{{ 'nk.cart_page.total' | t }}</span>
           <span class="nk-price">{{ cart.total_price | money }}</span>
         </div>
 
-        <p class="nk-note">Livraison offerte d&#232;s 50 &#8364;. Taxes incluses.</p>
+        <p class="nk-note">{{ 'nk.cart_page.note' | t }}</p>
 
-        <button type="submit" name="checkout" class="nk-btn">Passer au paiement <i>&#8599;</i></button>
+        <button type="submit" name="checkout" class="nk-btn">{{ 'nk.cart_page.payer' | t }} <i>&#8599;</i></button>
       </form>
     {%- endif -%}
   </div>

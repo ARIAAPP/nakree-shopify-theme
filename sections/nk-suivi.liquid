@@ -13,50 +13,44 @@
   <div class="nk-wrap stack" style="gap:clamp(28px,4vw,40px);max-width:760px;">
 
     <div class="nk-rise">
-      <h1 class="nk-h2">Suivre ma commande</h1>
+      <h1 class="nk-h2">{{ 'nk.suivi.h1' | t }}</h1>
       <p class="nk-lead" style="margin-top:14px;">
-        Entrez le numéro de suivi reçu par email au moment de l'expédition.
+        {{ 'nk.suivi.lead' | t }}
       </p>
     </div>
 
     <form class="nk-suivi__form nk-rise" action="/apps/track123" method="get">
-      <label class="nk-suivi__label" for="nums">Numéro de suivi</label>
+      <label class="nk-suivi__label" for="nums">{{ 'nk.suivi.label' | t }}</label>
       <div class="nk-suivi__ligne">
         <input class="nk-suivi__champ" type="text" id="nums" name="nums"
-               placeholder="Par exemple 5Y00597076013"
+               placeholder="{{ 'nk.suivi.placeholder' | t }}"
                autocomplete="off" required
                pattern="[A-Za-z0-9\-]{6,40}"
-               title="Entre 6 et 40 caractères, lettres et chiffres uniquement">
-        <button class="nk-btn" type="submit">Suivre <i>&#8599;</i></button>
+               title="{{ 'nk.suivi.pattern_title' | t }}">
+        <button class="nk-btn" type="submit">{{ 'nk.suivi.cta' | t }} <i>&#8599;</i></button>
       </div>
       <p class="nk-note" style="margin-top:12px;">
-        Le numéro figure dans l'email « Votre commande a été expédiée ».
-        Pensez à vérifier vos spams.
+        {{ 'nk.suivi.note' | t }}
       </p>
     </form>
 
     <div class="nk-card stack-sm nk-rise" style="padding:26px;">
-      <h2 class="nk-h3">Combien de temps avant de le voir bouger ?</h2>
+      <h2 class="nk-h3">{{ 'nk.suivi.b1_h' | t }}</h2>
       <p class="nk-p">
-        Votre commande est préparée et expédiée sous 24 à 72 heures ouvrées.
-        Le suivi peut rester silencieux deux à trois jours après l'expédition,
-        le temps que le colis soit scanné dans le réseau. C'est normal, et
-        cela ne veut pas dire qu'il est bloqué.
+        {{ 'nk.suivi.b1_p1' | t }}
       </p>
       <p class="nk-p">
-        Comptez ensuite 7 à 12 jours ouvrés pour la France métropolitaine.
-        Ces délais sont indicatifs.
+        {{ 'nk.suivi.b1_p2' | t }}
       </p>
     </div>
 
     <div class="nk-card stack-sm nk-rise" style="padding:26px;">
-      <h2 class="nk-h3">Le suivi n'avance plus</h2>
+      <h2 class="nk-h3">{{ 'nk.suivi.b2_h' | t }}</h2>
       <p class="nk-p">
-        Écrivez-nous à <a href="mailto:support@nakree.com">support@nakree.com</a>
-        avec votre numéro de commande. Nous ouvrons une réclamation auprès du
-        transporteur et nous vous tenons informé.
+        {{ 'nk.suivi.b2_p1' | t }} <a href="mailto:support@nakree.com">support@nakree.com</a>
+        {{ 'nk.suivi.b2_p2' | t }}
       </p>
-      <p class="nk-note">Réponse sous 24 à 48 heures ouvrées, du lundi au vendredi.</p>
+      <p class="nk-note">{{ 'nk.suivi.b2_note' | t }}</p>
     </div>
 
   </div>
