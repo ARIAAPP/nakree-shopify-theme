@@ -8,16 +8,12 @@
 
     {%- comment -%}
       Langues. Le francais vit a la racine, l'anglais sous /en (reglage
-      Marches / langue par defaut du domaine). hreflang dit aux moteurs
-      quelle version servir ; le petit script aiguille le visiteur dont le
-      navigateur n'est pas en francais vers /en, une seule fois, et son
-      choix manuel (bouton FR/EN de l'entete) est memorise et respecte.
+      Marches / langue par defaut du domaine). Les hreflang sont generes
+      par Shopify dans content_for_header ; le petit script aiguille le
+      visiteur dont le navigateur n'est pas en francais vers /en, une
+      seule fois, et son choix manuel (bouton FR/EN de l'entete) est
+      memorise et respecte. Les robots sont exclus.
     {%- endcomment -%}
-    {%- assign nk_chemin = request.path | remove_first: '/en/' | prepend: '/' | replace: '//', '/' -%}
-    {%- if request.path == '/en' -%}{%- assign nk_chemin = '/' -%}{%- endif -%}
-    <link rel="alternate" hreflang="fr" href="{{ shop.url }}{{ nk_chemin }}">
-    <link rel="alternate" hreflang="en" href="{{ shop.url }}/en{{ nk_chemin | replace: '//', '/' }}">
-    <link rel="alternate" hreflang="x-default" href="{{ shop.url }}{{ nk_chemin }}">
     {%- if request.locale.iso_code == 'fr' -%}
     <script>
       (function () {
